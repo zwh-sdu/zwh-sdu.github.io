@@ -1,91 +1,463 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="Wenhao Zhang"><meta name="copyright" content="Wenhao Zhang"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>leetcode—第283场周赛 | 张文浩的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
-  [".post-card",".markdown-body img"].forEach((target)=> {
-    ScrollReveal().reveal(target);
-  })
-}
-document.addEventListener("DOMContentLoaded", initScrollReveal);
-document.addEventListener("pjax:success", initScrollReveal);
-</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
-    window.Yun = {}
-    window.CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","title":"张文浩的小站","version":"1.8.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="leetcode-第283场周赛第一题-easy2194. Excel 表中某个范围内的单元格 题目描述Excel 表中的一个单元格 (r, c) 会以字符串 ““ 的形式进行表示，其中：   即单元格的列号 c 。用英文字母表中的 字母 标识。 - 例如，第 1 列用 &#39;A&#39; 表示，第 2 列用 &#39;B&#39; 表示，第 3 列用 &#39;C&#39; 表示，以此类推。  即单元格的行号 r 。第 r 行就用 整数">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="leetcode-第283场周赛第一题-easy2194. Excel 表中某个范围内的单元格 题目描述Excel 表中的一个单元格 (r, c) 会以字符串 ““ 的形式进行表示，其中：   即单元格的列号 c 。用英文字母表中的 字母 标识。 例如，第 1 列用 ‘A’ 表示，第 2 列用 ‘B’ 表示，第 3 列用 ‘C’ 表示，以此类推。    即单元格的行号 r 。第 r 行就用 整数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第283场周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
-<meta property="og:site_name" content="张文浩的博客">
-<meta property="og:description" content="leetcode-第283场周赛第一题-easy2194. Excel 表中某个范围内的单元格 题目描述Excel 表中的一个单元格 (r, c) 会以字符串 ““ 的形式进行表示，其中：   即单元格的列号 c 。用英文字母表中的 字母 标识。 - 例如，第 1 列用 &#39;A&#39; 表示，第 2 列用 &#39;B&#39; 表示，第 3 列用 &#39;C&#39; 表示，以此类推。  即单元格的行号 r 。第 r 行就用 整数">
-<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="张文浩の博客">
+<meta property="og:description" content="leetcode-第283场周赛第一题-easy2194. Excel 表中某个范围内的单元格 题目描述Excel 表中的一个单元格 (r, c) 会以字符串 ““ 的形式进行表示，其中：   即单元格的列号 c 。用英文字母表中的 字母 标识。 例如，第 1 列用 ‘A’ 表示，第 2 列用 ‘B’ 表示，第 3 列用 ‘C’ 表示，以此类推。    即单元格的行号 r 。第 r 行就用 整数">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-08T02:16:40.000Z">
-<meta property="article:modified_time" content="2022-03-08T03:28:35.574Z">
-<meta property="article:author" content="Wenhao Zhang">
+<meta property="article:modified_time" content="2022-03-08T16:11:49.121Z">
+<meta property="article:author" content="张文浩">
 <meta property="article:tag" content="leetcode刷题">
-<meta name="twitter:card" content="summary"><script>(function() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const setting = localStorage.getItem('darken-mode') || 'auto'
-  if (setting === 'dark' || (prefersDark && setting !== 'light'))
-    document.documentElement.classList.toggle('dark', true)
-})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="Wenhao Zhang"><img width="96" loading="lazy" src="/images/messi.jpg" alt="Wenhao Zhang"><span class="site-author-status" title="runnning">🏃</span></a><div class="site-author-name"><a href="/about/">Wenhao Zhang</a></div><span class="site-name">张文浩的博客</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">2</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B"><span class="toc-number">1.</span> <span class="toc-text">leetcode-第283场周赛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-easy"><span class="toc-number">1.1.</span> <span class="toc-text">第一题-easy</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.1.0.0.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-mid"><span class="toc-number">1.2.</span> <span class="toc-text">第二题-mid</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-number">1.2.0.0.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-mid"><span class="toc-number">1.3.</span> <span class="toc-text">第三题-mid</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98-hard"><span class="toc-number">1.4.</span> <span class="toc-text">第四题-hard</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Wenhao Zhang"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="张文浩的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">leetcode—第283场周赛</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2022-03-08 10:16:40" itemprop="dateCreated datePublished" datetime="2022-03-08T10:16:40+08:00">2022-03-08</time></div><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/leetcode%E5%88%B7%E9%A2%98/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">leetcode刷题</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="leetcode-第283场周赛"><a href="#leetcode-第283场周赛" class="headerlink" title="leetcode-第283场周赛"></a>leetcode-第283场周赛</h2><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/">2194. Excel 表中某个范围内的单元格</a></p>
-<h6 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h6><p>Excel 表中的一个单元格 (r, c) 会以字符串 “<col><row>“ 的形式进行表示，其中：</p>
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>leetcode—第283场周赛 | 张文浩の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">张文浩の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode—第283场周赛
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-08 10:16:40" itemprop="dateCreated datePublished" datetime="2022-03-08T10:16:40+08:00">2022-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-09 00:11:49" itemprop="dateModified" datetime="2022-03-09T00:11:49+08:00">2022-03-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="leetcode-第283场周赛"><a href="#leetcode-第283场周赛" class="headerlink" title="leetcode-第283场周赛"></a>leetcode-第283场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/">2194. Excel 表中某个范围内的单元格</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Excel 表中的一个单元格 (r, c) 会以字符串 “<col><row>“ 的形式进行表示，其中：</p>
 <ul>
-<li><col> 即单元格的列号 c 。用英文字母表中的 字母 标识。
-- 例如，第 1 列用 'A' 表示，第 2 列用 'B' 表示，第 3 列用 'C' 表示，以此类推。</li>
+<li><col> 即单元格的列号 c 。用英文字母表中的 字母 标识。<ul>
+<li>例如，第 1 列用 ‘A’ 表示，第 2 列用 ‘B’ 表示，第 3 列用 ‘C’ 表示，以此类推。</li>
+</ul>
+</li>
 <li><row> 即单元格的行号 r 。第 r 行就用 整数 r 标识。</li>
 </ul>
-<p>给你一个格式为 “<col1><row1>:<col2><row2>“ 的字符串 s ，其中 <col1> 表示 c1 列，<row1> 表示 r1 行，<col2> 表示 c2 列，<row2> 表示 r2 行，并满足 r1 &lt;&#x3D; r2 且 c1 &lt;&#x3D; c2 。</p>
-<p>找出所有满足 r1 &lt;&#x3D; x &lt;&#x3D; r2 且 c1 &lt;&#x3D; y &lt;&#x3D; c2 的单元格，并以列表形式返回。单元格应该按前面描述的格式用 字符串 表示，并以 非递减 顺序排列（先按列排，再按行排）。</p>
-<h6 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h6><ul>
+<p>给你一个格式为 “<col1><row1>:<col2><row2>“ 的字符串 s ，其中 <col1> 表示 c1 列，<row1> 表示 r1 行，<col2> 表示 c2 列，<row2> 表示 r2 行，并满足 r1 &lt;= r2 且 c1 &lt;= c2 。</p>
+<p>找出所有满足 r1 &lt;= x &lt;= r2 且 c1 &lt;= y &lt;= c2 的单元格，并以列表形式返回。单元格应该按前面描述的格式用 字符串 表示，并以 非递减 顺序排列（先按列排，再按行排）。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
 <li>示例1</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;K1:L2&quot;</span><br><span class="line">输出：[&quot;K1&quot;,&quot;K2&quot;,&quot;L1&quot;,&quot;L2&quot;]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。</span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">s</span> = <span class="string">&quot;K1:L2&quot;</span></span><br><span class="line">输出：[<span class="string">&quot;K1&quot;</span>,<span class="string">&quot;K2&quot;</span>,<span class="string">&quot;L1&quot;</span>,<span class="string">&quot;L2&quot;</span>]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。</span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>示例2</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;A1:F1&quot;</span><br><span class="line">输出：[&quot;A1&quot;,&quot;B1&quot;,&quot;C1&quot;,&quot;D1&quot;,&quot;E1&quot;,&quot;F1&quot;]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。 </span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
-
-<h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">cellsInRange</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> col1,col2,row1,row2;</span><br><span class="line">        col1=s[<span class="number">0</span>];</span><br><span class="line">        col2=s[<span class="number">3</span>];</span><br><span class="line">        row1=s[<span class="number">1</span>];</span><br><span class="line">        row2=s[<span class="number">4</span>];</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i=col1;i&lt;=col2;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> j=row1;j&lt;=row2;j++)&#123;</span><br><span class="line">                string temp=<span class="string">&quot;&quot;</span>;</span><br><span class="line">                temp=temp+i+j;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">s</span> = <span class="string">&quot;A1:F1&quot;</span></span><br><span class="line">输出：[<span class="string">&quot;A1&quot;</span>,<span class="string">&quot;B1&quot;</span>,<span class="string">&quot;C1&quot;</span>,<span class="string">&quot;D1&quot;</span>,<span class="string">&quot;E1&quot;</span>,<span class="string">&quot;F1&quot;</span>]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。 </span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">cellsInRange</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> col1,col2,row1,row2;</span><br><span class="line">        col1=s[<span class="number">0</span>];</span><br><span class="line">        col2=s[<span class="number">3</span>];</span><br><span class="line">        row1=s[<span class="number">1</span>];</span><br><span class="line">        row2=s[<span class="number">4</span>];</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i=col1;i&lt;=col2;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> j=row1;j&lt;=row2;j++)&#123;</span><br><span class="line">                string temp=<span class="string">&quot;&quot;</span>;</span><br><span class="line">                temp=temp+i+j;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum/">2195. 向数组中追加 K 个整数</a></p>
-<h6 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h6><p>给你一个整数数组 nums 和一个整数 k 。请你向 nums 中追加 k 个 <strong>未</strong> 出现在 nums 中的、<strong>互不相同</strong> 的 <strong>正</strong> 整数，并使结果数组的元素和 <strong>最小</strong> 。</p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 nums 和一个整数 k 。请你向 nums 中追加 k 个 <strong>未</strong> 出现在 nums 中的、<strong>互不相同</strong> 的 <strong>正</strong> 整数，并使结果数组的元素和 <strong>最小</strong> 。</p>
 <p>返回追加到 nums 中的 k 个整数之和。</p>
-<h6 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h6><ul>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
 <li>示例1</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,4,25,10,25], k = 2</span><br><span class="line">输出：5</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是 2 和 3 。</span><br><span class="line">nums 最终元素和为 1 + 4 + 25 + 10 + 25 + 2 + 3 = 70 ，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是 2 + 3 = 5 ，所以返回 5 。</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,4,25,10,25], k = 2</span><br><span class="line">输出：5</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是<span class="number"> 2 </span>和<span class="number"> 3 </span>。</span><br><span class="line">nums 最终元素和为<span class="number"> 1 </span>+<span class="number"> 4 </span>+<span class="number"> 25 </span>+<span class="number"> 10 </span>+<span class="number"> 25 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>=<span class="number"> 70 </span>，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是<span class="number"> 2 </span>+<span class="number"> 3 </span>=<span class="number"> 5 </span>，所以返回<span class="number"> 5 </span>。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>示例2</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,6], k = 6</span><br><span class="line">输出：25</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是 1 、2 、3 、4 、7 和 8 。</span><br><span class="line">nums 最终元素和为 5 + 6 + 1 + 2 + 3 + 4 + 7 + 8 = 36 ，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是 1 + 2 + 3 + 4 + 7 + 8 = 25 ，所以返回 25 。</span><br></pre></td></tr></table></figure>
-
-<h6 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h6><p>记录添加的k个数的上限up，一开始将up初始化为k，即添加的数为1~k，然后将输入的nums从小到大排序，顺序遍历，当遍历到的数比当前up小的话，说明当前这个数不能由我们添加，我们要添加一个更大的数，让up++，ans-&#x3D;nums[i]，最后遍历完nums数组之后，ans加上1到up的和即可。</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,6], k = 6</span><br><span class="line">输出：25</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是<span class="number"> 1 </span>、2 、3 、4 、7 和<span class="number"> 8 </span>。</span><br><span class="line">nums 最终元素和为<span class="number"> 5 </span>+<span class="number"> 6 </span>+<span class="number"> 1 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>+<span class="number"> 4 </span>+<span class="number"> 7 </span>+<span class="number"> 8 </span>=<span class="number"> 36 </span>，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是<span class="number"> 1 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>+<span class="number"> 4 </span>+<span class="number"> 7 </span>+<span class="number"> 8 </span>=<span class="number"> 25 </span>，所以返回<span class="number"> 25 </span>。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>记录添加的k个数的上限up，一开始将up初始化为k，即添加的数为1~k，然后将输入的nums从小到大排序，顺序遍历，当遍历到的数比当前up小的话，说明当前这个数不能由我们添加，我们要添加一个更大的数，让up++，ans-=nums[i]，最后遍历完nums数组之后，ans加上1到up的和即可。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">minimalKSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> up=k;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]&lt;=up&amp;&amp;(i==<span class="number">0</span>||i!=<span class="number">0</span>&amp;&amp;nums[i]!=nums[i<span class="number">-1</span>]))&#123;</span><br><span class="line">                ans-=nums[i];</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]&gt;up) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=(<span class="number">1</span>+up)*up/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/create-binary-tree-from-descriptions/">2196. 根据描述创建二叉树</a></p>
-<h6 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h6><p>给你一个二维整数数组 descriptions ，其中 descriptions[i] &#x3D; [parenti, childi, isLefti] 表示 parenti 是 childi 在 二叉树 中的 父节点，二叉树中各节点的值 互不相同 。此外：</p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二维整数数组 descriptions ，其中 descriptions[i] = [parenti, childi, isLefti] 表示 parenti 是 childi 在 二叉树 中的 父节点，二叉树中各节点的值 互不相同 。此外：</p>
 <ul>
-<li><p>如果 isLefti &#x3D;&#x3D; 1 ，那么 childi 就是 parenti 的左子节点。</p>
+<li><p>如果 isLefti == 1 ，那么 childi 就是 parenti 的左子节点。</p>
 </li>
-<li><p>如果 isLefti &#x3D;&#x3D; 0 ，那么 childi 就是 parenti 的右子节点。</p>
+<li><p>如果 isLefti == 0 ，那么 childi 就是 parenti 的右子节点。</p>
 </li>
 </ul>
 <p>请你根据 descriptions 的描述来构造二叉树并返回其 根节点 。</p>
 <p>测试用例会保证可以构造出 有效 的二叉树。</p>
-<h6 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h6><ul>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
 <li>示例1</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = [[20,15,1],[20,17,0],[50,20,1],[50,80,0],[80,19,1]]</span><br><span class="line">输出：[50,20,80,15,17,19]</span><br><span class="line">解释：根节点是值为 50 的节点，因为它没有父节点。</span><br><span class="line">结果二叉树如上图所示。</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = <span class="comment">[<span class="comment">[20,15,1]</span>,<span class="comment">[20,17,0]</span>,<span class="comment">[50,20,1]</span>,<span class="comment">[50,80,0]</span>,<span class="comment">[80,19,1]</span>]</span></span><br><span class="line">输出：<span class="comment">[50,20,80,15,17,19]</span></span><br><span class="line">解释：根节点是值为 50 的节点，因为它没有父节点。</span><br><span class="line">结果二叉树如上图所示。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>示例2</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = [[1,2,1],[2,3,0],[3,4,1]]</span><br><span class="line">输出：[1,2,null,null,3,4]</span><br><span class="line">解释：根节点是值为 1 的节点，因为它没有父节点。 </span><br><span class="line">结果二叉树如上图所示。 </span><br></pre></td></tr></table></figure>
-
-<h6 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h6><p>建立一个指针数组TreeNode* node[]，根据输入建立连接关系，同时用两个数p[],c[]记录节点是否当过父节点和子节点，最后只当过父节点没当过子节点的就是要返回的根节点。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = <span class="comment">[<span class="comment">[1,2,1]</span>,<span class="comment">[2,3,0]</span>,<span class="comment">[3,4,1]</span>]</span></span><br><span class="line">输出：<span class="comment">[1,2,null,null,3,4]</span></span><br><span class="line">解释：根节点是值为 1 的节点，因为它没有父节点。 </span><br><span class="line">结果二叉树如上图所示。 </span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>建立一个指针数组TreeNode* node[]，根据输入建立连接关系，同时用两个数p[],c[]记录节点是否当过父节点和子节点，最后只当过父节点没当过子节点的就是要返回的根节点。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">createBinaryTree</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; descriptions)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> p[<span class="number">100005</span>]=&#123;<span class="number">0</span>&#125;,c[<span class="number">100005</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> maxx=<span class="number">0</span>;</span><br><span class="line">        TreeNode* node[<span class="number">100005</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100005</span>;i++)&#123;</span><br><span class="line">            node[i]=<span class="keyword">new</span> <span class="built_in">TreeNode</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> root=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;descriptions.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> parent=descriptions[i][<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> child=descriptions[i][<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> isleft=descriptions[i][<span class="number">2</span>];</span><br><span class="line">            maxx=<span class="built_in">max</span>(maxx,parent);</span><br><span class="line">            maxx=<span class="built_in">max</span>(maxx,child);</span><br><span class="line">            p[parent]=<span class="number">1</span>;</span><br><span class="line">            c[child]=<span class="number">1</span>;</span><br><span class="line">            node[parent]-&gt;val=parent;</span><br><span class="line">            node[child]-&gt;val=child;</span><br><span class="line">            <span class="keyword">if</span>(isleft)&#123;</span><br><span class="line">                node[parent]-&gt;left=node[child];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                node[parent]-&gt;right=node[child];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=maxx;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i]&amp;&amp;!c[i])&#123;</span><br><span class="line">                root=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node[root];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/replace-non-coprime-numbers-in-array/">2197. 替换数组中的非互质数</a></p>
 <p>没看</p>
-</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>Wenhao Zhang</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/" title="leetcode—第283场周赛">https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" rel="prev" title="自然语言处理实验一"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">自然语言处理实验一</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/" rel="next" title="leetcode—第73场双周赛"><span class="post-nav-text">leetcode—第73场双周赛</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> Wenhao Zhang</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v6.0.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.11</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/leetcode%E5%88%B7%E9%A2%98/" rel="tag"># leetcode刷题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/" rel="prev" title="leetcode—第73场双周赛">
+      <i class="fa fa-chevron-left"></i> leetcode—第73场双周赛
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" rel="next" title="自然语言处理实验一">
+      自然语言处理实验一 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text">leetcode-第283场周赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-easy"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一题-easy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-mid"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二题-mid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-mid"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三题-mid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98-hard"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四题-hard</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="张文浩"
+      src="/images/messi.jpg">
+  <p class="site-author-name" itemprop="name">张文浩</p>
+  <div class="site-description" itemprop="description">我听见脚步声预料的软皮鞋跟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张文浩</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

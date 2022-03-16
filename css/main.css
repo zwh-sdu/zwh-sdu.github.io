@@ -1200,7 +1200,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ada374;
+  background: #a846ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2593,7 +2593,7 @@ mjx-container + br {
   }
 }
 body {
-  background: url("/images/pexels-johannes-plenio-2850287.jpg");
+  background: url("/images/pexels-mario-cuadros-2413089.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;

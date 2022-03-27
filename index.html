@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
 
   </li>
   </ul>
@@ -153,6 +153,136 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/27/leetcode-%E7%AC%AC286%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/27/leetcode-%E7%AC%AC286%E5%9C%BA%E5%91%A8%E8%B5%9B/" class="post-title-link" itemprop="url">leetcode-第286场周赛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-27 15:00:00 / 修改时间：16:04:36" itemprop="dateCreated datePublished" datetime="2022-03-27T15:00:00+08:00">2022-03-27</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="leetcode-第286场周赛"><a href="#leetcode-第286场周赛" class="headerlink" title="leetcode-第286场周赛"></a>leetcode-第286场周赛</h1><p>第三题没做出来。。。。</p>
+<h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-hills-and-valleys-in-an-array/">6027. 统计数组中峰和谷的数量</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你两个下标从 0 开始的整数数组 nums1 和 nums2 ，请你返回一个长度为 2 的列表 answer ，其中：</p>
+<ul>
+<li><p>answer[0] 是 nums1 中所有 不 存在于 nums2 中的 不同 整数组成的列表。</p>
+</li>
+<li><p>answer[1] 是 nums2 中所有 不 存在于 nums1 中的 不同 整数组成的列表。</p>
+</li>
+</ul>
+<p>注意：列表中的整数可以按 任意 顺序返回。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = <span class="comment">[1,2,3]</span>, nums2 = <span class="comment">[2,4,6]</span></span><br><span class="line">输出：<span class="comment">[<span class="comment">[1,3]</span>,<span class="comment">[4,6]</span>]</span></span><br><span class="line">解释：</span><br><span class="line">对于 nums1 ，nums1<span class="comment">[1]</span> = 2 出现在 nums2 中下标 0 处，然而 nums1<span class="comment">[0]</span> = 1 和 nums1<span class="comment">[2]</span> = 3 没有出现在 nums2 中。因此，answer<span class="comment">[0]</span> = <span class="comment">[1,3]</span>。</span><br><span class="line">对于 nums2 ，nums2<span class="comment">[0]</span> = 2 出现在 nums1 中下标 1 处，然而 nums2<span class="comment">[1]</span> = 4 和 nums2<span class="comment">[2]</span> = 6 没有出现在 nums2 中。因此，answer<span class="comment">[1]</span> = <span class="comment">[4,6]</span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = <span class="comment">[1,2,3,3]</span>, nums2 = <span class="comment">[1,1,2,2]</span></span><br><span class="line">输出：<span class="comment">[<span class="comment">[3]</span>,<span class="comment">[]</span>]</span></span><br><span class="line">解释：</span><br><span class="line">对于 nums1 ，nums1<span class="comment">[2]</span> 和 nums1<span class="comment">[3]</span> 没有出现在 nums2 中。由于 nums1<span class="comment">[2]</span> == nums1<span class="comment">[3]</span> ，二者的值只需要在 answer<span class="comment">[0]</span> 中出现一次，故 answer<span class="comment">[0]</span> = <span class="comment">[3]</span>。</span><br><span class="line">nums2 中的每个整数都在 nums1 中出现，因此，answer<span class="comment">[1]</span> = <span class="comment">[]</span> 。 </span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>​    set去重、排序、双指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">findDifference</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">answer</span>(<span class="number">2</span>);</span><br><span class="line">        <span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">s1</span><span class="params">(nums1.begin(), nums1.end())</span></span>;</span><br><span class="line">        <span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">s2</span><span class="params">(nums2.begin(), nums2.end())</span></span>;</span><br><span class="line">        nums1.<span class="built_in">assign</span>(s1.<span class="built_in">begin</span>(), s1.<span class="built_in">end</span>());</span><br><span class="line">        nums2.<span class="built_in">assign</span>(s2.<span class="built_in">begin</span>(), s2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(),nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums2.<span class="built_in">begin</span>(),nums2.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;nums1.<span class="built_in">size</span>()&amp;&amp;j&lt;nums2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i]&lt;nums2[j])&#123;</span><br><span class="line">                answer[<span class="number">0</span>].<span class="built_in">push_back</span>(nums1[i]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i]&gt;nums2[j])&#123;</span><br><span class="line">                answer[<span class="number">1</span>].<span class="built_in">push_back</span>(nums2[j]);</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;nums1.<span class="built_in">size</span>())&#123;</span><br><span class="line">            answer[<span class="number">0</span>].<span class="built_in">push_back</span>(nums1[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;nums2.<span class="built_in">size</span>())&#123;</span><br><span class="line">            answer[<span class="number">1</span>].<span class="built_in">push_back</span>(nums2[j]);</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> answer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful/">5236. 美化数组的最少删除数</a></p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums ，如果满足下述条件，则认为数组 nums 是一个 <strong>美丽数组</strong>：</p>
+<ul>
+<li><p>nums.length 为偶数</p>
+</li>
+<li><p>对所有满足 i % 2 == 0 的下标 i ，nums[i] != nums[i + 1] 均成立</p>
+</li>
+</ul>
+<p>注意，空数组同样认为是美丽数组。</p>
+<p>你可以从 nums 中删除任意数量的元素。当你删除一个元素时，被删除元素右侧的所有元素将会向左移动一个单位以填补空缺，而左侧的元素将会保持 <strong>不变</strong> 。</p>
+<p>返回使 nums 变为美丽数组所需删除的 最少 元素数目。</p>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="comment">[1,1,2,3,5]</span></span><br><span class="line">输出：1</span><br><span class="line">解释：可以删除 nums<span class="comment">[0]</span> 或 nums<span class="comment">[1]</span> ，这样得到的 nums = <span class="comment">[1,2,3,5]</span> 是一个美丽数组。可以证明，要想使 nums 变为美丽数组，至少需要删除 1 个元素。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="comment">[1,1,2,2,3,3]</span></span><br><span class="line">输出：2</span><br><span class="line">解释：可以删除 nums<span class="comment">[0]</span> 和 nums<span class="comment">[5]</span> ，这样得到的 nums = <span class="comment">[1,2,2,3]</span> 是一个美丽数组。可以证明，要想使 nums 变为美丽数组，至少需要删除 2 个元素。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>直接遍历即可，后面的不会对前面的产生影响。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minDeletion</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>(),ans=<span class="number">0</span>,index=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(index%<span class="number">2</span>==<span class="number">0</span> &amp;&amp; nums[i]==nums[i+<span class="number">1</span>])&#123;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(index%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-palindrome-with-fixed-length/">5253. 找到指定长度的回文数</a></p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 queries 和一个 正 整数 intLength ，请你返回一个数组 answer ，其中 answer[i] 是长度为 intLength 的 <strong>正回文数</strong> 中第 queries[i] 小的数字，如果不存在这样的回文数，则为 -1 。</p>
+<p><strong>回文数</strong> 指的是从前往后和从后往前读一模一样的数字。回文数不能有前导 0 。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：queries = [1,2,3,4,5,90], intLength = 3</span><br><span class="line">输出：[101,111,121,131,141,999]</span><br><span class="line">解释：</span><br><span class="line">长度为<span class="number"> 3 </span>的最小回文数依次是：</span><br><span class="line">101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 201, ...</span><br><span class="line">第<span class="number"> 90 </span>个长度为<span class="number"> 3 </span>的回文数是<span class="number"> 999 </span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">输入：queries</span> <span class="string">=</span> [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>]<span class="string">,</span> <span class="string">intLength</span> <span class="string">=</span> <span class="number">4</span></span><br><span class="line"><span class="string">输出：[1111,1331,1551]</span></span><br><span class="line"><span class="string">解释：</span></span><br><span class="line"><span class="string">长度为</span> <span class="number">4</span> <span class="string">的前</span> <span class="number">6</span> <span class="string">个回文数是：</span></span><br><span class="line"><span class="number">1001</span><span class="string">,</span> <span class="number">1111</span><span class="string">,</span> <span class="number">1221</span><span class="string">,</span> <span class="number">1331</span><span class="string">,</span> <span class="number">1441</span> <span class="string">和</span> <span class="number">1551</span> <span class="string">。</span></span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>找到规律了，但一些细节上面出现了问题，导致最后一直AC不了，很难受。</p>
+<p>要对回文数进行排序的话，从最中间的数开始排，每个数字从0到9排，最后一个（也就是头和尾两个数字上不能取0）。</p>
+<p>下面是我AC不了的代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; <span class="title">kthPalindrome</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; queries, <span class="type">int</span> intLength)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = (intLength+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;queries.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(intLength==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(queries[i]&gt;<span class="number">10</span>)&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(queries[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ve</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">            <span class="type">int</span> sum=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">                    sum*=<span class="number">10</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    sum*=<span class="number">9</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(queries[i]&gt;sum)&#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span> index=<span class="number">0</span>,temp=queries[i];</span><br><span class="line">                <span class="keyword">while</span>(temp&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    ve[index++]=(temp%<span class="number">10</span>+<span class="number">9</span>)%<span class="number">10</span>;</span><br><span class="line">                    temp/=<span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                string s=<span class="string">&quot;&quot;</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>&amp;&amp;n&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(intLength%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                            s=<span class="built_in">to_string</span>(ve[<span class="number">0</span>])+<span class="built_in">to_string</span>(ve[<span class="number">0</span>]);</span><br><span class="line">                        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                            s=<span class="built_in">to_string</span>(ve[<span class="number">0</span>]);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j==n<span class="number">-1</span>)&#123;</span><br><span class="line">                        s=<span class="built_in">to_string</span>(ve[j]+<span class="number">1</span>)+s;</span><br><span class="line">                        s=s+<span class="built_in">to_string</span>(ve[j]+<span class="number">1</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        s=<span class="built_in">to_string</span>(ve[j])+s;</span><br><span class="line">                        s=s+<span class="built_in">to_string</span>(ve[j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">long</span> <span class="type">long</span> l=<span class="built_in">atoi</span>(s.<span class="built_in">c_str</span>());</span><br><span class="line">                ans.<span class="built_in">push_back</span>(l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-value-of-k-coins-from-piles/">5269. 从栈中取出 K 个硬币的最大面值和</a></p>
+<h4 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h4><h4 id="样例-3"><a href="#样例-3" class="headerlink" title="样例"></a>样例</h4><h4 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1631,86 +1761,11 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/messi.jpg">
-      <meta itemprop="name" content="张文浩">
-      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张文浩の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-07 16:26:52" itemprop="dateCreated datePublished" datetime="2022-03-07T16:26:52+08:00">2022-03-07</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>367</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1777,7 +1832,7 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1820,12 +1875,12 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">54k</span>
+    <span title="站点总字数">58k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">49 分钟</span>
+    <span title="站点阅读时长">52 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

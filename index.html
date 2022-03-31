@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
   </ul>
@@ -153,6 +153,177 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/" class="post-title-link" itemprop="url">云计算配置openstack</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-31 11:37:45 / 修改时间：11:34:42" itemprop="dateCreated datePublished" datetime="2022-03-31T11:37:45+08:00">2022-03-31</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="实验题目"><a href="#实验题目" class="headerlink" title="实验题目"></a>实验题目</h2><p>面向IaaS的OpenStack部署</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li>Window10</li>
+<li>Vmware15.5pro</li>
+<li>CentOS7</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>我的最终成功的openstack配置思路：</p>
+<h3 id="1-Vmware安装CentOS7"><a href="#1-Vmware安装CentOS7" class="headerlink" title="1.Vmware安装CentOS7"></a>1.Vmware安装CentOS7</h3><p>​    自定义安装即可，大部分都可以采用默认设置，处理器的数量我设置为了4，内存给了4GB（我的笔记本一共就8个G，设置太大的话在运行过程中容易导致window卡死，太小的话配置openstack不够用）。</p>
+<p>​    不建议选择最小化安装，没有图形界面，后面要使用浏览器的话比较麻烦，我选择的是GNOME Desktop。</p>
+<h3 id="2-CentOS配置静态IP"><a href="#2-CentOS配置静态IP" class="headerlink" title="2.CentOS配置静态IP"></a>2.CentOS配置静态IP</h3><ul>
+<li>编辑虚拟机网络编辑器</li>
+</ul>
+<p><img src="..\images\image-20220331112124445.png" alt="image-20220331112124445"></p>
+<ul>
+<li>切换到NAT模式下，设置子网ip，这里要记住，后面其他的设置要与之对应。</li>
+</ul>
+<p><img src="..\images\image-20220331112156643.png" alt="image-20220331112156643"></p>
+<ul>
+<li>点击NAT设置，设置网关IP</li>
+</ul>
+<p><img src="..\images\image-20220331112215793.png" alt="image-20220331112215793"></p>
+<p>​    虚拟机外面的设置就结束了，下面进入centos系统，再进行设置。</p>
+<ul>
+<li>在root环境下，修改centos系统的网卡配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eno33  </span><br></pre></td></tr></table></figure>
+<p>​    其中几个地方与默认的不同，我们要进行添加和修改。</p>
+<p><img src="..\images\image-20220331112320529.png" alt="image-20220331112320529"></p>
+<ul>
+<li>重启网络服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试一下当前网络是否可用，如果能够ping通，就没啥问题了。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+<h3 id="3-部署openstack"><a href="#3-部署openstack" class="headerlink" title="3.部署openstack"></a>3.部署openstack</h3><ul>
+<li>修改centos系统的主机名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname openstack  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加主机hosts记录，这里的ip地址跟上面网卡配置文件里的IPADDR一致。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;192.168.180.3 openstack&quot; &gt;&gt; /etc/hosts </span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以验证一下修改结果</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more /etc/hosts  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>关闭防火墙，关闭SeLinux，关闭NetworkManager服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">关闭防火墙</span>  </span><br><span class="line">systemctl stop firewalld  </span><br><span class="line">systemctl disable firewalld  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">查看防火墙状态</span>  </span><br><span class="line">systemctl status firewalld  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">关闭SeLinux</span>  </span><br><span class="line">setenforce 0  </span><br><span class="line">sed -i &#x27;s/SELINUX=enforcing/SELINUX=disabled/&#x27; /etc/selinux/config  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">关闭NetworkManager</span>  </span><br><span class="line">systemctl stop NetworkManager  </span><br><span class="line">systemctl disable NetworkManager  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">查看NetworkManager状态</span>  </span><br><span class="line">systemctl status NetworkManager  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改官方yum源为阿里云yum源</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">重建本地yum索引缓存</span>  </span><br><span class="line">yum makecache  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>系统升级</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">升级</span>  </span><br><span class="line">yum -y update  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">重启</span>  </span><br><span class="line">reboot  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装常用软件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vim bash-completion yum-utils  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenStack Stein的yum库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install centos-release-openstack-stein  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改CentOS-OpenStack-stein.repo配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">备份</span>  </span><br><span class="line">cp -a CentOS-OpenStack-stein.repo CentOS-OpenStack-stein.repo.bak    </span><br><span class="line"><span class="meta">#</span><span class="language-bash">修改配置文件</span>  </span><br><span class="line">vim CentOS-OpenStack-stein.repo  </span><br><span class="line">[centos-openstack-stein]  </span><br><span class="line">baseurl=http://mirrors.aliyun.com/$contentdir/$releasever/cloud/$basearch/openstack-stein/  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">mirrorlist=http://mirrorlist.centos.org/?release=<span class="variable">$releasever</span>&amp;<span class="built_in">arch</span>=<span class="variable">$basearch</span>&amp;repo=cloud-openstack-stein</span>  </span><br><span class="line">...  	  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">清除本地yum索引缓存，然后再重建索引缓存</span>  </span><br><span class="line">yum clean all &amp;&amp; yum makecache  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装packstack工具</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openstack-packstack  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenStack allinone</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --allinone  </span><br></pre></td></tr></table></figure>
+<p><img src="..\images\image-20220331112848394.png" alt="image-20220331112848394"></p>
+<p>​    这里执行时间会比较长，我大概用了半个多小时，我看网上说这样理论上就直接成功了，但我到这里报了个错，什么nova啥的。</p>
+<p><img src="..\images\image-20220331112900433.png" alt="image-20220331112900433"></p>
+<p>​    然后我在网上也没收到这个报错的解决方法，然后虚拟机变得异常卡顿，我就重启了一下虚拟机，然后经同学指点，让我试试下面这个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --answer-file [packstack-answers-XXXXX]  </span><br></pre></td></tr></table></figure>
+<p>​    其中后面[]里面是一个txt文件，应该是第一次运行”packstack –allinone”后产生的,可以直接通过命令ls查看该文件名。</p>
+<p>​    第二次运行理论上应该也应该成功了，但是后面有报错了。。。是说无法分配内存啥的，我就猜测是不是因为当时虚拟机太卡了，导致内存不足了，然后我又重启虚拟机，重新执行了一遍上面的命令。</p>
+<p>​    终于成功了！</p>
+<p><img src="..\images\image-20220331113056623.png" alt="image-20220331113056623"></p>
+<ul>
+<li>查看Dashboard web页面的登录账号及密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat keystonerc_admin   </span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开链接，就能看到登录界面了</li>
+</ul>
+<p><img src="..\images\image-20220331113121087.png" alt="image-20220331113121087"></p>
+<p>​    然后我又遇到问题了，点击登入之后，浏览器卡主不动了，我怀疑是火狐浏览器太拉了，又去安装了chrome浏览器。然后再谷歌浏览器上打开链接，才终于成功登入！</p>
+<p><img src="..\images\image-20220331113131690.png" alt="image-20220331113131690"></p>
+<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>​    配置openstack真的太恶心了，非常搞人心态，每次都是配了大半天碰到莫名其妙还无法解决的错误，就只能重装虚拟机，这两天我重装了无数台虚拟机，包括一开始的几台ubuntu，后来换成CentOS，经过两天半的不断尝试，才终于配好了openstack。</p>
+<p>​    于是经过本次试验，我对虚拟机的卸载、安装和配置可以说非常熟练了，在解决各种问题的过程中，对换源下载安装等操作都更加熟练，对OpenStack的配置有了明确地思路。也对openstack及其对应的各种安装工具和安装方法都有了一定的了解。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1621,146 +1792,6 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/messi.jpg">
-      <meta itemprop="name" content="张文浩">
-      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张文浩の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/" class="post-title-link" itemprop="url">leetcode—第73场双周赛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-08 10:16:24" itemprop="dateCreated datePublished" datetime="2022-03-08T10:16:24+08:00">2022-03-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-09 00:11:20" itemprop="dateModified" datetime="2022-03-09T00:11:20+08:00">2022-03-09</time>
-              </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>4.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="leetcode-第73场双周赛"><a href="#leetcode-第73场双周赛" class="headerlink" title="leetcode-第73场双周赛"></a>leetcode-第73场双周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/">2190. 数组中紧跟 key 之后出现最频繁的数字</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。</p>
-<p>统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：</p>
-<ul>
-<li><p>0 &lt;= i &lt;= n - 2</p>
-</li>
-<li><p>nums[i] == key 且</p>
-</li>
-<li>nums[i + 1] == target 。</li>
-</ul>
-<p>请你返回出现 最多 次数的 target 。测试数据保证出现次数最多的 target 是唯一的。</p>
-<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
-</ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,100,200,1,100], key = 1</span><br><span class="line">输出：100</span><br><span class="line">解释：对于 target =<span class="number"> 100 </span>，在下标<span class="number"> 1 </span>和<span class="number"> 4 </span>处出现过<span class="number"> 2 </span>次，且都紧跟着 key 。</span><br><span class="line">没有其他整数在 key 后面紧跟着出现，所以我们返回<span class="number"> 100 </span>。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
-</ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,2,2,2,3], key = 2</span><br><span class="line">输出：2</span><br><span class="line">解释：对于 target =<span class="number"> 2 </span>，在下标<span class="number"> 1 </span>，2 和<span class="number"> 3 </span>处出现过<span class="number"> 3 </span>次，且都紧跟着 key 。</span><br><span class="line">对于 target =<span class="number"> 3 </span>，在下标<span class="number"> 4 </span>出出现过<span class="number"> 1 </span>次，且紧跟着 key 。</span><br><span class="line">target =<span class="number"> 2 </span>是紧跟着 key 之后出现次数最多的数字，所以我们返回<span class="number"> 2 </span>。</span><br></pre></td></tr></table></figure>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>​    用一个map维护target出现的次数，最后选出value最大的数就是target。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequent</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==key)&#123;</span><br><span class="line">                mp[nums[i+<span class="number">1</span>]]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> target=<span class="number">0</span>,maxx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> m:mp)&#123;</span><br><span class="line">            <span class="keyword">if</span>(maxx&lt;m.second)&#123;</span><br><span class="line">                maxx=m.second;</span><br><span class="line">                target=m.first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-the-jumbled-numbers/">2191. 将杂乱无章的数字排序</a></p>
-<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 mapping ，它表示一个十进制数的映射规则，mapping[i] = j 表示这个规则下将数位 i 映射为数位 j 。</p>
-<p>一个整数<strong>映射后的值</strong>为将原数字每一个数位 i （0 &lt;= i &lt;= 9）映射为 mapping[i] 。</p>
-<p>另外给你一个整数数组 nums ，请你将数组 nums 中每个数按照它们映射后对应数字非递减顺序排序后返回。</p>
-<p>注意：</p>
-<ul>
-<li><p>如果两个数字映射后对应的数字大小相同，则将它们按照输入中的 相对顺序 排序。</p>
-</li>
-<li><p>nums 中的元素只有在排序的时候需要按照映射后的值进行比较，返回的值应该是输入的元素本身。</p>
-</li>
-</ul>
-<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
-</ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：mapping = [8,9,4,0,2,1,3,5,7,6], nums = [991,338,38]</span><br><span class="line">输出：[338,38,991]</span><br><span class="line">解释：</span><br><span class="line">将数字<span class="number"> 991 </span>按照如下规则映射：</span><br><span class="line">1. mapping[9] =<span class="number"> 6 </span>，所有数位<span class="number"> 9 </span>都会变成<span class="number"> 6 </span>。</span><br><span class="line">2. mapping[1] =<span class="number"> 9 </span>，所有数位<span class="number"> 1 </span>都会变成<span class="number"> 8 </span>。</span><br><span class="line">所以，991 映射的值为<span class="number"> 669 </span>。</span><br><span class="line">338 映射为<span class="number"> 007 </span>，去掉前导<span class="number"> 0 </span>后得到<span class="number"> 7 </span>。</span><br><span class="line">38 映射为<span class="number"> 07 </span>，去掉前导<span class="number"> 0 </span>后得到<span class="number"> 7 </span>。</span><br><span class="line">由于<span class="number"> 338 </span>和<span class="number"> 38 </span>映射后的值相同，所以它们的前后顺序保留原数组中的相对位置关系，338 在<span class="number"> 38 </span>的前面。</span><br><span class="line">所以，排序后的数组为 [338,38,991] 。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
-</ul>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：mapping = [<span class="number">0,1,2,3</span>,<span class="number">4,5,6,7</span>,<span class="number">8</span>,<span class="number">9</span>], nums = [<span class="number">789,456</span>,<span class="number">123</span>]</span><br><span class="line">输出：[<span class="number">123,456</span>,<span class="number">789</span>]</span><br><span class="line">解释：<span class="number">789</span> 映射为 <span class="number">789</span> ，<span class="number">456</span> 映射为 <span class="number">456</span> ，<span class="number">123</span> 映射为 <span class="number">123</span> 。所以排序后数组为 [<span class="number">123,456</span>,<span class="number">789</span>] 。</span><br></pre></td></tr></table></figure>
-<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>建立一个结构体，每个结构体中存储三个信息，分别是映射前的原始数，映射后的数，和在nums出现的位置索引。</p>
-<p>自定义排序规则cmp，先按照映射后的数排序，如果相同，再按照在nums出现的位置索引排序。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">turn</span><span class="params">(<span class="type">int</span> x,vector&lt;<span class="type">int</span>&gt;&amp; mapping)</span></span>&#123;</span><br><span class="line">        string s=<span class="built_in">to_string</span>(x);</span><br><span class="line">        <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            res=res*<span class="number">10</span>+mapping[s[i]-<span class="string">&#x27;0&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        <span class="type">int</span> pre;</span><br><span class="line">        <span class="type">int</span> aft;</span><br><span class="line">        <span class="type">int</span> index;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="type">static</span> <span class="title">cmp</span><span class="params">(Node a,Node b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.aft!=b.aft)&#123;</span><br><span class="line">            <span class="keyword">return</span> a.aft&lt;b.aft;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortJumbled</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; mapping, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        vector&lt;Node&gt; ve;</span><br><span class="line">        Node node;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            node.pre=nums[i];</span><br><span class="line">            node.aft=<span class="built_in">turn</span>(nums[i],mapping);</span><br><span class="line">            node.index=i;</span><br><span class="line">            ve.<span class="built_in">push_back</span>(node);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(ve.<span class="built_in">begin</span>(),ve.<span class="built_in">end</span>(),cmp);</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;ve.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(ve[i].pre);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/">2192. 有向无环图中一个节点的所有祖先</a></p>
-<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个正整数 n ，它表示一个 有向无环图 中节点的数目，节点编号为 0 到 n - 1 （包括两者）。</p>
-<p>给你一个二维整数数组 edges ，其中 edges[i] = [fromi, toi] 表示图中一条从 fromi 到 toi 的单向边。</p>
-<p>请你返回一个数组 answer，其中 answer[i]是第 i 个节点的所有<strong>祖先</strong>，这些祖先节点<strong>升序</strong>排序。</p>
-<p>如果 u 通过一系列边，能够到达 v ，那么我们称节点 u 是节点 v 的<strong>祖先</strong>节点。</p>
-<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
-</ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 8, edgeList = [[0,3],[0,4],[1,3],[2,4],[2,7],[3,5],[3,6],[3,7],[4,6]]</span><br><span class="line">输出：[[],[],[],[0,1],[0,2],[0,1,3],[0,1,2,3,4],[0,1,2,3]]</span><br><span class="line">解释：</span><br><span class="line">上图为输入所对应的图。</span><br><span class="line">- 节点<span class="number"> 0 </span>，1 和<span class="number"> 2 </span>没有任何祖先。</span><br><span class="line">- 节点<span class="number"> 3 </span>有<span class="number"> 2 </span>个祖先<span class="number"> 0 </span>和<span class="number"> 1 </span>。</span><br><span class="line">- 节点<span class="number"> 4 </span>有<span class="number"> 2 </span>个祖先<span class="number"> 0 </span>和<span class="number"> 2 </span>。</span><br><span class="line">- 节点<span class="number"> 5 </span>有<span class="number"> 3 </span>个祖先<span class="number"> 0 </span>，1 和<span class="number"> 3 </span>。</span><br><span class="line">- 节点<span class="number"> 6 </span>有<span class="number"> 5 </span>个祖先<span class="number"> 0 </span>，1 ，2 ，3 和<span class="number"> 4 </span>。</span><br><span class="line">- 节点<span class="number"> 7 </span>有<span class="number"> 4 </span>个祖先<span class="number"> 0 </span>，1 ，2 和<span class="number"> 3 </span>。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
-</ul>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 5, edgeList = <span class="comment">[<span class="comment">[0,1]</span>,<span class="comment">[0,2]</span>,<span class="comment">[0,3]</span>,<span class="comment">[0,4]</span>,<span class="comment">[1,2]</span>,<span class="comment">[1,3]</span>,<span class="comment">[1,4]</span>,<span class="comment">[2,3]</span>,<span class="comment">[2,4]</span>,<span class="comment">[3,4]</span>]</span></span><br><span class="line">输出：<span class="comment">[<span class="comment">[]</span>,<span class="comment">[0]</span>,<span class="comment">[0,1]</span>,<span class="comment">[0,1,2]</span>,<span class="comment">[0,1,2,3]</span>]</span></span><br><span class="line">解释：</span><br><span class="line">上图为输入所对应的图。</span><br><span class="line">- 节点 0 没有任何祖先。</span><br><span class="line">- 节点 1 有 1 个祖先 0 。</span><br><span class="line">- 节点 2 有 2 个祖先 0 和 1 。</span><br><span class="line">- 节点 3 有 3 个祖先 0 ，1 和 2 。</span><br><span class="line">- 节点 4 有 4 个祖先 0 ，1 ，2 和 3 。</span><br></pre></td></tr></table></figure>
-<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>第一遍直接用弗洛伊德做的，复杂度是$O(n^3)$，最后超时了。</p>
-<p>用n遍dijkstra复杂度降维$O(n^2\log(n))$,就不超时了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Edge</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> v,w,nxt;</span><br><span class="line">    &#125;edge[<span class="number">2005</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; q;</span><br><span class="line">        <span class="type">int</span> dis[<span class="number">1005</span>],vis[<span class="number">1005</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dis[i]=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">            vis[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dis[s]=<span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(<span class="number">0</span>,s));</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> x=q.<span class="built_in">top</span>().second;</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span>(vis[x]) <span class="keyword">continue</span>;</span><br><span class="line">            vis[x]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=head[x];i!=<span class="number">-1</span>;i=edge[i].nxt)&#123;</span><br><span class="line">                <span class="type">int</span> v=edge[i].v,w=edge[i].w;</span><br><span class="line">                <span class="keyword">if</span>(dis[v]&gt;dis[x]+w)&#123;</span><br><span class="line">                    dis[v]=dis[x]+w;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(v);</span><br><span class="line">                    q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(dis[v],v));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> head[<span class="number">1005</span>];</span><br><span class="line">    <span class="type">int</span> tot=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">        edge[tot].v=v;</span><br><span class="line">        edge[tot].w=<span class="number">1</span>;</span><br><span class="line">        edge[tot].nxt=head[u];</span><br><span class="line">        head[u]=tot++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">getAncestors</span>(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; edges) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">ans</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        <span class="type">int</span> tot=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            head[i]=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;edges.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="built_in">add</span>(edges[i][<span class="number">1</span>],edges[i][<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; ve=<span class="built_in">dijkstra</span>(i,n);</span><br><span class="line">            <span class="built_in">sort</span>(ve.<span class="built_in">begin</span>(),ve.<span class="built_in">end</span>());</span><br><span class="line">            ans[i]=ve;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/">2193. 得到回文串的最少操作次数</a></p>
-<p>我不配做hard，看了题解，大概是贪心算法。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1832,7 +1863,7 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1875,12 +1906,12 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">58k</span>
+    <span title="站点总字数">60k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">52 分钟</span>
+    <span title="站点阅读时长">55 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

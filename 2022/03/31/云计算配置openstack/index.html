@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="实验题目面向IaaS的OpenStack部署 实验环境 Window10 Vmware15.5pro CentOS7  实验步骤我的最终成功的openstack配置思路： 1.Vmware安装CentOS7​    自定义安装即可，大部分都可以采用默认设置，处理器的数量我设置为了4，内存给了4GB（我的笔记本一共就8个G，设置太大的话在运行过程中容易导致window卡死，太小的话配置opensta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云计算配置openstack">
+<meta property="og:url" content="https://zwh-sdu.github.io/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/index.html">
+<meta property="og:site_name" content="张文浩の博客">
+<meta property="og:description" content="实验题目面向IaaS的OpenStack部署 实验环境 Window10 Vmware15.5pro CentOS7  实验步骤我的最终成功的openstack配置思路： 1.Vmware安装CentOS7​    自定义安装即可，大部分都可以采用默认设置，处理器的数量我设置为了4，内存给了4GB（我的笔记本一共就8个G，设置太大的话在运行过程中容易导致window卡死，太小的话配置opensta">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112124445.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112156643.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112215793.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112320529.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112848394.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112900433.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331113056623.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331113121087.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331113131690.png">
+<meta property="article:published_time" content="2022-03-31T03:37:45.000Z">
+<meta property="article:modified_time" content="2022-03-31T03:34:42.334Z">
+<meta property="article:author" content="张文浩">
+<meta property="article:tag" content="云计算">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zwh-sdu.github.io/2022/03/31/images/image-20220331112124445.png">
+
+<link rel="canonical" href="https://zwh-sdu.github.io/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>云计算配置openstack | 张文浩の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">张文浩の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          云计算配置openstack
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-31 11:37:45 / 修改时间：11:34:42" itemprop="dateCreated datePublished" datetime="2022-03-31T11:37:45+08:00">2022-03-31</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="实验题目"><a href="#实验题目" class="headerlink" title="实验题目"></a>实验题目</h2><p>面向IaaS的OpenStack部署</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li>Window10</li>
+<li>Vmware15.5pro</li>
+<li>CentOS7</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>我的最终成功的openstack配置思路：</p>
+<h3 id="1-Vmware安装CentOS7"><a href="#1-Vmware安装CentOS7" class="headerlink" title="1.Vmware安装CentOS7"></a>1.Vmware安装CentOS7</h3><p>​    自定义安装即可，大部分都可以采用默认设置，处理器的数量我设置为了4，内存给了4GB（我的笔记本一共就8个G，设置太大的话在运行过程中容易导致window卡死，太小的话配置openstack不够用）。</p>
+<p>​    不建议选择最小化安装，没有图形界面，后面要使用浏览器的话比较麻烦，我选择的是GNOME Desktop。</p>
+<h3 id="2-CentOS配置静态IP"><a href="#2-CentOS配置静态IP" class="headerlink" title="2.CentOS配置静态IP"></a>2.CentOS配置静态IP</h3><ul>
+<li>编辑虚拟机网络编辑器</li>
+</ul>
+<p><img src="..\images\image-20220331112124445.png" alt="image-20220331112124445"></p>
+<ul>
+<li>切换到NAT模式下，设置子网ip，这里要记住，后面其他的设置要与之对应。</li>
+</ul>
+<p><img src="..\images\image-20220331112156643.png" alt="image-20220331112156643"></p>
+<ul>
+<li>点击NAT设置，设置网关IP</li>
+</ul>
+<p><img src="..\images\image-20220331112215793.png" alt="image-20220331112215793"></p>
+<p>​    虚拟机外面的设置就结束了，下面进入centos系统，再进行设置。</p>
+<ul>
+<li>在root环境下，修改centos系统的网卡配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eno33  </span><br></pre></td></tr></table></figure>
+<p>​    其中几个地方与默认的不同，我们要进行添加和修改。</p>
+<p><img src="..\images\image-20220331112320529.png" alt="image-20220331112320529"></p>
+<ul>
+<li>重启网络服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试一下当前网络是否可用，如果能够ping通，就没啥问题了。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+<h3 id="3-部署openstack"><a href="#3-部署openstack" class="headerlink" title="3.部署openstack"></a>3.部署openstack</h3><ul>
+<li>修改centos系统的主机名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname openstack  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加主机hosts记录，这里的ip地址跟上面网卡配置文件里的IPADDR一致。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;192.168.180.3 openstack&quot; &gt;&gt; /etc/hosts </span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以验证一下修改结果</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more /etc/hosts  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>关闭防火墙，关闭SeLinux，关闭NetworkManager服务</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">关闭防火墙</span>  </span><br><span class="line">systemctl stop firewalld  </span><br><span class="line">systemctl disable firewalld  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">查看防火墙状态</span>  </span><br><span class="line">systemctl status firewalld  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">关闭SeLinux</span>  </span><br><span class="line">setenforce 0  </span><br><span class="line">sed -i &#x27;s/SELINUX=enforcing/SELINUX=disabled/&#x27; /etc/selinux/config  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">关闭NetworkManager</span>  </span><br><span class="line">systemctl stop NetworkManager  </span><br><span class="line">systemctl disable NetworkManager  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">查看NetworkManager状态</span>  </span><br><span class="line">systemctl status NetworkManager  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改官方yum源为阿里云yum源</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">重建本地yum索引缓存</span>  </span><br><span class="line">yum makecache  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>系统升级</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">升级</span>  </span><br><span class="line">yum -y update  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">重启</span>  </span><br><span class="line">reboot  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装常用软件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vim bash-completion yum-utils  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenStack Stein的yum库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install centos-release-openstack-stein  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改CentOS-OpenStack-stein.repo配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">备份</span>  </span><br><span class="line">cp -a CentOS-OpenStack-stein.repo CentOS-OpenStack-stein.repo.bak    </span><br><span class="line"><span class="meta">#</span><span class="language-bash">修改配置文件</span>  </span><br><span class="line">vim CentOS-OpenStack-stein.repo  </span><br><span class="line">[centos-openstack-stein]  </span><br><span class="line">baseurl=http://mirrors.aliyun.com/$contentdir/$releasever/cloud/$basearch/openstack-stein/  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">mirrorlist=http://mirrorlist.centos.org/?release=<span class="variable">$releasever</span>&amp;<span class="built_in">arch</span>=<span class="variable">$basearch</span>&amp;repo=cloud-openstack-stein</span>  </span><br><span class="line">...  	  </span><br><span class="line"><span class="meta">#</span><span class="language-bash">清除本地yum索引缓存，然后再重建索引缓存</span>  </span><br><span class="line">yum clean all &amp;&amp; yum makecache  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装packstack工具</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openstack-packstack  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装OpenStack allinone</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --allinone  </span><br></pre></td></tr></table></figure>
+<p><img src="..\images\image-20220331112848394.png" alt="image-20220331112848394"></p>
+<p>​    这里执行时间会比较长，我大概用了半个多小时，我看网上说这样理论上就直接成功了，但我到这里报了个错，什么nova啥的。</p>
+<p><img src="..\images\image-20220331112900433.png" alt="image-20220331112900433"></p>
+<p>​    然后我在网上也没收到这个报错的解决方法，然后虚拟机变得异常卡顿，我就重启了一下虚拟机，然后经同学指点，让我试试下面这个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --answer-file [packstack-answers-XXXXX]  </span><br></pre></td></tr></table></figure>
+<p>​    其中后面[]里面是一个txt文件，应该是第一次运行”packstack –allinone”后产生的,可以直接通过命令ls查看该文件名。</p>
+<p>​    第二次运行理论上应该也应该成功了，但是后面有报错了。。。是说无法分配内存啥的，我就猜测是不是因为当时虚拟机太卡了，导致内存不足了，然后我又重启虚拟机，重新执行了一遍上面的命令。</p>
+<p>​    终于成功了！</p>
+<p><img src="..\images\image-20220331113056623.png" alt="image-20220331113056623"></p>
+<ul>
+<li>查看Dashboard web页面的登录账号及密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat keystonerc_admin   </span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开链接，就能看到登录界面了</li>
+</ul>
+<p><img src="..\images\image-20220331113121087.png" alt="image-20220331113121087"></p>
+<p>​    然后我又遇到问题了，点击登入之后，浏览器卡主不动了，我怀疑是火狐浏览器太拉了，又去安装了chrome浏览器。然后再谷歌浏览器上打开链接，才终于成功登入！</p>
+<p><img src="..\images\image-20220331113131690.png" alt="image-20220331113131690"></p>
+<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>​    配置openstack真的太恶心了，非常搞人心态，每次都是配了大半天碰到莫名其妙还无法解决的错误，就只能重装虚拟机，这两天我重装了无数台虚拟机，包括一开始的几台ubuntu，后来换成CentOS，经过两天半的不断尝试，才终于配好了openstack。</p>
+<p>​    于是经过本次试验，我对虚拟机的卸载、安装和配置可以说非常熟练了，在解决各种问题的过程中，对换源下载安装等操作都更加熟练，对OpenStack的配置有了明确地思路。也对openstack及其对应的各种安装工具和安装方法都有了一定的了解。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="tag"># 云计算</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/27/leetcode-%E7%AC%AC286%E5%9C%BA%E5%91%A8%E8%B5%9B/" rel="prev" title="leetcode-第286场周赛">
+      <i class="fa fa-chevron-left"></i> leetcode-第286场周赛
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">实验题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Vmware%E5%AE%89%E8%A3%85CentOS7"><span class="nav-number">3.1.</span> <span class="nav-text">1.Vmware安装CentOS7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CentOS%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP"><span class="nav-number">3.2.</span> <span class="nav-text">2.CentOS配置静态IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2openstack"><span class="nav-number">3.3.</span> <span class="nav-text">3.部署openstack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">实验体会</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="张文浩"
+      src="/images/messi.jpg">
+  <p class="site-author-name" itemprop="name">张文浩</p>
+  <div class="site-description" itemprop="description">我听见脚步声预料的软皮鞋跟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张文浩</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">60k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">55 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

@@ -180,10 +180,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-31 11:37:45 / 修改时间：11:34:42" itemprop="dateCreated datePublished" datetime="2022-03-31T11:37:45+08:00">2022-03-31</time>
+              <time title="创建时间：2022-03-31 11:37:45" itemprop="dateCreated datePublished" datetime="2022-03-31T11:37:45+08:00">2022-03-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-01 19:31:42" itemprop="dateModified" datetime="2022-04-01T19:31:42+08:00">2022-04-01</time>
+              </span>
 
           
             <span class="post-meta-item" title="本文字数">
@@ -220,22 +226,22 @@
 <h3 id="2-CentOS配置静态IP"><a href="#2-CentOS配置静态IP" class="headerlink" title="2.CentOS配置静态IP"></a>2.CentOS配置静态IP</h3><ul>
 <li>编辑虚拟机网络编辑器</li>
 </ul>
-<p><img src="..\images\image-20220331112124445.png" alt="image-20220331112124445"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112124445.png" class title="This is an example image">
 <ul>
 <li>切换到NAT模式下，设置子网ip，这里要记住，后面其他的设置要与之对应。</li>
 </ul>
-<p><img src="..\images\image-20220331112156643.png" alt="image-20220331112156643"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112156643.png" class title="This is an example image">
 <ul>
 <li>点击NAT设置，设置网关IP</li>
 </ul>
-<p><img src="..\images\image-20220331112215793.png" alt="image-20220331112215793"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112215793.png" class title="This is an example image">
 <p>​    虚拟机外面的设置就结束了，下面进入centos系统，再进行设置。</p>
 <ul>
 <li>在root环境下，修改centos系统的网卡配置文件</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-eno33  </span><br></pre></td></tr></table></figure>
 <p>​    其中几个地方与默认的不同，我们要进行添加和修改。</p>
-<p><img src="..\images\image-20220331112320529.png" alt="image-20220331112320529"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112320529.png" class title="This is an example image">
 <ul>
 <li>重启网络服务</li>
 </ul>
@@ -288,15 +294,15 @@
 <li>安装OpenStack allinone</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --allinone  </span><br></pre></td></tr></table></figure>
-<p><img src="..\images\image-20220331112848394.png" alt="image-20220331112848394"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112848394.png" class title="This is an example image">
 <p>​    这里执行时间会比较长，我大概用了半个多小时，我看网上说这样理论上就直接成功了，但我到这里报了个错，什么nova啥的。</p>
-<p><img src="..\images\image-20220331112900433.png" alt="image-20220331112900433"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331112900433.png" class title="This is an example image">
 <p>​    然后我在网上也没收到这个报错的解决方法，然后虚拟机变得异常卡顿，我就重启了一下虚拟机，然后经同学指点，让我试试下面这个命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">packstack --answer-file [packstack-answers-XXXXX]  </span><br></pre></td></tr></table></figure>
 <p>​    其中后面[]里面是一个txt文件，应该是第一次运行”packstack –allinone”后产生的,可以直接通过命令ls查看该文件名。</p>
 <p>​    第二次运行理论上应该也应该成功了，但是后面有报错了。。。是说无法分配内存啥的，我就猜测是不是因为当时虚拟机太卡了，导致内存不足了，然后我又重启虚拟机，重新执行了一遍上面的命令。</p>
 <p>​    终于成功了！</p>
-<p><img src="..\images\image-20220331113056623.png" alt="image-20220331113056623"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331113056623.png" class title="This is an example image">
 <ul>
 <li>查看Dashboard web页面的登录账号及密码</li>
 </ul>
@@ -304,9 +310,9 @@
 <ul>
 <li>打开链接，就能看到登录界面了</li>
 </ul>
-<p><img src="..\images\image-20220331113121087.png" alt="image-20220331113121087"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331113121087.png" class title="This is an example image">
 <p>​    然后我又遇到问题了，点击登入之后，浏览器卡主不动了，我怀疑是火狐浏览器太拉了，又去安装了chrome浏览器。然后再谷歌浏览器上打开链接，才终于成功登入！</p>
-<p><img src="..\images\image-20220331113131690.png" alt="image-20220331113131690"></p>
+<img src="/2022/03/31/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%85%8D%E7%BD%AEopenstack/image-20220331113131690.png" class title="This is an example image">
 <h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>​    配置openstack真的太恶心了，非常搞人心态，每次都是配了大半天碰到莫名其妙还无法解决的错误，就只能重装虚拟机，这两天我重装了无数台虚拟机，包括一开始的几台ubuntu，后来换成CentOS，经过两天半的不断尝试，才终于配好了openstack。</p>
 <p>​    于是经过本次试验，我对虚拟机的卸载、安装和配置可以说非常熟练了，在解决各种问题的过程中，对换源下载安装等操作都更加熟练，对OpenStack的配置有了明确地思路。也对openstack及其对应的各种安装工具和安装方法都有了一定的了解。</p>
 
@@ -1413,7 +1419,7 @@
 <h5 id="StanfordcoreNLP"><a href="#StanfordcoreNLP" class="headerlink" title="StanfordcoreNLP"></a>StanfordcoreNLP</h5></blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="string">&#x27;en&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(nlp.word_tokenize(English_data))</span><br></pre></td></tr></table></figure>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;family</span>&#x27;, <span class="string">&quot;&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$</span>&#x27;, <span class="symbol">&#x27;3.1</span>&#x27;, <span class="symbol">&#x27;billion</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;]</span><br></pre></td></tr></table></figure>
-<h5 id=""><a href="#" class="headerlink" title=" "></a> </h5><h3 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h3><blockquote>
+<h5 id><a href="#" class="headerlink" title=" "></a> </h5><h3 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h3><blockquote>
 <h5 id="中文分词效果对比"><a href="#中文分词效果对比" class="headerlink" title="中文分词效果对比"></a>中文分词效果对比</h5></blockquote>
 <ul>
 <li><p>jieba</p>
@@ -1721,15 +1727,15 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
 
       
           <h1 id="leetcode-第283场周赛"><a href="#leetcode-第283场周赛" class="headerlink" title="leetcode-第283场周赛"></a>leetcode-第283场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/">2194. Excel 表中某个范围内的单元格</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Excel 表中的一个单元格 (r, c) 会以字符串 “<col><row>“ 的形式进行表示，其中：</p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Excel 表中的一个单元格 (r, c) 会以字符串 “<col><row>“ 的形式进行表示，其中：</row></p>
 <ul>
 <li><col> 即单元格的列号 c 。用英文字母表中的 字母 标识。<ul>
 <li>例如，第 1 列用 ‘A’ 表示，第 2 列用 ‘B’ 表示，第 3 列用 ‘C’ 表示，以此类推。</li>
 </ul>
 </li>
-<li><row> 即单元格的行号 r 。第 r 行就用 整数 r 标识。</li>
+<li><row> 即单元格的行号 r 。第 r 行就用 整数 r 标识。</row></li>
 </ul>
-<p>给你一个格式为 “<col1><row1>:<col2><row2>“ 的字符串 s ，其中 <col1> 表示 c1 列，<row1> 表示 r1 行，<col2> 表示 c2 列，<row2> 表示 r2 行，并满足 r1 &lt;= r2 且 c1 &lt;= c2 。</p>
+<p>给你一个格式为 “<col1><row1>:<col2><row2>“ 的字符串 s ，其中 <col1> 表示 c1 列，<row1> 表示 r1 行，<col2> 表示 c2 列，<row2> 表示 r2 行，并满足 r1 &lt;= r2 且 c1 &lt;= c2 。</row2></col2></row1></col1></row2></col2></row1></col1></p>
 <p>找出所有满足 r1 &lt;= x &lt;= r2 且 c1 &lt;= y &lt;= c2 的单元格，并以列表形式返回。单元格应该按前面描述的格式用 字符串 表示，并以 非递减 顺序排列（先按列排，再按行排）。</p>
 <h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
 <li>示例1</li>

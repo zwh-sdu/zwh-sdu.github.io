@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">17</span></a>
 
   </li>
   </ul>
@@ -153,6 +153,151 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/13/leetcode-%E7%AC%AC284%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/leetcode-%E7%AC%AC284%E5%9C%BA%E5%91%A8%E8%B5%9B/" class="post-title-link" itemprop="url">leetcode-第284场周赛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-13 13:57:27 / 修改时间：14:21:58" itemprop="dateCreated datePublished" datetime="2022-03-13T13:57:27+08:00">2022-03-13</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="leetcode-第284场周赛"><a href="#leetcode-第284场周赛" class="headerlink" title="leetcode-第284场周赛"></a>leetcode-第284场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-all-k-distant-indices-in-an-array/">6031. 找出数组中的所有 K 近邻下标</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums 和两个整数 key 和 k 。K 近邻下标 是 nums 中的一个下标 i ，并满足至少存在一个下标 j 使得 |i - j| &lt;= k 且 nums[j] == key 。</p>
+<p>以列表形式返回按 递增顺序 排序的所有 K 近邻下标。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">5</span>], key = <span class="number">9</span>, k = <span class="number">1</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">解释：因此，nums[<span class="number">2</span>] == key 且 nums[<span class="number">5</span>] == key 。</span><br><span class="line">- 对下标 <span class="number">0</span> ，|<span class="type">0</span> - <span class="number">2</span>| <span class="type">&gt; k</span> 且 |<span class="type">0</span> - <span class="number">5</span>| <span class="type">&gt; k</span> ，所以不存在 j 使得 |<span class="type">0</span> - j| <span class="type">&lt;= k</span> 且 nums[j] == key 。所以 <span class="number">0</span> 不是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">1</span> ，|<span class="type">1</span> - <span class="number">2</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">2</span>] == key ，所以 <span class="number">1</span> 是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">2</span> ，|<span class="type">2</span> - <span class="number">2</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">2</span>] == key ，所以 <span class="number">2</span> 是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">3</span> ，|<span class="type">3</span> - <span class="number">2</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">2</span>] == key ，所以 <span class="number">3</span> 是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">4</span> ，|<span class="type">4</span> - <span class="number">5</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">5</span>] == key ，所以 <span class="number">4</span> 是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">5</span> ，|<span class="type">5</span> - <span class="number">5</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">5</span>] == key ，所以 <span class="number">5</span> 是一个 K 近邻下标。</span><br><span class="line">- 对下标 <span class="number">6</span> ，|<span class="type">6</span> - <span class="number">5</span>| <span class="type">&lt;= k</span> 且 nums[<span class="number">5</span>] == key ，所以 <span class="number">6</span> 是一个 K 近邻下标。</span><br><span class="line">因此，按递增顺序返回 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] 。 </span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="comment">[2,2,2,2,2]</span>, key = 2, k = 2</span><br><span class="line">输出：<span class="comment">[0,1,2,3,4]</span></span><br><span class="line">解释：对 nums 的所有下标 i ，总存在某个下标 j 使得 |i - j| &lt;= k 且 nums<span class="comment">[j]</span> == key ，所以每个下标都是一个 K 近邻下标。 </span><br><span class="line">因此，返回 <span class="comment">[0,1,2,3,4]</span> 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>​    遍历，两个for循环即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findKDistantIndices</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> key, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="built_in">max</span>(i-k,<span class="number">0</span>);j&lt;=<span class="built_in">min</span>(i+k,(<span class="type">int</span>)nums.<span class="built_in">size</span>()<span class="number">-1</span>);j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j]==key)&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(i);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-artifacts-that-can-be-extracted/">5203. 统计可以提取的工件</a></p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><ul>
+<li><p>存在一个 <code>n x n</code> 大小、下标从 <strong>0</strong> 开始的网格，网格中埋着一些工件。给你一个整数 <code>n</code> 和一个下标从 <strong>0</strong> 开始的二维整数数组 <code>artifacts</code> ，<code>artifacts</code> 描述了矩形工件的位置，其中 $artifacts[i] = [r1_i, c1_i, r2_i, c2_i]$ 表示第 <code>i</code> 个工件在子网格中的填埋情况：</p>
+<ul>
+<li>$(r1_i, c1_i)$ 是第 <code>i</code> 个工件 <strong>左上</strong> 单元格的坐标，且</li>
+<li>$(r2_i, c2_i)$ 是第 <code>i</code> 个工件 <strong>右下</strong> 单元格的坐标。</li>
+</ul>
+<p>你将会挖掘网格中的一些单元格，并清除其中的填埋物。如果单元格中埋着工件的一部分，那么该工件这一部分将会裸露出来。如果一个工件的所有部分都都裸露出来，你就可以提取该工件。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的二维整数数组 <code>dig</code> ，其中 <code>dig[i] = [ri, ci]</code> 表示你将会挖掘单元格 <code>(ri, ci)</code> ，返回你可以提取的工件数目。</p>
+<p>生成的测试用例满足：</p>
+<ul>
+<li>不存在重叠的两个工件。</li>
+<li>每个工件最多只覆盖 <code>4</code> 个单元格。</li>
+<li><code>dig</code> 中的元素互不相同。</li>
+</ul>
+</li>
+</ul>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">2</span>, artifacts = <span class="string">[[0,0,0,0],[0,1,1,1]]</span>, dig = <span class="string">[[0,0],[0,1]]</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释： </span><br><span class="line">不同颜色表示不同的工件。挖掘的单元格用 <span class="string">&#x27;D&#x27;</span> 在网格中进行标记。</span><br><span class="line">有 <span class="number">1</span> 个工件可以提取，即红色工件。</span><br><span class="line">蓝色工件在单元格 (<span class="number">1</span>,<span class="number">1</span>) 的部分尚未裸露出来，所以无法提取该工件。</span><br><span class="line">因此，返回 <span class="number">1</span> 。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = <span class="number">2</span>, artifacts = <span class="string">[[0,0,0,0],[0,1,1,1]]</span>, dig = <span class="string">[[0,0],[0,1],[1,1]]</span></span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：红色工件和蓝色工件的所有部分都裸露出来（用 <span class="string">&#x27;D&#x27;</span> 标记），都可以提取。因此，返回 <span class="number">2</span> 。 </span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>二维数组a用来存储整张图，因为两个工件不会重叠，所以将a全都初始化为0，遍历artifacts数组，给a中覆盖的位置从1开始赋值，表示当前位置被哪一个工件覆盖。</p>
+<p>再利用数组b存储第i个工件占了多少个位置，然后遍历dig时，利用数组a找到当前是哪一个工件的一部分，如果当前工件被挖开部分的数量与其占的位置的数量相等，就说明这个工件已经被完全挖出来了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">digArtifacts</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; artifacts, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dig)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">a</span>(n,<span class="built_in">vector</span>(n,<span class="number">0</span>));</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(artifacts.size()+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;artifacts.<span class="built_in">size</span>();k++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=artifacts[k][<span class="number">0</span>];i&lt;=artifacts[k][<span class="number">2</span>];i++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=artifacts[k][<span class="number">1</span>];j&lt;=artifacts[k][<span class="number">3</span>];j++)&#123;</span><br><span class="line">                    a[i][j]=k+<span class="number">1</span>;</span><br><span class="line">                    b[k+<span class="number">1</span>]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;dig.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[dig[i][<span class="number">0</span>]][dig[i][<span class="number">1</span>]]!=<span class="number">0</span>)&#123;</span><br><span class="line">                b[a[dig[i][<span class="number">0</span>]][dig[i][<span class="number">1</span>]]]--;</span><br><span class="line">                <span class="keyword">if</span>(b[a[dig[i][<span class="number">0</span>]][dig[i][<span class="number">1</span>]]]==<span class="number">0</span>)&#123;</span><br><span class="line">                    ans++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximize-the-topmost-element-after-k-moves/">5227. K 次操作后最大化顶端元素</a></p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums ，它表示一个 栈 ，其中 nums[0] 是栈顶的元素。</p>
+<p>每一次操作中，你可以执行以下操作 之一 ：</p>
+<ul>
+<li><p>如果栈非空，那么 删除 栈顶端的元素。</p>
+</li>
+<li><p>如果存在 1 个或者多个被删除的元素，你可以从它们中选择任何一个，添加 回栈顶，这个元素成为新的栈顶元素。</p>
+</li>
+</ul>
+<p>同时给你一个整数 k ，它表示你总共需要执行操作的次数。</p>
+<p>请你返回 恰好 执行 k 次操作以后，栈顶元素的 最大值 。如果执行完 k 次操作以后，栈一定为空，请你返回 -1 。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,2,2,4,0,6], k = 4</span><br><span class="line">输出：5</span><br><span class="line">解释：</span><br><span class="line">4 次操作后，栈顶元素为<span class="number"> 5 </span>的方法之一为：</span><br><span class="line">- 第<span class="number"> 1 </span>次操作：删除栈顶元素<span class="number"> 5 </span>，栈变为 [2,2,4,0,6] 。</span><br><span class="line">- 第<span class="number"> 2 </span>次操作：删除栈顶元素<span class="number"> 2 </span>，栈变为 [2,4,0,6] 。</span><br><span class="line">- 第<span class="number"> 3 </span>次操作：删除栈顶元素<span class="number"> 2 </span>，栈变为 [4,0,6] 。</span><br><span class="line">- 第<span class="number"> 4 </span>次操作：将<span class="number"> 5 </span>添加回栈顶，栈变为 [5,4,0,6] 。</span><br><span class="line">注意，这不是最后栈顶元素为<span class="number"> 5 </span>的唯一方式。但可以证明，4 次操作以后<span class="number"> 5 </span>是能得到的最大栈顶元素。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">nums</span> = [<span class="number">2</span>], <span class="attr">k</span> = <span class="number">1</span></span><br><span class="line">输出：-<span class="number">1</span></span><br><span class="line">解释：</span><br><span class="line">第 <span class="number">1</span> 次操作中，我们唯一的选择是将栈顶元素弹出栈。</span><br><span class="line">由于 <span class="number">1</span> 次操作后无法得到一个非空的栈，所以我们返回 -<span class="number">1</span> 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>这次周赛的第三题比较简单，在数组nums中除了下标为k-1个的那个数不能被当做最终的栈顶之外，前k个都可以当做最终的栈顶，找出这里面的最大值即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maximumTop</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="built_in">min</span>((<span class="type">int</span>)nums.<span class="built_in">size</span>()<span class="number">-1</span>,k);i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i!=k<span class="number">-1</span>)&#123;</span><br><span class="line">                ans=<span class="built_in">max</span>(ans,nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">size</span>()==<span class="number">1</span>&amp;&amp;k%<span class="number">2</span>==<span class="number">1</span>) ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-weighted-subgraph-with-the-required-paths/">6032. 得到要求路径的最小带权子图</a></p>
+<p>看了一眼，感觉有点像最小生成树，但没啥思路。</p>
+<h4 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数 n ，它表示一个 带权有向 图的节点数，节点编号为 0 到 n - 1 。</p>
+<p>同时给你一个二维整数数组 edges ，其中 edges[i] = [fromi, toi, weighti] ，表示从 fromi 到 toi 有一条边权为 weighti 的 有向 边。</p>
+<p>最后，给你三个 互不相同 的整数 src1 ，src2 和 dest ，表示图中三个不同的点。</p>
+<p>请你从图中选出一个 边权和最小 的子图，使得从 src1 和 src2 出发，在这个子图中，都 可以 到达 dest 。如果这样的子图不存在，请返回 -1 。</p>
+<p>子图 中的点和边都应该属于原图的一部分。子图的边权和定义为它所包含的所有边的权值之和。</p>
+<h4 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h4><p>看了一个题解，用dijkstra：</p>
+<p>dijkstra 正向图跑 src1 和 src2 的单源最短路；然后反向图跑 dest 的单源最短路。<br>最后统计的时候，找个中间点，统计 src1、src2 和 dest 总和距离即可。<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-weighted-subgraph-with-the-required-paths/solution/-by-distance66-7zi7/">https://leetcode-cn.com/problems/minimum-weighted-subgraph-with-the-required-paths/solution/-by-distance66-7zi7/</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">const</span> ll inf = <span class="number">1e18</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">typedef</span> pair&lt;ll, ll&gt; P;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;ll&gt; <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> startt, vector&lt; vector&lt;P&gt; &gt; edge)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;ll&gt; <span class="title">dis</span><span class="params">(n, inf)</span></span>;</span><br><span class="line"></span><br><span class="line">        priority_queue&lt;P, vector&lt;P&gt;, greater&lt;P&gt; &gt;q;</span><br><span class="line">        q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(<span class="number">0</span>, startt));</span><br><span class="line">        dis[startt] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            P now = q.<span class="built_in">top</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> v = now.second;</span><br><span class="line">            <span class="keyword">if</span>(dis[v] &lt; now.first) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[v].<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">                P e = edge[v][i];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(dis[e.first] &gt; dis[v] + e.second) &#123;</span><br><span class="line">                    dis[e.first] = dis[v] + e.second;</span><br><span class="line">                    q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(dis[e.first], e.first));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">return</span> dis;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">minimumWeight</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; edges, <span class="type">int</span> src1, <span class="type">int</span> src2, <span class="type">int</span> dest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span> -&gt; n = n;</span><br><span class="line">        </span><br><span class="line">        vector&lt; vector&lt;P&gt; &gt; <span class="built_in">edge</span>(n);</span><br><span class="line">        vector&lt; vector&lt;P&gt; &gt; <span class="built_in">edge1</span>(n); </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(ll i = <span class="number">0</span>, x, y, w; i &lt; edges.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            x = edges[i][<span class="number">0</span>];</span><br><span class="line">            y = edges[i][<span class="number">1</span>];</span><br><span class="line">            w = edges[i][<span class="number">2</span>];</span><br><span class="line">            </span><br><span class="line">            edge[x].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(y, w));</span><br><span class="line">            edge1[y].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(x, w));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        vector&lt;ll&gt; dis1 = <span class="built_in">dijkstra</span>(src1, edge);</span><br><span class="line">        vector&lt;ll&gt; dis2 = <span class="built_in">dijkstra</span>(src2, edge);</span><br><span class="line">        vector&lt;ll&gt; dis3 = <span class="built_in">dijkstra</span>(dest, edge1);</span><br><span class="line">        </span><br><span class="line">        ll res = inf;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            res = <span class="built_in">min</span>(res,  dis1[i] + dis2[i] + dis3[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(res == inf) &#123;</span><br><span class="line">            res = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1184,7 +1329,7 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1227,12 +1372,12 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">110k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:37</span>
+    <span title="站点阅读时长">1:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

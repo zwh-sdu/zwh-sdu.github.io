@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a>
 
   </li>
   </ul>
@@ -153,6 +153,719 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/" class="post-title-link" itemprop="url">自然语言处理实验二</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-13 10:18:24" itemprop="dateCreated datePublished" datetime="2022-03-13T10:18:24+08:00">2022-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-03 11:09:46" itemprop="dateModified" datetime="2022-04-03T11:09:46+08:00">2022-04-03</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>24k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>21 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="实验二：分词"><a href="#实验二：分词" class="headerlink" title="实验二：分词"></a>实验二：分词</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
+<h2 id="实验日期："><a href="#实验日期：" class="headerlink" title="实验日期："></a>实验日期：</h2><p>2022.3.10</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>了解中英文分词工具</p>
+<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>利用给定的中英文文本序列（见 Chinese.txt 和 English.txt），分别利用以下给定的中英文分词工具进行分词并对不同分词工具产生的结果进行简要对比分析，将实验过程与结果写成实验报告，实验课结束后提交。</p>
+<h2 id="实验原理："><a href="#实验原理：" class="headerlink" title="实验原理："></a>实验原理：</h2><blockquote>
+<h3 id="中文分词工具"><a href="#中文分词工具" class="headerlink" title="中文分词工具"></a>中文分词工具</h3></blockquote>
+<ul>
+<li><p><strong>Jieba（</strong>重点），尝试<strong>三种分词模式</strong>与<strong>自定义词典</strong>功能：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fxsjy/jieba">https://github.com/fxsjy/jieba</a></p>
+<p>支持四种分词模式：</p>
+<ol>
+<li>精确模式<br>试图将句子最精确地切开，适合文本分析；</li>
+<li>全模式<br>把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；</li>
+<li>搜索引擎模式<br>在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+<li>paddle模式<br>利用PaddlePaddle深度学习框架，训练序列标注（双向GRU）网络模型实现分词。同时支持词性标注。<br>paddle模式使用需安装paddlepaddle-tiny.</li>
+</ol>
+</li>
+<li><p>SnowNLP：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/isnowfy/snownlp">https://github.com/isnowfy/snownlp</a></p>
+</li>
+<li><p>THULAC：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/thunlp/THULAC-Python">https://github.com/thunlp/THULAC-Python</a></p>
+</li>
+<li><p>NLPIR：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tsroten/pynlpir">https://github.com/tsroten/pynlpir</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34613450/article/details/78695166">https://blog.csdn.net/weixin_34613450/article/details/78695166</a></p>
+</li>
+<li><p>StanfordCoreNLP：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Lynten/stanford-corenlp">https://github.com/Lynten/stanford-corenlp</a></p>
+</li>
+<li><p>HanLP（选做，需要额外安装 Microsoft Visual C++ 14.0）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hankcs/pyhanlp">https://github.com/hankcs/pyhanlp</a></p>
+</li>
+</ul>
+<blockquote>
+<h3 id="英文分词工具"><a href="#英文分词工具" class="headerlink" title="英文分词工具"></a>英文分词工具</h3></blockquote>
+<ul>
+<li><p>NLTK：</p>
+<p><a target="_blank" rel="noopener" href="http://www.nltk.org/index.html">http://www.nltk.org/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nltk/nltk">https://github.com/nltk/nltk</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9d232e4a3c28">https://www.jianshu.com/p/9d232e4a3c28</a></p>
+</li>
+<li><p>SpaCy：</p>
+</li>
+</ul>
+<p>​    <a target="_blank" rel="noopener" href="https://blog.csdn.net/u012436149/article/details/79321112">https://blog.csdn.net/u012436149/article/details/79321112</a></p>
+<p>​    <a target="_blank" rel="noopener" href="https://spacy.io/usage/linguistic-features#section-tokenization">https://spacy.io/usage/linguistic-features#section-tokenization</a></p>
+<ul>
+<li><p>StanfordCoreNLP：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Lynten/stanford-corenlp">https://github.com/Lynten/stanford-corenlp</a></p>
+</li>
+</ul>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h3 id="中文分词工具-1"><a href="#中文分词工具-1" class="headerlink" title="中文分词工具"></a>中文分词工具</h3><ul>
+<li>读取中文数据集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chinese_data = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;Chinese.txt&quot;</span>, <span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:  <span class="comment"># 打开文件</span></span><br><span class="line">    Chinese_data = f.read()  <span class="comment"># 读取文件</span></span><br><span class="line"><span class="built_in">print</span>(Chinese_data)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="jieba"><a href="#jieba" class="headerlink" title="jieba"></a>jieba</h4></blockquote>
+<ul>
+<li>利用jieba库的四种模式进行分词</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line">jieba.enable_paddle()  <span class="comment"># 开启paddle模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全模式</span></span><br><span class="line">words = jieba.cut(Chinese_data, cut_all=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;全模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">words = jieba.cut(Chinese_data, use_paddle=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;新词模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认精确模式</span></span><br><span class="line">words = jieba.cut(Chinese_data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;精确模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索模式</span></span><br><span class="line">words = jieba.cut_for_search(Chinese_data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;搜索模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>jieba输出</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">全模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲/田/牌/“/土鸡/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/标上/玩/猫腻/，/分别/注册/“/鲜/土/”、/注册/“/好/土/”/商标/，/让/消费/消费者/误以为/以为/是/“/土鸡/鸡蛋/”。/3/月/15/日/晚间/，/新/京报/记者/就此/此事/致电/湖北/神丹/健康/食品/有限/有限公司/公司/方面/，/其/工作/工作人员/作人/人员/表示/不知/不知情/知情/，/需要/了解/清楚/情况/，/截至/发稿/暂/未取/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/有限公司/公司/为/农业/农业产业/产业/产业化/国家/重点/龙头/龙头企业/企业/、/高新/高新技术/技术/企业/，/此前/曾/因涉嫌/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">新词模式:</span><br><span class="line"></span><br><span class="line"> 央/视/315/晚会/曝光/湖北省/知名/的/神丹牌、莲田牌“土鸡蛋”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻，/分别/注册/“鲜土”、/注册/“/好土/”/商标/，/让/消费者/误/以为/是/“土/鸡蛋/”。/3月15日晚间/，/新京报/记者/就/此事/致电/湖北神丹健康食品有限公司/方面/，/其/工作/人员/表示/不知/情，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新京报/记者/还/查询/发现/，/湖北神丹健康食品有限公司/为/农业/产业化/国家/重点/龙头/企业/、/高新技术/企业/，/此前/曾/因/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">精确模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费者/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限公司/方面/，/其/工作人员/表示/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限公司/为/农业/产业化/国家/重点/龙头企业/、/高新技术/企业/，/此前/曾/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">搜索模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费/消费者/以为/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限/公司/有限公司/方面/，/其/工作/作人/人员/工作人员/表示/不知/知情/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/公司/有限公司/为/农业/产业/产业化/国家/重点/龙头/企业/龙头企业/、/高新/技术/高新技术/企业/，/此前/曾/涉嫌/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
+<ul>
+<li>载入自创建字典</li>
+</ul>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;mydict.txt&quot;</span></span><br><span class="line">神丹牌</span><br><span class="line">莲花牌</span><br><span class="line">土鸡蛋</span><br><span class="line">新京报</span><br><span class="line"><span class="number">315</span>晚会</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jieba.load_userdict(<span class="string">&quot;mydict.txt&quot;</span>)</span><br><span class="line">words=jieba.cut(Chinese_data, cut_all=<span class="literal">False</span>) <span class="comment">#精确模式  str 为之前的字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;载入自创建字典后:\n%s&quot;</span> % <span class="string">&#x27;/&#x27;</span>.join(words))</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">载入自创建字典后:</span><br><span class="line">﻿<span class="regexp">/央视/</span><span class="number">315</span>晚会<span class="regexp">/曝光/</span>湖北省<span class="regexp">/知名/</span>的<span class="regexp">/神丹牌/</span>、<span class="regexp">/莲田牌/</span>“<span class="regexp">/土鸡蛋/</span>”<span class="regexp">/实为/</span>普通<span class="regexp">/鸡蛋/</span>冒充<span class="regexp">/，/</span>同时<span class="regexp">/在/</span>商标<span class="regexp">/上/</span>玩<span class="regexp">/猫腻/</span>，<span class="regexp">/分别/</span>注册<span class="regexp">/“/</span>鲜土<span class="regexp">/”/</span>、<span class="regexp">/注册/</span>“<span class="regexp">/好土/</span>”<span class="regexp">/商标/</span>，<span class="regexp">/让/</span>消费者<span class="regexp">/误以为/</span>是<span class="regexp">/“/</span>土鸡蛋<span class="regexp">/”/</span>。<span class="regexp">/3/</span>月<span class="regexp">/15/</span>日<span class="regexp">/晚间/</span>，<span class="regexp">/新京报/</span>记者<span class="regexp">/就/</span>此事<span class="regexp">/致电/</span>湖北<span class="regexp">/神丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/方面/</span>，<span class="regexp">/其/</span>工作人员<span class="regexp">/表示/</span>不知情<span class="regexp">/，/</span>需要<span class="regexp">/了解/</span>清楚<span class="regexp">/情况/</span>，<span class="regexp">/截至/</span>发稿<span class="regexp">/暂未/</span>取得<span class="regexp">/最新/</span>回应<span class="regexp">/。/</span>新京报<span class="regexp">/记者/</span>还<span class="regexp">/查询/</span>发现<span class="regexp">/，/</span>湖北<span class="regexp">/神丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/为/</span>农业<span class="regexp">/产业化/</span>国家<span class="regexp">/重点/</span>龙头企业<span class="regexp">/、/</span>高新技术<span class="regexp">/企业/</span>，<span class="regexp">/此前/</span>曾<span class="regexp">/因涉嫌/</span>虚假<span class="regexp">/宣传/</span>“<span class="regexp">/中国/</span>最大<span class="regexp">/的/</span>蛋品<span class="regexp">/企业/</span>”<span class="regexp">/而/</span>被<span class="regexp">/罚/</span><span class="number">6</span><span class="regexp">/万元/</span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对比</li>
+</ul>
+<p>​    从测试的情况中可以简单的推测：paddle模式对于机构团体名的解析比较准确（能够分出“神丹牌”等词），而精确模式对部分词语的解析不太正确，搜索和全模式也是一样。</p>
+<p>​    在载入自创建字典后，可以看到，自创建字典中的词都被正确的拆分出来了。</p>
+<blockquote>
+<h4 id="SnowNlp"><a href="#SnowNlp" class="headerlink" title="SnowNlp"></a>SnowNlp</h4></blockquote>
+<p>SnowNlp提供了多种功能，包括但不限于</p>
+<ul>
+<li>中文分词</li>
+<li>得到拼音</li>
+<li>总结</li>
+<li>得到关键词</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> snownlp <span class="keyword">import</span> SnowNLP</span><br><span class="line">s=SnowNLP(Chinese_data)   <span class="comment">#str为之前去掉符号的中文字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;分词:\n%s&quot;</span> % s.words)   <span class="comment">#进行分词</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;拼音:\n%s&quot;</span> % s.pinyin)  <span class="comment">#得到拼音</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;总结:\n%s&quot;</span> % s.summary(<span class="number">3</span>)) <span class="comment">#进行总结 summary</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;得到关键词:\n%s&quot;</span> % s.keywords(<span class="number">3</span>)) <span class="comment"># 得到关键词</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SnowNlp输出</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">分词:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;\ufeff&#x27;</span>, <span class="string">&#x27;央视&#x27;</span>, <span class="string">&#x27;315&#x27;</span>, <span class="string">&#x27;晚会&#x27;</span>, <span class="string">&#x27;曝光&#x27;</span>, <span class="string">&#x27;湖北省&#x27;</span>, <span class="string">&#x27;知名&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;神丹&#x27;</span>, <span class="string">&#x27;牌&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;莲&#x27;</span>, <span class="string">&#x27;田&#x27;</span>, <span class="string">&#x27;牌&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;实&#x27;</span>, <span class="string">&#x27;为&#x27;</span>, <span class="string">&#x27;普通&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;冒充&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;同时&#x27;</span>, <span class="string">&#x27;在&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>, <span class="string">&#x27;上&#x27;</span>, <span class="string">&#x27;玩猫&#x27;</span>, <span class="string">&#x27;腻&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;分别&#x27;</span>, <span class="string">&#x27;注册&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;鲜&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;”、&#x27;</span>, <span class="string">&#x27;注册&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;好&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;让&#x27;</span>, <span class="string">&#x27;消费者&#x27;</span>, <span class="string">&#x27;误&#x27;</span>, <span class="string">&#x27;以为&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;”。3&#x27;</span>, <span class="string">&#x27;月&#x27;</span>, <span class="string">&#x27;15&#x27;</span>, <span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;晚间&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;新京&#x27;</span>, <span class="string">&#x27;报&#x27;</span>, <span class="string">&#x27;记者&#x27;</span>, <span class="string">&#x27;就&#x27;</span>, <span class="string">&#x27;此事&#x27;</span>, <span class="string">&#x27;致电&#x27;</span>, <span class="string">&#x27;湖北&#x27;</span>, <span class="string">&#x27;神&#x27;</span>, <span class="string">&#x27;丹&#x27;</span>, <span class="string">&#x27;健康&#x27;</span>, <span class="string">&#x27;食品&#x27;</span>, <span class="string">&#x27;有限公司&#x27;</span>, <span class="string">&#x27;方面&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;其&#x27;</span>, <span class="string">&#x27;工作&#x27;</span>, <span class="string">&#x27;人员&#x27;</span>, <span class="string">&#x27;表示&#x27;</span>, <span class="string">&#x27;不&#x27;</span>, <span class="string">&#x27;知情&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;需要&#x27;</span>, <span class="string">&#x27;了解&#x27;</span>, <span class="string">&#x27;清楚&#x27;</span>, <span class="string">&#x27;情况&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;截至&#x27;</span>, <span class="string">&#x27;发稿&#x27;</span>, <span class="string">&#x27;暂&#x27;</span>, <span class="string">&#x27;未&#x27;</span>, <span class="string">&#x27;取得&#x27;</span>, <span class="string">&#x27;最新&#x27;</span>, <span class="string">&#x27;回应&#x27;</span>, <span class="string">&#x27;。&#x27;</span>, <span class="string">&#x27;新京&#x27;</span>, <span class="string">&#x27;报&#x27;</span>, <span class="string">&#x27;记者&#x27;</span>, <span class="string">&#x27;还&#x27;</span>, <span class="string">&#x27;查询&#x27;</span>, <span class="string">&#x27;发现&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;湖北&#x27;</span>, <span class="string">&#x27;神&#x27;</span>, <span class="string">&#x27;丹&#x27;</span>, <span class="string">&#x27;健康&#x27;</span>, <span class="string">&#x27;食品&#x27;</span>, <span class="string">&#x27;有限公司&#x27;</span>, <span class="string">&#x27;为&#x27;</span>, <span class="string">&#x27;农业&#x27;</span>, <span class="string">&#x27;产业化&#x27;</span>, <span class="string">&#x27;国家&#x27;</span>, <span class="string">&#x27;重点&#x27;</span>, <span class="string">&#x27;龙头&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;高新技术&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;此前&#x27;</span>, <span class="string">&#x27;曾&#x27;</span>, <span class="string">&#x27;因&#x27;</span>, <span class="string">&#x27;涉嫌&#x27;</span>, <span class="string">&#x27;虚假&#x27;</span>, <span class="string">&#x27;宣传&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;中国&#x27;</span>, <span class="string">&#x27;最&#x27;</span>, <span class="string">&#x27;大&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;蛋品&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;而&#x27;</span>, <span class="string">&#x27;被&#x27;</span>, <span class="string">&#x27;罚&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;万&#x27;</span>, <span class="string">&#x27;元&#x27;</span>, <span class="string">&#x27;。&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">拼音:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;\ufeff&#x27;</span>, <span class="string">&#x27;央&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;315&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;hui&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;guang&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;xing&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;ming&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;pai&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;lian&#x27;</span>, <span class="string">&#x27;tian&#x27;</span>, <span class="string">&#x27;pai&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;pu&#x27;</span>, <span class="string">&#x27;tong&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;mao&#x27;</span>, <span class="string">&#x27;chong&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;tong&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;zai&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;mao&#x27;</span>, <span class="string">&#x27;ni&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;fen&#x27;</span>, <span class="string">&#x27;bie&#x27;</span>, <span class="string">&#x27;zhu&#x27;</span>, <span class="string">&#x27;ce&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;”、&#x27;</span>, <span class="string">&#x27;zhu&#x27;</span>, <span class="string">&#x27;ce&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;hao&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;rang&#x27;</span>, <span class="string">&#x27;xiao&#x27;</span>, <span class="string">&#x27;fei&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;wu&#x27;</span>, <span class="string">&#x27;yi&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;”。3&#x27;</span>, <span class="string">&#x27;yue&#x27;</span>, <span class="string">&#x27;15&#x27;</span>, <span class="string">&#x27;ri&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;jiu&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;dian&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;kang&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;pin&#x27;</span>, <span class="string">&#x27;you&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;si&#x27;</span>, <span class="string">&#x27;fang&#x27;</span>, <span class="string">&#x27;mian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;zuo&#x27;</span>, <span class="string">&#x27;ren&#x27;</span>, <span class="string">&#x27;yuan&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;bu&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;xu&#x27;</span>, <span class="string">&#x27;yao&#x27;</span>, <span class="string">&#x27;liao&#x27;</span>, <span class="string">&#x27;jie&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;chu&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;kuang&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;jie&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;gao&#x27;</span>, <span class="string">&#x27;zan&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;qu&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;zui&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;hui&#x27;</span>, <span class="string">&#x27;ying&#x27;</span>, <span class="string">&#x27;。&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;huan&#x27;</span>, <span class="string">&#x27;cha&#x27;</span>, <span class="string">&#x27;xun&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;kang&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;pin&#x27;</span>, <span class="string">&#x27;you&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;si&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;nong&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;chan&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;hua&#x27;</span>, <span class="string">&#x27;guo&#x27;</span>, <span class="string">&#x27;jia&#x27;</span>, <span class="string">&#x27;zhong&#x27;</span>, <span class="string">&#x27;dian&#x27;</span>, <span class="string">&#x27;long&#x27;</span>, <span class="string">&#x27;tou&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;gao&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;shu&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;qian&#x27;</span>, <span class="string">&#x27;zeng&#x27;</span>, <span class="string">&#x27;yin&#x27;</span>, <span class="string">&#x27;she&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;xu&#x27;</span>, <span class="string">&#x27;jia&#x27;</span>, <span class="string">&#x27;xuan&#x27;</span>, <span class="string">&#x27;chuan&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;zhong&#x27;</span>, <span class="string">&#x27;guo&#x27;</span>, <span class="string">&#x27;zui&#x27;</span>, <span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;er&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;元&#x27;</span>, <span class="string">&#x27;。&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">总结:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;新京报记者就此事致电湖北神丹健康食品有限公司方面&#x27;</span>, <span class="string">&#x27;让消费者误以为是“土鸡蛋”&#x27;</span>, <span class="string">&#x27;湖北神丹健康食品有限公司为农业产业化国家重点龙头企业、高新技术企业&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">得到关键词:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="thulac"><a href="#thulac" class="headerlink" title="thulac"></a>thulac</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> thulac</span><br><span class="line">thu = thulac.thulac(seg_only=<span class="literal">True</span>)  <span class="comment">#只进行分词，不进行词性标注</span></span><br><span class="line">words = thu.cut(Chinese_data,text=<span class="literal">True</span>) </span><br><span class="line"><span class="built_in">print</span>(words)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>thulac输出</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">﻿央 视<span class="number"> 315 </span>晚会 曝光 湖北省 知名 的 神丹牌 、 莲田牌 “ 土鸡蛋 ” 实 为 普通 鸡蛋 冒充 ， 同时 在 商标 上 玩 猫腻 ， 分别 注册 “ 鲜土 ” 、 注册 “ 好 土 ” 商标 ， 让 消费者 误 以为 是 “ 土鸡蛋 ” 。 3月 15日 晚间 ， 新 京报 记者 就 此事 致电 湖北 神丹 健康 食品 有限公司 方面 ， 其 工作 人员 表示 不 知 情 ， 需要 了 解 清楚 情况 ， 截至 发稿 暂 未 取得 最新 回应 。 新 京报 记者 还 查询 发现 ， 湖北 神丹 健康 食品 有限公司 为 农业 产业化 国 家 重点 龙头 企业 、 高新技术 企业 ， 此前 曾 因 涉嫌 虚假 宣传 “ 中国 最 大 的 蛋品 企业 ” 而 被 罚 6万 元 。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="pynlpir"><a href="#pynlpir" class="headerlink" title="pynlpir"></a>pynlpir</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pynlpir</span><br><span class="line">pynlpir.<span class="built_in">open</span>()</span><br><span class="line">pout=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> pynlpir.segment(Chinese_data):</span><br><span class="line">    pout+=word[<span class="number">0</span>]+<span class="string">&quot;/&quot;</span></span><br><span class="line"><span class="built_in">print</span>(pout)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pynlpir输出</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">央<span class="regexp">/视/</span><span class="number">315</span><span class="regexp">/晚会/</span>曝光<span class="regexp">/湖北省/</span>知名<span class="regexp">/的/</span>神<span class="regexp">/丹/</span>牌<span class="regexp">/、/</span>莲<span class="regexp">/田/</span>牌<span class="regexp">/“/</span>土<span class="regexp">/鸡蛋/</span>”<span class="regexp">/实/</span>为<span class="regexp">/普通/</span>鸡蛋<span class="regexp">/冒充/</span>，<span class="regexp">/同时/</span>在<span class="regexp">/商标/</span>上<span class="regexp">/玩/</span>猫腻<span class="regexp">/，/</span>分别<span class="regexp">/注册/</span>“<span class="regexp">/鲜/</span>土<span class="regexp">/”/</span>、<span class="regexp">/注册/</span>“<span class="regexp">/好/</span>土<span class="regexp">/”/</span>商标<span class="regexp">/，/</span>让<span class="regexp">/消费者/</span>误<span class="regexp">/以为/</span>是<span class="regexp">/“/</span>土<span class="regexp">/鸡蛋/</span>”<span class="regexp">/。/</span><span class="number">3</span>月<span class="regexp">/15日/</span>晚间<span class="regexp">/，/</span>新京报<span class="regexp">/记者/</span>就<span class="regexp">/此事/</span>致电<span class="regexp">/湖北/</span>神<span class="regexp">/丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/方面/</span>，<span class="regexp">/其/</span>工作<span class="regexp">/人员/</span>表示<span class="regexp">/不/</span>知<span class="regexp">/情/</span>，<span class="regexp">/需要/</span>了解<span class="regexp">/清楚/</span>情况<span class="regexp">/，/</span>截至<span class="regexp">/发稿/</span>暂<span class="regexp">/未/</span>取得<span class="regexp">/最新/</span>回应<span class="regexp">/。/</span>新京报<span class="regexp">/记者/</span>还<span class="regexp">/查询/</span>发现<span class="regexp">/，/</span>湖北<span class="regexp">/神/</span>丹<span class="regexp">/健康/</span>食品<span class="regexp">/有限公司/</span>为<span class="regexp">/农业/</span>产业化<span class="regexp">/国家/</span>重点<span class="regexp">/龙头/</span>企业<span class="regexp">/、/</span>高新技术<span class="regexp">/企业/</span>，<span class="regexp">/此前/</span>曾<span class="regexp">/因/</span>涉嫌<span class="regexp">/虚假/</span>宣传<span class="regexp">/“/</span>中国<span class="regexp">/最/</span>大<span class="regexp">/的/</span>蛋品<span class="regexp">/企业/</span>”<span class="regexp">/而/</span>被<span class="regexp">/罚/</span><span class="number">6</span>万<span class="regexp">/元/</span>。/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="StanfordCoreNLP"><a href="#StanfordCoreNLP" class="headerlink" title="StanfordCoreNLP"></a>StanfordCoreNLP</h4></blockquote>
+<ul>
+<li>踩坑！！！</li>
+</ul>
+<p>模型要下载3.9版本的，最新的4.4版本会报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="string">&#x27;zh&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(nlp.word_tokenize(Chinese_data))</span><br><span class="line">nlp.close()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>StanfordCoreNLP输出</li>
+</ul>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;\ufeff&#x27;, <span class="symbol">&#x27;央视</span>&#x27;, <span class="symbol">&#x27;315</span>&#x27;, <span class="symbol">&#x27;晚会</span>&#x27;, <span class="symbol">&#x27;曝光</span>&#x27;, <span class="symbol">&#x27;湖北省</span>&#x27;, <span class="symbol">&#x27;知名</span>&#x27;, <span class="symbol">&#x27;的</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;牌</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;莲</span>&#x27;, <span class="symbol">&#x27;田</span>&#x27;, <span class="symbol">&#x27;牌</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;实为</span>&#x27;, <span class="symbol">&#x27;普通</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;冒充</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;同时</span>&#x27;, <span class="symbol">&#x27;在</span>&#x27;, <span class="symbol">&#x27;商标</span>&#x27;, <span class="symbol">&#x27;上</span>&#x27;, <span class="symbol">&#x27;玩</span>&#x27;, <span class="symbol">&#x27;猫腻</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;分别</span>&#x27;, <span class="symbol">&#x27;注册</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;鲜土</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;注册</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;好</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;商标</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;让</span>&#x27;, <span class="symbol">&#x27;消费者</span>&#x27;, <span class="symbol">&#x27;误以为</span>&#x27;, <span class="symbol">&#x27;是</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;, <span class="symbol">&#x27;3月</span>&#x27;, <span class="symbol">&#x27;15日</span>&#x27;, <span class="symbol">&#x27;晚间</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;新京报</span>&#x27;, <span class="symbol">&#x27;记者</span>&#x27;, <span class="symbol">&#x27;就此事</span>&#x27;, <span class="symbol">&#x27;致电</span>&#x27;, <span class="symbol">&#x27;湖北</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;健康</span>&#x27;, <span class="symbol">&#x27;食品</span>&#x27;, <span class="symbol">&#x27;有限</span>&#x27;, <span class="symbol">&#x27;公司</span>&#x27;, <span class="symbol">&#x27;方面</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;其</span>&#x27;, <span class="symbol">&#x27;工作</span>&#x27;, <span class="symbol">&#x27;人员</span>&#x27;, <span class="symbol">&#x27;表示</span>&#x27;, <span class="symbol">&#x27;不知情</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;需要</span>&#x27;, <span class="symbol">&#x27;了解</span>&#x27;, <span class="symbol">&#x27;清楚</span>&#x27;, <span class="symbol">&#x27;情况</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;截至</span>&#x27;, <span class="symbol">&#x27;发稿</span>&#x27;, <span class="symbol">&#x27;暂</span>&#x27;, <span class="symbol">&#x27;未</span>&#x27;, <span class="symbol">&#x27;取得</span>&#x27;, <span class="symbol">&#x27;最新</span>&#x27;, <span class="symbol">&#x27;回应</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;, <span class="symbol">&#x27;新京报</span>&#x27;, <span class="symbol">&#x27;记者</span>&#x27;, <span class="symbol">&#x27;还</span>&#x27;, <span class="symbol">&#x27;查询</span>&#x27;, <span class="symbol">&#x27;发现</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;湖北</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;健康</span>&#x27;, <span class="symbol">&#x27;食品</span>&#x27;, <span class="symbol">&#x27;有限</span>&#x27;, <span class="symbol">&#x27;公司</span>&#x27;, <span class="symbol">&#x27;为</span>&#x27;, <span class="symbol">&#x27;农业</span>&#x27;, <span class="symbol">&#x27;产业化</span>&#x27;, <span class="symbol">&#x27;国家</span>&#x27;, <span class="symbol">&#x27;重点</span>&#x27;, <span class="symbol">&#x27;龙头</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;高</span>&#x27;, <span class="symbol">&#x27;新</span>&#x27;, <span class="symbol">&#x27;技术</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;此前</span>&#x27;, <span class="symbol">&#x27;曾</span>&#x27;, <span class="symbol">&#x27;因</span>&#x27;, <span class="symbol">&#x27;涉嫌</span>&#x27;, <span class="symbol">&#x27;虚假</span>&#x27;, <span class="symbol">&#x27;宣传</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;中国</span>&#x27;, <span class="symbol">&#x27;最</span>&#x27;, <span class="symbol">&#x27;大</span>&#x27;, <span class="symbol">&#x27;的</span>&#x27;, <span class="symbol">&#x27;蛋品</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;而</span>&#x27;, <span class="symbol">&#x27;被</span>&#x27;, <span class="symbol">&#x27;罚</span>&#x27;, <span class="symbol">&#x27;6万</span>&#x27;, <span class="symbol">&#x27;元</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="Hanlp"><a href="#Hanlp" class="headerlink" title="Hanlp"></a>Hanlp</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyhanlp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(HanLP.segment(Chinese_data))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>HanLP输出</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[﻿<span class="regexp">/w, 央视/</span>j, <span class="number">315</span><span class="regexp">/m, 晚会/</span>n, 曝光<span class="regexp">/vi, 湖北省/</span>ns, 知名<span class="regexp">/a, 的/u</span>de1, 神丹<span class="regexp">/nz, 牌/</span>n, 、<span class="regexp">/w, 莲田/</span>n, 牌<span class="regexp">/n, “/</span>w, 土鸡蛋<span class="regexp">/nz, ”/</span>w, 实为<span class="regexp">/v, 普通/</span>a, 鸡蛋<span class="regexp">/nf, 冒充/</span>v, ，<span class="regexp">/w, 同时/</span>c, 在<span class="regexp">/p, 商标/</span>n, 上<span class="regexp">/f, 玩/</span>v, 猫腻<span class="regexp">/n, ，/</span>w, 分别<span class="regexp">/d, 注册/</span>vn, “<span class="regexp">/w, 鲜/</span>a, 土<span class="regexp">/n, ”/</span>w, 、<span class="regexp">/w, 注册/</span>vn, “<span class="regexp">/w, 好/</span>a, 土<span class="regexp">/n, ”/</span>w, 商标<span class="regexp">/n, ，/</span>w, 让<span class="regexp">/v, 消费者/</span>n, 误以为<span class="regexp">/i, 是/</span>vshi, “<span class="regexp">/w, 土鸡蛋/</span>nz, ”<span class="regexp">/w, 。/</span>w, <span class="number">3</span>月<span class="regexp">/t, 15/m</span>, 日<span class="regexp">/b, 晚间/</span>t, ，<span class="regexp">/w, 新京报/</span>nz, 记者<span class="regexp">/nnt, 就/</span>d, 此事<span class="regexp">/r, 致电/</span>v, 湖北<span class="regexp">/ns, 神丹/</span>nz, 健康<span class="regexp">/a, 食品/</span>n, 有限公司<span class="regexp">/nis, 方面/</span>n, ，<span class="regexp">/w, 其/</span>rz, 工作人员<span class="regexp">/nnt, 表示/</span>v, 不知情<span class="regexp">/i, ，/</span>w, 需要<span class="regexp">/v, 了解/</span>v, 清楚<span class="regexp">/a, 情况/</span>n, ，<span class="regexp">/w, 截至/</span>v, 发稿<span class="regexp">/vi, 暂/</span>d, 未<span class="regexp">/d, 取得/</span>v, 最新<span class="regexp">/a, 回应/</span>vn, 。<span class="regexp">/w, 新京报/</span>nz, 记者<span class="regexp">/nnt, 还/</span>d, 查询<span class="regexp">/v, 发现/</span>v, ，<span class="regexp">/w, 湖北/</span>ns, 神丹<span class="regexp">/nz, 健康/</span>a, 食品<span class="regexp">/n, 有限公司/</span>nis, 为<span class="regexp">/p, 农业/</span>n, 产业化<span class="regexp">/vn, 国家/</span>n, 重点<span class="regexp">/n, 龙头企业/</span>nz, 、<span class="regexp">/w, 高新技术/</span>n, 企业<span class="regexp">/n, ，/</span>w, 此前<span class="regexp">/t, 曾/</span>d, 因涉嫌<span class="regexp">/n, 虚假/</span>a, 宣传<span class="regexp">/vn, “/</span>w, 中国<span class="regexp">/ns, 最大/gm</span>, 的<span class="regexp">/ude1, 蛋品/</span>n, 企业<span class="regexp">/n, ”/</span>w, 而<span class="regexp">/cc, 被罚/</span>nz, <span class="number">6</span><span class="regexp">/m, 万/m</span>, 元<span class="regexp">/q, 。/</span>w]</span><br></pre></td></tr></table></figure>
+<h3 id="英文分词工具-1"><a href="#英文分词工具-1" class="headerlink" title="英文分词工具"></a>英文分词工具</h3><ul>
+<li>准备数据集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">English_data = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;English.txt&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:  <span class="comment"># 打开文件</span></span><br><span class="line">    English_data = f.read()  <span class="comment"># 读取文件</span></span><br><span class="line"><span class="built_in">print</span>(English_data)</span><br></pre></td></tr></table></figure>
+<p>Trump was born and raised in the New York City borough of Queens and received an economics degree from the Wharton School. He was appointed president of his family’s real estate business in 1971, renamed it The Trump Organization, and expanded it from Queens and Brooklyn into Manhattan. The company built or renovated skyscrapers, hotels, casinos, and golf courses. Trump later started various side ventures, including licensing his name for real estate and consumer products. He managed the company until his 2017 inauguration. He co-authored several books, including The Art of the Deal. He owned the Miss Universe and Miss USA beauty pageants from 1996 to 2015, and he produced and hosted The Apprentice, a reality television show, from 2003 to 2015. Forbes estimates his net worth to be $3.1 billion.</p>
+<blockquote>
+<h4 id="nltk"><a href="#nltk" class="headerlink" title="nltk"></a>nltk</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="built_in">print</span>(nltk.word_tokenize(English_data))</span><br></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;family</span>&#x27;, <span class="string">&quot;&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$</span>&#x27;, <span class="symbol">&#x27;3.1</span>&#x27;, <span class="symbol">&#x27;billion</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="spacy"><a href="#spacy" class="headerlink" title="spacy"></a>spacy</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">&#x27;en_core_web_sm&#x27;</span>)</span><br><span class="line">document=nlp(English_data)</span><br><span class="line"><span class="built_in">print</span>(document.text.split())</span><br></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="string">&quot;family&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>,&#x27;, <span class="symbol">&#x27;hotels</span>,&#x27;, <span class="symbol">&#x27;casinos</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$3.1</span>&#x27;, <span class="symbol">&#x27;billion.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="StanfordcoreNLP"><a href="#StanfordcoreNLP" class="headerlink" title="StanfordcoreNLP"></a>StanfordcoreNLP</h4></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="string">&#x27;en&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(nlp.word_tokenize(English_data))</span><br></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;family</span>&#x27;, <span class="string">&quot;&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$</span>&#x27;, <span class="symbol">&#x27;3.1</span>&#x27;, <span class="symbol">&#x27;billion</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<h5 id><a href="#" class="headerlink" title=" "></a> </h5><h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><blockquote>
+<h3 id="中文分词效果对比"><a href="#中文分词效果对比" class="headerlink" title="中文分词效果对比"></a>中文分词效果对比</h3></blockquote>
+<ul>
+<li><p>jieba</p>
+<p>从测试的情况中可以简单的推测：paddle模式对于机构团体名的解析比较准确（能够分出“神丹牌”等词），而精确模式对部分词语的解析不太正确，搜索和全模式也是一样。</p>
+<p>在载入自创建字典后，可以看到，自创建字典中的词都被正确的拆分出来了。</p>
+</li>
+<li><p>SnowNlp</p>
+<p>相比于其他分词工具来说，SnowNlp划分得更加“碎”。可能其算法没有很好地考虑到整个句子的上下文，导致在某些地方会有一点问题，比如“玩猫腻”就被拆分成了“玩猫”和“腻”。</p>
+</li>
+<li><p>thulac</p>
+<p>在没有加入自建字典的情况下就能识别出“神丹牌”、“莲田牌”专有名词，但是也有不好的地方，有的地方明明是一个完整的词也会被拆成单个字，比如“不知情”就被拆成了单独的三个字，“了解”也被拆成了两个的字。</p>
+</li>
+<li><p>pynlpir</p>
+<p>相比于其他的分词模型，pynlpir可以分出“新京报”，但也有些地方分的不是很准确，比如“神丹牌”“莲田牌”“不知情”等。</p>
+</li>
+<li><p>StanfordCoreNLP</p>
+<p>可以准确地分出“不知情”“新京报”等其他模型表现不好的词上，但也有“高新技术”被拆开的情况。</p>
+</li>
+<li><p>HanLP</p>
+<p>我认为HanLP是表现效果最好的一个，在很多其他模型表现不好的词上，HanLP都能很好地区分，比如“央视”、“土鸡蛋”、“新京报”、“龙头企业”、“误以为”。</p>
+</li>
+</ul>
+<p>对于中文分词工具来说，我认为效果最好的是HanLP和jieba，推荐使用。对于英文分词来说效果一样，没有区别。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" class="post-title-link" itemprop="url">自然语言处理实验一</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-08 11:10:06" itemprop="dateCreated datePublished" datetime="2022-03-08T11:10:06+08:00">2022-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-03 11:10:33" itemprop="dateModified" datetime="2022-04-03T11:10:33+08:00">2022-04-03</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="实验一：语言模型"><a href="#实验一：语言模型" class="headerlink" title="实验一：语言模型"></a>实验一：语言模型</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
+<h2 id="实验日期："><a href="#实验日期：" class="headerlink" title="实验日期："></a>实验日期：</h2><p>2022.3.3</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>理解并实践语言模型</p>
+<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><ol>
+<li>用python编程实践语言模型（uni-gram和bi-gram）,加入平滑技术。</li>
+<li>计算test.txt中句子的PPL，对比uni-gram和bi-gram语言模型效果。</li>
+</ol>
+<h2 id="实验原理："><a href="#实验原理：" class="headerlink" title="实验原理："></a>实验原理：</h2><blockquote>
+<h3 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h3></blockquote>
+<p>​    N-Gram是一种基于统计语言模型的算法。它的基本思想是将文本里面的内容按照字节进行大小为N的滑动窗口操作，形成了长度是N的字节片段序列。</p>
+<p>​    每一个字节片段称为gram，对所有gram的出现频度进行统计，并且按照事先设定好的阈值进行过滤，形成关键gram列表，也就是这个文本的向量特征空间，列表中的每一种gram就是一个特征向量维度。</p>
+<p>​    该模型基于这样一种假设，第N个词的出现只与前面N-1个词相关，而与其它任何词都不相关，整句的概率就是各个词出现概率的乘积。这些概率可以通过直接从语料中统计N个词同时出现的次数得到。常用的是二元的Bi-Gram和三元的Tri-Gram。</p>
+<p>​    如果我们有一个由m个词组成的序列/句子s，即$s=w_1,w_2,……,w_m$我们希望算的该句子出现的概率:</p>
+<script type="math/tex; mode=display">
+P(s)=P(w_1,w_2,……,w_m)=P(w_1)P(w_2|w_1)P(w_3|w_1,w_2)……P(w_n|w_1,w_2,……,w_n-1)</script><p>​    上面这个联合概率链规则显然不好算，虽然它考虑了所有词和词之间的依赖关系，但是这样非常复杂，在实际中几乎没有办法使用。于是，我们需要用一种办法来近似这个公式，要求其效果要比独立性假设好(假设句子中每个词之间是独立的，没有任何关系，也就是下文中要提到的1-gram/uni-gram)。 这个办法就是著名的马尔可夫假设，即当前这个词仅仅跟前面几个有限的词相关，因此也就不必追溯到最开始的那个词，这样就可以大幅缩减上述算式的长度，即：</p>
+<script type="math/tex; mode=display">
+P(w_1,w_2,……,w_m)=\prod_iP(w_1|w_{i-n+1},……,w_{i-1})</script><ul>
+<li>当n=1时，这是一个一元模型(独立性假设，各个词之间相互独立。1-gram/unigram)</li>
+</ul>
+<script type="math/tex; mode=display">
+P(w_1,w_2,……,w_m)=\prod_i^mP(w_i)</script><ul>
+<li>当n=2时，这是一个二元模型(2-gram/bigram):</li>
+</ul>
+<script type="math/tex; mode=display">
+P(w_1,w_2,……,w_m)=\prod_i^mP(w_i|w_{i-1})</script><p>​    下面的思路就比较简单了，在给定的训练语料中，利用贝叶斯定理，将上述的条件概率值都统计计算出来即可，然后相乘就可以得到整个句子出现的概率。公式如下：</p>
+<ul>
+<li>对于unigram来说，其中 $C(w_1,……,w_n)$ 表示n-gram $w_1,……,w_n$ 在训练语料中出现的次数，M是语料库中的总词数</li>
+</ul>
+<script type="math/tex; mode=display">
+P(w_i)=\frac{C(w_i)}{M}</script><ul>
+<li>对于bigram来说：</li>
+</ul>
+<script type="math/tex; mode=display">
+P(w_i|w_{i-1})=\frac{C(w_{i-1}w_i)}{C(w_{i-1})}</script><blockquote>
+<h3 id="数据平滑"><a href="#数据平滑" class="headerlink" title="数据平滑"></a>数据平滑</h3></blockquote>
+<p>​    平滑（smoothing）技术就是用来解决这类零概率问题的。术语“平滑”指的是为了产生更准确的概率（在式（5-4）和式（5-6）中）来调整最大似然估计的一种技术，也常称为数据平滑（data smoothing）。“平滑”处理的基本思想是“劫富济贫”，即提高低概率（如零概率），降低高概率，尽量使概率分布趋于均匀。</p>
+<p>​    例如，对于二元语法来说，一种最简单的平滑技术就是假设每个二元语法出现的次数比实际出现的次数多一次，不妨将该处理方法称为加1法。</p>
+<script type="math/tex; mode=display">
+p(w_i|w_{i-1})=\frac{1+c(w_{i-1}w_i)}{\sum_{w_i}[1+c(w_{i-1}w_i)]}=\frac{1+c(w_{i-1}w_i)}{|V|+\sum_{w_i}c(w_{i-1}w_i)}</script><p>​    其中，V是所考虑的所有词汇的单词表，|V|为词汇表单词的个数。当然，如果V取无穷大，分母就是无穷大，所有的概率都趋于0。但实际上，词汇表总是有限的，可以大约固定在几万个或者几十万个。所有不在词汇表中的词可以映射为一个单个的区别于其他已知词汇的单词，通常将其称为未登录词或未知词。</p>
+<p>​    数据平滑是语言模型中的核心问题。下面简要介绍一些主要的数据平滑方法。</p>
+<h4 id="1-加法平滑方法（本次实验中使用这种平滑方法）"><a href="#1-加法平滑方法（本次实验中使用这种平滑方法）" class="headerlink" title="1.加法平滑方法（本次实验中使用这种平滑方法）"></a>1.<strong>加法平滑方法</strong>（本次实验中使用这种平滑方法）</h4><p>​    在实际应用中最简单的平滑技术之一就是加法平滑方法（additive smoothing），这种方法在上个世纪前半叶由G.J.Lidstone, W.E.Johnson和H.Jeffreys等人提出和改进，不是假设每一个n元语法发生的次数比实际统计次数多一次，而是假设它比实际出现情况多发生δ次，0≤δ≤1，那么</p>
+<script type="math/tex; mode=display">
+p_{add}(w_i|w_{i-n+1}^{i-1})=\frac{\delta+c(w_{i-n+1}^i)}{\delta|V|+\sum_{w_i}c(w_{i-n+1}^i)}</script><h4 id="2-古德-图灵（Good-Turing）估计法"><a href="#2-古德-图灵（Good-Turing）估计法" class="headerlink" title="2.古德-图灵（Good-Turing）估计法"></a>2.<strong>古德-图灵（Good-Turing）估计法</strong></h4><p>​    Good-Turing估计法是很多平滑技术的核心。这种方法是1953年由I.J.Good引用图灵（Turing）的方法提出来的，其基本思路是：对于任何一个出现r次的n元语法，都假设它出现了$r^*$次，这里 </p>
+<script type="math/tex; mode=display">
+r^*=(r+1)\frac{n_{r+1}}{n_r}</script><p>​    其中，nr是训练语料中恰好出现r次的n元语法的数目。要把这个统计数转化为概率，只需要进行归一化处理：对于统计数为r的n元语法，其概率为</p>
+<script type="math/tex; mode=display">
+p_r=\frac{r^*}{N}</script><p>​    其中</p>
+<script type="math/tex; mode=display">
+N=\sum_{r=0}^\infty n_rr^*=\sum_{r=0}^{\infty}(r-1)n_{r+1}=\sum_{r=1}^{\infty}n_rr</script><p>​    也就是说，N等于这个分布中最初的计数。这样，样本中所有事件的概率之和为</p>
+<script type="math/tex; mode=display">
+\sum_{r>0}n_rp_r=1-\frac{n_1}{N}<1</script><p>​    因此，有n1/N的概率剩余量可以分配给所有未见事件（r＝0的事件）。</p>
+<h4 id="3-Katz平滑法"><a href="#3-Katz平滑法" class="headerlink" title="3.Katz平滑法"></a>3.<strong>Katz平滑法</strong></h4><h4 id="4-Jelinek-Mercer平滑方法"><a href="#4-Jelinek-Mercer平滑方法" class="headerlink" title="4.Jelinek-Mercer平滑方法"></a>4.<strong>Jelinek-Mercer平滑方法</strong></h4><h4 id="5-Witten-Bell平滑方法"><a href="#5-Witten-Bell平滑方法" class="headerlink" title="5.Witten-Bell平滑方法"></a>5.<strong>Witten-Bell平滑方法</strong></h4><h4 id="6-绝对减值法"><a href="#6-绝对减值法" class="headerlink" title="6.绝对减值法"></a>6.<strong>绝对减值法</strong></h4><h4 id="7-Kneser-Ney平滑方法"><a href="#7-Kneser-Ney平滑方法" class="headerlink" title="7.Kneser-Ney平滑方法"></a>7.<strong>Kneser-Ney平滑方法</strong></h4><blockquote>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3></blockquote>
+<p>​    测试集T，可以通过计算T中所有句子概率的乘积来计算测试集的概率$p(T)$</p>
+<script type="math/tex; mode=display">
+p(T)=\prod_{i=1}^{t_T}p(t_i)</script><p>​    在数据T双模型 $p(w_i|w_{i-n+1}^{i-1})$ 的交叉熵 $H_p(T)$ 定义为</p>
+<script type="math/tex; mode=display">
+H_p(T)=-\frac{1}{W_T}\log_2p(T)</script><p>​    这里的 $W_T$ 是以词为单位度量的文本T的长度。</p>
+<p>​    模型p的困惑度 $PP_T(T)$ 与交叉上的关系为：</p>
+<script type="math/tex; mode=display">
+PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好。</p>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><ul>
+<li>导入相关库</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> Word</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读入训练集和测试集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除标点，根据&quot;__eou__&quot;对句子进行分割</span></span><br><span class="line">train_data = <span class="built_in">open</span>(<span class="string">&quot;train_LM.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>).read().replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;?&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;!&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;;&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;&lt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27; &#x27;</span>).split(<span class="string">&quot;__eou__&quot;</span>)</span><br><span class="line">test_data = <span class="built_in">open</span>(<span class="string">&quot;test_LM.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>).read().replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;?&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;!&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;;&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;&lt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27; &#x27;</span>).split(<span class="string">&quot;__eou__&quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="unigram"><a href="#unigram" class="headerlink" title="unigram"></a>unigram</h3></blockquote>
+<ul>
+<li><p>获取训练集中每个单词出现的频率，保存到字典unigram中</p>
+<p>同时对单词进行处理，包括包括复数变单数、大写转小写、词形还原等</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">unigram = nltk.FreqDist()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> train_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence) <span class="comment"># 分割单词</span></span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower() <span class="comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    dist = nltk.FreqDist(newords)</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dist:</span><br><span class="line">        unigram[d]+=dist[d]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将测试集中没出现过的词也存进字典unigram</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> unigram:</span><br><span class="line">            unigram[word] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>数据平滑（加一法）</p>
+<p>将平滑后的每个词的概率存到字典unigram中</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.加一法：</span></span><br><span class="line"><span class="built_in">sum</span> = unigram.N() + unigram.B() <span class="comment">#其中.N()表示所有词出现次数之和，.B()表示词的个数（即加一法所加的数量）</span></span><br><span class="line">unigram_p = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> unigram:</span><br><span class="line">    unigram_p[word] = (unigram[word] + <span class="number">1</span>)/<span class="built_in">sum</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>计算困惑度ppl</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ppl_unigram = []</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    Wt = <span class="number">0</span></span><br><span class="line">    H_p = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        H_p += math.log(unigram_p[word],<span class="number">2</span>)</span><br><span class="line">        Wt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> Wt == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    ppl_unigram.append(<span class="built_in">pow</span>(<span class="number">2</span>,-(H_p/Wt)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;使用加法平滑方法计算的unigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_unigram))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>result</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unigram模型困惑度ppl为:  532.0271341149352</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="bigram"><a href="#bigram" class="headerlink" title="bigram"></a>bigram</h3></blockquote>
+<ul>
+<li>获取每对2-grams出现的次数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bigram = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> train_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower() <span class="comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    dist = nltk.FreqDist(nltk.bigrams(newords))</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dist:</span><br><span class="line">        bigram[d] += dist[d]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将测试集中没出现过的2-grams也存到字典中</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        newords.append(word)</span><br><span class="line">    <span class="keyword">for</span> gram_2 <span class="keyword">in</span> nltk.FreqDist(nltk.bigrams(newords)):</span><br><span class="line">        <span class="keyword">if</span> gram_2 <span class="keyword">not</span> <span class="keyword">in</span> bigram:</span><br><span class="line">            bigram[gram_2] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据平滑（加一平滑）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加一平滑</span></span><br><span class="line">pre = nltk.FreqDist() <span class="comment"># 记录2-gram中以x为第一个的词对的总数量</span></span><br><span class="line">outlet = nltk.FreqDist() <span class="comment"># 记录2-gram中以x为第一个的词对的种类数量</span></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> bigram:</span><br><span class="line">    pre[word[<span class="number">0</span>]] += bigram[word]</span><br><span class="line">    outlet[word[<span class="number">0</span>]] += <span class="number">1</span></span><br><span class="line">bigram_p = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> bigram:</span><br><span class="line">    bigram_p[word] = (bigram[word] + <span class="number">1</span>)/(pre[word[<span class="number">0</span>]] + outlet[word[<span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>计算困惑度ppl</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ppl_bigram = []</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    Wt = <span class="number">0</span></span><br><span class="line">    H_p = <span class="number">0</span></span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> gram_2 <span class="keyword">in</span> nltk.bigrams(newords):</span><br><span class="line">        H_p += math.log(bigram_p[gram_2],<span class="number">2</span>)</span><br><span class="line">        Wt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> Wt == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    ppl_bigram.append(<span class="built_in">pow</span>(<span class="number">2</span>,-(H_p/Wt)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;bigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_bigram))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>result</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bigram模型困惑度ppl为:  71.22233899667593</span><br></pre></td></tr></table></figure>
+<h2 id="结果对比"><a href="#结果对比" class="headerlink" title="结果对比"></a>结果对比</h2><ul>
+<li>unigram模型的ppl为：532.0271341149352</li>
+<li>bigram模型的ppl为：71.22233899667593</li>
+</ul>
+<p>显然bigram模型的效果更好。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/" class="post-title-link" itemprop="url">leetcode—第283场周赛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-08 10:16:40" itemprop="dateCreated datePublished" datetime="2022-03-08T10:16:40+08:00">2022-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-09 00:11:49" itemprop="dateModified" datetime="2022-03-09T00:11:49+08:00">2022-03-09</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="leetcode-第283场周赛"><a href="#leetcode-第283场周赛" class="headerlink" title="leetcode-第283场周赛"></a>leetcode-第283场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/">2194. Excel 表中某个范围内的单元格</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Excel 表中的一个单元格 (r, c) 会以字符串 “<col><row>“ 的形式进行表示，其中：</row></p>
+<ul>
+<li><col> 即单元格的列号 c 。用英文字母表中的 字母 标识。<ul>
+<li>例如，第 1 列用 ‘A’ 表示，第 2 列用 ‘B’ 表示，第 3 列用 ‘C’ 表示，以此类推。</li>
+</ul>
+</li>
+<li><row> 即单元格的行号 r 。第 r 行就用 整数 r 标识。</row></li>
+</ul>
+<p>给你一个格式为 “<col1><row1>:<col2><row2>“ 的字符串 s ，其中 <col1> 表示 c1 列，<row1> 表示 r1 行，<col2> 表示 c2 列，<row2> 表示 r2 行，并满足 r1 &lt;= r2 且 c1 &lt;= c2 。</row2></col2></row1></col1></row2></col2></row1></col1></p>
+<p>找出所有满足 r1 &lt;= x &lt;= r2 且 c1 &lt;= y &lt;= c2 的单元格，并以列表形式返回。单元格应该按前面描述的格式用 字符串 表示，并以 非递减 顺序排列（先按列排，再按行排）。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">s</span> = <span class="string">&quot;K1:L2&quot;</span></span><br><span class="line">输出：[<span class="string">&quot;K1&quot;</span>,<span class="string">&quot;K2&quot;</span>,<span class="string">&quot;L1&quot;</span>,<span class="string">&quot;L2&quot;</span>]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。</span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">s</span> = <span class="string">&quot;A1:F1&quot;</span></span><br><span class="line">输出：[<span class="string">&quot;A1&quot;</span>,<span class="string">&quot;B1&quot;</span>,<span class="string">&quot;C1&quot;</span>,<span class="string">&quot;D1&quot;</span>,<span class="string">&quot;E1&quot;</span>,<span class="string">&quot;F1&quot;</span>]</span><br><span class="line">解释：</span><br><span class="line">上图显示了列表中应该出现的单元格。 </span><br><span class="line">红色箭头指示单元格的出现顺序。</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">cellsInRange</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> col1,col2,row1,row2;</span><br><span class="line">        col1=s[<span class="number">0</span>];</span><br><span class="line">        col2=s[<span class="number">3</span>];</span><br><span class="line">        row1=s[<span class="number">1</span>];</span><br><span class="line">        row2=s[<span class="number">4</span>];</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i=col1;i&lt;=col2;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">char</span> j=row1;j&lt;=row2;j++)&#123;</span><br><span class="line">                string temp=<span class="string">&quot;&quot;</span>;</span><br><span class="line">                temp=temp+i+j;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum/">2195. 向数组中追加 K 个整数</a></p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 nums 和一个整数 k 。请你向 nums 中追加 k 个 <strong>未</strong> 出现在 nums 中的、<strong>互不相同</strong> 的 <strong>正</strong> 整数，并使结果数组的元素和 <strong>最小</strong> 。</p>
+<p>返回追加到 nums 中的 k 个整数之和。</p>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,4,25,10,25], k = 2</span><br><span class="line">输出：5</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是<span class="number"> 2 </span>和<span class="number"> 3 </span>。</span><br><span class="line">nums 最终元素和为<span class="number"> 1 </span>+<span class="number"> 4 </span>+<span class="number"> 25 </span>+<span class="number"> 10 </span>+<span class="number"> 25 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>=<span class="number"> 70 </span>，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是<span class="number"> 2 </span>+<span class="number"> 3 </span>=<span class="number"> 5 </span>，所以返回<span class="number"> 5 </span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,6], k = 6</span><br><span class="line">输出：25</span><br><span class="line">解释：在该解法中，向数组中追加的两个互不相同且未出现的正整数是<span class="number"> 1 </span>、2 、3 、4 、7 和<span class="number"> 8 </span>。</span><br><span class="line">nums 最终元素和为<span class="number"> 5 </span>+<span class="number"> 6 </span>+<span class="number"> 1 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>+<span class="number"> 4 </span>+<span class="number"> 7 </span>+<span class="number"> 8 </span>=<span class="number"> 36 </span>，这是所有情况中的最小值。</span><br><span class="line">所以追加到数组中的两个整数之和是<span class="number"> 1 </span>+<span class="number"> 2 </span>+<span class="number"> 3 </span>+<span class="number"> 4 </span>+<span class="number"> 7 </span>+<span class="number"> 8 </span>=<span class="number"> 25 </span>，所以返回<span class="number"> 25 </span>。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>记录添加的k个数的上限up，一开始将up初始化为k，即添加的数为1~k，然后将输入的nums从小到大排序，顺序遍历，当遍历到的数比当前up小的话，说明当前这个数不能由我们添加，我们要添加一个更大的数，让up++，ans-=nums[i]，最后遍历完nums数组之后，ans加上1到up的和即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">minimalKSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> up=k;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]&lt;=up&amp;&amp;(i==<span class="number">0</span>||i!=<span class="number">0</span>&amp;&amp;nums[i]!=nums[i<span class="number">-1</span>]))&#123;</span><br><span class="line">                ans-=nums[i];</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]&gt;up) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=(<span class="number">1</span>+up)*up/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/create-binary-tree-from-descriptions/">2196. 根据描述创建二叉树</a></p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二维整数数组 descriptions ，其中 descriptions[i] = [parenti, childi, isLefti] 表示 parenti 是 childi 在 二叉树 中的 父节点，二叉树中各节点的值 互不相同 。此外：</p>
+<ul>
+<li><p>如果 isLefti == 1 ，那么 childi 就是 parenti 的左子节点。</p>
+</li>
+<li><p>如果 isLefti == 0 ，那么 childi 就是 parenti 的右子节点。</p>
+</li>
+</ul>
+<p>请你根据 descriptions 的描述来构造二叉树并返回其 根节点 。</p>
+<p>测试用例会保证可以构造出 有效 的二叉树。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = <span class="comment">[<span class="comment">[20,15,1]</span>,<span class="comment">[20,17,0]</span>,<span class="comment">[50,20,1]</span>,<span class="comment">[50,80,0]</span>,<span class="comment">[80,19,1]</span>]</span></span><br><span class="line">输出：<span class="comment">[50,20,80,15,17,19]</span></span><br><span class="line">解释：根节点是值为 50 的节点，因为它没有父节点。</span><br><span class="line">结果二叉树如上图所示。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：descriptions = <span class="comment">[<span class="comment">[1,2,1]</span>,<span class="comment">[2,3,0]</span>,<span class="comment">[3,4,1]</span>]</span></span><br><span class="line">输出：<span class="comment">[1,2,null,null,3,4]</span></span><br><span class="line">解释：根节点是值为 1 的节点，因为它没有父节点。 </span><br><span class="line">结果二叉树如上图所示。 </span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>建立一个指针数组TreeNode* node[]，根据输入建立连接关系，同时用两个数p[],c[]记录节点是否当过父节点和子节点，最后只当过父节点没当过子节点的就是要返回的根节点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">createBinaryTree</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; descriptions)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> p[<span class="number">100005</span>]=&#123;<span class="number">0</span>&#125;,c[<span class="number">100005</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> maxx=<span class="number">0</span>;</span><br><span class="line">        TreeNode* node[<span class="number">100005</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100005</span>;i++)&#123;</span><br><span class="line">            node[i]=<span class="keyword">new</span> <span class="built_in">TreeNode</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> root=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;descriptions.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> parent=descriptions[i][<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> child=descriptions[i][<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> isleft=descriptions[i][<span class="number">2</span>];</span><br><span class="line">            maxx=<span class="built_in">max</span>(maxx,parent);</span><br><span class="line">            maxx=<span class="built_in">max</span>(maxx,child);</span><br><span class="line">            p[parent]=<span class="number">1</span>;</span><br><span class="line">            c[child]=<span class="number">1</span>;</span><br><span class="line">            node[parent]-&gt;val=parent;</span><br><span class="line">            node[child]-&gt;val=child;</span><br><span class="line">            <span class="keyword">if</span>(isleft)&#123;</span><br><span class="line">                node[parent]-&gt;left=node[child];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                node[parent]-&gt;right=node[child];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=maxx;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i]&amp;&amp;!c[i])&#123;</span><br><span class="line">                root=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node[root];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/replace-non-coprime-numbers-in-array/">2197. 替换数组中的非互质数</a></p>
+<p>没看</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/" class="post-title-link" itemprop="url">leetcode—第73场双周赛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-08 10:16:24" itemprop="dateCreated datePublished" datetime="2022-03-08T10:16:24+08:00">2022-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-09 00:11:20" itemprop="dateModified" datetime="2022-03-09T00:11:20+08:00">2022-03-09</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="leetcode-第73场双周赛"><a href="#leetcode-第73场双周赛" class="headerlink" title="leetcode-第73场双周赛"></a>leetcode-第73场双周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/">2190. 数组中紧跟 key 之后出现最频繁的数字</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。</p>
+<p>统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：</p>
+<ul>
+<li><p>0 &lt;= i &lt;= n - 2</p>
+</li>
+<li><p>nums[i] == key 且</p>
+</li>
+<li>nums[i + 1] == target 。</li>
+</ul>
+<p>请你返回出现 最多 次数的 target 。测试数据保证出现次数最多的 target 是唯一的。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,100,200,1,100], key = 1</span><br><span class="line">输出：100</span><br><span class="line">解释：对于 target =<span class="number"> 100 </span>，在下标<span class="number"> 1 </span>和<span class="number"> 4 </span>处出现过<span class="number"> 2 </span>次，且都紧跟着 key 。</span><br><span class="line">没有其他整数在 key 后面紧跟着出现，所以我们返回<span class="number"> 100 </span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,2,2,2,3], key = 2</span><br><span class="line">输出：2</span><br><span class="line">解释：对于 target =<span class="number"> 2 </span>，在下标<span class="number"> 1 </span>，2 和<span class="number"> 3 </span>处出现过<span class="number"> 3 </span>次，且都紧跟着 key 。</span><br><span class="line">对于 target =<span class="number"> 3 </span>，在下标<span class="number"> 4 </span>出出现过<span class="number"> 1 </span>次，且紧跟着 key 。</span><br><span class="line">target =<span class="number"> 2 </span>是紧跟着 key 之后出现次数最多的数字，所以我们返回<span class="number"> 2 </span>。</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>​    用一个map维护target出现的次数，最后选出value最大的数就是target。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequent</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==key)&#123;</span><br><span class="line">                mp[nums[i+<span class="number">1</span>]]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> target=<span class="number">0</span>,maxx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> m:mp)&#123;</span><br><span class="line">            <span class="keyword">if</span>(maxx&lt;m.second)&#123;</span><br><span class="line">                maxx=m.second;</span><br><span class="line">                target=m.first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-the-jumbled-numbers/">2191. 将杂乱无章的数字排序</a></p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 mapping ，它表示一个十进制数的映射规则，mapping[i] = j 表示这个规则下将数位 i 映射为数位 j 。</p>
+<p>一个整数<strong>映射后的值</strong>为将原数字每一个数位 i （0 &lt;= i &lt;= 9）映射为 mapping[i] 。</p>
+<p>另外给你一个整数数组 nums ，请你将数组 nums 中每个数按照它们映射后对应数字非递减顺序排序后返回。</p>
+<p>注意：</p>
+<ul>
+<li><p>如果两个数字映射后对应的数字大小相同，则将它们按照输入中的 相对顺序 排序。</p>
+</li>
+<li><p>nums 中的元素只有在排序的时候需要按照映射后的值进行比较，返回的值应该是输入的元素本身。</p>
+</li>
+</ul>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：mapping = [8,9,4,0,2,1,3,5,7,6], nums = [991,338,38]</span><br><span class="line">输出：[338,38,991]</span><br><span class="line">解释：</span><br><span class="line">将数字<span class="number"> 991 </span>按照如下规则映射：</span><br><span class="line">1. mapping[9] =<span class="number"> 6 </span>，所有数位<span class="number"> 9 </span>都会变成<span class="number"> 6 </span>。</span><br><span class="line">2. mapping[1] =<span class="number"> 9 </span>，所有数位<span class="number"> 1 </span>都会变成<span class="number"> 8 </span>。</span><br><span class="line">所以，991 映射的值为<span class="number"> 669 </span>。</span><br><span class="line">338 映射为<span class="number"> 007 </span>，去掉前导<span class="number"> 0 </span>后得到<span class="number"> 7 </span>。</span><br><span class="line">38 映射为<span class="number"> 07 </span>，去掉前导<span class="number"> 0 </span>后得到<span class="number"> 7 </span>。</span><br><span class="line">由于<span class="number"> 338 </span>和<span class="number"> 38 </span>映射后的值相同，所以它们的前后顺序保留原数组中的相对位置关系，338 在<span class="number"> 38 </span>的前面。</span><br><span class="line">所以，排序后的数组为 [338,38,991] 。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：mapping = [<span class="number">0,1,2,3</span>,<span class="number">4,5,6,7</span>,<span class="number">8</span>,<span class="number">9</span>], nums = [<span class="number">789,456</span>,<span class="number">123</span>]</span><br><span class="line">输出：[<span class="number">123,456</span>,<span class="number">789</span>]</span><br><span class="line">解释：<span class="number">789</span> 映射为 <span class="number">789</span> ，<span class="number">456</span> 映射为 <span class="number">456</span> ，<span class="number">123</span> 映射为 <span class="number">123</span> 。所以排序后数组为 [<span class="number">123,456</span>,<span class="number">789</span>] 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>建立一个结构体，每个结构体中存储三个信息，分别是映射前的原始数，映射后的数，和在nums出现的位置索引。</p>
+<p>自定义排序规则cmp，先按照映射后的数排序，如果相同，再按照在nums出现的位置索引排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">turn</span><span class="params">(<span class="type">int</span> x,vector&lt;<span class="type">int</span>&gt;&amp; mapping)</span></span>&#123;</span><br><span class="line">        string s=<span class="built_in">to_string</span>(x);</span><br><span class="line">        <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            res=res*<span class="number">10</span>+mapping[s[i]-<span class="string">&#x27;0&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        <span class="type">int</span> pre;</span><br><span class="line">        <span class="type">int</span> aft;</span><br><span class="line">        <span class="type">int</span> index;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="type">static</span> <span class="title">cmp</span><span class="params">(Node a,Node b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a.aft!=b.aft)&#123;</span><br><span class="line">            <span class="keyword">return</span> a.aft&lt;b.aft;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortJumbled</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; mapping, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        vector&lt;Node&gt; ve;</span><br><span class="line">        Node node;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            node.pre=nums[i];</span><br><span class="line">            node.aft=<span class="built_in">turn</span>(nums[i],mapping);</span><br><span class="line">            node.index=i;</span><br><span class="line">            ve.<span class="built_in">push_back</span>(node);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(ve.<span class="built_in">begin</span>(),ve.<span class="built_in">end</span>(),cmp);</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;ve.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(ve[i].pre);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/">2192. 有向无环图中一个节点的所有祖先</a></p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个正整数 n ，它表示一个 有向无环图 中节点的数目，节点编号为 0 到 n - 1 （包括两者）。</p>
+<p>给你一个二维整数数组 edges ，其中 edges[i] = [fromi, toi] 表示图中一条从 fromi 到 toi 的单向边。</p>
+<p>请你返回一个数组 answer，其中 answer[i]是第 i 个节点的所有<strong>祖先</strong>，这些祖先节点<strong>升序</strong>排序。</p>
+<p>如果 u 通过一系列边，能够到达 v ，那么我们称节点 u 是节点 v 的<strong>祖先</strong>节点。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 8, edgeList = [[0,3],[0,4],[1,3],[2,4],[2,7],[3,5],[3,6],[3,7],[4,6]]</span><br><span class="line">输出：[[],[],[],[0,1],[0,2],[0,1,3],[0,1,2,3,4],[0,1,2,3]]</span><br><span class="line">解释：</span><br><span class="line">上图为输入所对应的图。</span><br><span class="line">- 节点<span class="number"> 0 </span>，1 和<span class="number"> 2 </span>没有任何祖先。</span><br><span class="line">- 节点<span class="number"> 3 </span>有<span class="number"> 2 </span>个祖先<span class="number"> 0 </span>和<span class="number"> 1 </span>。</span><br><span class="line">- 节点<span class="number"> 4 </span>有<span class="number"> 2 </span>个祖先<span class="number"> 0 </span>和<span class="number"> 2 </span>。</span><br><span class="line">- 节点<span class="number"> 5 </span>有<span class="number"> 3 </span>个祖先<span class="number"> 0 </span>，1 和<span class="number"> 3 </span>。</span><br><span class="line">- 节点<span class="number"> 6 </span>有<span class="number"> 5 </span>个祖先<span class="number"> 0 </span>，1 ，2 ，3 和<span class="number"> 4 </span>。</span><br><span class="line">- 节点<span class="number"> 7 </span>有<span class="number"> 4 </span>个祖先<span class="number"> 0 </span>，1 ，2 和<span class="number"> 3 </span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 5, edgeList = <span class="comment">[<span class="comment">[0,1]</span>,<span class="comment">[0,2]</span>,<span class="comment">[0,3]</span>,<span class="comment">[0,4]</span>,<span class="comment">[1,2]</span>,<span class="comment">[1,3]</span>,<span class="comment">[1,4]</span>,<span class="comment">[2,3]</span>,<span class="comment">[2,4]</span>,<span class="comment">[3,4]</span>]</span></span><br><span class="line">输出：<span class="comment">[<span class="comment">[]</span>,<span class="comment">[0]</span>,<span class="comment">[0,1]</span>,<span class="comment">[0,1,2]</span>,<span class="comment">[0,1,2,3]</span>]</span></span><br><span class="line">解释：</span><br><span class="line">上图为输入所对应的图。</span><br><span class="line">- 节点 0 没有任何祖先。</span><br><span class="line">- 节点 1 有 1 个祖先 0 。</span><br><span class="line">- 节点 2 有 2 个祖先 0 和 1 。</span><br><span class="line">- 节点 3 有 3 个祖先 0 ，1 和 2 。</span><br><span class="line">- 节点 4 有 4 个祖先 0 ，1 ，2 和 3 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>第一遍直接用弗洛伊德做的，复杂度是$O(n^3)$，最后超时了。</p>
+<p>用n遍dijkstra复杂度降维$O(n^2\log(n))$,就不超时了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Edge</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> v,w,nxt;</span><br><span class="line">    &#125;edge[<span class="number">2005</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; q;</span><br><span class="line">        <span class="type">int</span> dis[<span class="number">1005</span>],vis[<span class="number">1005</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dis[i]=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">            vis[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dis[s]=<span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(<span class="number">0</span>,s));</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> x=q.<span class="built_in">top</span>().second;</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span>(vis[x]) <span class="keyword">continue</span>;</span><br><span class="line">            vis[x]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=head[x];i!=<span class="number">-1</span>;i=edge[i].nxt)&#123;</span><br><span class="line">                <span class="type">int</span> v=edge[i].v,w=edge[i].w;</span><br><span class="line">                <span class="keyword">if</span>(dis[v]&gt;dis[x]+w)&#123;</span><br><span class="line">                    dis[v]=dis[x]+w;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(v);</span><br><span class="line">                    q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(dis[v],v));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> head[<span class="number">1005</span>];</span><br><span class="line">    <span class="type">int</span> tot=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">        edge[tot].v=v;</span><br><span class="line">        edge[tot].w=<span class="number">1</span>;</span><br><span class="line">        edge[tot].nxt=head[u];</span><br><span class="line">        head[u]=tot++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">getAncestors</span>(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; edges) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">ans</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        <span class="type">int</span> tot=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            head[i]=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;edges.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="built_in">add</span>(edges[i][<span class="number">1</span>],edges[i][<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; ve=<span class="built_in">dijkstra</span>(i,n);</span><br><span class="line">            <span class="built_in">sort</span>(ve.<span class="built_in">begin</span>(),ve.<span class="built_in">end</span>());</span><br><span class="line">            ans[i]=ve;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/">2193. 得到回文串的最少操作次数</a></p>
+<p>我不配做hard，看了题解，大概是贪心算法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -302,7 +1015,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -345,12 +1058,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">175k</span>
+    <span title="站点总字数">190k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:39</span>
+    <span title="站点阅读时长">2:52</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -425,6 +1138,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

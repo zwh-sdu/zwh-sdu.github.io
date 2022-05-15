@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="leetcode-第291场周赛第一题-easy2259. 移除指定数字得到的最大结果 题目描述给你一个表示某个正整数的字符串 number 和一个字符 digit 。 从 number 中 恰好 移除 一个 等于 digit 的字符后，找出并返回按 十进制 表示 最大 的结果字符串。生成的测试用例满足 digit 在 number 中出现至少一次。 样例 示例1  123输入：number &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-第291场周赛">
+<meta property="og:url" content="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC291%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
+<meta property="og:site_name" content="张文浩の博客">
+<meta property="og:description" content="leetcode-第291场周赛第一题-easy2259. 移除指定数字得到的最大结果 题目描述给你一个表示某个正整数的字符串 number 和一个字符 digit 。 从 number 中 恰好 移除 一个 等于 digit 的字符后，找出并返回按 十进制 表示 最大 的结果字符串。生成的测试用例满足 digit 在 number 中出现至少一次。 样例 示例1  123输入：number &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-15T07:26:00.000Z">
+<meta property="article:modified_time" content="2022-05-15T08:18:40.011Z">
+<meta property="article:author" content="张文浩">
+<meta property="article:tag" content="leetcode刷题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC291%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>leetcode-第291场周赛 | 张文浩の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">张文浩の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC291%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/messi.jpg">
+      <meta itemprop="name" content="张文浩">
+      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张文浩の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode-第291场周赛
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-15 15:26:00 / 修改时间：16:18:40" itemprop="dateCreated datePublished" datetime="2022-05-15T15:26:00+08:00">2022-05-15</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="leetcode-第291场周赛"><a href="#leetcode-第291场周赛" class="headerlink" title="leetcode-第291场周赛"></a>leetcode-第291场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-digit-from-number-to-maximize-result/">2259. 移除指定数字得到的最大结果</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个表示某个正整数的字符串 number 和一个字符 digit 。</p>
+<p>从 number 中 <strong>恰好</strong> 移除 <strong>一个</strong> 等于 digit 的字符后，找出并返回按 <strong>十进制</strong> 表示 <strong>最大</strong> 的结果字符串。生成的测试用例满足 digit 在 number 中出现至少一次。</p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="built_in">number</span> = <span class="string">&quot;123&quot;</span>, digit = <span class="string">&quot;3&quot;</span></span><br><span class="line">输出：<span class="string">&quot;12&quot;</span></span><br><span class="line">解释：<span class="string">&quot;123&quot;</span> 中只有一个 <span class="string">&#x27;3&#x27;</span> ，在移除 <span class="string">&#x27;3&#x27;</span> 之后，结果为 <span class="string">&quot;12&quot;</span> 。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="built_in">number</span> = <span class="string">&quot;1231&quot;</span>, digit = <span class="string">&quot;1&quot;</span></span><br><span class="line">输出：<span class="string">&quot;231&quot;</span></span><br><span class="line">解释：可以移除第一个 <span class="string">&#x27;1&#x27;</span> 得到 <span class="string">&quot;231&quot;</span> 或者移除第二个 <span class="string">&#x27;1&#x27;</span> 得到 <span class="string">&quot;123&quot;</span> 。</span><br><span class="line">由于 <span class="number">231</span> &gt; <span class="number">123</span> ，返回 <span class="string">&quot;231&quot;</span> 。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例3</li>
+</ul>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="built_in">number</span> = <span class="string">&quot;551&quot;</span>, digit = <span class="string">&quot;5&quot;</span></span><br><span class="line">输出：<span class="string">&quot;51&quot;</span></span><br><span class="line">解释：可以从 <span class="string">&quot;551&quot;</span> 中移除第一个或者第二个 <span class="string">&#x27;5&#x27;</span> 。</span><br><span class="line">两种方案的结果都是 <span class="string">&quot;51&quot;</span> 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>要使删除后的数字尽量大，就要删最靠前的一个小于与其相邻的后面的那个字符的digit，否则就删除最后一个。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">removeDigit</span><span class="params">(string number, <span class="type">char</span> digit)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> position;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=number.<span class="built_in">size</span>()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(number[i]==digit)&#123;</span><br><span class="line">                position=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;number.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(number[i]==digit&amp;&amp;i!=number.<span class="built_in">size</span>()<span class="number">-1</span>&amp;&amp;number[i+<span class="number">1</span>]&gt;number[i])&#123;</span><br><span class="line">                position=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        number.<span class="built_in">erase</span>(position,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-consecutive-cards-to-pick-up/">2260. 必须拿起的最小连续卡牌数</a></p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 cards ，其中 cards[i] 表示第 i 张卡牌的 <strong>值</strong> 。如果两张卡牌的值相同，则认为这一对卡牌 <strong>匹配</strong> 。</p>
+<p>返回你必须拿起的最小连续卡牌数，以使在拿起的卡牌中有一对匹配的卡牌。如果无法得到一对匹配的卡牌，返回 -1 。</p>
+<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：cards = [<span class="number">3,4,2,3</span>,<span class="number">4</span>,<span class="number">7</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：拿起卡牌 [<span class="number">3,4,2,3</span>] 将会包含一对值为 <span class="number">3</span> 的匹配卡牌。注意，拿起 [<span class="number">4,2,3,4</span>] 也是最优方案。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：cards = [<span class="number">1,0,5,3</span>]</span><br><span class="line">输出：-<span class="number">1</span></span><br><span class="line">解释：无法找出含一对匹配卡牌的一组连续卡牌。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>用一个map存卡牌上次出现的位置，遍历一遍找到相同卡牌最近的距离即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumCardPickup</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; cards)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">        <span class="type">bool</span> f=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cards.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">count</span>(cards[i]))&#123;</span><br><span class="line">                f=<span class="literal">true</span>;</span><br><span class="line">                ans=<span class="built_in">min</span>(ans,i-mp[cards[i]]+<span class="number">1</span>);</span><br><span class="line">                mp[cards[i]]=i;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                mp[cards[i]]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或者用vector代替map，更快，但内存占用更大。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumCardPickup</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; cards)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ve</span><span class="params">(<span class="number">1000005</span>,<span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">        <span class="type">bool</span> f=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cards.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ve[cards[i]]!=<span class="number">-1</span>)&#123;</span><br><span class="line">                f=<span class="literal">true</span>;</span><br><span class="line">                ans=<span class="built_in">min</span>(ans,i-ve[cards[i]]+<span class="number">1</span>);</span><br><span class="line">                ve[cards[i]]=i;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                ve[cards[i]]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/k-divisible-elements-subarrays/">2261. 含最多 K 个可整除元素的子数组</a></p>
+<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 nums 和两个整数 k 和 p ，找出并返回满足要求的不同的子数组数，要求子数组中最多 k 个可被 p 整除的元素。</p>
+<p>如果满足下述条件之一，则认为数组 nums1 和 nums2 是 <strong>不同</strong> 数组：</p>
+<ul>
+<li><p>两数组长度 <strong>不同</strong> ，或者</p>
+</li>
+<li><p>存在 <strong>至少</strong> 一个下标 i 满足 nums1[i] != nums2[i] 。</p>
+</li>
+</ul>
+<p><strong>子数组</strong> 定义为：数组中的连续元素组成的一个 <strong>非空</strong> 序列。</p>
+<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="selector-attr">[2,3,3,2,2]</span>, k = <span class="number">2</span>, <span class="selector-tag">p</span> = <span class="number">2</span></span><br><span class="line">输出：<span class="number">11</span></span><br><span class="line">解释：</span><br><span class="line">位于下标 <span class="number">0</span>、<span class="number">3</span> 和 <span class="number">4</span> 的元素都可以被 <span class="selector-tag">p</span> = <span class="number">2</span> 整除。</span><br><span class="line">共计 <span class="number">11</span> 个不同子数组都满足最多含 k = <span class="number">2</span> 个可以被 <span class="number">2</span> 整除的元素：</span><br><span class="line"><span class="selector-attr">[2]</span>、<span class="selector-attr">[2,3]</span>、<span class="selector-attr">[2,3,3]</span>、<span class="selector-attr">[2,3,3,2]</span>、<span class="selector-attr">[3]</span>、<span class="selector-attr">[3,3]</span>、<span class="selector-attr">[3,3,2]</span>、<span class="selector-attr">[3,3,2,2]</span>、<span class="selector-attr">[3,2]</span>、<span class="selector-attr">[3,2,2]</span> 和 <span class="selector-attr">[2,2]</span> 。</span><br><span class="line">注意，尽管子数组 <span class="selector-attr">[2]</span> 和 <span class="selector-attr">[3]</span> 在 nums 中出现不止一次，但统计时只计数一次。</span><br><span class="line">子数组 <span class="selector-attr">[2,3,3,2,2]</span> 不满足条件，因为其中有 <span class="number">3</span> 个元素可以被 <span class="number">2</span> 整除。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：<span class="attr">nums</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], <span class="attr">k</span> = <span class="number">4</span>, <span class="attr">p</span> = <span class="number">1</span></span><br><span class="line">输出：<span class="number">10</span></span><br><span class="line">解释：</span><br><span class="line">nums 中的所有元素都可以被 <span class="attr">p</span> = <span class="number">1</span> 整除。</span><br><span class="line">此外，nums 中的每个子数组都满足最多 <span class="number">4</span> 个元素可以被 <span class="number">1</span> 整除。</span><br><span class="line">因为所有子数组互不相同，因此满足所有限制条件的子数组总数为 <span class="number">10</span> 。</span><br></pre></td></tr></table></figure>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>暴力两层循环，用set去重。</p>
+<p>注意在每个数字加入字符串后加入一个“#”表示分词，不然加入一个1和一个9等价于加入一个19。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countDistinct</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;string&gt; s;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            string temp=<span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="type">int</span> num=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j]%p==<span class="number">0</span>) num++;</span><br><span class="line">                <span class="keyword">if</span>(num&gt;k) <span class="keyword">break</span>;</span><br><span class="line">                temp+=<span class="built_in">to_string</span>(nums[j]);</span><br><span class="line">                temp+=<span class="string">&quot;#&quot;</span>;</span><br><span class="line">                s.<span class="built_in">insert</span>(temp);</span><br><span class="line">                cout&lt;&lt;temp&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/total-appeal-of-a-string/">2262. 字符串的总引力</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/leetcode%E5%88%B7%E9%A2%98/" rel="tag"># leetcode刷题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/05/15/leetcode-%E7%AC%AC293%E5%9C%BA%E5%91%A8%E8%B5%9B/" rel="prev" title="leetcode-第293场周赛">
+      <i class="fa fa-chevron-left"></i> leetcode-第293场周赛
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/15/leetcode-%E7%AC%AC292%E5%9C%BA%E5%91%A8%E8%B5%9B/" rel="next" title="leetcode-第292场周赛">
+      leetcode-第292场周赛 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-%E7%AC%AC291%E5%9C%BA%E5%91%A8%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text">leetcode-第291场周赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-easy"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一题-easy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-mid"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二题-mid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-mid"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三题-mid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98-hard"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四题-hard</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="张文浩"
+      src="/images/messi.jpg">
+  <p class="site-author-name" itemprop="name">张文浩</p>
+  <div class="site-description" itemprop="description">我听见脚步声预料的软皮鞋跟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张文浩</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">190k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:52</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>

@@ -1,26 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="实验一：语言模型学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.3 实验目的：理解并实践语言模型 实验内容： 用python编程实践语言模型（uni-gram和bi-gram）,加入平滑技术。 计算test.txt中句子的PPL，对比uni-gram和bi-gram语言模型效果。  实验原理： 语言模型 ​    N-Gram是一种基于统计语言模型的算法">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张文浩">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验一：语言模型学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.3 实验目的：理解并实践语言模型 实验内容： 用python编程实践语言模型（uni-gram和bi-gram）,加入平滑技术。 计算test.txt中句子的PPL，对比uni-gram和bi-gram语言模型效果。  实验原理： 语言模型 ​    N-Gram是一种基于统计语言模型的算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自然语言处理实验一">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/index.html">
@@ -31,200 +27,254 @@
 <meta property="article:modified_time" content="2022-04-03T03:10:33.161Z">
 <meta property="article:author" content="张文浩">
 <meta property="article:tag" content="自然语言处理实验">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>自然语言处理实验一 - 张文浩の博客</title>
 
-<link rel="canonical" href="https://zwh-sdu.github.io/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>自然语言处理实验一 | 张文浩の博客</title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<body>
+  
 
-  <div class="site-meta">
+  <header>
+    
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">张文浩の博客</h1>
-      <span class="logo-line-after"><i></i></span>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zwh-blog</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a>
-
-  </li>
-  </ul>
 </nav>
 
+  
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-m9ezjy_3840x1600.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="自然语言处理实验一"></span>
+          
+        </div>
 
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-08 11:10" pubdate>
+          2022年3月8日 上午
+        </time>
+      </span>
+    
+  </div>
 
-</div>
-    </header>
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/messi.jpg">
-      <meta itemprop="name" content="张文浩">
-      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张文浩の博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          自然语言处理实验一
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-08 11:10:06" itemprop="dateCreated datePublished" datetime="2022-03-08T11:10:06+08:00">2022-03-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-03 11:10:33" itemprop="dateModified" datetime="2022-04-03T11:10:33+08:00">2022-04-03</time>
-              </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <h1 id="实验一：语言模型"><a href="#实验一：语言模型" class="headerlink" title="实验一：语言模型"></a>实验一：语言模型</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">自然语言处理实验一</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="实验一：语言模型"><a href="#实验一：语言模型" class="headerlink" title="实验一：语言模型"></a>实验一：语言模型</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
 <h2 id="实验日期："><a href="#实验日期：" class="headerlink" title="实验日期："></a>实验日期：</h2><p>2022.3.3</p>
 <h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>理解并实践语言模型</p>
 <h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><ol>
@@ -288,11 +338,11 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
 <h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><ul>
 <li>导入相关库</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> Word</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> nltk<br><span class="hljs-keyword">import</span> math<br><span class="hljs-keyword">from</span> textblob <span class="hljs-keyword">import</span> TextBlob<br><span class="hljs-keyword">from</span> textblob <span class="hljs-keyword">import</span> Word<br></code></pre></td></tr></table></figure>
 <ul>
 <li>读入训练集和测试集</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除标点，根据&quot;__eou__&quot;对句子进行分割</span></span><br><span class="line">train_data = <span class="built_in">open</span>(<span class="string">&quot;train_LM.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>).read().replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;?&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;!&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;;&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;&lt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27; &#x27;</span>).split(<span class="string">&quot;__eou__&quot;</span>)</span><br><span class="line">test_data = <span class="built_in">open</span>(<span class="string">&quot;test_LM.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>).read().replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;?&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;!&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;;&#x27;</span>,<span class="string">&#x27; &#x27;</span>)\</span><br><span class="line">        .replace(<span class="string">&#x27;&lt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27; &#x27;</span>).replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27; &#x27;</span>).split(<span class="string">&quot;__eou__&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除标点，根据&quot;__eou__&quot;对句子进行分割</span><br>train_data = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;train_LM.txt&quot;</span>,<span class="hljs-string">&#x27;r&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>).read().replace(<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>)\<br>        .replace(<span class="hljs-string">&#x27;.&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;?&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;!&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;:&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>)\<br>        .replace(<span class="hljs-string">&#x27;&lt;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;&gt;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;/&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).split(<span class="hljs-string">&quot;__eou__&quot;</span>)<br>test_data = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test_LM.txt&quot;</span>,<span class="hljs-string">&#x27;r&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>).read().replace(<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>)\<br>        .replace(<span class="hljs-string">&#x27;.&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;?&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;!&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;:&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>)\<br>        .replace(<span class="hljs-string">&#x27;&lt;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;&gt;&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).replace(<span class="hljs-string">&#x27;/&#x27;</span>,<span class="hljs-string">&#x27; &#x27;</span>).split(<span class="hljs-string">&quot;__eou__&quot;</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h3 id="unigram"><a href="#unigram" class="headerlink" title="unigram"></a>unigram</h3></blockquote>
 <ul>
@@ -300,335 +350,477 @@ PP_T(T)=2^{H_P(T)}</script><p>​    显然，交叉熵和困惑度越小越好�
 <p>同时对单词进行处理，包括包括复数变单数、大写转小写、词形还原等</p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">unigram = nltk.FreqDist()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> train_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence) <span class="comment"># 分割单词</span></span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower() <span class="comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    dist = nltk.FreqDist(newords)</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dist:</span><br><span class="line">        unigram[d]+=dist[d]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">unigram = nltk.FreqDist()<br><br><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> train_data:<br>    words = nltk.word_tokenize(sentence) <span class="hljs-comment"># 分割单词</span><br>    newords = []<br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower() <span class="hljs-comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span><br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)!=<span class="hljs-number">0</span>):<br>            newords.append(word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>))<br>    dist = nltk.FreqDist(newords)<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> dist:<br>        unigram[d]+=dist[d]<br></code></pre></td></tr></table></figure>
 <ul>
 <li>将测试集中没出现过的词也存进字典unigram</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> unigram:</span><br><span class="line">            unigram[word] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test_data:<br>    words = nltk.word_tokenize(sentence)<br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower()<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)==<span class="hljs-number">0</span>):<br>            <span class="hljs-keyword">continue</span><br>        word = word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>)<br>        <span class="hljs-keyword">if</span> word <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> unigram:<br>            unigram[word] = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li><p>数据平滑（加一法）</p>
 <p>将平滑后的每个词的概率存到字典unigram中</p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.加一法：</span></span><br><span class="line"><span class="built_in">sum</span> = unigram.N() + unigram.B() <span class="comment">#其中.N()表示所有词出现次数之和，.B()表示词的个数（即加一法所加的数量）</span></span><br><span class="line">unigram_p = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> unigram:</span><br><span class="line">    unigram_p[word] = (unigram[word] + <span class="number">1</span>)/<span class="built_in">sum</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1.加一法：</span><br><span class="hljs-built_in">sum</span> = unigram.N() + unigram.B() <span class="hljs-comment">#其中.N()表示所有词出现次数之和，.B()表示词的个数（即加一法所加的数量）</span><br>unigram_p = nltk.FreqDist()<br><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> unigram:<br>    unigram_p[word] = (unigram[word] + <span class="hljs-number">1</span>)/<span class="hljs-built_in">sum</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li>计算困惑度ppl</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ppl_unigram = []</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    Wt = <span class="number">0</span></span><br><span class="line">    H_p = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        H_p += math.log(unigram_p[word],<span class="number">2</span>)</span><br><span class="line">        Wt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> Wt == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    ppl_unigram.append(<span class="built_in">pow</span>(<span class="number">2</span>,-(H_p/Wt)))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;使用加法平滑方法计算的unigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_unigram))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">ppl_unigram = []<br><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test_data:<br>    words = nltk.word_tokenize(sentence)<br>    Wt = <span class="hljs-number">0</span><br>    H_p = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower()<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)==<span class="hljs-number">0</span>):<br>            <span class="hljs-keyword">continue</span><br>        word = word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>)<br>        H_p += math.log(unigram_p[word],<span class="hljs-number">2</span>)<br>        Wt += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> Wt == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">continue</span><br>    ppl_unigram.append(<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,-(H_p/Wt)))<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;使用加法平滑方法计算的unigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_unigram))<br></code></pre></td></tr></table></figure>
 <ul>
 <li>result</li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unigram模型困惑度ppl为:  532.0271341149352</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">unigram模型困惑度ppl为:  532.0271341149352<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h3 id="bigram"><a href="#bigram" class="headerlink" title="bigram"></a>bigram</h3></blockquote>
 <ul>
 <li>获取每对2-grams出现的次数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bigram = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> train_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower() <span class="comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    dist = nltk.FreqDist(nltk.bigrams(newords))</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dist:</span><br><span class="line">        bigram[d] += dist[d]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">bigram = nltk.FreqDist()<br><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> train_data:<br>    words = nltk.word_tokenize(sentence)<br>    newords = []<br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower() <span class="hljs-comment"># 对单词进行处理，包括复数变单数、大写转小写、词形还原等</span><br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)!=<span class="hljs-number">0</span>):<br>            newords.append(word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>))<br>    dist = nltk.FreqDist(nltk.bigrams(newords))<br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> dist:<br>        bigram[d] += dist[d]<br></code></pre></td></tr></table></figure>
 <ul>
 <li>将测试集中没出现过的2-grams也存到字典中</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)==<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        word = word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>)</span><br><span class="line">        newords.append(word)</span><br><span class="line">    <span class="keyword">for</span> gram_2 <span class="keyword">in</span> nltk.FreqDist(nltk.bigrams(newords)):</span><br><span class="line">        <span class="keyword">if</span> gram_2 <span class="keyword">not</span> <span class="keyword">in</span> bigram:</span><br><span class="line">            bigram[gram_2] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test_data:<br>    words = nltk.word_tokenize(sentence)<br>    newords = []<br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower()<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)==<span class="hljs-number">0</span>):<br>            <span class="hljs-keyword">continue</span><br>        word = word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>)<br>        newords.append(word)<br>    <span class="hljs-keyword">for</span> gram_2 <span class="hljs-keyword">in</span> nltk.FreqDist(nltk.bigrams(newords)):<br>        <span class="hljs-keyword">if</span> gram_2 <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> bigram:<br>            bigram[gram_2] = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li>数据平滑（加一平滑）</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加一平滑</span></span><br><span class="line">pre = nltk.FreqDist() <span class="comment"># 记录2-gram中以x为第一个的词对的总数量</span></span><br><span class="line">outlet = nltk.FreqDist() <span class="comment"># 记录2-gram中以x为第一个的词对的种类数量</span></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> bigram:</span><br><span class="line">    pre[word[<span class="number">0</span>]] += bigram[word]</span><br><span class="line">    outlet[word[<span class="number">0</span>]] += <span class="number">1</span></span><br><span class="line">bigram_p = nltk.FreqDist()</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> bigram:</span><br><span class="line">    bigram_p[word] = (bigram[word] + <span class="number">1</span>)/(pre[word[<span class="number">0</span>]] + outlet[word[<span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 加一平滑</span><br>pre = nltk.FreqDist() <span class="hljs-comment"># 记录2-gram中以x为第一个的词对的总数量</span><br>outlet = nltk.FreqDist() <span class="hljs-comment"># 记录2-gram中以x为第一个的词对的种类数量</span><br><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> bigram:<br>    pre[word[<span class="hljs-number">0</span>]] += bigram[word]<br>    outlet[word[<span class="hljs-number">0</span>]] += <span class="hljs-number">1</span><br>bigram_p = nltk.FreqDist()<br><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> bigram:<br>    bigram_p[word] = (bigram[word] + <span class="hljs-number">1</span>)/(pre[word[<span class="hljs-number">0</span>]] + outlet[word[<span class="hljs-number">0</span>]])<br></code></pre></td></tr></table></figure>
 <ul>
 <li>计算困惑度ppl</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ppl_bigram = []</span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> test_data:</span><br><span class="line">    words = nltk.word_tokenize(sentence)</span><br><span class="line">    Wt = <span class="number">0</span></span><br><span class="line">    H_p = <span class="number">0</span></span><br><span class="line">    newords = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        word = TextBlob(word).words.singularize().lower()</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(word)!=<span class="number">0</span>):</span><br><span class="line">            newords.append(word[<span class="number">0</span>].lemmatize(<span class="string">&quot;v&quot;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> gram_2 <span class="keyword">in</span> nltk.bigrams(newords):</span><br><span class="line">        H_p += math.log(bigram_p[gram_2],<span class="number">2</span>)</span><br><span class="line">        Wt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> Wt == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    ppl_bigram.append(<span class="built_in">pow</span>(<span class="number">2</span>,-(H_p/Wt)))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;bigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_bigram))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">ppl_bigram = []<br><span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test_data:<br>    words = nltk.word_tokenize(sentence)<br>    Wt = <span class="hljs-number">0</span><br>    H_p = <span class="hljs-number">0</span><br>    newords = []<br>    <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> words:<br>        word = TextBlob(word).words.singularize().lower()<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(word)!=<span class="hljs-number">0</span>):<br>            newords.append(word[<span class="hljs-number">0</span>].lemmatize(<span class="hljs-string">&quot;v&quot;</span>))<br>    <br>    <span class="hljs-keyword">for</span> gram_2 <span class="hljs-keyword">in</span> nltk.bigrams(newords):<br>        H_p += math.log(bigram_p[gram_2],<span class="hljs-number">2</span>)<br>        Wt += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> Wt == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">continue</span><br>    ppl_bigram.append(<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,-(H_p/Wt)))<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;bigram模型困惑度ppl为: &quot;</span>,np.mean(ppl_bigram))<br></code></pre></td></tr></table></figure>
 <ul>
 <li>result</li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bigram模型困惑度ppl为:  71.22233899667593</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">bigram模型困惑度ppl为:  71.22233899667593<br></code></pre></td></tr></table></figure>
 <h2 id="结果对比"><a href="#结果对比" class="headerlink" title="结果对比"></a>结果对比</h2><ul>
 <li>unigram模型的ppl为：532.0271341149352</li>
 <li>bigram模型的ppl为：71.22233899667593</li>
 </ul>
 <p>显然bigram模型的效果更好。</p>
 
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C/">#自然语言处理实验</a>
+      
     </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C/" rel="tag"># 自然语言处理实验</a>
-          </div>
-
-        
+  
+</div>
 
 
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/" rel="prev" title="leetcode—第283场周赛">
-      <i class="fa fa-chevron-left"></i> leetcode—第283场周赛
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/" rel="next" title="自然语言处理实验二">
-      自然语言处理实验二 <i class="fa fa-chevron-right"></i>
-    </a></div>
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>自然语言处理实验一</div>
+      <div>https://zwh-sdu.github.io/2022/03/08/自然语言处理实验一/</div>
     </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张文浩</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
           
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/" title="自然语言处理实验二">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">自然语言处理实验二</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/08/leetcode-%E7%AC%AC283%E5%9C%BA%E5%91%A8%E8%B5%9B/" title="leetcode—第283场周赛">
+                        <span class="hidden-mobile">leetcode—第283场周赛</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
   });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9A%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">实验一：语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E5%8F%B7%E5%A7%93%E5%90%8D%E7%8F%AD%E7%BA%A7%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">学号姓名班级：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%97%A5%E6%9C%9F%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">实验日期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">实验目的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">实验内容：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">实验原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.5.1.</span> <span class="nav-text">语言模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B3%E6%BB%91"><span class="nav-number">1.5.2.</span> <span class="nav-text">数据平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8A%A0%E6%B3%95%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%AC%E6%AC%A1%E5%AE%9E%E9%AA%8C%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%99%E7%A7%8D%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95%EF%BC%89"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">1.加法平滑方法（本次实验中使用这种平滑方法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8F%A4%E5%BE%B7-%E5%9B%BE%E7%81%B5%EF%BC%88Good-Turing%EF%BC%89%E4%BC%B0%E8%AE%A1%E6%B3%95"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">2.古德-图灵（Good-Turing）估计法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Katz%E5%B9%B3%E6%BB%91%E6%B3%95"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">3.Katz平滑法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Jelinek-Mercer%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">4.Jelinek-Mercer平滑方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Witten-Bell%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">5.Witten-Bell平滑方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%BB%9D%E5%AF%B9%E5%87%8F%E5%80%BC%E6%B3%95"><span class="nav-number">1.5.2.6.</span> <span class="nav-text">6.绝对减值法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Kneser-Ney%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.2.7.</span> <span class="nav-text">7.Kneser-Ney平滑方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="nav-number">1.5.3.</span> <span class="nav-text">评价指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">实验步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unigram"><span class="nav-number">1.6.1.</span> <span class="nav-text">unigram</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bigram"><span class="nav-number">1.6.2.</span> <span class="nav-text">bigram</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-number">1.7.</span> <span class="nav-text">结果对比</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="张文浩"
-      src="/images/messi.jpg">
-  <p class="site-author-name" itemprop="name">张文浩</p>
-  <div class="site-description" itemprop="description">我听见脚步声预料的软皮鞋跟</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">26</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">张文浩</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    <span title="站点总字数">193k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">2:55</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
       }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
 </script>
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
     
 
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
   
 
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/clicklove.js"></script>

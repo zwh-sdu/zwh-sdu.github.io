@@ -1,26 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="实验二：分词学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.10 实验目的：了解中英文分词工具 实验内容：利用给定的中英文文本序列（见 Chinese.txt 和 English.txt），分别利用以下给定的中英文分词工具进行分词并对不同分词工具产生的结果进行简要对比分析，将实验过程与结果写成实验报告，实验课结束后提交。 实验原理： 中文分词工具  Ji">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张文浩">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验二：分词学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.10 实验目的：了解中英文分词工具 实验内容：利用给定的中英文文本序列（见 Chinese.txt 和 English.txt），分别利用以下给定的中英文分词工具进行分词并对不同分词工具产生的结果进行简要对比分析，将实验过程与结果写成实验报告，实验课结束后提交。 实验原理： 中文分词工具  Ji">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自然语言处理实验二">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/index.html">
@@ -31,200 +27,254 @@
 <meta property="article:modified_time" content="2022-04-03T03:09:46.111Z">
 <meta property="article:author" content="张文浩">
 <meta property="article:tag" content="自然语言处理实验">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>自然语言处理实验二 - 张文浩の博客</title>
 
-<link rel="canonical" href="https://zwh-sdu.github.io/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>自然语言处理实验二 | 张文浩の博客</title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<body>
+  
 
-  <div class="site-meta">
+  <header>
+    
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">张文浩の博客</h1>
-      <span class="logo-line-after"><i></i></span>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zwh-blog</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a>
-
-  </li>
-  </ul>
 </nav>
 
+  
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-m9ezjy_3840x1600.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="自然语言处理实验二"></span>
+          
+        </div>
 
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-13 10:18" pubdate>
+          2022年3月13日 上午
+        </time>
+      </span>
+    
+  </div>
 
-</div>
-    </header>
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          24k 字
+        
+      </span>
+    
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          197 分钟
+        
+      </span>
+    
+
+    
+    
   </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zwh-sdu.github.io/2022/03/13/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/messi.jpg">
-      <meta itemprop="name" content="张文浩">
-      <meta itemprop="description" content="我听见脚步声预料的软皮鞋跟">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张文浩の博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          自然语言处理实验二
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-13 10:18:24" itemprop="dateCreated datePublished" datetime="2022-03-13T10:18:24+08:00">2022-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-03 11:09:46" itemprop="dateModified" datetime="2022-04-03T11:09:46+08:00">2022-04-03</time>
-              </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>24k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>21 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <h1 id="实验二：分词"><a href="#实验二：分词" class="headerlink" title="实验二：分词"></a>实验二：分词</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">自然语言处理实验二</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="实验二：分词"><a href="#实验二：分词" class="headerlink" title="实验二：分词"></a>实验二：分词</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
 <h2 id="实验日期："><a href="#实验日期：" class="headerlink" title="实验日期："></a>实验日期：</h2><p>2022.3.10</p>
 <h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>了解中英文分词工具</p>
 <h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>利用给定的中英文文本序列（见 Chinese.txt 和 English.txt），分别利用以下给定的中英文分词工具进行分词并对不同分词工具产生的结果进行简要对比分析，将实验过程与结果写成实验报告，实验课结束后提交。</p>
@@ -279,23 +329,23 @@
 <h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h3 id="中文分词工具-1"><a href="#中文分词工具-1" class="headerlink" title="中文分词工具"></a>中文分词工具</h3><ul>
 <li>读取中文数据集</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chinese_data = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;Chinese.txt&quot;</span>, <span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:  <span class="comment"># 打开文件</span></span><br><span class="line">    Chinese_data = f.read()  <span class="comment"># 读取文件</span></span><br><span class="line"><span class="built_in">print</span>(Chinese_data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Chinese_data = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;Chinese.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>,encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-keyword">as</span> f:  <span class="hljs-comment"># 打开文件</span><br>    Chinese_data = f.read()  <span class="hljs-comment"># 读取文件</span><br><span class="hljs-built_in">print</span>(Chinese_data)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="jieba"><a href="#jieba" class="headerlink" title="jieba"></a>jieba</h4></blockquote>
 <ul>
 <li>利用jieba库的四种模式进行分词</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line">jieba.enable_paddle()  <span class="comment"># 开启paddle模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全模式</span></span><br><span class="line">words = jieba.cut(Chinese_data, cut_all=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;全模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line">words = jieba.cut(Chinese_data, use_paddle=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;新词模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认精确模式</span></span><br><span class="line">words = jieba.cut(Chinese_data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;精确模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索模式</span></span><br><span class="line">words = jieba.cut_for_search(Chinese_data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;搜索模式:\n%s&quot;</span> % <span class="string">&quot;/&quot;</span>.join(words))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jieba<br><br>jieba.enable_paddle()  <span class="hljs-comment"># 开启paddle模式</span><br><br><span class="hljs-comment"># 全模式</span><br>words = jieba.cut(Chinese_data, cut_all=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;全模式:\n%s&quot;</span> % <span class="hljs-string">&quot;/&quot;</span>.join(words))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><br>words = jieba.cut(Chinese_data, use_paddle=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;新词模式:\n%s&quot;</span> % <span class="hljs-string">&quot;/&quot;</span>.join(words))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><br><span class="hljs-comment"># 默认精确模式</span><br>words = jieba.cut(Chinese_data)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;精确模式:\n%s&quot;</span> % <span class="hljs-string">&quot;/&quot;</span>.join(words))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><br><span class="hljs-comment"># 搜索模式</span><br>words = jieba.cut_for_search(Chinese_data)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;搜索模式:\n%s&quot;</span> % <span class="hljs-string">&quot;/&quot;</span>.join(words))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br></code></pre></td></tr></table></figure>
 <ul>
 <li>jieba输出</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">全模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲/田/牌/“/土鸡/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/标上/玩/猫腻/，/分别/注册/“/鲜/土/”、/注册/“/好/土/”/商标/，/让/消费/消费者/误以为/以为/是/“/土鸡/鸡蛋/”。/3/月/15/日/晚间/，/新/京报/记者/就此/此事/致电/湖北/神丹/健康/食品/有限/有限公司/公司/方面/，/其/工作/工作人员/作人/人员/表示/不知/不知情/知情/，/需要/了解/清楚/情况/，/截至/发稿/暂/未取/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/有限公司/公司/为/农业/农业产业/产业/产业化/国家/重点/龙头/龙头企业/企业/、/高新/高新技术/技术/企业/，/此前/曾/因涉嫌/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">新词模式:</span><br><span class="line"></span><br><span class="line"> 央/视/315/晚会/曝光/湖北省/知名/的/神丹牌、莲田牌“土鸡蛋”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻，/分别/注册/“鲜土”、/注册/“/好土/”/商标/，/让/消费者/误/以为/是/“土/鸡蛋/”。/3月15日晚间/，/新京报/记者/就/此事/致电/湖北神丹健康食品有限公司/方面/，/其/工作/人员/表示/不知/情，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新京报/记者/还/查询/发现/，/湖北神丹健康食品有限公司/为/农业/产业化/国家/重点/龙头/企业/、/高新技术/企业/，/此前/曾/因/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">精确模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费者/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限公司/方面/，/其/工作人员/表示/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限公司/为/农业/产业化/国家/重点/龙头企业/、/高新技术/企业/，/此前/曾/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br><span class="line"></span><br><span class="line">搜索模式:</span><br><span class="line"></span><br><span class="line">﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费/消费者/以为/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限/公司/有限公司/方面/，/其/工作/作人/人员/工作人员/表示/不知/知情/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/公司/有限公司/为/农业/产业/产业化/国家/重点/龙头/企业/龙头企业/、/高新/技术/高新技术/企业/，/此前/曾/涉嫌/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs &#123;">全模式:<br><br>﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲/田/牌/“/土鸡/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/标上/玩/猫腻/，/分别/注册/“/鲜/土/”、/注册/“/好/土/”/商标/，/让/消费/消费者/误以为/以为/是/“/土鸡/鸡蛋/”。/3/月/15/日/晚间/，/新/京报/记者/就此/此事/致电/湖北/神丹/健康/食品/有限/有限公司/公司/方面/，/其/工作/工作人员/作人/人员/表示/不知/不知情/知情/，/需要/了解/清楚/情况/，/截至/发稿/暂/未取/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/有限公司/公司/为/农业/农业产业/产业/产业化/国家/重点/龙头/龙头企业/企业/、/高新/高新技术/技术/企业/，/此前/曾/因涉嫌/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。<br>--------------------------<br><br>新词模式:<br><br> 央/视/315/晚会/曝光/湖北省/知名/的/神丹牌、莲田牌“土鸡蛋”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻，/分别/注册/“鲜土”、/注册/“/好土/”/商标/，/让/消费者/误/以为/是/“土/鸡蛋/”。/3月15日晚间/，/新京报/记者/就/此事/致电/湖北神丹健康食品有限公司/方面/，/其/工作/人员/表示/不知/情，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新京报/记者/还/查询/发现/，/湖北神丹健康食品有限公司/为/农业/产业化/国家/重点/龙头/企业/、/高新技术/企业/，/此前/曾/因/涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6万元/。<br>--------------------------<br><br>精确模式:<br><br>﻿/央视/315/晚会/曝光/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费者/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限公司/方面/，/其/工作人员/表示/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限公司/为/农业/产业化/国家/重点/龙头企业/、/高新技术/企业/，/此前/曾/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。<br>--------------------------<br><br>搜索模式:<br><br>﻿/央视/315/晚会/曝光/湖北/湖北省/知名/的/神丹/牌/、/莲田牌/“/土/鸡蛋/”/实为/普通/鸡蛋/冒充/，/同时/在/商标/上/玩/猫腻/，/分别/注册/“/鲜土/”/、/注册/“/好土/”/商标/，/让/消费/消费者/以为/误以为/是/“/土/鸡蛋/”/。/3/月/15/日/晚间/，/新/京报/记者/就/此事/致电/湖北/神丹/健康/食品/有限/公司/有限公司/方面/，/其/工作/作人/人员/工作人员/表示/不知/知情/不知情/，/需要/了解/清楚/情况/，/截至/发稿/暂未/取得/最新/回应/。/新/京报/记者/还/查询/发现/，/湖北/神丹/健康/食品/有限/公司/有限公司/为/农业/产业/产业化/国家/重点/龙头/企业/龙头企业/、/高新/技术/高新技术/企业/，/此前/曾/涉嫌/因涉嫌/虚假/宣传/“/中国/最大/的/蛋品/企业/”/而/被/罚/6/万元/。<br>--------------------------<br></code></pre></td></tr></table></figure>
 <ul>
 <li>载入自创建字典</li>
 </ul>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;mydict.txt&quot;</span></span><br><span class="line">神丹牌</span><br><span class="line">莲花牌</span><br><span class="line">土鸡蛋</span><br><span class="line">新京报</span><br><span class="line"><span class="number">315</span>晚会</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jieba.load_userdict(<span class="string">&quot;mydict.txt&quot;</span>)</span><br><span class="line">words=jieba.cut(Chinese_data, cut_all=<span class="literal">False</span>) <span class="comment">#精确模式  str 为之前的字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;载入自创建字典后:\n%s&quot;</span> % <span class="string">&#x27;/&#x27;</span>.join(words))</span><br></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">载入自创建字典后:</span><br><span class="line">﻿<span class="regexp">/央视/</span><span class="number">315</span>晚会<span class="regexp">/曝光/</span>湖北省<span class="regexp">/知名/</span>的<span class="regexp">/神丹牌/</span>、<span class="regexp">/莲田牌/</span>“<span class="regexp">/土鸡蛋/</span>”<span class="regexp">/实为/</span>普通<span class="regexp">/鸡蛋/</span>冒充<span class="regexp">/，/</span>同时<span class="regexp">/在/</span>商标<span class="regexp">/上/</span>玩<span class="regexp">/猫腻/</span>，<span class="regexp">/分别/</span>注册<span class="regexp">/“/</span>鲜土<span class="regexp">/”/</span>、<span class="regexp">/注册/</span>“<span class="regexp">/好土/</span>”<span class="regexp">/商标/</span>，<span class="regexp">/让/</span>消费者<span class="regexp">/误以为/</span>是<span class="regexp">/“/</span>土鸡蛋<span class="regexp">/”/</span>。<span class="regexp">/3/</span>月<span class="regexp">/15/</span>日<span class="regexp">/晚间/</span>，<span class="regexp">/新京报/</span>记者<span class="regexp">/就/</span>此事<span class="regexp">/致电/</span>湖北<span class="regexp">/神丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/方面/</span>，<span class="regexp">/其/</span>工作人员<span class="regexp">/表示/</span>不知情<span class="regexp">/，/</span>需要<span class="regexp">/了解/</span>清楚<span class="regexp">/情况/</span>，<span class="regexp">/截至/</span>发稿<span class="regexp">/暂未/</span>取得<span class="regexp">/最新/</span>回应<span class="regexp">/。/</span>新京报<span class="regexp">/记者/</span>还<span class="regexp">/查询/</span>发现<span class="regexp">/，/</span>湖北<span class="regexp">/神丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/为/</span>农业<span class="regexp">/产业化/</span>国家<span class="regexp">/重点/</span>龙头企业<span class="regexp">/、/</span>高新技术<span class="regexp">/企业/</span>，<span class="regexp">/此前/</span>曾<span class="regexp">/因涉嫌/</span>虚假<span class="regexp">/宣传/</span>“<span class="regexp">/中国/</span>最大<span class="regexp">/的/</span>蛋品<span class="regexp">/企业/</span>”<span class="regexp">/而/</span>被<span class="regexp">/罚/</span><span class="number">6</span><span class="regexp">/万元/</span>。</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;mydict.txt&quot;</span><br>神丹牌<br>莲花牌<br>土鸡蛋<br>新京报<br><span class="hljs-number">315</span>晚会<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">jieba.load_userdict(<span class="hljs-string">&quot;mydict.txt&quot;</span>)<br>words=jieba.cut(Chinese_data, cut_all=<span class="hljs-literal">False</span>) <span class="hljs-comment">#精确模式  str 为之前的字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;载入自创建字典后:\n%s&quot;</span> % <span class="hljs-string">&#x27;/&#x27;</span>.join(words))<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">载入自创建字典后:<br>﻿<span class="hljs-regexp">/央视/</span><span class="hljs-number">315</span>晚会<span class="hljs-regexp">/曝光/</span>湖北省<span class="hljs-regexp">/知名/</span>的<span class="hljs-regexp">/神丹牌/</span>、<span class="hljs-regexp">/莲田牌/</span>“<span class="hljs-regexp">/土鸡蛋/</span>”<span class="hljs-regexp">/实为/</span>普通<span class="hljs-regexp">/鸡蛋/</span>冒充<span class="hljs-regexp">/，/</span>同时<span class="hljs-regexp">/在/</span>商标<span class="hljs-regexp">/上/</span>玩<span class="hljs-regexp">/猫腻/</span>，<span class="hljs-regexp">/分别/</span>注册<span class="hljs-regexp">/“/</span>鲜土<span class="hljs-regexp">/”/</span>、<span class="hljs-regexp">/注册/</span>“<span class="hljs-regexp">/好土/</span>”<span class="hljs-regexp">/商标/</span>，<span class="hljs-regexp">/让/</span>消费者<span class="hljs-regexp">/误以为/</span>是<span class="hljs-regexp">/“/</span>土鸡蛋<span class="hljs-regexp">/”/</span>。<span class="hljs-regexp">/3/</span>月<span class="hljs-regexp">/15/</span>日<span class="hljs-regexp">/晚间/</span>，<span class="hljs-regexp">/新京报/</span>记者<span class="hljs-regexp">/就/</span>此事<span class="hljs-regexp">/致电/</span>湖北<span class="hljs-regexp">/神丹/</span>健康<span class="hljs-regexp">/食品/</span>有限公司<span class="hljs-regexp">/方面/</span>，<span class="hljs-regexp">/其/</span>工作人员<span class="hljs-regexp">/表示/</span>不知情<span class="hljs-regexp">/，/</span>需要<span class="hljs-regexp">/了解/</span>清楚<span class="hljs-regexp">/情况/</span>，<span class="hljs-regexp">/截至/</span>发稿<span class="hljs-regexp">/暂未/</span>取得<span class="hljs-regexp">/最新/</span>回应<span class="hljs-regexp">/。/</span>新京报<span class="hljs-regexp">/记者/</span>还<span class="hljs-regexp">/查询/</span>发现<span class="hljs-regexp">/，/</span>湖北<span class="hljs-regexp">/神丹/</span>健康<span class="hljs-regexp">/食品/</span>有限公司<span class="hljs-regexp">/为/</span>农业<span class="hljs-regexp">/产业化/</span>国家<span class="hljs-regexp">/重点/</span>龙头企业<span class="hljs-regexp">/、/</span>高新技术<span class="hljs-regexp">/企业/</span>，<span class="hljs-regexp">/此前/</span>曾<span class="hljs-regexp">/因涉嫌/</span>虚假<span class="hljs-regexp">/宣传/</span>“<span class="hljs-regexp">/中国/</span>最大<span class="hljs-regexp">/的/</span>蛋品<span class="hljs-regexp">/企业/</span>”<span class="hljs-regexp">/而/</span>被<span class="hljs-regexp">/罚/</span><span class="hljs-number">6</span><span class="hljs-regexp">/万元/</span>。<br></code></pre></td></tr></table></figure>
 <ul>
 <li>对比</li>
 </ul>
@@ -310,60 +360,60 @@
 <li>总结</li>
 <li>得到关键词</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> snownlp <span class="keyword">import</span> SnowNLP</span><br><span class="line">s=SnowNLP(Chinese_data)   <span class="comment">#str为之前去掉符号的中文字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;分词:\n%s&quot;</span> % s.words)   <span class="comment">#进行分词</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;拼音:\n%s&quot;</span> % s.pinyin)  <span class="comment">#得到拼音</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;总结:\n%s&quot;</span> % s.summary(<span class="number">3</span>)) <span class="comment">#进行总结 summary</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;得到关键词:\n%s&quot;</span> % s.keywords(<span class="number">3</span>)) <span class="comment"># 得到关键词</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> snownlp <span class="hljs-keyword">import</span> SnowNLP<br>s=SnowNLP(Chinese_data)   <span class="hljs-comment">#str为之前去掉符号的中文字符串</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;分词:\n%s&quot;</span> % s.words)   <span class="hljs-comment">#进行分词</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;拼音:\n%s&quot;</span> % s.pinyin)  <span class="hljs-comment">#得到拼音</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;总结:\n%s&quot;</span> % s.summary(<span class="hljs-number">3</span>)) <span class="hljs-comment">#进行总结 summary</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;得到关键词:\n%s&quot;</span> % s.keywords(<span class="hljs-number">3</span>)) <span class="hljs-comment"># 得到关键词</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br></code></pre></td></tr></table></figure>
 <ul>
 <li>SnowNlp输出</li>
 </ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">分词:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;\ufeff&#x27;</span>, <span class="string">&#x27;央视&#x27;</span>, <span class="string">&#x27;315&#x27;</span>, <span class="string">&#x27;晚会&#x27;</span>, <span class="string">&#x27;曝光&#x27;</span>, <span class="string">&#x27;湖北省&#x27;</span>, <span class="string">&#x27;知名&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;神丹&#x27;</span>, <span class="string">&#x27;牌&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;莲&#x27;</span>, <span class="string">&#x27;田&#x27;</span>, <span class="string">&#x27;牌&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;实&#x27;</span>, <span class="string">&#x27;为&#x27;</span>, <span class="string">&#x27;普通&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;冒充&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;同时&#x27;</span>, <span class="string">&#x27;在&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>, <span class="string">&#x27;上&#x27;</span>, <span class="string">&#x27;玩猫&#x27;</span>, <span class="string">&#x27;腻&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;分别&#x27;</span>, <span class="string">&#x27;注册&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;鲜&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;”、&#x27;</span>, <span class="string">&#x27;注册&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;好&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;让&#x27;</span>, <span class="string">&#x27;消费者&#x27;</span>, <span class="string">&#x27;误&#x27;</span>, <span class="string">&#x27;以为&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;鸡蛋&#x27;</span>, <span class="string">&#x27;”。3&#x27;</span>, <span class="string">&#x27;月&#x27;</span>, <span class="string">&#x27;15&#x27;</span>, <span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;晚间&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;新京&#x27;</span>, <span class="string">&#x27;报&#x27;</span>, <span class="string">&#x27;记者&#x27;</span>, <span class="string">&#x27;就&#x27;</span>, <span class="string">&#x27;此事&#x27;</span>, <span class="string">&#x27;致电&#x27;</span>, <span class="string">&#x27;湖北&#x27;</span>, <span class="string">&#x27;神&#x27;</span>, <span class="string">&#x27;丹&#x27;</span>, <span class="string">&#x27;健康&#x27;</span>, <span class="string">&#x27;食品&#x27;</span>, <span class="string">&#x27;有限公司&#x27;</span>, <span class="string">&#x27;方面&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;其&#x27;</span>, <span class="string">&#x27;工作&#x27;</span>, <span class="string">&#x27;人员&#x27;</span>, <span class="string">&#x27;表示&#x27;</span>, <span class="string">&#x27;不&#x27;</span>, <span class="string">&#x27;知情&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;需要&#x27;</span>, <span class="string">&#x27;了解&#x27;</span>, <span class="string">&#x27;清楚&#x27;</span>, <span class="string">&#x27;情况&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;截至&#x27;</span>, <span class="string">&#x27;发稿&#x27;</span>, <span class="string">&#x27;暂&#x27;</span>, <span class="string">&#x27;未&#x27;</span>, <span class="string">&#x27;取得&#x27;</span>, <span class="string">&#x27;最新&#x27;</span>, <span class="string">&#x27;回应&#x27;</span>, <span class="string">&#x27;。&#x27;</span>, <span class="string">&#x27;新京&#x27;</span>, <span class="string">&#x27;报&#x27;</span>, <span class="string">&#x27;记者&#x27;</span>, <span class="string">&#x27;还&#x27;</span>, <span class="string">&#x27;查询&#x27;</span>, <span class="string">&#x27;发现&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;湖北&#x27;</span>, <span class="string">&#x27;神&#x27;</span>, <span class="string">&#x27;丹&#x27;</span>, <span class="string">&#x27;健康&#x27;</span>, <span class="string">&#x27;食品&#x27;</span>, <span class="string">&#x27;有限公司&#x27;</span>, <span class="string">&#x27;为&#x27;</span>, <span class="string">&#x27;农业&#x27;</span>, <span class="string">&#x27;产业化&#x27;</span>, <span class="string">&#x27;国家&#x27;</span>, <span class="string">&#x27;重点&#x27;</span>, <span class="string">&#x27;龙头&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;高新技术&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;此前&#x27;</span>, <span class="string">&#x27;曾&#x27;</span>, <span class="string">&#x27;因&#x27;</span>, <span class="string">&#x27;涉嫌&#x27;</span>, <span class="string">&#x27;虚假&#x27;</span>, <span class="string">&#x27;宣传&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;中国&#x27;</span>, <span class="string">&#x27;最&#x27;</span>, <span class="string">&#x27;大&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;蛋品&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;而&#x27;</span>, <span class="string">&#x27;被&#x27;</span>, <span class="string">&#x27;罚&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;万&#x27;</span>, <span class="string">&#x27;元&#x27;</span>, <span class="string">&#x27;。&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">拼音:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;\ufeff&#x27;</span>, <span class="string">&#x27;央&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;315&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;hui&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;guang&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;xing&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;ming&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;pai&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;lian&#x27;</span>, <span class="string">&#x27;tian&#x27;</span>, <span class="string">&#x27;pai&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;pu&#x27;</span>, <span class="string">&#x27;tong&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;mao&#x27;</span>, <span class="string">&#x27;chong&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;tong&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;zai&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;mao&#x27;</span>, <span class="string">&#x27;ni&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;fen&#x27;</span>, <span class="string">&#x27;bie&#x27;</span>, <span class="string">&#x27;zhu&#x27;</span>, <span class="string">&#x27;ce&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;”、&#x27;</span>, <span class="string">&#x27;zhu&#x27;</span>, <span class="string">&#x27;ce&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;hao&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;shang&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;rang&#x27;</span>, <span class="string">&#x27;xiao&#x27;</span>, <span class="string">&#x27;fei&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;wu&#x27;</span>, <span class="string">&#x27;yi&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;tu&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;”。3&#x27;</span>, <span class="string">&#x27;yue&#x27;</span>, <span class="string">&#x27;15&#x27;</span>, <span class="string">&#x27;ri&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;jiu&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;dian&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;kang&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;pin&#x27;</span>, <span class="string">&#x27;you&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;si&#x27;</span>, <span class="string">&#x27;fang&#x27;</span>, <span class="string">&#x27;mian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;zuo&#x27;</span>, <span class="string">&#x27;ren&#x27;</span>, <span class="string">&#x27;yuan&#x27;</span>, <span class="string">&#x27;biao&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;bu&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;xu&#x27;</span>, <span class="string">&#x27;yao&#x27;</span>, <span class="string">&#x27;liao&#x27;</span>, <span class="string">&#x27;jie&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;chu&#x27;</span>, <span class="string">&#x27;qing&#x27;</span>, <span class="string">&#x27;kuang&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;jie&#x27;</span>, <span class="string">&#x27;zhi&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;gao&#x27;</span>, <span class="string">&#x27;zan&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;qu&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;zui&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;hui&#x27;</span>, <span class="string">&#x27;ying&#x27;</span>, <span class="string">&#x27;。&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;bao&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;zhe&#x27;</span>, <span class="string">&#x27;huan&#x27;</span>, <span class="string">&#x27;cha&#x27;</span>, <span class="string">&#x27;xun&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;hu&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;shen&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jian&#x27;</span>, <span class="string">&#x27;kang&#x27;</span>, <span class="string">&#x27;shi&#x27;</span>, <span class="string">&#x27;pin&#x27;</span>, <span class="string">&#x27;you&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;gong&#x27;</span>, <span class="string">&#x27;si&#x27;</span>, <span class="string">&#x27;wei&#x27;</span>, <span class="string">&#x27;nong&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;chan&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;hua&#x27;</span>, <span class="string">&#x27;guo&#x27;</span>, <span class="string">&#x27;jia&#x27;</span>, <span class="string">&#x27;zhong&#x27;</span>, <span class="string">&#x27;dian&#x27;</span>, <span class="string">&#x27;long&#x27;</span>, <span class="string">&#x27;tou&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;、&#x27;</span>, <span class="string">&#x27;gao&#x27;</span>, <span class="string">&#x27;xin&#x27;</span>, <span class="string">&#x27;ji&#x27;</span>, <span class="string">&#x27;shu&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;ci&#x27;</span>, <span class="string">&#x27;qian&#x27;</span>, <span class="string">&#x27;zeng&#x27;</span>, <span class="string">&#x27;yin&#x27;</span>, <span class="string">&#x27;she&#x27;</span>, <span class="string">&#x27;xian&#x27;</span>, <span class="string">&#x27;xu&#x27;</span>, <span class="string">&#x27;jia&#x27;</span>, <span class="string">&#x27;xuan&#x27;</span>, <span class="string">&#x27;chuan&#x27;</span>, <span class="string">&#x27;“&#x27;</span>, <span class="string">&#x27;zhong&#x27;</span>, <span class="string">&#x27;guo&#x27;</span>, <span class="string">&#x27;zui&#x27;</span>, <span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;de&#x27;</span>, <span class="string">&#x27;dan&#x27;</span>, <span class="string">&#x27;jing&#x27;</span>, <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;”&#x27;</span>, <span class="string">&#x27;er&#x27;</span>, <span class="string">&#x27;bei&#x27;</span>, <span class="string">&#x27;fa&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;wan&#x27;</span>, <span class="string">&#x27;元&#x27;</span>, <span class="string">&#x27;。&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">总结:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;新京报记者就此事致电湖北神丹健康食品有限公司方面&#x27;</span>, <span class="string">&#x27;让消费者误以为是“土鸡蛋”&#x27;</span>, <span class="string">&#x27;湖北神丹健康食品有限公司为农业产业化国家重点龙头企业、高新技术企业&#x27;</span>]</span></span><br><span class="line"><span class="selector-tag">--------------------------</span></span><br><span class="line">得到关键词:</span><br><span class="line"><span class="selector-attr">[<span class="string">&#x27;土&#x27;</span>, <span class="string">&#x27;企业&#x27;</span>, <span class="string">&#x27;商标&#x27;</span>]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs less">分词:<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;\ufeff&#x27;</span>, <span class="hljs-string">&#x27;央视&#x27;</span>, <span class="hljs-string">&#x27;315&#x27;</span>, <span class="hljs-string">&#x27;晚会&#x27;</span>, <span class="hljs-string">&#x27;曝光&#x27;</span>, <span class="hljs-string">&#x27;湖北省&#x27;</span>, <span class="hljs-string">&#x27;知名&#x27;</span>, <span class="hljs-string">&#x27;的&#x27;</span>, <span class="hljs-string">&#x27;神丹&#x27;</span>, <span class="hljs-string">&#x27;牌&#x27;</span>, <span class="hljs-string">&#x27;、&#x27;</span>, <span class="hljs-string">&#x27;莲&#x27;</span>, <span class="hljs-string">&#x27;田&#x27;</span>, <span class="hljs-string">&#x27;牌&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;土&#x27;</span>, <span class="hljs-string">&#x27;鸡蛋&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;实&#x27;</span>, <span class="hljs-string">&#x27;为&#x27;</span>, <span class="hljs-string">&#x27;普通&#x27;</span>, <span class="hljs-string">&#x27;鸡蛋&#x27;</span>, <span class="hljs-string">&#x27;冒充&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;同时&#x27;</span>, <span class="hljs-string">&#x27;在&#x27;</span>, <span class="hljs-string">&#x27;商标&#x27;</span>, <span class="hljs-string">&#x27;上&#x27;</span>, <span class="hljs-string">&#x27;玩猫&#x27;</span>, <span class="hljs-string">&#x27;腻&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;分别&#x27;</span>, <span class="hljs-string">&#x27;注册&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;鲜&#x27;</span>, <span class="hljs-string">&#x27;土&#x27;</span>, <span class="hljs-string">&#x27;”、&#x27;</span>, <span class="hljs-string">&#x27;注册&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;好&#x27;</span>, <span class="hljs-string">&#x27;土&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;商标&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;让&#x27;</span>, <span class="hljs-string">&#x27;消费者&#x27;</span>, <span class="hljs-string">&#x27;误&#x27;</span>, <span class="hljs-string">&#x27;以为&#x27;</span>, <span class="hljs-string">&#x27;是&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;土&#x27;</span>, <span class="hljs-string">&#x27;鸡蛋&#x27;</span>, <span class="hljs-string">&#x27;”。3&#x27;</span>, <span class="hljs-string">&#x27;月&#x27;</span>, <span class="hljs-string">&#x27;15&#x27;</span>, <span class="hljs-string">&#x27;日&#x27;</span>, <span class="hljs-string">&#x27;晚间&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;新京&#x27;</span>, <span class="hljs-string">&#x27;报&#x27;</span>, <span class="hljs-string">&#x27;记者&#x27;</span>, <span class="hljs-string">&#x27;就&#x27;</span>, <span class="hljs-string">&#x27;此事&#x27;</span>, <span class="hljs-string">&#x27;致电&#x27;</span>, <span class="hljs-string">&#x27;湖北&#x27;</span>, <span class="hljs-string">&#x27;神&#x27;</span>, <span class="hljs-string">&#x27;丹&#x27;</span>, <span class="hljs-string">&#x27;健康&#x27;</span>, <span class="hljs-string">&#x27;食品&#x27;</span>, <span class="hljs-string">&#x27;有限公司&#x27;</span>, <span class="hljs-string">&#x27;方面&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;其&#x27;</span>, <span class="hljs-string">&#x27;工作&#x27;</span>, <span class="hljs-string">&#x27;人员&#x27;</span>, <span class="hljs-string">&#x27;表示&#x27;</span>, <span class="hljs-string">&#x27;不&#x27;</span>, <span class="hljs-string">&#x27;知情&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;需要&#x27;</span>, <span class="hljs-string">&#x27;了解&#x27;</span>, <span class="hljs-string">&#x27;清楚&#x27;</span>, <span class="hljs-string">&#x27;情况&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;截至&#x27;</span>, <span class="hljs-string">&#x27;发稿&#x27;</span>, <span class="hljs-string">&#x27;暂&#x27;</span>, <span class="hljs-string">&#x27;未&#x27;</span>, <span class="hljs-string">&#x27;取得&#x27;</span>, <span class="hljs-string">&#x27;最新&#x27;</span>, <span class="hljs-string">&#x27;回应&#x27;</span>, <span class="hljs-string">&#x27;。&#x27;</span>, <span class="hljs-string">&#x27;新京&#x27;</span>, <span class="hljs-string">&#x27;报&#x27;</span>, <span class="hljs-string">&#x27;记者&#x27;</span>, <span class="hljs-string">&#x27;还&#x27;</span>, <span class="hljs-string">&#x27;查询&#x27;</span>, <span class="hljs-string">&#x27;发现&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;湖北&#x27;</span>, <span class="hljs-string">&#x27;神&#x27;</span>, <span class="hljs-string">&#x27;丹&#x27;</span>, <span class="hljs-string">&#x27;健康&#x27;</span>, <span class="hljs-string">&#x27;食品&#x27;</span>, <span class="hljs-string">&#x27;有限公司&#x27;</span>, <span class="hljs-string">&#x27;为&#x27;</span>, <span class="hljs-string">&#x27;农业&#x27;</span>, <span class="hljs-string">&#x27;产业化&#x27;</span>, <span class="hljs-string">&#x27;国家&#x27;</span>, <span class="hljs-string">&#x27;重点&#x27;</span>, <span class="hljs-string">&#x27;龙头&#x27;</span>, <span class="hljs-string">&#x27;企业&#x27;</span>, <span class="hljs-string">&#x27;、&#x27;</span>, <span class="hljs-string">&#x27;高新技术&#x27;</span>, <span class="hljs-string">&#x27;企业&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;此前&#x27;</span>, <span class="hljs-string">&#x27;曾&#x27;</span>, <span class="hljs-string">&#x27;因&#x27;</span>, <span class="hljs-string">&#x27;涉嫌&#x27;</span>, <span class="hljs-string">&#x27;虚假&#x27;</span>, <span class="hljs-string">&#x27;宣传&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;中国&#x27;</span>, <span class="hljs-string">&#x27;最&#x27;</span>, <span class="hljs-string">&#x27;大&#x27;</span>, <span class="hljs-string">&#x27;的&#x27;</span>, <span class="hljs-string">&#x27;蛋品&#x27;</span>, <span class="hljs-string">&#x27;企业&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;而&#x27;</span>, <span class="hljs-string">&#x27;被&#x27;</span>, <span class="hljs-string">&#x27;罚&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;万&#x27;</span>, <span class="hljs-string">&#x27;元&#x27;</span>, <span class="hljs-string">&#x27;。&#x27;</span>]</span><br><span class="hljs-selector-tag">--------------------------</span><br>拼音:<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;\ufeff&#x27;</span>, <span class="hljs-string">&#x27;央&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;315&#x27;</span>, <span class="hljs-string">&#x27;wan&#x27;</span>, <span class="hljs-string">&#x27;hui&#x27;</span>, <span class="hljs-string">&#x27;bao&#x27;</span>, <span class="hljs-string">&#x27;guang&#x27;</span>, <span class="hljs-string">&#x27;hu&#x27;</span>, <span class="hljs-string">&#x27;bei&#x27;</span>, <span class="hljs-string">&#x27;xing&#x27;</span>, <span class="hljs-string">&#x27;zhi&#x27;</span>, <span class="hljs-string">&#x27;ming&#x27;</span>, <span class="hljs-string">&#x27;de&#x27;</span>, <span class="hljs-string">&#x27;shen&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;pai&#x27;</span>, <span class="hljs-string">&#x27;、&#x27;</span>, <span class="hljs-string">&#x27;lian&#x27;</span>, <span class="hljs-string">&#x27;tian&#x27;</span>, <span class="hljs-string">&#x27;pai&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;tu&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;wei&#x27;</span>, <span class="hljs-string">&#x27;pu&#x27;</span>, <span class="hljs-string">&#x27;tong&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;mao&#x27;</span>, <span class="hljs-string">&#x27;chong&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;tong&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;zai&#x27;</span>, <span class="hljs-string">&#x27;shang&#x27;</span>, <span class="hljs-string">&#x27;biao&#x27;</span>, <span class="hljs-string">&#x27;shang&#x27;</span>, <span class="hljs-string">&#x27;wan&#x27;</span>, <span class="hljs-string">&#x27;mao&#x27;</span>, <span class="hljs-string">&#x27;ni&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;fen&#x27;</span>, <span class="hljs-string">&#x27;bie&#x27;</span>, <span class="hljs-string">&#x27;zhu&#x27;</span>, <span class="hljs-string">&#x27;ce&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;xian&#x27;</span>, <span class="hljs-string">&#x27;tu&#x27;</span>, <span class="hljs-string">&#x27;”、&#x27;</span>, <span class="hljs-string">&#x27;zhu&#x27;</span>, <span class="hljs-string">&#x27;ce&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;hao&#x27;</span>, <span class="hljs-string">&#x27;tu&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;shang&#x27;</span>, <span class="hljs-string">&#x27;biao&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;rang&#x27;</span>, <span class="hljs-string">&#x27;xiao&#x27;</span>, <span class="hljs-string">&#x27;fei&#x27;</span>, <span class="hljs-string">&#x27;zhe&#x27;</span>, <span class="hljs-string">&#x27;wu&#x27;</span>, <span class="hljs-string">&#x27;yi&#x27;</span>, <span class="hljs-string">&#x27;wei&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;tu&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;”。3&#x27;</span>, <span class="hljs-string">&#x27;yue&#x27;</span>, <span class="hljs-string">&#x27;15&#x27;</span>, <span class="hljs-string">&#x27;ri&#x27;</span>, <span class="hljs-string">&#x27;wan&#x27;</span>, <span class="hljs-string">&#x27;jian&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;xin&#x27;</span>, <span class="hljs-string">&#x27;jing&#x27;</span>, <span class="hljs-string">&#x27;bao&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;zhe&#x27;</span>, <span class="hljs-string">&#x27;jiu&#x27;</span>, <span class="hljs-string">&#x27;ci&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;zhi&#x27;</span>, <span class="hljs-string">&#x27;dian&#x27;</span>, <span class="hljs-string">&#x27;hu&#x27;</span>, <span class="hljs-string">&#x27;bei&#x27;</span>, <span class="hljs-string">&#x27;shen&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;jian&#x27;</span>, <span class="hljs-string">&#x27;kang&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;pin&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;xian&#x27;</span>, <span class="hljs-string">&#x27;gong&#x27;</span>, <span class="hljs-string">&#x27;si&#x27;</span>, <span class="hljs-string">&#x27;fang&#x27;</span>, <span class="hljs-string">&#x27;mian&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;qi&#x27;</span>, <span class="hljs-string">&#x27;gong&#x27;</span>, <span class="hljs-string">&#x27;zuo&#x27;</span>, <span class="hljs-string">&#x27;ren&#x27;</span>, <span class="hljs-string">&#x27;yuan&#x27;</span>, <span class="hljs-string">&#x27;biao&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;bu&#x27;</span>, <span class="hljs-string">&#x27;zhi&#x27;</span>, <span class="hljs-string">&#x27;qing&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;xu&#x27;</span>, <span class="hljs-string">&#x27;yao&#x27;</span>, <span class="hljs-string">&#x27;liao&#x27;</span>, <span class="hljs-string">&#x27;jie&#x27;</span>, <span class="hljs-string">&#x27;qing&#x27;</span>, <span class="hljs-string">&#x27;chu&#x27;</span>, <span class="hljs-string">&#x27;qing&#x27;</span>, <span class="hljs-string">&#x27;kuang&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;jie&#x27;</span>, <span class="hljs-string">&#x27;zhi&#x27;</span>, <span class="hljs-string">&#x27;fa&#x27;</span>, <span class="hljs-string">&#x27;gao&#x27;</span>, <span class="hljs-string">&#x27;zan&#x27;</span>, <span class="hljs-string">&#x27;wei&#x27;</span>, <span class="hljs-string">&#x27;qu&#x27;</span>, <span class="hljs-string">&#x27;de&#x27;</span>, <span class="hljs-string">&#x27;zui&#x27;</span>, <span class="hljs-string">&#x27;xin&#x27;</span>, <span class="hljs-string">&#x27;hui&#x27;</span>, <span class="hljs-string">&#x27;ying&#x27;</span>, <span class="hljs-string">&#x27;。&#x27;</span>, <span class="hljs-string">&#x27;xin&#x27;</span>, <span class="hljs-string">&#x27;jing&#x27;</span>, <span class="hljs-string">&#x27;bao&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;zhe&#x27;</span>, <span class="hljs-string">&#x27;huan&#x27;</span>, <span class="hljs-string">&#x27;cha&#x27;</span>, <span class="hljs-string">&#x27;xun&#x27;</span>, <span class="hljs-string">&#x27;fa&#x27;</span>, <span class="hljs-string">&#x27;xian&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;hu&#x27;</span>, <span class="hljs-string">&#x27;bei&#x27;</span>, <span class="hljs-string">&#x27;shen&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;jian&#x27;</span>, <span class="hljs-string">&#x27;kang&#x27;</span>, <span class="hljs-string">&#x27;shi&#x27;</span>, <span class="hljs-string">&#x27;pin&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;xian&#x27;</span>, <span class="hljs-string">&#x27;gong&#x27;</span>, <span class="hljs-string">&#x27;si&#x27;</span>, <span class="hljs-string">&#x27;wei&#x27;</span>, <span class="hljs-string">&#x27;nong&#x27;</span>, <span class="hljs-string">&#x27;ye&#x27;</span>, <span class="hljs-string">&#x27;chan&#x27;</span>, <span class="hljs-string">&#x27;ye&#x27;</span>, <span class="hljs-string">&#x27;hua&#x27;</span>, <span class="hljs-string">&#x27;guo&#x27;</span>, <span class="hljs-string">&#x27;jia&#x27;</span>, <span class="hljs-string">&#x27;zhong&#x27;</span>, <span class="hljs-string">&#x27;dian&#x27;</span>, <span class="hljs-string">&#x27;long&#x27;</span>, <span class="hljs-string">&#x27;tou&#x27;</span>, <span class="hljs-string">&#x27;qi&#x27;</span>, <span class="hljs-string">&#x27;ye&#x27;</span>, <span class="hljs-string">&#x27;、&#x27;</span>, <span class="hljs-string">&#x27;gao&#x27;</span>, <span class="hljs-string">&#x27;xin&#x27;</span>, <span class="hljs-string">&#x27;ji&#x27;</span>, <span class="hljs-string">&#x27;shu&#x27;</span>, <span class="hljs-string">&#x27;qi&#x27;</span>, <span class="hljs-string">&#x27;ye&#x27;</span>, <span class="hljs-string">&#x27;，&#x27;</span>, <span class="hljs-string">&#x27;ci&#x27;</span>, <span class="hljs-string">&#x27;qian&#x27;</span>, <span class="hljs-string">&#x27;zeng&#x27;</span>, <span class="hljs-string">&#x27;yin&#x27;</span>, <span class="hljs-string">&#x27;she&#x27;</span>, <span class="hljs-string">&#x27;xian&#x27;</span>, <span class="hljs-string">&#x27;xu&#x27;</span>, <span class="hljs-string">&#x27;jia&#x27;</span>, <span class="hljs-string">&#x27;xuan&#x27;</span>, <span class="hljs-string">&#x27;chuan&#x27;</span>, <span class="hljs-string">&#x27;“&#x27;</span>, <span class="hljs-string">&#x27;zhong&#x27;</span>, <span class="hljs-string">&#x27;guo&#x27;</span>, <span class="hljs-string">&#x27;zui&#x27;</span>, <span class="hljs-string">&#x27;da&#x27;</span>, <span class="hljs-string">&#x27;de&#x27;</span>, <span class="hljs-string">&#x27;dan&#x27;</span>, <span class="hljs-string">&#x27;jing&#x27;</span>, <span class="hljs-string">&#x27;qi&#x27;</span>, <span class="hljs-string">&#x27;ye&#x27;</span>, <span class="hljs-string">&#x27;”&#x27;</span>, <span class="hljs-string">&#x27;er&#x27;</span>, <span class="hljs-string">&#x27;bei&#x27;</span>, <span class="hljs-string">&#x27;fa&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;wan&#x27;</span>, <span class="hljs-string">&#x27;元&#x27;</span>, <span class="hljs-string">&#x27;。&#x27;</span>]</span><br><span class="hljs-selector-tag">--------------------------</span><br>总结:<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;新京报记者就此事致电湖北神丹健康食品有限公司方面&#x27;</span>, <span class="hljs-string">&#x27;让消费者误以为是“土鸡蛋”&#x27;</span>, <span class="hljs-string">&#x27;湖北神丹健康食品有限公司为农业产业化国家重点龙头企业、高新技术企业&#x27;</span>]</span><br><span class="hljs-selector-tag">--------------------------</span><br>得到关键词:<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;土&#x27;</span>, <span class="hljs-string">&#x27;企业&#x27;</span>, <span class="hljs-string">&#x27;商标&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="thulac"><a href="#thulac" class="headerlink" title="thulac"></a>thulac</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> thulac</span><br><span class="line">thu = thulac.thulac(seg_only=<span class="literal">True</span>)  <span class="comment">#只进行分词，不进行词性标注</span></span><br><span class="line">words = thu.cut(Chinese_data,text=<span class="literal">True</span>) </span><br><span class="line"><span class="built_in">print</span>(words)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> thulac<br>thu = thulac.thulac(seg_only=<span class="hljs-literal">True</span>)  <span class="hljs-comment">#只进行分词，不进行词性标注</span><br>words = thu.cut(Chinese_data,text=<span class="hljs-literal">True</span>) <br><span class="hljs-built_in">print</span>(words)<br></code></pre></td></tr></table></figure>
 <ul>
 <li>thulac输出</li>
 </ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">﻿央 视<span class="number"> 315 </span>晚会 曝光 湖北省 知名 的 神丹牌 、 莲田牌 “ 土鸡蛋 ” 实 为 普通 鸡蛋 冒充 ， 同时 在 商标 上 玩 猫腻 ， 分别 注册 “ 鲜土 ” 、 注册 “ 好 土 ” 商标 ， 让 消费者 误 以为 是 “ 土鸡蛋 ” 。 3月 15日 晚间 ， 新 京报 记者 就 此事 致电 湖北 神丹 健康 食品 有限公司 方面 ， 其 工作 人员 表示 不 知 情 ， 需要 了 解 清楚 情况 ， 截至 发稿 暂 未 取得 最新 回应 。 新 京报 记者 还 查询 发现 ， 湖北 神丹 健康 食品 有限公司 为 农业 产业化 国 家 重点 龙头 企业 、 高新技术 企业 ， 此前 曾 因 涉嫌 虚假 宣传 “ 中国 最 大 的 蛋品 企业 ” 而 被 罚 6万 元 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">﻿央 视<span class="hljs-number"> 315 </span>晚会 曝光 湖北省 知名 的 神丹牌 、 莲田牌 “ 土鸡蛋 ” 实 为 普通 鸡蛋 冒充 ， 同时 在 商标 上 玩 猫腻 ， 分别 注册 “ 鲜土 ” 、 注册 “ 好 土 ” 商标 ， 让 消费者 误 以为 是 “ 土鸡蛋 ” 。 3月 15日 晚间 ， 新 京报 记者 就 此事 致电 湖北 神丹 健康 食品 有限公司 方面 ， 其 工作 人员 表示 不 知 情 ， 需要 了 解 清楚 情况 ， 截至 发稿 暂 未 取得 最新 回应 。 新 京报 记者 还 查询 发现 ， 湖北 神丹 健康 食品 有限公司 为 农业 产业化 国 家 重点 龙头 企业 、 高新技术 企业 ， 此前 曾 因 涉嫌 虚假 宣传 “ 中国 最 大 的 蛋品 企业 ” 而 被 罚 6万 元 。<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="pynlpir"><a href="#pynlpir" class="headerlink" title="pynlpir"></a>pynlpir</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pynlpir</span><br><span class="line">pynlpir.<span class="built_in">open</span>()</span><br><span class="line">pout=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> pynlpir.segment(Chinese_data):</span><br><span class="line">    pout+=word[<span class="number">0</span>]+<span class="string">&quot;/&quot;</span></span><br><span class="line"><span class="built_in">print</span>(pout)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pynlpir<br>pynlpir.<span class="hljs-built_in">open</span>()<br>pout=<span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> pynlpir.segment(Chinese_data):<br>    pout+=word[<span class="hljs-number">0</span>]+<span class="hljs-string">&quot;/&quot;</span><br><span class="hljs-built_in">print</span>(pout)<br></code></pre></td></tr></table></figure>
 <ul>
 <li>pynlpir输出</li>
 </ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">央<span class="regexp">/视/</span><span class="number">315</span><span class="regexp">/晚会/</span>曝光<span class="regexp">/湖北省/</span>知名<span class="regexp">/的/</span>神<span class="regexp">/丹/</span>牌<span class="regexp">/、/</span>莲<span class="regexp">/田/</span>牌<span class="regexp">/“/</span>土<span class="regexp">/鸡蛋/</span>”<span class="regexp">/实/</span>为<span class="regexp">/普通/</span>鸡蛋<span class="regexp">/冒充/</span>，<span class="regexp">/同时/</span>在<span class="regexp">/商标/</span>上<span class="regexp">/玩/</span>猫腻<span class="regexp">/，/</span>分别<span class="regexp">/注册/</span>“<span class="regexp">/鲜/</span>土<span class="regexp">/”/</span>、<span class="regexp">/注册/</span>“<span class="regexp">/好/</span>土<span class="regexp">/”/</span>商标<span class="regexp">/，/</span>让<span class="regexp">/消费者/</span>误<span class="regexp">/以为/</span>是<span class="regexp">/“/</span>土<span class="regexp">/鸡蛋/</span>”<span class="regexp">/。/</span><span class="number">3</span>月<span class="regexp">/15日/</span>晚间<span class="regexp">/，/</span>新京报<span class="regexp">/记者/</span>就<span class="regexp">/此事/</span>致电<span class="regexp">/湖北/</span>神<span class="regexp">/丹/</span>健康<span class="regexp">/食品/</span>有限公司<span class="regexp">/方面/</span>，<span class="regexp">/其/</span>工作<span class="regexp">/人员/</span>表示<span class="regexp">/不/</span>知<span class="regexp">/情/</span>，<span class="regexp">/需要/</span>了解<span class="regexp">/清楚/</span>情况<span class="regexp">/，/</span>截至<span class="regexp">/发稿/</span>暂<span class="regexp">/未/</span>取得<span class="regexp">/最新/</span>回应<span class="regexp">/。/</span>新京报<span class="regexp">/记者/</span>还<span class="regexp">/查询/</span>发现<span class="regexp">/，/</span>湖北<span class="regexp">/神/</span>丹<span class="regexp">/健康/</span>食品<span class="regexp">/有限公司/</span>为<span class="regexp">/农业/</span>产业化<span class="regexp">/国家/</span>重点<span class="regexp">/龙头/</span>企业<span class="regexp">/、/</span>高新技术<span class="regexp">/企业/</span>，<span class="regexp">/此前/</span>曾<span class="regexp">/因/</span>涉嫌<span class="regexp">/虚假/</span>宣传<span class="regexp">/“/</span>中国<span class="regexp">/最/</span>大<span class="regexp">/的/</span>蛋品<span class="regexp">/企业/</span>”<span class="regexp">/而/</span>被<span class="regexp">/罚/</span><span class="number">6</span>万<span class="regexp">/元/</span>。/</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">央<span class="hljs-regexp">/视/</span><span class="hljs-number">315</span><span class="hljs-regexp">/晚会/</span>曝光<span class="hljs-regexp">/湖北省/</span>知名<span class="hljs-regexp">/的/</span>神<span class="hljs-regexp">/丹/</span>牌<span class="hljs-regexp">/、/</span>莲<span class="hljs-regexp">/田/</span>牌<span class="hljs-regexp">/“/</span>土<span class="hljs-regexp">/鸡蛋/</span>”<span class="hljs-regexp">/实/</span>为<span class="hljs-regexp">/普通/</span>鸡蛋<span class="hljs-regexp">/冒充/</span>，<span class="hljs-regexp">/同时/</span>在<span class="hljs-regexp">/商标/</span>上<span class="hljs-regexp">/玩/</span>猫腻<span class="hljs-regexp">/，/</span>分别<span class="hljs-regexp">/注册/</span>“<span class="hljs-regexp">/鲜/</span>土<span class="hljs-regexp">/”/</span>、<span class="hljs-regexp">/注册/</span>“<span class="hljs-regexp">/好/</span>土<span class="hljs-regexp">/”/</span>商标<span class="hljs-regexp">/，/</span>让<span class="hljs-regexp">/消费者/</span>误<span class="hljs-regexp">/以为/</span>是<span class="hljs-regexp">/“/</span>土<span class="hljs-regexp">/鸡蛋/</span>”<span class="hljs-regexp">/。/</span><span class="hljs-number">3</span>月<span class="hljs-regexp">/15日/</span>晚间<span class="hljs-regexp">/，/</span>新京报<span class="hljs-regexp">/记者/</span>就<span class="hljs-regexp">/此事/</span>致电<span class="hljs-regexp">/湖北/</span>神<span class="hljs-regexp">/丹/</span>健康<span class="hljs-regexp">/食品/</span>有限公司<span class="hljs-regexp">/方面/</span>，<span class="hljs-regexp">/其/</span>工作<span class="hljs-regexp">/人员/</span>表示<span class="hljs-regexp">/不/</span>知<span class="hljs-regexp">/情/</span>，<span class="hljs-regexp">/需要/</span>了解<span class="hljs-regexp">/清楚/</span>情况<span class="hljs-regexp">/，/</span>截至<span class="hljs-regexp">/发稿/</span>暂<span class="hljs-regexp">/未/</span>取得<span class="hljs-regexp">/最新/</span>回应<span class="hljs-regexp">/。/</span>新京报<span class="hljs-regexp">/记者/</span>还<span class="hljs-regexp">/查询/</span>发现<span class="hljs-regexp">/，/</span>湖北<span class="hljs-regexp">/神/</span>丹<span class="hljs-regexp">/健康/</span>食品<span class="hljs-regexp">/有限公司/</span>为<span class="hljs-regexp">/农业/</span>产业化<span class="hljs-regexp">/国家/</span>重点<span class="hljs-regexp">/龙头/</span>企业<span class="hljs-regexp">/、/</span>高新技术<span class="hljs-regexp">/企业/</span>，<span class="hljs-regexp">/此前/</span>曾<span class="hljs-regexp">/因/</span>涉嫌<span class="hljs-regexp">/虚假/</span>宣传<span class="hljs-regexp">/“/</span>中国<span class="hljs-regexp">/最/</span>大<span class="hljs-regexp">/的/</span>蛋品<span class="hljs-regexp">/企业/</span>”<span class="hljs-regexp">/而/</span>被<span class="hljs-regexp">/罚/</span><span class="hljs-number">6</span>万<span class="hljs-regexp">/元/</span>。/<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="StanfordCoreNLP"><a href="#StanfordCoreNLP" class="headerlink" title="StanfordCoreNLP"></a>StanfordCoreNLP</h4></blockquote>
 <ul>
 <li>踩坑！！！</li>
 </ul>
 <p>模型要下载3.9版本的，最新的4.4版本会报错。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="string">&#x27;zh&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(nlp.word_tokenize(Chinese_data))</span><br><span class="line">nlp.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> stanfordcorenlp <span class="hljs-keyword">import</span> StanfordCoreNLP<br>nlp = StanfordCoreNLP(<span class="hljs-string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="hljs-string">&#x27;zh&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--------------------------&quot;</span>)<br><span class="hljs-built_in">print</span>(nlp.word_tokenize(Chinese_data))<br>nlp.close()<br></code></pre></td></tr></table></figure>
 <ul>
 <li>StanfordCoreNLP输出</li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;\ufeff&#x27;, <span class="symbol">&#x27;央视</span>&#x27;, <span class="symbol">&#x27;315</span>&#x27;, <span class="symbol">&#x27;晚会</span>&#x27;, <span class="symbol">&#x27;曝光</span>&#x27;, <span class="symbol">&#x27;湖北省</span>&#x27;, <span class="symbol">&#x27;知名</span>&#x27;, <span class="symbol">&#x27;的</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;牌</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;莲</span>&#x27;, <span class="symbol">&#x27;田</span>&#x27;, <span class="symbol">&#x27;牌</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;实为</span>&#x27;, <span class="symbol">&#x27;普通</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;冒充</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;同时</span>&#x27;, <span class="symbol">&#x27;在</span>&#x27;, <span class="symbol">&#x27;商标</span>&#x27;, <span class="symbol">&#x27;上</span>&#x27;, <span class="symbol">&#x27;玩</span>&#x27;, <span class="symbol">&#x27;猫腻</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;分别</span>&#x27;, <span class="symbol">&#x27;注册</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;鲜土</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;注册</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;好</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;商标</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;让</span>&#x27;, <span class="symbol">&#x27;消费者</span>&#x27;, <span class="symbol">&#x27;误以为</span>&#x27;, <span class="symbol">&#x27;是</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;土</span>&#x27;, <span class="symbol">&#x27;鸡蛋</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;, <span class="symbol">&#x27;3月</span>&#x27;, <span class="symbol">&#x27;15日</span>&#x27;, <span class="symbol">&#x27;晚间</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;新京报</span>&#x27;, <span class="symbol">&#x27;记者</span>&#x27;, <span class="symbol">&#x27;就此事</span>&#x27;, <span class="symbol">&#x27;致电</span>&#x27;, <span class="symbol">&#x27;湖北</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;健康</span>&#x27;, <span class="symbol">&#x27;食品</span>&#x27;, <span class="symbol">&#x27;有限</span>&#x27;, <span class="symbol">&#x27;公司</span>&#x27;, <span class="symbol">&#x27;方面</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;其</span>&#x27;, <span class="symbol">&#x27;工作</span>&#x27;, <span class="symbol">&#x27;人员</span>&#x27;, <span class="symbol">&#x27;表示</span>&#x27;, <span class="symbol">&#x27;不知情</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;需要</span>&#x27;, <span class="symbol">&#x27;了解</span>&#x27;, <span class="symbol">&#x27;清楚</span>&#x27;, <span class="symbol">&#x27;情况</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;截至</span>&#x27;, <span class="symbol">&#x27;发稿</span>&#x27;, <span class="symbol">&#x27;暂</span>&#x27;, <span class="symbol">&#x27;未</span>&#x27;, <span class="symbol">&#x27;取得</span>&#x27;, <span class="symbol">&#x27;最新</span>&#x27;, <span class="symbol">&#x27;回应</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;, <span class="symbol">&#x27;新京报</span>&#x27;, <span class="symbol">&#x27;记者</span>&#x27;, <span class="symbol">&#x27;还</span>&#x27;, <span class="symbol">&#x27;查询</span>&#x27;, <span class="symbol">&#x27;发现</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;湖北</span>&#x27;, <span class="symbol">&#x27;神丹</span>&#x27;, <span class="symbol">&#x27;健康</span>&#x27;, <span class="symbol">&#x27;食品</span>&#x27;, <span class="symbol">&#x27;有限</span>&#x27;, <span class="symbol">&#x27;公司</span>&#x27;, <span class="symbol">&#x27;为</span>&#x27;, <span class="symbol">&#x27;农业</span>&#x27;, <span class="symbol">&#x27;产业化</span>&#x27;, <span class="symbol">&#x27;国家</span>&#x27;, <span class="symbol">&#x27;重点</span>&#x27;, <span class="symbol">&#x27;龙头</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;、</span>&#x27;, <span class="symbol">&#x27;高</span>&#x27;, <span class="symbol">&#x27;新</span>&#x27;, <span class="symbol">&#x27;技术</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;，</span>&#x27;, <span class="symbol">&#x27;此前</span>&#x27;, <span class="symbol">&#x27;曾</span>&#x27;, <span class="symbol">&#x27;因</span>&#x27;, <span class="symbol">&#x27;涉嫌</span>&#x27;, <span class="symbol">&#x27;虚假</span>&#x27;, <span class="symbol">&#x27;宣传</span>&#x27;, <span class="symbol">&#x27;“</span>&#x27;, <span class="symbol">&#x27;中国</span>&#x27;, <span class="symbol">&#x27;最</span>&#x27;, <span class="symbol">&#x27;大</span>&#x27;, <span class="symbol">&#x27;的</span>&#x27;, <span class="symbol">&#x27;蛋品</span>&#x27;, <span class="symbol">&#x27;企业</span>&#x27;, <span class="symbol">&#x27;”</span>&#x27;, <span class="symbol">&#x27;而</span>&#x27;, <span class="symbol">&#x27;被</span>&#x27;, <span class="symbol">&#x27;罚</span>&#x27;, <span class="symbol">&#x27;6万</span>&#x27;, <span class="symbol">&#x27;元</span>&#x27;, <span class="symbol">&#x27;。</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[&#x27;\ufeff&#x27;, <span class="hljs-symbol">&#x27;央视</span>&#x27;, <span class="hljs-symbol">&#x27;315</span>&#x27;, <span class="hljs-symbol">&#x27;晚会</span>&#x27;, <span class="hljs-symbol">&#x27;曝光</span>&#x27;, <span class="hljs-symbol">&#x27;湖北省</span>&#x27;, <span class="hljs-symbol">&#x27;知名</span>&#x27;, <span class="hljs-symbol">&#x27;的</span>&#x27;, <span class="hljs-symbol">&#x27;神丹</span>&#x27;, <span class="hljs-symbol">&#x27;牌</span>&#x27;, <span class="hljs-symbol">&#x27;、</span>&#x27;, <span class="hljs-symbol">&#x27;莲</span>&#x27;, <span class="hljs-symbol">&#x27;田</span>&#x27;, <span class="hljs-symbol">&#x27;牌</span>&#x27;, <span class="hljs-symbol">&#x27;“</span>&#x27;, <span class="hljs-symbol">&#x27;土</span>&#x27;, <span class="hljs-symbol">&#x27;鸡蛋</span>&#x27;, <span class="hljs-symbol">&#x27;”</span>&#x27;, <span class="hljs-symbol">&#x27;实为</span>&#x27;, <span class="hljs-symbol">&#x27;普通</span>&#x27;, <span class="hljs-symbol">&#x27;鸡蛋</span>&#x27;, <span class="hljs-symbol">&#x27;冒充</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;同时</span>&#x27;, <span class="hljs-symbol">&#x27;在</span>&#x27;, <span class="hljs-symbol">&#x27;商标</span>&#x27;, <span class="hljs-symbol">&#x27;上</span>&#x27;, <span class="hljs-symbol">&#x27;玩</span>&#x27;, <span class="hljs-symbol">&#x27;猫腻</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;分别</span>&#x27;, <span class="hljs-symbol">&#x27;注册</span>&#x27;, <span class="hljs-symbol">&#x27;“</span>&#x27;, <span class="hljs-symbol">&#x27;鲜土</span>&#x27;, <span class="hljs-symbol">&#x27;”</span>&#x27;, <span class="hljs-symbol">&#x27;、</span>&#x27;, <span class="hljs-symbol">&#x27;注册</span>&#x27;, <span class="hljs-symbol">&#x27;“</span>&#x27;, <span class="hljs-symbol">&#x27;好</span>&#x27;, <span class="hljs-symbol">&#x27;土</span>&#x27;, <span class="hljs-symbol">&#x27;”</span>&#x27;, <span class="hljs-symbol">&#x27;商标</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;让</span>&#x27;, <span class="hljs-symbol">&#x27;消费者</span>&#x27;, <span class="hljs-symbol">&#x27;误以为</span>&#x27;, <span class="hljs-symbol">&#x27;是</span>&#x27;, <span class="hljs-symbol">&#x27;“</span>&#x27;, <span class="hljs-symbol">&#x27;土</span>&#x27;, <span class="hljs-symbol">&#x27;鸡蛋</span>&#x27;, <span class="hljs-symbol">&#x27;”</span>&#x27;, <span class="hljs-symbol">&#x27;。</span>&#x27;, <span class="hljs-symbol">&#x27;3月</span>&#x27;, <span class="hljs-symbol">&#x27;15日</span>&#x27;, <span class="hljs-symbol">&#x27;晚间</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;新京报</span>&#x27;, <span class="hljs-symbol">&#x27;记者</span>&#x27;, <span class="hljs-symbol">&#x27;就此事</span>&#x27;, <span class="hljs-symbol">&#x27;致电</span>&#x27;, <span class="hljs-symbol">&#x27;湖北</span>&#x27;, <span class="hljs-symbol">&#x27;神丹</span>&#x27;, <span class="hljs-symbol">&#x27;健康</span>&#x27;, <span class="hljs-symbol">&#x27;食品</span>&#x27;, <span class="hljs-symbol">&#x27;有限</span>&#x27;, <span class="hljs-symbol">&#x27;公司</span>&#x27;, <span class="hljs-symbol">&#x27;方面</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;其</span>&#x27;, <span class="hljs-symbol">&#x27;工作</span>&#x27;, <span class="hljs-symbol">&#x27;人员</span>&#x27;, <span class="hljs-symbol">&#x27;表示</span>&#x27;, <span class="hljs-symbol">&#x27;不知情</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;需要</span>&#x27;, <span class="hljs-symbol">&#x27;了解</span>&#x27;, <span class="hljs-symbol">&#x27;清楚</span>&#x27;, <span class="hljs-symbol">&#x27;情况</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;截至</span>&#x27;, <span class="hljs-symbol">&#x27;发稿</span>&#x27;, <span class="hljs-symbol">&#x27;暂</span>&#x27;, <span class="hljs-symbol">&#x27;未</span>&#x27;, <span class="hljs-symbol">&#x27;取得</span>&#x27;, <span class="hljs-symbol">&#x27;最新</span>&#x27;, <span class="hljs-symbol">&#x27;回应</span>&#x27;, <span class="hljs-symbol">&#x27;。</span>&#x27;, <span class="hljs-symbol">&#x27;新京报</span>&#x27;, <span class="hljs-symbol">&#x27;记者</span>&#x27;, <span class="hljs-symbol">&#x27;还</span>&#x27;, <span class="hljs-symbol">&#x27;查询</span>&#x27;, <span class="hljs-symbol">&#x27;发现</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;湖北</span>&#x27;, <span class="hljs-symbol">&#x27;神丹</span>&#x27;, <span class="hljs-symbol">&#x27;健康</span>&#x27;, <span class="hljs-symbol">&#x27;食品</span>&#x27;, <span class="hljs-symbol">&#x27;有限</span>&#x27;, <span class="hljs-symbol">&#x27;公司</span>&#x27;, <span class="hljs-symbol">&#x27;为</span>&#x27;, <span class="hljs-symbol">&#x27;农业</span>&#x27;, <span class="hljs-symbol">&#x27;产业化</span>&#x27;, <span class="hljs-symbol">&#x27;国家</span>&#x27;, <span class="hljs-symbol">&#x27;重点</span>&#x27;, <span class="hljs-symbol">&#x27;龙头</span>&#x27;, <span class="hljs-symbol">&#x27;企业</span>&#x27;, <span class="hljs-symbol">&#x27;、</span>&#x27;, <span class="hljs-symbol">&#x27;高</span>&#x27;, <span class="hljs-symbol">&#x27;新</span>&#x27;, <span class="hljs-symbol">&#x27;技术</span>&#x27;, <span class="hljs-symbol">&#x27;企业</span>&#x27;, <span class="hljs-symbol">&#x27;，</span>&#x27;, <span class="hljs-symbol">&#x27;此前</span>&#x27;, <span class="hljs-symbol">&#x27;曾</span>&#x27;, <span class="hljs-symbol">&#x27;因</span>&#x27;, <span class="hljs-symbol">&#x27;涉嫌</span>&#x27;, <span class="hljs-symbol">&#x27;虚假</span>&#x27;, <span class="hljs-symbol">&#x27;宣传</span>&#x27;, <span class="hljs-symbol">&#x27;“</span>&#x27;, <span class="hljs-symbol">&#x27;中国</span>&#x27;, <span class="hljs-symbol">&#x27;最</span>&#x27;, <span class="hljs-symbol">&#x27;大</span>&#x27;, <span class="hljs-symbol">&#x27;的</span>&#x27;, <span class="hljs-symbol">&#x27;蛋品</span>&#x27;, <span class="hljs-symbol">&#x27;企业</span>&#x27;, <span class="hljs-symbol">&#x27;”</span>&#x27;, <span class="hljs-symbol">&#x27;而</span>&#x27;, <span class="hljs-symbol">&#x27;被</span>&#x27;, <span class="hljs-symbol">&#x27;罚</span>&#x27;, <span class="hljs-symbol">&#x27;6万</span>&#x27;, <span class="hljs-symbol">&#x27;元</span>&#x27;, <span class="hljs-symbol">&#x27;。</span>&#x27;]<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="Hanlp"><a href="#Hanlp" class="headerlink" title="Hanlp"></a>Hanlp</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyhanlp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(HanLP.segment(Chinese_data))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pyhanlp <span class="hljs-keyword">import</span> *<br><br><span class="hljs-built_in">print</span>(HanLP.segment(Chinese_data))<br></code></pre></td></tr></table></figure>
 <ul>
 <li>HanLP输出</li>
 </ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[﻿<span class="regexp">/w, 央视/</span>j, <span class="number">315</span><span class="regexp">/m, 晚会/</span>n, 曝光<span class="regexp">/vi, 湖北省/</span>ns, 知名<span class="regexp">/a, 的/u</span>de1, 神丹<span class="regexp">/nz, 牌/</span>n, 、<span class="regexp">/w, 莲田/</span>n, 牌<span class="regexp">/n, “/</span>w, 土鸡蛋<span class="regexp">/nz, ”/</span>w, 实为<span class="regexp">/v, 普通/</span>a, 鸡蛋<span class="regexp">/nf, 冒充/</span>v, ，<span class="regexp">/w, 同时/</span>c, 在<span class="regexp">/p, 商标/</span>n, 上<span class="regexp">/f, 玩/</span>v, 猫腻<span class="regexp">/n, ，/</span>w, 分别<span class="regexp">/d, 注册/</span>vn, “<span class="regexp">/w, 鲜/</span>a, 土<span class="regexp">/n, ”/</span>w, 、<span class="regexp">/w, 注册/</span>vn, “<span class="regexp">/w, 好/</span>a, 土<span class="regexp">/n, ”/</span>w, 商标<span class="regexp">/n, ，/</span>w, 让<span class="regexp">/v, 消费者/</span>n, 误以为<span class="regexp">/i, 是/</span>vshi, “<span class="regexp">/w, 土鸡蛋/</span>nz, ”<span class="regexp">/w, 。/</span>w, <span class="number">3</span>月<span class="regexp">/t, 15/m</span>, 日<span class="regexp">/b, 晚间/</span>t, ，<span class="regexp">/w, 新京报/</span>nz, 记者<span class="regexp">/nnt, 就/</span>d, 此事<span class="regexp">/r, 致电/</span>v, 湖北<span class="regexp">/ns, 神丹/</span>nz, 健康<span class="regexp">/a, 食品/</span>n, 有限公司<span class="regexp">/nis, 方面/</span>n, ，<span class="regexp">/w, 其/</span>rz, 工作人员<span class="regexp">/nnt, 表示/</span>v, 不知情<span class="regexp">/i, ，/</span>w, 需要<span class="regexp">/v, 了解/</span>v, 清楚<span class="regexp">/a, 情况/</span>n, ，<span class="regexp">/w, 截至/</span>v, 发稿<span class="regexp">/vi, 暂/</span>d, 未<span class="regexp">/d, 取得/</span>v, 最新<span class="regexp">/a, 回应/</span>vn, 。<span class="regexp">/w, 新京报/</span>nz, 记者<span class="regexp">/nnt, 还/</span>d, 查询<span class="regexp">/v, 发现/</span>v, ，<span class="regexp">/w, 湖北/</span>ns, 神丹<span class="regexp">/nz, 健康/</span>a, 食品<span class="regexp">/n, 有限公司/</span>nis, 为<span class="regexp">/p, 农业/</span>n, 产业化<span class="regexp">/vn, 国家/</span>n, 重点<span class="regexp">/n, 龙头企业/</span>nz, 、<span class="regexp">/w, 高新技术/</span>n, 企业<span class="regexp">/n, ，/</span>w, 此前<span class="regexp">/t, 曾/</span>d, 因涉嫌<span class="regexp">/n, 虚假/</span>a, 宣传<span class="regexp">/vn, “/</span>w, 中国<span class="regexp">/ns, 最大/gm</span>, 的<span class="regexp">/ude1, 蛋品/</span>n, 企业<span class="regexp">/n, ”/</span>w, 而<span class="regexp">/cc, 被罚/</span>nz, <span class="number">6</span><span class="regexp">/m, 万/m</span>, 元<span class="regexp">/q, 。/</span>w]</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">[﻿<span class="hljs-regexp">/w, 央视/</span>j, <span class="hljs-number">315</span><span class="hljs-regexp">/m, 晚会/</span>n, 曝光<span class="hljs-regexp">/vi, 湖北省/</span>ns, 知名<span class="hljs-regexp">/a, 的/u</span>de1, 神丹<span class="hljs-regexp">/nz, 牌/</span>n, 、<span class="hljs-regexp">/w, 莲田/</span>n, 牌<span class="hljs-regexp">/n, “/</span>w, 土鸡蛋<span class="hljs-regexp">/nz, ”/</span>w, 实为<span class="hljs-regexp">/v, 普通/</span>a, 鸡蛋<span class="hljs-regexp">/nf, 冒充/</span>v, ，<span class="hljs-regexp">/w, 同时/</span>c, 在<span class="hljs-regexp">/p, 商标/</span>n, 上<span class="hljs-regexp">/f, 玩/</span>v, 猫腻<span class="hljs-regexp">/n, ，/</span>w, 分别<span class="hljs-regexp">/d, 注册/</span>vn, “<span class="hljs-regexp">/w, 鲜/</span>a, 土<span class="hljs-regexp">/n, ”/</span>w, 、<span class="hljs-regexp">/w, 注册/</span>vn, “<span class="hljs-regexp">/w, 好/</span>a, 土<span class="hljs-regexp">/n, ”/</span>w, 商标<span class="hljs-regexp">/n, ，/</span>w, 让<span class="hljs-regexp">/v, 消费者/</span>n, 误以为<span class="hljs-regexp">/i, 是/</span>vshi, “<span class="hljs-regexp">/w, 土鸡蛋/</span>nz, ”<span class="hljs-regexp">/w, 。/</span>w, <span class="hljs-number">3</span>月<span class="hljs-regexp">/t, 15/m</span>, 日<span class="hljs-regexp">/b, 晚间/</span>t, ，<span class="hljs-regexp">/w, 新京报/</span>nz, 记者<span class="hljs-regexp">/nnt, 就/</span>d, 此事<span class="hljs-regexp">/r, 致电/</span>v, 湖北<span class="hljs-regexp">/ns, 神丹/</span>nz, 健康<span class="hljs-regexp">/a, 食品/</span>n, 有限公司<span class="hljs-regexp">/nis, 方面/</span>n, ，<span class="hljs-regexp">/w, 其/</span>rz, 工作人员<span class="hljs-regexp">/nnt, 表示/</span>v, 不知情<span class="hljs-regexp">/i, ，/</span>w, 需要<span class="hljs-regexp">/v, 了解/</span>v, 清楚<span class="hljs-regexp">/a, 情况/</span>n, ，<span class="hljs-regexp">/w, 截至/</span>v, 发稿<span class="hljs-regexp">/vi, 暂/</span>d, 未<span class="hljs-regexp">/d, 取得/</span>v, 最新<span class="hljs-regexp">/a, 回应/</span>vn, 。<span class="hljs-regexp">/w, 新京报/</span>nz, 记者<span class="hljs-regexp">/nnt, 还/</span>d, 查询<span class="hljs-regexp">/v, 发现/</span>v, ，<span class="hljs-regexp">/w, 湖北/</span>ns, 神丹<span class="hljs-regexp">/nz, 健康/</span>a, 食品<span class="hljs-regexp">/n, 有限公司/</span>nis, 为<span class="hljs-regexp">/p, 农业/</span>n, 产业化<span class="hljs-regexp">/vn, 国家/</span>n, 重点<span class="hljs-regexp">/n, 龙头企业/</span>nz, 、<span class="hljs-regexp">/w, 高新技术/</span>n, 企业<span class="hljs-regexp">/n, ，/</span>w, 此前<span class="hljs-regexp">/t, 曾/</span>d, 因涉嫌<span class="hljs-regexp">/n, 虚假/</span>a, 宣传<span class="hljs-regexp">/vn, “/</span>w, 中国<span class="hljs-regexp">/ns, 最大/gm</span>, 的<span class="hljs-regexp">/ude1, 蛋品/</span>n, 企业<span class="hljs-regexp">/n, ”/</span>w, 而<span class="hljs-regexp">/cc, 被罚/</span>nz, <span class="hljs-number">6</span><span class="hljs-regexp">/m, 万/m</span>, 元<span class="hljs-regexp">/q, 。/</span>w]<br></code></pre></td></tr></table></figure>
 <h3 id="英文分词工具-1"><a href="#英文分词工具-1" class="headerlink" title="英文分词工具"></a>英文分词工具</h3><ul>
 <li>准备数据集</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">English_data = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;English.txt&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:  <span class="comment"># 打开文件</span></span><br><span class="line">    English_data = f.read()  <span class="comment"># 读取文件</span></span><br><span class="line"><span class="built_in">print</span>(English_data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">English_data = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;English.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:  <span class="hljs-comment"># 打开文件</span><br>    English_data = f.read()  <span class="hljs-comment"># 读取文件</span><br><span class="hljs-built_in">print</span>(English_data)<br></code></pre></td></tr></table></figure>
 <p>Trump was born and raised in the New York City borough of Queens and received an economics degree from the Wharton School. He was appointed president of his family’s real estate business in 1971, renamed it The Trump Organization, and expanded it from Queens and Brooklyn into Manhattan. The company built or renovated skyscrapers, hotels, casinos, and golf courses. Trump later started various side ventures, including licensing his name for real estate and consumer products. He managed the company until his 2017 inauguration. He co-authored several books, including The Art of the Deal. He owned the Miss Universe and Miss USA beauty pageants from 1996 to 2015, and he produced and hosted The Apprentice, a reality television show, from 2003 to 2015. Forbes estimates his net worth to be $3.1 billion.</p>
 <blockquote>
 <h4 id="nltk"><a href="#nltk" class="headerlink" title="nltk"></a>nltk</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="built_in">print</span>(nltk.word_tokenize(English_data))</span><br></pre></td></tr></table></figure>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;family</span>&#x27;, <span class="string">&quot;&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$</span>&#x27;, <span class="symbol">&#x27;3.1</span>&#x27;, <span class="symbol">&#x27;billion</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> nltk<br><span class="hljs-built_in">print</span>(nltk.word_tokenize(English_data))<br></code></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;born</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;raised</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;New</span>&#x27;, <span class="hljs-symbol">&#x27;York</span>&#x27;, <span class="hljs-symbol">&#x27;City</span>&#x27;, <span class="hljs-symbol">&#x27;borough</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;received</span>&#x27;, <span class="hljs-symbol">&#x27;an</span>&#x27;, <span class="hljs-symbol">&#x27;economics</span>&#x27;, <span class="hljs-symbol">&#x27;degree</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Wharton</span>&#x27;, <span class="hljs-symbol">&#x27;School</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;appointed</span>&#x27;, <span class="hljs-symbol">&#x27;president</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;family</span>&#x27;, <span class="hljs-string">&quot;&#x27;s&quot;</span>, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;business</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;renamed</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;expanded</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Brooklyn</span>&#x27;, <span class="hljs-symbol">&#x27;into</span>&#x27;, <span class="hljs-symbol">&#x27;Manhattan</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;built</span>&#x27;, <span class="hljs-symbol">&#x27;or</span>&#x27;, <span class="hljs-symbol">&#x27;renovated</span>&#x27;, <span class="hljs-symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;golf</span>&#x27;, <span class="hljs-symbol">&#x27;courses</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;later</span>&#x27;, <span class="hljs-symbol">&#x27;started</span>&#x27;, <span class="hljs-symbol">&#x27;various</span>&#x27;, <span class="hljs-symbol">&#x27;side</span>&#x27;, <span class="hljs-symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;licensing</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;name</span>&#x27;, <span class="hljs-symbol">&#x27;for</span>&#x27;, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;consumer</span>&#x27;, <span class="hljs-symbol">&#x27;products</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;managed</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;until</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;2017</span>&#x27;, <span class="hljs-symbol">&#x27;inauguration</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;co-authored</span>&#x27;, <span class="hljs-symbol">&#x27;several</span>&#x27;, <span class="hljs-symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Art</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Deal</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;owned</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;Universe</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;USA</span>&#x27;, <span class="hljs-symbol">&#x27;beauty</span>&#x27;, <span class="hljs-symbol">&#x27;pageants</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;1996</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;he</span>&#x27;, <span class="hljs-symbol">&#x27;produced</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;hosted</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;a</span>&#x27;, <span class="hljs-symbol">&#x27;reality</span>&#x27;, <span class="hljs-symbol">&#x27;television</span>&#x27;, <span class="hljs-symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;2003</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;Forbes</span>&#x27;, <span class="hljs-symbol">&#x27;estimates</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;net</span>&#x27;, <span class="hljs-symbol">&#x27;worth</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;be</span>&#x27;, <span class="hljs-symbol">&#x27;$</span>&#x27;, <span class="hljs-symbol">&#x27;3.1</span>&#x27;, <span class="hljs-symbol">&#x27;billion</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;]<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="spacy"><a href="#spacy" class="headerlink" title="spacy"></a>spacy</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">&#x27;en_core_web_sm&#x27;</span>)</span><br><span class="line">document=nlp(English_data)</span><br><span class="line"><span class="built_in">print</span>(document.text.split())</span><br></pre></td></tr></table></figure>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="string">&quot;family&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>,&#x27;, <span class="symbol">&#x27;hotels</span>,&#x27;, <span class="symbol">&#x27;casinos</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$3.1</span>&#x27;, <span class="symbol">&#x27;billion.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> spacy<br>nlp=spacy.load(<span class="hljs-string">&#x27;en_core_web_sm&#x27;</span>)<br>document=nlp(English_data)<br><span class="hljs-built_in">print</span>(document.text.split())<br></code></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;born</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;raised</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;New</span>&#x27;, <span class="hljs-symbol">&#x27;York</span>&#x27;, <span class="hljs-symbol">&#x27;City</span>&#x27;, <span class="hljs-symbol">&#x27;borough</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;received</span>&#x27;, <span class="hljs-symbol">&#x27;an</span>&#x27;, <span class="hljs-symbol">&#x27;economics</span>&#x27;, <span class="hljs-symbol">&#x27;degree</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Wharton</span>&#x27;, <span class="hljs-symbol">&#x27;School.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;appointed</span>&#x27;, <span class="hljs-symbol">&#x27;president</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-string">&quot;family&#x27;s&quot;</span>, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;business</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;1971</span>,&#x27;, <span class="hljs-symbol">&#x27;renamed</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;Organization</span>,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;expanded</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Brooklyn</span>&#x27;, <span class="hljs-symbol">&#x27;into</span>&#x27;, <span class="hljs-symbol">&#x27;Manhattan.</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;built</span>&#x27;, <span class="hljs-symbol">&#x27;or</span>&#x27;, <span class="hljs-symbol">&#x27;renovated</span>&#x27;, <span class="hljs-symbol">&#x27;skyscrapers</span>,&#x27;, <span class="hljs-symbol">&#x27;hotels</span>,&#x27;, <span class="hljs-symbol">&#x27;casinos</span>,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;golf</span>&#x27;, <span class="hljs-symbol">&#x27;courses.</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;later</span>&#x27;, <span class="hljs-symbol">&#x27;started</span>&#x27;, <span class="hljs-symbol">&#x27;various</span>&#x27;, <span class="hljs-symbol">&#x27;side</span>&#x27;, <span class="hljs-symbol">&#x27;ventures</span>,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;licensing</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;name</span>&#x27;, <span class="hljs-symbol">&#x27;for</span>&#x27;, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;consumer</span>&#x27;, <span class="hljs-symbol">&#x27;products.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;managed</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;until</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;2017</span>&#x27;, <span class="hljs-symbol">&#x27;inauguration.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;co-authored</span>&#x27;, <span class="hljs-symbol">&#x27;several</span>&#x27;, <span class="hljs-symbol">&#x27;books</span>,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Art</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Deal.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;owned</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;Universe</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;USA</span>&#x27;, <span class="hljs-symbol">&#x27;beauty</span>&#x27;, <span class="hljs-symbol">&#x27;pageants</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;1996</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015</span>,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;he</span>&#x27;, <span class="hljs-symbol">&#x27;produced</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;hosted</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Apprentice</span>,&#x27;, <span class="hljs-symbol">&#x27;a</span>&#x27;, <span class="hljs-symbol">&#x27;reality</span>&#x27;, <span class="hljs-symbol">&#x27;television</span>&#x27;, <span class="hljs-symbol">&#x27;show</span>,&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;2003</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015.</span>&#x27;, <span class="hljs-symbol">&#x27;Forbes</span>&#x27;, <span class="hljs-symbol">&#x27;estimates</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;net</span>&#x27;, <span class="hljs-symbol">&#x27;worth</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;be</span>&#x27;, <span class="hljs-symbol">&#x27;$3.1</span>&#x27;, <span class="hljs-symbol">&#x27;billion.</span>&#x27;]<br></code></pre></td></tr></table></figure>
 <blockquote>
 <h4 id="StanfordcoreNLP"><a href="#StanfordcoreNLP" class="headerlink" title="StanfordcoreNLP"></a>StanfordcoreNLP</h4></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="string">&#x27;en&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(nlp.word_tokenize(English_data))</span><br></pre></td></tr></table></figure>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;born</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;raised</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;New</span>&#x27;, <span class="symbol">&#x27;York</span>&#x27;, <span class="symbol">&#x27;City</span>&#x27;, <span class="symbol">&#x27;borough</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;received</span>&#x27;, <span class="symbol">&#x27;an</span>&#x27;, <span class="symbol">&#x27;economics</span>&#x27;, <span class="symbol">&#x27;degree</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Wharton</span>&#x27;, <span class="symbol">&#x27;School</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;was</span>&#x27;, <span class="symbol">&#x27;appointed</span>&#x27;, <span class="symbol">&#x27;president</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;family</span>&#x27;, <span class="string">&quot;&#x27;s&quot;</span>, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;business</span>&#x27;, <span class="symbol">&#x27;in</span>&#x27;, <span class="symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;renamed</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;expanded</span>&#x27;, <span class="symbol">&#x27;it</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;Queens</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Brooklyn</span>&#x27;, <span class="symbol">&#x27;into</span>&#x27;, <span class="symbol">&#x27;Manhattan</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;built</span>&#x27;, <span class="symbol">&#x27;or</span>&#x27;, <span class="symbol">&#x27;renovated</span>&#x27;, <span class="symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;golf</span>&#x27;, <span class="symbol">&#x27;courses</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Trump</span>&#x27;, <span class="symbol">&#x27;later</span>&#x27;, <span class="symbol">&#x27;started</span>&#x27;, <span class="symbol">&#x27;various</span>&#x27;, <span class="symbol">&#x27;side</span>&#x27;, <span class="symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;licensing</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;name</span>&#x27;, <span class="symbol">&#x27;for</span>&#x27;, <span class="symbol">&#x27;real</span>&#x27;, <span class="symbol">&#x27;estate</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;consumer</span>&#x27;, <span class="symbol">&#x27;products</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;managed</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;company</span>&#x27;, <span class="symbol">&#x27;until</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;2017</span>&#x27;, <span class="symbol">&#x27;inauguration</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;co-authored</span>&#x27;, <span class="symbol">&#x27;several</span>&#x27;, <span class="symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;including</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Art</span>&#x27;, <span class="symbol">&#x27;of</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Deal</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;He</span>&#x27;, <span class="symbol">&#x27;owned</span>&#x27;, <span class="symbol">&#x27;the</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;Universe</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;Miss</span>&#x27;, <span class="symbol">&#x27;USA</span>&#x27;, <span class="symbol">&#x27;beauty</span>&#x27;, <span class="symbol">&#x27;pageants</span>&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;1996</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;he</span>&#x27;, <span class="symbol">&#x27;produced</span>&#x27;, <span class="symbol">&#x27;and</span>&#x27;, <span class="symbol">&#x27;hosted</span>&#x27;, <span class="symbol">&#x27;The</span>&#x27;, <span class="symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;a</span>&#x27;, <span class="symbol">&#x27;reality</span>&#x27;, <span class="symbol">&#x27;television</span>&#x27;, <span class="symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="symbol">&#x27;from</span>&#x27;, <span class="symbol">&#x27;2003</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;2015</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;, <span class="symbol">&#x27;Forbes</span>&#x27;, <span class="symbol">&#x27;estimates</span>&#x27;, <span class="symbol">&#x27;his</span>&#x27;, <span class="symbol">&#x27;net</span>&#x27;, <span class="symbol">&#x27;worth</span>&#x27;, <span class="symbol">&#x27;to</span>&#x27;, <span class="symbol">&#x27;be</span>&#x27;, <span class="symbol">&#x27;$</span>&#x27;, <span class="symbol">&#x27;3.1</span>&#x27;, <span class="symbol">&#x27;billion</span>&#x27;, <span class="symbol">&#x27;.</span>&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> stanfordcorenlp <span class="hljs-keyword">import</span> StanfordCoreNLP<br>nlp = StanfordCoreNLP(<span class="hljs-string">r&#x27;./stanford-corenlp-full-2018-02-27&#x27;</span>,lang=<span class="hljs-string">&#x27;en&#x27;</span>)<br><span class="hljs-built_in">print</span>(nlp.word_tokenize(English_data))<br></code></pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;born</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;raised</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;New</span>&#x27;, <span class="hljs-symbol">&#x27;York</span>&#x27;, <span class="hljs-symbol">&#x27;City</span>&#x27;, <span class="hljs-symbol">&#x27;borough</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;received</span>&#x27;, <span class="hljs-symbol">&#x27;an</span>&#x27;, <span class="hljs-symbol">&#x27;economics</span>&#x27;, <span class="hljs-symbol">&#x27;degree</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Wharton</span>&#x27;, <span class="hljs-symbol">&#x27;School</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;was</span>&#x27;, <span class="hljs-symbol">&#x27;appointed</span>&#x27;, <span class="hljs-symbol">&#x27;president</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;family</span>&#x27;, <span class="hljs-string">&quot;&#x27;s&quot;</span>, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;business</span>&#x27;, <span class="hljs-symbol">&#x27;in</span>&#x27;, <span class="hljs-symbol">&#x27;1971</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;renamed</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;Organization</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;expanded</span>&#x27;, <span class="hljs-symbol">&#x27;it</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;Queens</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Brooklyn</span>&#x27;, <span class="hljs-symbol">&#x27;into</span>&#x27;, <span class="hljs-symbol">&#x27;Manhattan</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;built</span>&#x27;, <span class="hljs-symbol">&#x27;or</span>&#x27;, <span class="hljs-symbol">&#x27;renovated</span>&#x27;, <span class="hljs-symbol">&#x27;skyscrapers</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;hotels</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;casinos</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;golf</span>&#x27;, <span class="hljs-symbol">&#x27;courses</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;Trump</span>&#x27;, <span class="hljs-symbol">&#x27;later</span>&#x27;, <span class="hljs-symbol">&#x27;started</span>&#x27;, <span class="hljs-symbol">&#x27;various</span>&#x27;, <span class="hljs-symbol">&#x27;side</span>&#x27;, <span class="hljs-symbol">&#x27;ventures</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;licensing</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;name</span>&#x27;, <span class="hljs-symbol">&#x27;for</span>&#x27;, <span class="hljs-symbol">&#x27;real</span>&#x27;, <span class="hljs-symbol">&#x27;estate</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;consumer</span>&#x27;, <span class="hljs-symbol">&#x27;products</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;managed</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;company</span>&#x27;, <span class="hljs-symbol">&#x27;until</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;2017</span>&#x27;, <span class="hljs-symbol">&#x27;inauguration</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;co-authored</span>&#x27;, <span class="hljs-symbol">&#x27;several</span>&#x27;, <span class="hljs-symbol">&#x27;books</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;including</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Art</span>&#x27;, <span class="hljs-symbol">&#x27;of</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Deal</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;He</span>&#x27;, <span class="hljs-symbol">&#x27;owned</span>&#x27;, <span class="hljs-symbol">&#x27;the</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;Universe</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;Miss</span>&#x27;, <span class="hljs-symbol">&#x27;USA</span>&#x27;, <span class="hljs-symbol">&#x27;beauty</span>&#x27;, <span class="hljs-symbol">&#x27;pageants</span>&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;1996</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;he</span>&#x27;, <span class="hljs-symbol">&#x27;produced</span>&#x27;, <span class="hljs-symbol">&#x27;and</span>&#x27;, <span class="hljs-symbol">&#x27;hosted</span>&#x27;, <span class="hljs-symbol">&#x27;The</span>&#x27;, <span class="hljs-symbol">&#x27;Apprentice</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;a</span>&#x27;, <span class="hljs-symbol">&#x27;reality</span>&#x27;, <span class="hljs-symbol">&#x27;television</span>&#x27;, <span class="hljs-symbol">&#x27;show</span>&#x27;, &#x27;,&#x27;, <span class="hljs-symbol">&#x27;from</span>&#x27;, <span class="hljs-symbol">&#x27;2003</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;2015</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;, <span class="hljs-symbol">&#x27;Forbes</span>&#x27;, <span class="hljs-symbol">&#x27;estimates</span>&#x27;, <span class="hljs-symbol">&#x27;his</span>&#x27;, <span class="hljs-symbol">&#x27;net</span>&#x27;, <span class="hljs-symbol">&#x27;worth</span>&#x27;, <span class="hljs-symbol">&#x27;to</span>&#x27;, <span class="hljs-symbol">&#x27;be</span>&#x27;, <span class="hljs-symbol">&#x27;$</span>&#x27;, <span class="hljs-symbol">&#x27;3.1</span>&#x27;, <span class="hljs-symbol">&#x27;billion</span>&#x27;, <span class="hljs-symbol">&#x27;.</span>&#x27;]<br></code></pre></td></tr></table></figure>
 <h5 id><a href="#" class="headerlink" title=" "></a> </h5><h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><blockquote>
 <h3 id="中文分词效果对比"><a href="#中文分词效果对比" class="headerlink" title="中文分词效果对比"></a>中文分词效果对比</h3></blockquote>
 <ul>
@@ -389,286 +439,428 @@
 </ul>
 <p>对于中文分词工具来说，我认为效果最好的是HanLP和jieba，推荐使用。对于英文分词来说效果一样，没有区别。</p>
 
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C/">#自然语言处理实验</a>
+      
     </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C/" rel="tag"># 自然语言处理实验</a>
-          </div>
-
-        
+  
+</div>
 
 
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" rel="prev" title="自然语言处理实验一">
-      <i class="fa fa-chevron-left"></i> 自然语言处理实验一
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/03/13/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A/" rel="next" title="云计算第三章作业">
-      云计算第三章作业 <i class="fa fa-chevron-right"></i>
-    </a></div>
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>自然语言处理实验二</div>
+      <div>https://zwh-sdu.github.io/2022/03/13/自然语言处理实验二/</div>
     </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张文浩</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
           
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/13/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A/" title="云计算第三章作业">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">云计算第三章作业</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/08/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E4%B8%80/" title="自然语言处理实验一">
+                        <span class="hidden-mobile">自然语言处理实验一</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
   });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E5%88%86%E8%AF%8D"><span class="nav-number">1.</span> <span class="nav-text">实验二：分词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E5%8F%B7%E5%A7%93%E5%90%8D%E7%8F%AD%E7%BA%A7%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">学号姓名班级：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%97%A5%E6%9C%9F%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">实验日期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">实验目的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">实验内容：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">实验原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.1.</span> <span class="nav-text">中文分词工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%B1%E6%96%87%E5%88%86%E8%AF%8D%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.2.</span> <span class="nav-text">英文分词工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">实验步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%B7%A5%E5%85%B7-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">中文分词工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jieba"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">jieba</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SnowNlp"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">SnowNlp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#thulac"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">thulac</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pynlpir"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">pynlpir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StanfordCoreNLP"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">StanfordCoreNLP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hanlp"><span class="nav-number">1.6.1.6.</span> <span class="nav-text">Hanlp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%B1%E6%96%87%E5%88%86%E8%AF%8D%E5%B7%A5%E5%85%B7-1"><span class="nav-number">1.6.2.</span> <span class="nav-text">英文分词工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nltk"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">nltk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spacy"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">spacy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StanfordcoreNLP"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">StanfordcoreNLP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.6.2.3.1.</span> <span class="nav-text"> </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-number">1.7.</span> <span class="nav-text">对比总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-number">1.7.1.</span> <span class="nav-text">中文分词效果对比</span></a></li></ol></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="张文浩"
-      src="/images/messi.jpg">
-  <p class="site-author-name" itemprop="name">张文浩</p>
-  <div class="site-description" itemprop="description">我听见脚步声预料的软皮鞋跟</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">26</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">张文浩</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    <span title="站点总字数">193k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">2:55</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
       }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
 </script>
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
     
 
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
   
 
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/clicklove.js"></script>

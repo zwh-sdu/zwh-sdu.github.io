@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第73场双周赛第一题-easy2190. 数组中紧跟 key 之后出现最频繁的数字 题目描述给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。 统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：  0 &lt;&#x3D; i &lt;&#x3D; n">
+    <meta name="description" content="leetcode-第73场双周赛 第一题-easy 2190. 数组中紧跟 key 之后出现最频繁的数字 题目描述 给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。 统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：   0 &lt;&#x3D; i &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第73场双周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/03/08/leetcode-%E7%AC%AC73%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第73场双周赛第一题-easy2190. 数组中紧跟 key 之后出现最频繁的数字 题目描述给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。 统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：  0 &lt;&#x3D; i &lt;&#x3D; n">
+<meta property="og:description" content="leetcode-第73场双周赛 第一题-easy 2190. 数组中紧跟 key 之后出现最频繁的数字 题目描述 给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。 统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：   0 &lt;&#x3D; i &amp;lt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-08T02:16:24.000Z">
 <meta property="article:modified_time" content="2022-05-23T12:21:48.869Z">
@@ -281,22 +281,31 @@
             
             <div class="markdown-body">
               
-              <h1 id="leetcode-第73场双周赛"><a href="#leetcode-第73场双周赛" class="headerlink" title="leetcode-第73场双周赛"></a>leetcode-第73场双周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/">2190. 数组中紧跟 key 之后出现最频繁的数字</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。</p>
+              <h1>leetcode-第73场双周赛</h1>
+<h3 id="第一题-easy-12">第一题-easy</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/">2190. 数组中紧跟 key 之后出现最频繁的数字</a></p>
+<h4 id="题目描述-37">题目描述</h4>
+<p>给你一个下标从 0 开始的整数数组 nums ，同时给你一个整数 key ，它在 nums 出现过。</p>
 <p>统计 在 nums 数组中紧跟着 key 后面出现的不同整数 target 的出现次数。换言之，target 的出现次数为满足以下条件的 i 的数目：</p>
-<ul>
-<li><p>0 &lt;= i &lt;= n - 2</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>0 &lt;= i &lt;= n - 2</p>
 </li>
-<li><p>nums[i] == key 且</p>
+<li class="lvl-2">
+<p>nums[i] == key 且</p>
 </li>
-<li>nums[i + 1] == target 。</li>
+<li class="lvl-2">
+<p>nums[i + 1] == target 。</p>
+</li>
 </ul>
 <p>请你返回出现 最多 次数的 target 。测试数据保证出现次数最多的 target 是唯一的。</p>
-<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-36">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <html>
-
 <style>
     .mac {
         width:10px;
@@ -324,56 +333,77 @@
 <div>
 <br>
 </div></div></html>
-
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [1,100,200,1,100], key = 1<br>输出：100<br>解释：对于 target =<span class="hljs-number"> 100 </span>，在下标<span class="hljs-number"> 1 </span>和<span class="hljs-number"> 4 </span>处出现过<span class="hljs-number"> 2 </span>次，且都紧跟着 key 。<br>没有其他整数在 key 后面紧跟着出现，所以我们返回<span class="hljs-number"> 100 </span>。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [2,2,2,2,3], key = 2<br>输出：2<br>解释：对于 target =<span class="hljs-number"> 2 </span>，在下标<span class="hljs-number"> 1 </span>，2 和<span class="hljs-number"> 3 </span>处出现过<span class="hljs-number"> 3 </span>次，且都紧跟着 key 。<br>对于 target =<span class="hljs-number"> 3 </span>，在下标<span class="hljs-number"> 4 </span>出出现过<span class="hljs-number"> 1 </span>次，且紧跟着 key 。<br>target =<span class="hljs-number"> 2 </span>是紧跟着 key 之后出现次数最多的数字，所以我们返回<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>​    用一个map维护target出现的次数，最后选出value最大的数就是target。</p>
+<h4 id="思路-37">思路</h4>
+<p>​	用一个map维护target出现的次数，最后选出value最大的数就是target。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mostFrequent</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> key)</span> </span>&#123;<br>        map&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; mp;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i++)&#123;<br>            <span class="hljs-keyword">if</span>(nums[i]==key)&#123;<br>                mp[nums[i+<span class="hljs-number">1</span>]]++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">int</span> target=<span class="hljs-number">0</span>,maxx=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> m:mp)&#123;<br>            <span class="hljs-keyword">if</span>(maxx&lt;m.second)&#123;<br>                maxx=m.second;<br>                target=m.first;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> target;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-the-jumbled-numbers/">2191. 将杂乱无章的数字排序</a></p>
-<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的整数数组 mapping ，它表示一个十进制数的映射规则，mapping[i] = j 表示这个规则下将数位 i 映射为数位 j 。</p>
+<h3 id="第二题-mid-12">第二题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-the-jumbled-numbers/">2191. 将杂乱无章的数字排序</a></p>
+<h4 id="题目描述-38">题目描述</h4>
+<p>给你一个下标从 0 开始的整数数组 mapping ，它表示一个十进制数的映射规则，mapping[i] = j 表示这个规则下将数位 i 映射为数位 j 。</p>
 <p>一个整数<strong>映射后的值</strong>为将原数字每一个数位 i （0 &lt;= i &lt;= 9）映射为 mapping[i] 。</p>
 <p>另外给你一个整数数组 nums ，请你将数组 nums 中每个数按照它们映射后对应数字非递减顺序排序后返回。</p>
 <p>注意：</p>
-<ul>
-<li><p>如果两个数字映射后对应的数字大小相同，则将它们按照输入中的 相对顺序 排序。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果两个数字映射后对应的数字大小相同，则将它们按照输入中的 相对顺序 排序。</p>
 </li>
-<li><p>nums 中的元素只有在排序的时候需要按照映射后的值进行比较，返回的值应该是输入的元素本身。</p>
+<li class="lvl-2">
+<p>nums 中的元素只有在排序的时候需要按照映射后的值进行比较，返回的值应该是输入的元素本身。</p>
 </li>
 </ul>
-<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-37">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：mapping = [8,9,4,0,2,1,3,5,7,6], nums = [991,338,38]<br>输出：[338,38,991]<br>解释：<br>将数字<span class="hljs-number"> 991 </span>按照如下规则映射：<br>1. mapping[9] =<span class="hljs-number"> 6 </span>，所有数位<span class="hljs-number"> 9 </span>都会变成<span class="hljs-number"> 6 </span>。<br>2. mapping[1] =<span class="hljs-number"> 9 </span>，所有数位<span class="hljs-number"> 1 </span>都会变成<span class="hljs-number"> 8 </span>。<br>所以，991 映射的值为<span class="hljs-number"> 669 </span>。<br>338 映射为<span class="hljs-number"> 007 </span>，去掉前导<span class="hljs-number"> 0 </span>后得到<span class="hljs-number"> 7 </span>。<br>38 映射为<span class="hljs-number"> 07 </span>，去掉前导<span class="hljs-number"> 0 </span>后得到<span class="hljs-number"> 7 </span>。<br>由于<span class="hljs-number"> 338 </span>和<span class="hljs-number"> 38 </span>映射后的值相同，所以它们的前后顺序保留原数组中的相对位置关系，338 在<span class="hljs-number"> 38 </span>的前面。<br>所以，排序后的数组为 [338,38,991] 。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">输入：mapping = [<span class="hljs-number">0,1,2,3</span>,<span class="hljs-number">4,5,6,7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>], nums = [<span class="hljs-number">789,456</span>,<span class="hljs-number">123</span>]<br>输出：[<span class="hljs-number">123,456</span>,<span class="hljs-number">789</span>]<br>解释：<span class="hljs-number">789</span> 映射为 <span class="hljs-number">789</span> ，<span class="hljs-number">456</span> 映射为 <span class="hljs-number">456</span> ，<span class="hljs-number">123</span> 映射为 <span class="hljs-number">123</span> 。所以排序后数组为 [<span class="hljs-number">123,456</span>,<span class="hljs-number">789</span>] 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>建立一个结构体，每个结构体中存储三个信息，分别是映射前的原始数，映射后的数，和在nums出现的位置索引。</p>
+<h4 id="思路-38">思路</h4>
+<p>建立一个结构体，每个结构体中存储三个信息，分别是映射前的原始数，映射后的数，和在nums出现的位置索引。</p>
 <p>自定义排序规则cmp，先按照映射后的数排序，如果相同，再按照在nums出现的位置索引排序。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">turn</span><span class="hljs-params">(<span class="hljs-type">int</span> x,vector&lt;<span class="hljs-type">int</span>&gt;&amp; mapping)</span></span>&#123;<br>        string s=<span class="hljs-built_in">to_string</span>(x);<br>        <span class="hljs-type">int</span> res=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">size</span>();i++)&#123;<br>            res=res*<span class="hljs-number">10</span>+mapping[s[i]-<span class="hljs-string">&#x27;0&#x27;</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span>&#123;<br>        <span class="hljs-type">int</span> pre;<br>        <span class="hljs-type">int</span> aft;<br>        <span class="hljs-type">int</span> index;<br>    &#125;;<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-type">static</span> <span class="hljs-title">cmp</span><span class="hljs-params">(Node a,Node b)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(a.aft!=b.aft)&#123;<br>            <span class="hljs-keyword">return</span> a.aft&lt;b.aft;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">return</span> a.index&lt;b.index;<br>        &#125;<br>    &#125;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sortJumbled</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; mapping, vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        vector&lt;Node&gt; ve;<br>        Node node;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;<br>            node.pre=nums[i];<br>            node.aft=<span class="hljs-built_in">turn</span>(nums[i],mapping);<br>            node.index=i;<br>            ve.<span class="hljs-built_in">push_back</span>(node);<br>        &#125;<br>        <span class="hljs-built_in">sort</span>(ve.<span class="hljs-built_in">begin</span>(),ve.<span class="hljs-built_in">end</span>(),cmp);<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;ve.<span class="hljs-built_in">size</span>();i++)&#123;<br>            ans.<span class="hljs-built_in">push_back</span>(ve[i].pre);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/">2192. 有向无环图中一个节点的所有祖先</a></p>
-<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个正整数 n ，它表示一个 有向无环图 中节点的数目，节点编号为 0 到 n - 1 （包括两者）。</p>
+<h3 id="第三题-mid-12">第三题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/">2192. 有向无环图中一个节点的所有祖先</a></p>
+<h4 id="题目描述-39">题目描述</h4>
+<p>给你一个正整数 n ，它表示一个 有向无环图 中节点的数目，节点编号为 0 到 n - 1 （包括两者）。</p>
 <p>给你一个二维整数数组 edges ，其中 edges[i] = [fromi, toi] 表示图中一条从 fromi 到 toi 的单向边。</p>
 <p>请你返回一个数组 answer，其中 answer[i]是第 i 个节点的所有<strong>祖先</strong>，这些祖先节点<strong>升序</strong>排序。</p>
 <p>如果 u 通过一系列边，能够到达 v ，那么我们称节点 u 是节点 v 的<strong>祖先</strong>节点。</p>
-<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-38">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：n = 8, edgeList = [[0,3],[0,4],[1,3],[2,4],[2,7],[3,5],[3,6],[3,7],[4,6]]<br>输出：[[],[],[],[0,1],[0,2],[0,1,3],[0,1,2,3,4],[0,1,2,3]]<br>解释：<br>上图为输入所对应的图。<br>- 节点<span class="hljs-number"> 0 </span>，1 和<span class="hljs-number"> 2 </span>没有任何祖先。<br>- 节点<span class="hljs-number"> 3 </span>有<span class="hljs-number"> 2 </span>个祖先<span class="hljs-number"> 0 </span>和<span class="hljs-number"> 1 </span>。<br>- 节点<span class="hljs-number"> 4 </span>有<span class="hljs-number"> 2 </span>个祖先<span class="hljs-number"> 0 </span>和<span class="hljs-number"> 2 </span>。<br>- 节点<span class="hljs-number"> 5 </span>有<span class="hljs-number"> 3 </span>个祖先<span class="hljs-number"> 0 </span>，1 和<span class="hljs-number"> 3 </span>。<br>- 节点<span class="hljs-number"> 6 </span>有<span class="hljs-number"> 5 </span>个祖先<span class="hljs-number"> 0 </span>，1 ，2 ，3 和<span class="hljs-number"> 4 </span>。<br>- 节点<span class="hljs-number"> 7 </span>有<span class="hljs-number"> 4 </span>个祖先<span class="hljs-number"> 0 </span>，1 ，2 和<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：n = 5, edgeList = <span class="hljs-comment">[<span class="hljs-comment">[0,1]</span>,<span class="hljs-comment">[0,2]</span>,<span class="hljs-comment">[0,3]</span>,<span class="hljs-comment">[0,4]</span>,<span class="hljs-comment">[1,2]</span>,<span class="hljs-comment">[1,3]</span>,<span class="hljs-comment">[1,4]</span>,<span class="hljs-comment">[2,3]</span>,<span class="hljs-comment">[2,4]</span>,<span class="hljs-comment">[3,4]</span>]</span><br>输出：<span class="hljs-comment">[<span class="hljs-comment">[]</span>,<span class="hljs-comment">[0]</span>,<span class="hljs-comment">[0,1]</span>,<span class="hljs-comment">[0,1,2]</span>,<span class="hljs-comment">[0,1,2,3]</span>]</span><br>解释：<br>上图为输入所对应的图。<br>- 节点 0 没有任何祖先。<br>- 节点 1 有 1 个祖先 0 。<br>- 节点 2 有 2 个祖先 0 和 1 。<br>- 节点 3 有 3 个祖先 0 ，1 和 2 。<br>- 节点 4 有 4 个祖先 0 ，1 ，2 和 3 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>第一遍直接用弗洛伊德做的，复杂度是$O(n^3)$，最后超时了。</p>
+<h4 id="思路-39">思路</h4>
+<p>第一遍直接用弗洛伊德做的，复杂度是$O(n^3)$，最后超时了。</p>
 <p>用n遍dijkstra复杂度降维$O(n^2\log(n))$,就不超时了。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span><br>    &#123;<br>        <span class="hljs-type">int</span> v,w,nxt;<br>    &#125;edge[<span class="hljs-number">2005</span>];<br>    <br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span> s,<span class="hljs-type">int</span> n)</span></span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; res;<br>        priority_queue&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt;,vector&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt;&gt;,greater&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt;&gt;&gt; q;<br>        <span class="hljs-type">int</span> dis[<span class="hljs-number">1005</span>],vis[<span class="hljs-number">1005</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            dis[i]=<span class="hljs-number">0x3f3f3f3f</span>;<br>            vis[i]=<span class="hljs-number">0</span>;<br>        &#125;<br>        dis[s]=<span class="hljs-number">0</span>;<br>        q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,s));<br>        <span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())&#123;<br>            <span class="hljs-type">int</span> x=q.<span class="hljs-built_in">top</span>().second;<br>            q.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">if</span>(vis[x]) <span class="hljs-keyword">continue</span>;<br>            vis[x]=<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=head[x];i!=<span class="hljs-number">-1</span>;i=edge[i].nxt)&#123;<br>                <span class="hljs-type">int</span> v=edge[i].v,w=edge[i].w;<br>                <span class="hljs-keyword">if</span>(dis[v]&gt;dis[x]+w)&#123;<br>                    dis[v]=dis[x]+w;<br>                    res.<span class="hljs-built_in">push_back</span>(v);<br>                    q.<span class="hljs-built_in">push</span>(<span class="hljs-built_in">make_pair</span>(dis[v],v));<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>    <span class="hljs-type">int</span> head[<span class="hljs-number">1005</span>];<br>    <span class="hljs-type">int</span> tot=<span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> u,<span class="hljs-type">int</span> v)</span></span>&#123;<br>        edge[tot].v=v;<br>        edge[tot].w=<span class="hljs-number">1</span>;<br>        edge[tot].nxt=head[u];<br>        head[u]=tot++;<br>    &#125;<br>    <br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">getAncestors</span>(<span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; edges) &#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">ans</span>(n, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;());<br>        <span class="hljs-type">int</span> tot=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            head[i]=<span class="hljs-number">-1</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;edges.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-built_in">add</span>(edges[i][<span class="hljs-number">1</span>],edges[i][<span class="hljs-number">0</span>]);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; ve=<span class="hljs-built_in">dijkstra</span>(i,n);<br>            <span class="hljs-built_in">sort</span>(ve.<span class="hljs-built_in">begin</span>(),ve.<span class="hljs-built_in">end</span>());<br>            ans[i]=ve;<br>        &#125;<br>        <br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/">2193. 得到回文串的最少操作次数</a></p>
+<h3 id="第四题-hard-12">第四题-hard</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/">2193. 得到回文串的最少操作次数</a></p>
 <p>我不配做hard，看了题解，大概是贪心算法。</p>
 
               

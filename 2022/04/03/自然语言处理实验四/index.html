@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="实验四：命名实体识别学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.31 实验简介：​    命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的BE">
+    <meta name="description" content="实验四：命名实体识别 学号姓名班级： 201900161140 张文浩 2019级人工智能 实验日期： 2022.3.31 实验简介： ​	命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自然语言处理实验四">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="实验四：命名实体识别学号姓名班级：201900161140 张文浩 2019级人工智能 实验日期：2022.3.31 实验简介：​    命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的BE">
+<meta property="og:description" content="实验四：命名实体识别 学号姓名班级： 201900161140 张文浩 2019级人工智能 实验日期： 2022.3.31 实验简介： ​	命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的B">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zwh-sdu.github.io/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403112114857.png">
 <meta property="og:image" content="https://zwh-sdu.github.io/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403113542102.png">
@@ -296,143 +296,214 @@
             
             <div class="markdown-body">
               
-              <h1 id="实验四：命名实体识别"><a href="#实验四：命名实体识别" class="headerlink" title="实验四：命名实体识别"></a>实验四：命名实体识别</h1><h2 id="学号姓名班级："><a href="#学号姓名班级：" class="headerlink" title="学号姓名班级："></a>学号姓名班级：</h2><p>201900161140 张文浩 2019级人工智能</p>
-<h2 id="实验日期："><a href="#实验日期：" class="headerlink" title="实验日期："></a>实验日期：</h2><p>2022.3.31</p>
-<h2 id="实验简介："><a href="#实验简介：" class="headerlink" title="实验简介："></a>实验简介：</h2><p>​    命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的BERT预训练模型相对于循环神经网络（Recurrent Neural Network，RNN）, 长短期记忆网络（Long Short-Term Memory, LSTM）以及传统的隐马尔科夫模型（Hidden Markov Model, HMM）、条件随机场（Conditional Random Field, CRF）能够更好地捕捉上下文语义，从而提升识别性能。</p>
-<p>​    根据使用的机器学习方法的不同，我们可以粗略地将基于机器学习的命名实体识别方法划分为如下四种：有监督的学习方法、半监督的学习方法、无监督的学习方法和混合方法，下表对这些方法进行了简要的归纳。</p>
+              <h1>实验四：命名实体识别</h1>
+<h2 id="学号姓名班级：-6">学号姓名班级：</h2>
+<p>201900161140 张文浩 2019级人工智能</p>
+<h2 id="实验日期：-6">实验日期：</h2>
+<p>2022.3.31</p>
+<h2 id="实验简介：-2">实验简介：</h2>
+<p>​	命名实体识别（Named Entity Recognition, NER) 是NLP领域最经典的任务之一，实体识别提取一些专有的实体，如人名，地名，机构名，公司名，药品名等，实体识别广泛应用于搜索，对话，问答，知识库构建等场景中。基于transformer的BERT预训练模型相对于循环神经网络（Recurrent Neural Network，RNN）, 长短期记忆网络（Long Short-Term Memory, LSTM）以及传统的隐马尔科夫模型（Hidden Markov Model, HMM）、条件随机场（Conditional Random Field, CRF）能够更好地捕捉上下文语义，从而提升识别性能。</p>
+<p>​	根据使用的机器学习方法的不同，我们可以粗略地将基于机器学习的命名实体识别方法划分为如下四种：有监督的学习方法、半监督的学习方法、无监督的学习方法和混合方法，下表对这些方法进行了简要的归纳。</p>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403112114857.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><ol>
-<li>掌握命名实体识别（NER）相关基础知识点。</li>
-<li>使用开源工具以及tensorflow等框架实现命名实体识别模型，加深对相关理论的理解。</li>
+<h2 id="实验目的：-4">实验目的：</h2>
+<ol>
+<li class="lvl-3">
+<p>掌握命名实体识别（NER）相关基础知识点。</p>
+</li>
+<li class="lvl-3">
+<p>使用开源工具以及tensorflow等框架实现命名实体识别模型，加深对相关理论的理解。</p>
+</li>
 </ol>
-<h2 id="实验过程中遇到和解决的问题："><a href="#实验过程中遇到和解决的问题：" class="headerlink" title="实验过程中遇到和解决的问题："></a>实验过程中遇到和解决的问题：</h2><h3 id="一、命名实体识别"><a href="#一、命名实体识别" class="headerlink" title="一、命名实体识别"></a>一、命名实体识别</h3><p>​    再对中文进行命名实体识别时，因为只有StanfordNLP直接提供了这个功能，其他的模型中，智能利用其分词及词性标注的结果进行手动处理。</p>
-<p>​    以HanLP为例，我们要提取文本中的地名、人名、组织名、时间四个实体。在HanLP模型进行词性标注得到的结果中，地名用“/ns”表示，人名用“/nr”表示，组织机构名用“/nt”表示，于是我们就可以对词性标注的结果进行处理和筛选，得到文本中的实体。</p>
+<h2 id="实验过程中遇到和解决的问题：">实验过程中遇到和解决的问题：</h2>
+<h3 id="一、命名实体识别">一、命名实体识别</h3>
+<p>​	再对中文进行命名实体识别时，因为只有StanfordNLP直接提供了这个功能，其他的模型中，智能利用其分词及词性标注的结果进行手动处理。</p>
+<p>​	以HanLP为例，我们要提取文本中的地名、人名、组织名、时间四个实体。在HanLP模型进行词性标注得到的结果中，地名用“/ns”表示，人名用“/nr”表示，组织机构名用“/nt”表示，于是我们就可以对词性标注的结果进行处理和筛选，得到文本中的实体。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">single_result</span>(<span class="hljs-params">Type_Recognition,total_result</span>):  <br>    <span class="hljs-keyword">if</span> Type_Recognition == <span class="hljs-string">&#x27;place&#x27;</span>:  <br>        <span class="hljs-type">Type</span> = <span class="hljs-string">&#x27;/ns&#x27;</span>  <br>    <span class="hljs-keyword">elif</span> Type_Recognition == <span class="hljs-string">&#x27;person&#x27;</span>:  <br>        <span class="hljs-type">Type</span> = <span class="hljs-string">&#x27;/nr&#x27;</span>  <br>    <span class="hljs-keyword">elif</span> Type_Recognition == <span class="hljs-string">&#x27;organization&#x27;</span>:  <br>        <span class="hljs-type">Type</span> = <span class="hljs-string">&#x27;/nt&#x27;</span>  <br>    <span class="hljs-keyword">else</span>:  <br>        <span class="hljs-built_in">print</span> (<span class="hljs-string">&#x27;请输入正确的参数：（place，person或organization）&#x27;</span>)  <br>    z = []  <br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(total_result)):  <br>        <span class="hljs-keyword">if</span> total_result[i][-<span class="hljs-number">3</span>:] == <span class="hljs-type">Type</span>:  <br>            z.append(total_result[i][<span class="hljs-number">0</span>:-<span class="hljs-number">3</span>])  <br>    <span class="hljs-keyword">return</span> z  <br></code></pre></td></tr></table></figure>
-<p>​    同时我们还希望提取出文本中的时间信息，在HanLP词性标注的结果中时间信息用“/t”表示，再写一个筛选出时间的函数。</p>
+<p>​	同时我们还希望提取出文本中的时间信息，在HanLP词性标注的结果中时间信息用“/t”表示，再写一个筛选出时间的函数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">time_result</span>(<span class="hljs-params">total_result</span>):  <br>    z = []  <br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(total_result)):  <br>        <span class="hljs-keyword">if</span> total_result[i][-<span class="hljs-number">2</span>:] == <span class="hljs-string">&#x27;/t&#x27;</span>:  <br>            z.append(total_result[i][<span class="hljs-number">0</span>:-<span class="hljs-number">2</span>])  <br>    <span class="hljs-keyword">return</span> z  <br></code></pre></td></tr></table></figure>
-<p>​    这样，我们就可以先对文本进行分词和词性标注，再经过自己写的处理函数得到实体识别的结果。</p>
-<h3 id="二、BERT-Bi-LSTM-CRF模型训练"><a href="#二、BERT-Bi-LSTM-CRF模型训练" class="headerlink" title="二、BERT + Bi-LSTM + CRF模型训练"></a>二、BERT + Bi-LSTM + CRF模型训练</h3><p>​    因为我的电脑没有英伟达的GPU，用CPU训练会非常慢，所以我还是选择使用google的colab，提供免费的GPU进行训练，速度上还能让人接受，50个epoch可以在几个小时内训练完成。</p>
-<p>​    不过在colab上配环境时会稍微麻烦一点，colab现在默认python版本是3.7的，为了避免后面不必要的麻烦，我打算换成python3.6的版本，所以需要给它安装anaconda来支持我们python3.6的环境。</p>
-<p>​    注意一下其中有一个包叫torchcrf，安装的时候不是pip install torchcrf而是要用pip install python-crf安装，否则后面import这个包的时候会显示找不到这个包，当时我在这个弄了好久才解决。</p>
-<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="一、命名实体识别-1"><a href="#一、命名实体识别-1" class="headerlink" title="一、命名实体识别"></a>一、命名实体识别</h3><h4 id="英文数据集"><a href="#英文数据集" class="headerlink" title="英文数据集"></a>英文数据集</h4><ul>
-<li>读取英文数据集</li>
+<p>​	这样，我们就可以先对文本进行分词和词性标注，再经过自己写的处理函数得到实体识别的结果。</p>
+<h3 id="二、BERT-Bi-LSTM-CRF模型训练">二、BERT + Bi-LSTM + CRF模型训练</h3>
+<p>​	因为我的电脑没有英伟达的GPU，用CPU训练会非常慢，所以我还是选择使用google的colab，提供免费的GPU进行训练，速度上还能让人接受，50个epoch可以在几个小时内训练完成。</p>
+<p>​	不过在colab上配环境时会稍微麻烦一点，colab现在默认python版本是3.7的，为了避免后面不必要的麻烦，我打算换成python3.6的版本，所以需要给它安装anaconda来支持我们python3.6的环境。</p>
+<p>​	注意一下其中有一个包叫torchcrf，安装的时候不是pip install torchcrf而是要用pip install python-crf安装，否则后面import这个包的时候会显示找不到这个包，当时我在这个弄了好久才解决。</p>
+<h2 id="实验步骤-2">实验步骤</h2>
+<h3 id="一、命名实体识别-2">一、命名实体识别</h3>
+<h4 id="英文数据集">英文数据集</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>读取英文数据集</p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">English_data = <span class="hljs-string">&quot;&quot;</span>  <br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;./English.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>,encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-keyword">as</span> f:  <span class="hljs-comment"># 打开文件  </span><br>    English_data = f.read()  <span class="hljs-comment"># 读取文件  </span><br><span class="hljs-built_in">print</span>(English_data)  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="nltk"><a href="#nltk" class="headerlink" title="nltk"></a>nltk</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="nltk-3">nltk</h5>
+</li>
 </ul>
-<p>​    使用nltk进行命名实体识别，需要先进行分词和词性标注两个步骤，再调用nltk提供的接口  nltk.chunk.ne_chunk(tagged) 实现命名实体标注。</p>
+<p>​	使用nltk进行命名实体识别，需要先进行分词和词性标注两个步骤，再调用nltk提供的接口  nltk.chunk.ne_chunk(tagged) 实现命名实体标注。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> nltk  <br><span class="hljs-comment">#分词  </span><br>text = nltk.word_tokenize(English_data)  <br><span class="hljs-comment"># print(text)  </span><br><span class="hljs-comment">#词性标注  </span><br>tagged = nltk.pos_tag(text)  <br><span class="hljs-comment"># print (tagged)  </span><br><span class="hljs-comment">#命名实体识别  </span><br>entities = nltk.chunk.ne_chunk(tagged)  <br>labels = <span class="hljs-built_in">set</span>([w.label() <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(w).__name__!=<span class="hljs-string">&quot;tuple&quot;</span>])  <br><span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> labels:  <br>    ent = [e[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(e).__name__!=<span class="hljs-string">&quot;tuple&quot;</span> <span class="hljs-keyword">and</span> e.label()==label]  <br>    ent = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(ent))  <br>    <span class="hljs-built_in">print</span>(label,ent)  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="spacy"><a href="#spacy" class="headerlink" title="spacy"></a>spacy</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="spacy-2">spacy</h5>
+</li>
 </ul>
-<p>​    将数据集加载到spacy模型中后，就可以直接调用document.ents接口得到命名实体识别的结果。</p>
+<p>​	将数据集加载到spacy模型中后，就可以直接调用document.ents接口得到命名实体识别的结果。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">cleanup</span>(<span class="hljs-params">token, lower = <span class="hljs-literal">True</span></span>):  <br>    <span class="hljs-keyword">if</span> lower:  <br>       token = token.lower()  <br>    <span class="hljs-keyword">return</span> token.strip()  <br><span class="hljs-keyword">import</span> spacy  <br>nlp = spacy.load(<span class="hljs-string">&quot;en_core_web_sm&quot;</span>)  <br>document = nlp(English_data)  <br>labels = <span class="hljs-built_in">set</span>([w.label_ <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> document.ents])   <br><span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> labels:   <br>    entities = [cleanup(e.text, lower=<span class="hljs-literal">False</span>) <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> document.ents <span class="hljs-keyword">if</span> label==e.label_]   <br>    entities = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(entities))   <br>    <span class="hljs-built_in">print</span>(label,entities)  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="stanfordNLP"><a href="#stanfordNLP" class="headerlink" title="stanfordNLP"></a>stanfordNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="stanfordNLP">stanfordNLP</h5>
+</li>
 </ul>
-<p>​    直接模型接口nlp.ner()即可得到命名实体识别的结果。然后格式不方便后面做对比观察，自己处理一下结果即可。</p>
+<p>​	直接模型接口nlp.ner()即可得到命名实体识别的结果。然后格式不方便后面做对比观察，自己处理一下结果即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> stanfordcorenlp <span class="hljs-keyword">import</span> StanfordCoreNLP  <br><span class="hljs-keyword">with</span> StanfordCoreNLP(<span class="hljs-string">r&#x27;E:/自然语言处理/exp2/stanford-corenlp-full-2018-02-27&#x27;</span>, lang=<span class="hljs-string">&#x27;en&#x27;</span>) <span class="hljs-keyword">as</span> nlp:  <br>    entities = nlp.ner(English_data)  <br>labels = <span class="hljs-built_in">set</span>(w[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> w[<span class="hljs-number">1</span>]!=<span class="hljs-string">&quot;O&quot;</span>)  <br><span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> labels:   <br>    ent = [e[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> label==e[<span class="hljs-number">1</span>]]   <br>    ent = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(ent))   <br>    <span class="hljs-built_in">print</span>(label,ent)  <br></code></pre></td></tr></table></figure>
-<h4 id="中文数据集"><a href="#中文数据集" class="headerlink" title="中文数据集"></a>中文数据集</h4><ul>
-<li><h5 id="jieba"><a href="#jieba" class="headerlink" title="jieba"></a>jieba</h5></li>
+<h4 id="中文数据集">中文数据集</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="jieba-2">jieba</h5>
+</li>
 </ul>
-<p>​    Jieba库没有为我们提供直接的命名实体识别的接口，所以要根据词性标注的结果自己实现。我最终实现的是识别出三种实体，分别是地点place、人名person、和组织机构名organization。实现方法如下。</p>
+<p>​	Jieba库没有为我们提供直接的命名实体识别的接口，所以要根据词性标注的结果自己实现。我最终实现的是识别出三种实体，分别是地点place、人名person、和组织机构名organization。实现方法如下。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jieba.posseg <span class="hljs-keyword">as</span> pseg  <br>words = pseg.cut(Chinese_data)  <br>res_dic = &#123;&#125;  <br>res_dic[<span class="hljs-string">&#x27;place&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;person&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;time&#x27;</span>] = []  <br><span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> words:  <br>    <span class="hljs-keyword">if</span>(w.flag==<span class="hljs-string">&#x27;ns&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;place&#x27;</span>].append(w.word)  <br>    <span class="hljs-keyword">if</span>(w.flag==<span class="hljs-string">&#x27;nr&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;person&#x27;</span>].append(w.word)  <br>    <span class="hljs-keyword">if</span>(w.flag==<span class="hljs-string">&#x27;nt&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>].append(w.word)  <br>    <span class="hljs-keyword">if</span>(w.flag==<span class="hljs-string">&#x27;t&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;time&#x27;</span>].append(w.word)  <br>res_dic[<span class="hljs-string">&#x27;place&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;place&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;person&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;person&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;time&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;time&#x27;</span>])  <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> res_dic:  <br>    <span class="hljs-built_in">print</span>(i,<span class="hljs-string">&quot;:&quot;</span>,<span class="hljs-built_in">list</span>(res_dic[i]))  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="StanfordNLP"><a href="#StanfordNLP" class="headerlink" title="StanfordNLP"></a>StanfordNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="StanfordNLP">StanfordNLP</h5>
+</li>
 </ul>
-<p>​    与其他中文工具不同，StanfordNLP直接提供了命名实体识别的接口，非常良心！</p>
+<p>​	与其他中文工具不同，StanfordNLP直接提供了命名实体识别的接口，非常良心！</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> stanfordcorenlp <span class="hljs-keyword">import</span> StanfordCoreNLP  <br><span class="hljs-keyword">with</span> StanfordCoreNLP(<span class="hljs-string">r&#x27;E:/自然语言处理/exp2/stanford-corenlp-full-2018-02-27&#x27;</span>, lang=<span class="hljs-string">&#x27;zh&#x27;</span>) <span class="hljs-keyword">as</span> nlp:  <br>    entities = nlp.ner(Chinese_data)  <br>labels = <span class="hljs-built_in">set</span>(w[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> w[<span class="hljs-number">1</span>]!=<span class="hljs-string">&quot;O&quot;</span>)  <br><span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> labels:   <br>    ent = [e[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> entities <span class="hljs-keyword">if</span> label==e[<span class="hljs-number">1</span>]]   <br>    ent = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(ent))   <br>    <span class="hljs-built_in">print</span>(label,ent)  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="SnowNLP"><a href="#SnowNLP" class="headerlink" title="SnowNLP"></a>SnowNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="SnowNLP">SnowNLP</h5>
+</li>
 </ul>
-<p>​    这个跟jieba一样，需要自己对词性标注的结果进行处理，来得到命名实体识别的结果。在SnowNLP的词性标注功能中，地点名词用“ns”表示、人名用“nr”表示、组织机构名用“nt”表示、时间名词用“t”表示。</p>
+<p>​	这个跟jieba一样，需要自己对词性标注的结果进行处理，来得到命名实体识别的结果。在SnowNLP的词性标注功能中，地点名词用“ns”表示、人名用“nr”表示、组织机构名用“nt”表示、时间名词用“t”表示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> snownlp <span class="hljs-keyword">import</span> SnowNLP  <br>words = SnowNLP(Chinese_data)  <br>res_dic = &#123;&#125;  <br>res_dic[<span class="hljs-string">&#x27;place&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;person&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>] = []  <br>res_dic[<span class="hljs-string">&#x27;time&#x27;</span>] = []  <br><span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> words.tags:  <br>    <span class="hljs-keyword">if</span>(w[<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;ns&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;place&#x27;</span>].append(w[<span class="hljs-number">0</span>])  <br>    <span class="hljs-keyword">if</span>(w[<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;nr&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;person&#x27;</span>].append(w[<span class="hljs-number">0</span>])  <br>    <span class="hljs-keyword">if</span>(w[<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;nt&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>].append(w[<span class="hljs-number">0</span>])  <br>    <span class="hljs-keyword">if</span>(w[<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;t&#x27;</span>):  <br>        res_dic[<span class="hljs-string">&#x27;time&#x27;</span>].append(w[<span class="hljs-number">0</span>])  <br>res_dic[<span class="hljs-string">&#x27;place&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;place&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;person&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;person&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;organization&#x27;</span>])  <br>res_dic[<span class="hljs-string">&#x27;time&#x27;</span>] = <span class="hljs-built_in">set</span>(res_dic[<span class="hljs-string">&#x27;time&#x27;</span>])  <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> res_dic:  <br>    <span class="hljs-built_in">print</span>(i,<span class="hljs-string">&quot;:&quot;</span>,<span class="hljs-built_in">list</span>(res_dic[i]))  <br></code></pre></td></tr></table></figure>
-<ul>
-<li><h5 id="THULAC"><a href="#THULAC" class="headerlink" title="THULAC"></a>THULAC</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="THULAC">THULAC</h5>
+</li>
 </ul>
-<p>​    这个工具也没有直接提供命名实体识别的功能，需要自己对词性标注的结果进行处理，来得到命名实体识别的结果。在THULAC的词性标注功能中，地点名词用“_ns”表示、人名用“_np”表示、组织机构名用“_ni”表示、时间名词用“_t”表示。</p>
-<p>​    这一部分代码与HanLP几乎一样，就不粘贴代码了，源代码可以在报告最后源码部分看到。</p>
-<ul>
-<li><h5 id="NLPIR"><a href="#NLPIR" class="headerlink" title="NLPIR"></a>NLPIR</h5></li>
+<p>​	这个工具也没有直接提供命名实体识别的功能，需要自己对词性标注的结果进行处理，来得到命名实体识别的结果。在THULAC的词性标注功能中，地点名词用“_ns”表示、人名用“_np”表示、组织机构名用“_ni”表示、时间名词用“_t”表示。</p>
+<p>​	这一部分代码与HanLP几乎一样，就不粘贴代码了，源代码可以在报告最后源码部分看到。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="NLPIR">NLPIR</h5>
+</li>
 </ul>
-<p>​    这个模型的词性标注功能效果很差，人名，地名，甚至“中国”“泰国”这种很明显的国家名字都没法识别，输出全是“none”。所以我只能用这个模型分出时间的信息。</p>
-<ul>
-<li><h5 id="HanLP"><a href="#HanLP" class="headerlink" title="HanLP"></a>HanLP</h5></li>
+<p>​	这个模型的词性标注功能效果很差，人名，地名，甚至“中国”“泰国”这种很明显的国家名字都没法识别，输出全是“none”。所以我只能用这个模型分出时间的信息。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="HanLP">HanLP</h5>
+</li>
 </ul>
-<p>​    在前面实验中遇到的问题中已经提到，对HanLP词性标注的结果自己编写了函数进行处理，我们只要调用函数，将人名、地名、组织机构名、时间存到一个字典里即可。</p>
+<p>​	在前面实验中遇到的问题中已经提到，对HanLP词性标注的结果自己编写了函数进行处理，我们只要调用函数，将人名、地名、组织机构名、时间存到一个字典里即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">dict_result</span>(<span class="hljs-params">sentence_str</span>):    <br>    segment = HanLP.newSegment().enableNameRecognize(<span class="hljs-literal">True</span>).enablePlaceRecognize(<span class="hljs-literal">True</span>).enableOrganizationRecognize(<span class="hljs-literal">True</span>)    <br>    total_dict = &#123;&#125;    <br>    res = HanLP.segment(Chinese_data)    <br>    a = total_result(res)    <br>    b = single_result(<span class="hljs-string">&#x27;place&#x27;</span>,a)    <br>    c = total_result(res)    <br>    d = single_result(<span class="hljs-string">&#x27;person&#x27;</span>,c)    <br>    e = total_result(res)    <br>    f = single_result(<span class="hljs-string">&#x27;organization&#x27;</span>,e)    <br>    g = total_result(res)    <br>    h = time_result(g)    <br>    total_list = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> [b,d,f,h]]    <br>    total_dict.update(place = total_list[<span class="hljs-number">0</span>],person = total_list[<span class="hljs-number">1</span>],organization = total_list[<span class="hljs-number">2</span>],time = total_list[<span class="hljs-number">3</span>])    <br>    <span class="hljs-keyword">return</span> total_dict    <br>dic_res = dict_result(Chinese_data)    <br><span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> dic_res:    <br>    <span class="hljs-built_in">print</span>(l,<span class="hljs-string">&quot;:&quot;</span>,dic_res[l])    <br></code></pre></td></tr></table></figure>
-<h3 id="二、BERT-Bi-LSTM-CRF模型训练-1"><a href="#二、BERT-Bi-LSTM-CRF模型训练-1" class="headerlink" title="二、BERT + Bi-LSTM + CRF模型训练"></a>二、BERT + Bi-LSTM + CRF模型训练</h3><p>​    首先要配置好colab的环境：</p>
-<ul>
-<li>安装anaconda命令如下：</li>
+<h3 id="二、BERT-Bi-LSTM-CRF模型训练-2">二、BERT + Bi-LSTM + CRF模型训练</h3>
+<p>​	首先要配置好colab的环境：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>安装anaconda命令如下：</p>
+</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">%</span><span class="language-bash">%bash</span>  <br>MINICONDA_INSTALLER_SCRIPT=Miniconda3-4.5.4-Linux-x86_64.sh  <br>MINICONDA_PREFIX=/usr/local  <br>wget https://repo.continuum.io/miniconda/$MINICONDA_INSTALLER_SCRIPT  <br>chmod +x $MINICONDA_INSTALLER_SCRIPT  <br>./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX  <br></code></pre></td></tr></table></figure>
-<ul>
-<li>设置环境变量</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设置环境变量</p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys  <br>_ = (sys.path.append(<span class="hljs-string">&quot;/usr/local/lib/python3.6/site-packages&quot;</span>))  <br></code></pre></td></tr></table></figure>
-<ul>
-<li>安装pip</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>安装pip</p>
+</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">!python -m pip install --upgrade pip  <br>!pip install --upgrade setuptools  <br></code></pre></td></tr></table></figure>
-<ul>
-<li>利用pip安装训练需要的一些库</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>利用pip安装训练需要的一些库</p>
+</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">!pip install tqdm  <br>!pip install scikit-learn  <br>!pip install torch  <br>!pip install transformers==2.2.2  <br>!pip show transformers  <br>!pip install torchcrf  <br>!pip install pytorch-crf -i https://pypi.tuna.tsinghua.edu.cn/simple/  <br></code></pre></td></tr></table></figure>
-<p>​    然后就可以python run.py进行训练了</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h3 id="一、命名实体识别-2"><a href="#一、命名实体识别-2" class="headerlink" title="一、命名实体识别"></a>一、命名实体识别</h3><h4 id="英文数据集-1"><a href="#英文数据集-1" class="headerlink" title="英文数据集"></a>英文数据集</h4><ul>
-<li><h5 id="nltk-1"><a href="#nltk-1" class="headerlink" title="nltk"></a>nltk</h5></li>
+<p>​	然后就可以python run.py进行训练了</p>
+<h2 id="实验结果">实验结果</h2>
+<h3 id="一、命名实体识别-3">一、命名实体识别</h3>
+<h4 id="英文数据集-2">英文数据集</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="nltk-4">nltk</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403113542102.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="spacy-1"><a href="#spacy-1" class="headerlink" title="spacy"></a>spacy</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="spacy-3">spacy</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403113559949.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="stanfordNLP-1"><a href="#stanfordNLP-1" class="headerlink" title="stanfordNLP"></a>stanfordNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="stanfordNLP-2">stanfordNLP</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403113944360.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<h4 id="中文数据集-1"><a href="#中文数据集-1" class="headerlink" title="中文数据集"></a>中文数据集</h4><ul>
-<li><h5 id="jieba-1"><a href="#jieba-1" class="headerlink" title="jieba"></a>jieba</h5></li>
+<h4 id="中文数据集-2">中文数据集</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="jieba-3">jieba</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114004925.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="StanfordNLP-1"><a href="#StanfordNLP-1" class="headerlink" title="StanfordNLP"></a>StanfordNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="StanfordNLP-2">StanfordNLP</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114019672.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="snowNLP"><a href="#snowNLP" class="headerlink" title="snowNLP"></a>snowNLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="snowNLP">snowNLP</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114034664.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="THULAC-1"><a href="#THULAC-1" class="headerlink" title="THULAC"></a>THULAC</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="THULAC-2">THULAC</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114045264.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="NLPIR-1"><a href="#NLPIR-1" class="headerlink" title="NLPIR"></a>NLPIR</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="NLPIR-2">NLPIR</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114057008.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<ul>
-<li><h5 id="HanLP-1"><a href="#HanLP-1" class="headerlink" title="HanLP"></a>HanLP</h5></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h5 id="HanLP-2">HanLP</h5>
+</li>
 </ul>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114109448.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<h3 id="二、BERT-Bi-LSTM-CRF模型训练-2"><a href="#二、BERT-Bi-LSTM-CRF模型训练-2" class="headerlink" title="二、BERT + Bi-LSTM + CRF模型训练"></a>二、BERT + Bi-LSTM + CRF模型训练</h3>
-<p>​    通过训练过程可以看到，本来设置的最大迭代次数为50次，但在训练过程中训练到36次就自动停止了。</p>
-<p>​    在test测试程序中，给出了训练好的模型的命名实体识别的得分情况如下：</p>
+<h3 id="二、BERT-Bi-LSTM-CRF模型训练-3">二、BERT + Bi-LSTM + CRF模型训练</h3>
+
+<p>​	通过训练过程可以看到，本来设置的最大迭代次数为50次，但在训练过程中训练到36次就自动停止了。</p>
+<p>​	在test测试程序中，给出了训练好的模型的命名实体识别的得分情况如下：</p>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114206688.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<p>​    训练时会产生一些bad_case，比如</p>
+<p>​	训练时会产生一些bad_case，比如</p>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114214898.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<p>​    其中模型正确地识别出了“文汇路”这个地名，并且还把“教委”识别成了组织机构名，不过我感觉这样挺正确的，不知道为啥算bad_case？</p>
-<p>​    再比如：</p>
+<p>​	其中模型正确地识别出了“文汇路”这个地名，并且还把“教委”识别成了组织机构名，不过我感觉这样挺正确的，不知道为啥算bad_case？</p>
+<p>​	再比如：</p>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114227801.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<p>​    其中golden label只把“欧洲杯”当成组织机构名，模型与测试还把“国家队”识别成了组织机构名，不过我感觉也挺正确的？？？</p>
-<p>​    再来一个：</p>
+<p>​	其中golden label只把“欧洲杯”当成组织机构名，模型与测试还把“国家队”识别成了组织机构名，不过我感觉也挺正确的？？？</p>
+<p>​	再来一个：</p>
 <img src="/2022/04/03/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-20220403114235761.png" srcset="/img/loading.gif" lazyload class title="This is an example image">
-<p>​    模型正确地将“沃尔科特”识别为人名，还很离谱地将“枪手”识别为组织机构名，我感觉这个结果蛮神奇的，正常来说“枪手”是对人的称呼，但在该语境中“枪手”指的是足球俱乐部“阿森纳”，模型竟然可以把它正确地识别为组织机构名。</p>
-<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><h3 id="一、命名实体识别-3"><a href="#一、命名实体识别-3" class="headerlink" title="一、命名实体识别"></a>一、命名实体识别</h3><p>​    对于三种英文工具，在命名实体识别出的种类的数量上，nltk能识别出3种、spacy能识别出7种、stanfordNLP能识别出10种。在识别的效果和准确性上spacy表现最好，比如三个工具中只有spacy识别出了“the People’s Republic of China”。</p>
-<p>​    对于六种中文工具来说，只有StanfordNLP提供了直接进行命名实体识别的功能接口，且识别出来的种类很丰富，效果也很准确；jieba的效果还行，但也存在把“上半场”当做是地点名次place的错误的情况；snowNLP效果也还行，但不知道为啥会把数字当做place，把比分“1-2”当做person；剩下的几个工具（THULAC、NLPIR、HanLP）效果比较准确，但因为都是自己利用词性标注功能进行处理的，导致实体识别出来的种类数优先，但效果都比较好。</p>
-<h3 id="二、BERT-Bi-LSTM-CRF模型训练-3"><a href="#二、BERT-Bi-LSTM-CRF模型训练-3" class="headerlink" title="二、BERT + Bi-LSTM + CRF模型训练"></a>二、BERT + Bi-LSTM + CRF模型训练</h3><p>​    在准备实验环境上遇到了一些问题，并且都解决了。</p>
-<p>​    通过测试情况来看，该模型对人名的识别效果最好，对地名的识别效果最不好。在训练过程中产生的一些模型测试结果在我看来效果是非常好的。</p>
+<p>​	模型正确地将“沃尔科特”识别为人名，还很离谱地将“枪手”识别为组织机构名，我感觉这个结果蛮神奇的，正常来说“枪手”是对人的称呼，但在该语境中“枪手”指的是足球俱乐部“阿森纳”，模型竟然可以把它正确地识别为组织机构名。</p>
+<h2 id="实验总结-2">实验总结</h2>
+<h3 id="一、命名实体识别-4">一、命名实体识别</h3>
+<p>​	对于三种英文工具，在命名实体识别出的种类的数量上，nltk能识别出3种、spacy能识别出7种、stanfordNLP能识别出10种。在识别的效果和准确性上spacy表现最好，比如三个工具中只有spacy识别出了“the People’s Republic of China”。</p>
+<p>​	对于六种中文工具来说，只有StanfordNLP提供了直接进行命名实体识别的功能接口，且识别出来的种类很丰富，效果也很准确；jieba的效果还行，但也存在把“上半场”当做是地点名次place的错误的情况；snowNLP效果也还行，但不知道为啥会把数字当做place，把比分“1-2”当做person；剩下的几个工具（THULAC、NLPIR、HanLP）效果比较准确，但因为都是自己利用词性标注功能进行处理的，导致实体识别出来的种类数优先，但效果都比较好。</p>
+<h3 id="二、BERT-Bi-LSTM-CRF模型训练-4">二、BERT + Bi-LSTM + CRF模型训练</h3>
+<p>​	在准备实验环境上遇到了一些问题，并且都解决了。</p>
+<p>​	通过测试情况来看，该模型对人名的识别效果最好，对地名的识别效果最不好。在训练过程中产生的一些模型测试结果在我看来效果是非常好的。</p>
 
               
             </div>

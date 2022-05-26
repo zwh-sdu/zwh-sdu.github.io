@@ -16,22 +16,25 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="云计算第四章作业 学号姓名班级： 201900161140 张文浩 2019级人工智能 实验日期： 2022.3.21 实验内容：  列举威胁作用者有哪些，并简要说明    匿名攻击者(anonymous attacker)： 是云中没有权限、不被信任的云服务用户。   它通常是一个外部软件程序，通过公网发动网络攻击。   当匿名攻击者对安全策略和防护所知有限时，会抑制他们形成有效攻击的能力。">
+    <meta name="description" content="线性代数复习Vector Norms 向量范数​	The most commonly used vector norms is the family of $p-norms$,or $l_p-norms$,defined by$$||x||p&#x3D;(\sum^d{i&#x3D;1}|x_i|^p)^{1&#x2F;p}$$  $p&#x3D;2$: the Frobenius norm  $">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云计算第四章作业">
-<meta property="og:url" content="https://zwh-sdu.github.io/2022/03/21/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:title" content="线性代数复习">
+<meta property="og:url" content="https://zwh-sdu.github.io/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="云计算第四章作业 学号姓名班级： 201900161140 张文浩 2019级人工智能 实验日期： 2022.3.21 实验内容：  列举威胁作用者有哪些，并简要说明    匿名攻击者(anonymous attacker)： 是云中没有权限、不被信任的云服务用户。   它通常是一个外部软件程序，通过公网发动网络攻击。   当匿名攻击者对安全策略和防护所知有限时，会抑制他们形成有效攻击的能力。">
+<meta property="og:description" content="线性代数复习Vector Norms 向量范数​	The most commonly used vector norms is the family of $p-norms$,or $l_p-norms$,defined by$$||x||p&#x3D;(\sum^d{i&#x3D;1}|x_i|^p)^{1&#x2F;p}$$  $p&#x3D;2$: the Frobenius norm  $">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-21T06:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-21T07:15:52.751Z">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/eigen.png">
+<meta property="og:image" content="https://zwh-sdu.github.io/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/SVD.png">
+<meta property="article:published_time" content="2022-05-25T12:51:00.000Z">
+<meta property="article:modified_time" content="2022-05-25T16:46:11.257Z">
 <meta property="article:author" content="张文浩">
-<meta property="article:tag" content="云计算">
+<meta property="article:tag" content="保研复习">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zwh-sdu.github.io/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/eigen.png">
   
   
   
-  <title>云计算第四章作业 - 张文浩の博客</title>
+  <title>线性代数复习 - 张文浩の博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="云计算第四章作业"></span>
+            <span id="subtitle" data-typed-text="线性代数复习"></span>
           
         </div>
 
@@ -216,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-21 14:00" pubdate>
-          2022年3月21日 下午
+        <time datetime="2022-05-25 20:51" pubdate>
+          2022年5月25日 晚上
         </time>
       </span>
     
@@ -228,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          3.5k 字
         
       </span>
     
@@ -239,7 +242,7 @@
         
         
         
-          12 分钟
+          29 分钟
         
       </span>
     
@@ -277,128 +280,136 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">云计算第四章作业</h1>
+            <h1 style="display: none">线性代数复习</h1>
             
             <div class="markdown-body">
               
-              <h2 id="云计算第四章作业">云计算第四章作业</h2>
-<h3 id="学号姓名班级：">学号姓名班级：</h3>
-<p>201900161140 张文浩 2019级人工智能</p>
-<h3 id="实验日期：">实验日期：</h3>
-<p>2022.3.21</p>
-<h3 id="实验内容：">实验内容：</h3>
-<blockquote>
-<h4 id="列举威胁作用者有哪些，并简要说明">列举威胁作用者有哪些，并简要说明</h4>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>匿名攻击者(anonymous attacker)：</strong></p>
-<p>是云中没有权限、不被信任的云服务用户。</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>它通常是一个外部软件程序，通过公网发动网络攻击。</p>
+              <h1 id="线性代数复习"><a href="#线性代数复习" class="headerlink" title="线性代数复习"></a>线性代数复习</h1><h2 id="Vector-Norms-向量范数"><a href="#Vector-Norms-向量范数" class="headerlink" title="Vector Norms 向量范数"></a>Vector Norms 向量范数</h2><p>​	The most commonly used vector norms is the family of $p-norms$,or $l_p-norms$,defined by<br>$$<br>||x||<em>p&#x3D;(\sum^d</em>{i&#x3D;1}|x_i|^p)^{1&#x2F;p}<br>$$</p>
+<ul>
+<li>$p&#x3D;2$: the Frobenius norm</li>
+</ul>
+<p>$$<br>||A||<em>F&#x3D;(tr(A^TA))^{1&#x2F;2}&#x3D;(\sum^m</em>{i&#x3D;1}\sum^n_{j&#x3D;1}a^2_{ij})^{1&#x2F;2}<br>$$</p>
+<ul>
+<li>$l_{2,1}$ norm:</li>
+</ul>
+<p>$$<br>||A||<em>{2,1}&#x3D;\sum^m</em>{i&#x3D;1}||a_i||<em>2&#x3D;\sum^m</em>{i&#x3D;1}(\sum^n_{j&#x3D;1}a^2_{ij})^{1&#x2F;2}<br>$$</p>
+<h2 id="Linear-Dependence-and-Independence-线性相关-x2F-无关"><a href="#Linear-Dependence-and-Independence-线性相关-x2F-无关" class="headerlink" title="Linear Dependence and Independence 线性相关&#x2F;无关"></a>Linear Dependence and Independence 线性相关&#x2F;无关</h2><p>​	Vector $x_1$,$x_2$,……,$x_n$,are <code>linearly dependent</code> if there exists a set of <code>coefficients</code> $a_1$,$a_2$,……,$a_n$(at least one $a_i\neq0$) such that<br>$$<br>a_1x_1+a_2x_2+……+a_nx_n&#x3D;0<br>$$<br>​	Vector $x_1$,$x_2$,……,$x_n$,are <code>linearly independent</code> if<br>$$<br>a_1x_1+a_2x_2+……+a_nx_n&#x3D;0\Rightarrow a_k&#x3D;0,\forall k<br>$$</p>
+<h2 id="Vector-Spaces-and-Basis-向量空间和基"><a href="#Vector-Spaces-and-Basis-向量空间和基" class="headerlink" title="Vector Spaces and Basis 向量空间和基"></a>Vector Spaces and Basis 向量空间和基</h2><p>​	A set of vectors {$𝒖_1, 𝒖_2, … , 𝒖_𝑛$} are called a <code>basis</code> for a vector space if any vector 𝒙 can be written as a linear combination of {$u_i$}<br>$$<br>x&#x3D;a_1u_1+a_2u_2+……+a_nu_n<br>$$</p>
+<ul>
+<li><p>$𝒖_1, 𝒖_2, … , 𝒖_𝑛$ are <code>independent</code></p>
 </li>
-<li class="lvl-4">
-<p>当匿名攻击者对安全策略和防护所知有限时，会抑制他们形成有效攻击的能力。</p>
+<li><p>A basis {$u_i$} is <code>orthonormal</code> if</p>
+<ul>
+<li>Basis vectors are <code>pairwise orthogonal</code>成对正交的</li>
+<li>Have unit length,i.e,$|u_i|&#x3D;1$</li>
+</ul>
+<p>Orthonormal basis正交规范基</p>
 </li>
-<li class="lvl-4">
-<p>匿名攻击者往往诉诸<strong>绕过用户账号</strong>或<strong>窃取用户证书</strong>的手段，同时使用能<strong>确保匿名性</strong>或<strong>需要大量资源才能被检举</strong>的方法。</p>
+</ul>
+<h2 id="Matrices-矩阵"><a href="#Matrices-矩阵" class="headerlink" title="Matrices 矩阵"></a>Matrices 矩阵</h2><p><strong>Inverse 矩阵的逆</strong></p>
+<ul>
+<li><p>$$<br>AA^{-1}&#x3D;A^{-1}A&#x3D;I<br>$$</p>
+</li>
+<li><p>The inverse $A^{-1}$ exists if and only if A is ono-singular</p>
+</li>
+</ul>
+<p>$$<br>|A|\neq0<br>$$</p>
+<p><strong>Pseudo-inverse 伪逆</strong><br>$$<br>A^+&#x3D;[A^TA]^{-1}A^T<br>$$</p>
+<ul>
+<li>Assuming $A^TA$ is non-singular 假设$A^TA$是非奇异方阵</li>
+<li>在 $A{-1}$ 不存在的时候使用，i.e，A不是方阵或 A is singular（奇异矩阵，即|A|&#x3D;0）</li>
+</ul>
+<p>For a square matrix $A$（对称矩阵）</p>
+<ul>
+<li><p>Positive definite 正定矩阵（所有特征值大于0）:</p>
+<p>​	$x^TAx &gt; 0$ for all $x\neq0$</p>
+</li>
+<li><p>Semi-positive definite 半正定矩阵:</p>
+</li>
+</ul>
+<p>​	   $x^TAx\geq0$ for all $x\neq0$</p>
+<p><strong>Trace 矩阵的迹</strong></p>
+<p>对角线元素的和</p>
+<ul>
+<li><p>$$<br>tr(A)&#x3D;tr(A^T)<br>$$</p>
+</li>
+<li><p>Linearity</p>
+</li>
+</ul>
+<p>$$<br>tr(\alpha A+\beta B)&#x3D;\alpha tr(A)+\beta tr(B)<br>$$</p>
+<ul>
+<li>Cyclic property</li>
+</ul>
+<p>$$<br>tr(ABC)&#x3D;tr(BCA)&#x3D;tr(CAB)<br>$$</p>
+<p>$$<br>tr(AB)\neq tr(BA)<br>$$</p>
+<p><strong>Entrywise maxtrix norms 元素形式范数</strong></p>
+<p>​	将 $m<em>n$ 的矩阵先按照列堆栈的形式排成一个 mn</em>1 的向量，然后采用向量的范数去定义，因为这类范数是使用矩阵的元素来表示的，所以被成为元素形式的范数<br>$$<br>||A||<em>p&#x3D;||vec(A)||<em>p&#x3D;(\sum^m</em>{i&#x3D;1}\sum^n</em>{j&#x3D;1}|x_{ij}|^p)^{1&#x2F;p}<br>$$<br><strong>Determinant 行列式</strong><br>$$<br>|A|&#x3D;\sum^d_{k&#x3D;1}a_{ik}|A_{ik}|(-1)^{k+i}<br>$$<br><strong>Minor matrix 余子式</strong></p>
+<p>​	$A_{ik}$ is formed by removing the $i^{th}$ row and the $k^{th}$ column of A.</p>
+<p><strong>rank 秩</strong></p>
+<p>​	The number of linearly <code>independent</code> rows (or columns).</p>
+<p>​	极大线性无关组中向量的个数。</p>
+<h2 id="Eigenvectors-and-Eigenvalues-特征向量和特征值"><a href="#Eigenvectors-and-Eigenvalues-特征向量和特征值" class="headerlink" title="Eigenvectors and Eigenvalues 特征向量和特征值"></a>Eigenvectors and Eigenvalues 特征向量和特征值</h2><p><strong>定义</strong>： $v$ is an <code>eigenvector</code> of matrix A(mXm) if there exists a scalar $\lambda$ ,such that:<br>$$<br>Av&#x3D;\lambda v<br>$$</p>
+<ul>
+<li>v: an <code>eigenvector</code></li>
+<li>$\lambda$: the <code>corresponding eigenvalue</code></li>
+</ul>
+<p><strong>理解</strong>： an eigenvector represents an <code>invariant</code> direction in the vector space.</p>
+<p>特征向量表示在特征空间中不变的方向。</p>
+<ul>
+<li>一个被向量 $v$ 定义的点方向保持不变。</li>
+<li>大小被对应的特征值 $\lambda$ 相乘</li>
+</ul>
+<img src="/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/eigen.png" srcset="/img/loading.gif" lazyload class title="eigen">
+
+<h2 id="Similar-Matrix-相似矩阵"><a href="#Similar-Matrix-相似矩阵" class="headerlink" title="Similar Matrix 相似矩阵"></a>Similar Matrix 相似矩阵</h2><p>​	对于两个 n 阶方阵 A、B 如果存在可逆矩阵 P 使得 $B&#x3D;P^{-1}AP$，则 A、B 相似。</p>
+<ul>
+<li>$rank(A)&#x3D;rank(B)$</li>
+<li>$tr(A)&#x3D;tr(B)$</li>
+<li>$|A|&#x3D;|B|$</li>
+<li>$A$ and $B$ have the same eigenvalues</li>
+</ul>
+<h2 id="Eigenvalue-Decomposition-特征值分解"><a href="#Eigenvalue-Decomposition-特征值分解" class="headerlink" title="Eigenvalue Decomposition 特征值分解"></a>Eigenvalue Decomposition 特征值分解</h2><p>​	对于含有 $m$ 个线性无关特征向量的<code>方阵</code> $A$ (m*m)，我们可以进行特征值分解<br>$$<br>AV&#x3D;V\Lambda<br>$$</p>
+<p>$$<br>A&#x3D;V\Lambda V^{-1}<br>$$</p>
+<ul>
+<li>Columns of $V$ are eigenvectors of $A$</li>
+<li>Diagonal elements of $\Lambda$ are eigenvalues of $A$</li>
+</ul>
+<p>$$<br>\Lambda&#x3D;diag(\lambda_1,\lambda_2,……,\lambda_m),\lambda_i\geqslant\lambda_{i+1}<br>$$</p>
+<ul>
+<li><p>如果 A 是非奇异的，则所有特征值非零</p>
+</li>
+<li><p>if $A$ is <code>real and symmetric</code> 实对称方阵：</p>
+<ul>
+<li><p>All eigenvalues are <code>real</code></p>
+<p>​		if $|A&#x3D;\lambda I|&#x3D;0$ and $A&#x3D;A^T\Rightarrow\lambda\in\R$</p>
+</li>
+<li><p>The eigenvectors for distinct eigenvalues are <code>orthogonal</code> 不同特征值对应的特征向量是正交的</p>
 </li>
 </ul>
 </li>
-<li class="lvl-2">
-<p><strong>恶意服务作用者(malicious service agent)：</strong></p>
-<p>能截取并转发云内的网络流量，截取网络通信，试图恶意地使用或篡改数据；</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>它通常是带有<strong>被损害的</strong>或<strong>恶意逻辑</strong>的服务代理（或伪装成服务代理的程序）。</p>
-</li>
-<li class="lvl-4">
-<p>也可能是能够<strong>远程截取并破坏信息内容</strong>的外部程序，</p>
+<li><p>如果 A 是正定的，则所有特征值都是正数。</p>
 </li>
 </ul>
-</li>
-<li class="lvl-2">
-<p><strong>授信的攻击者(trusted attacker)：</strong></p>
-<p>又称<strong>恶意租户（malicious tenant）</strong>，是经过授权的云服务用户，具有合法的证书，他们会使用这些证书来访问基于云的IT资源；与同一云环境中的云用户共享IT资源，试图利用合法的证书来把云提供者、以及与他们共享IT资源的云租户作为攻击目标。</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>通过<strong>滥用合法证书</strong>、<strong>挪动敏感和保密信息</strong>，在云的信任边界内部发动攻击。</p>
-</li>
-<li class="lvl-4">
-<p>恶意租户能够使用基于云的IT资源做很多非法之用，包括非法入侵认证薄弱的进程、破解加密、往电子邮件账号发送垃圾邮件、发起拒绝服务等常见的攻击等。</p>
-</li>
+<h2 id="Singular-Value-Decomposition-SVD-奇异值分解"><a href="#Singular-Value-Decomposition-SVD-奇异值分解" class="headerlink" title="Singular Value Decomposition(SVD) 奇异值分解"></a>Singular Value Decomposition(SVD) 奇异值分解</h2><p><strong>定义</strong></p>
+<p>Any $m\times n$ matrix $A$ of rank $r$ can be decomposed into: $A&#x3D;U\Sigma V^T$ </p>
+<ul>
+<li>for $m&gt;n$</li>
 </ul>
-</li>
-<li class="lvl-2">
-<p><strong>恶意的内部人员(malicious insider)：</strong></p>
-<p>是人为的威胁作用者，他们的行为代表云提供者或者与之有关，是试图滥用对云资源范围的访问特权的人；</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>他们通常是现任或前任雇员，或是能够访问云提供者资源范围的第三方。</p>
-</li>
-<li class="lvl-4">
-<p>这种类型的威胁作用者会带来极大的破坏可能性，因为恶意的内部人员可能拥有访问云用户IT资源的管理特权。</p>
-</li>
+<img src="/2022/05/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/SVD.png" srcset="/img/loading.gif" lazyload class title="SVD">
+
+<ul>
+<li>$U$ 的每一项都是正交的<code>orthogonal</code>, $UU^T&#x3D;I_{m\times m}$</li>
+<li>$V$ 的每一项都是正交的<code>orthogonal</code>, $VV^T&#x3D;I_{n\times n}$</li>
+<li>We arrange the singular values as $\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0$</li>
+<li>$U$ 的每一项是 $AA^T$ 的特征向量</li>
+<li>$V$ 的每一项是 $A^TA$ 的特征向量</li>
+<li>Eigenvalues $\lambda_1,\cdots,\lambda_r$ of $AA^T$ are the eigenvalues of $A^TA$</li>
+<li><code>Singular value</code> 奇异值 $\sigma_i&#x3D;\sqrt{\lambda_i}$</li>
 </ul>
-</li>
-</ul>
-<blockquote>
-<h4 id="列举云安全威胁有哪些，并简要说明">列举云安全威胁有哪些，并简要说明</h4>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>流量窃听：</strong></p>
-<p>指当数据在传输到云中或在云内部传输时（通常是从云用户到云提供者），被恶意的服务作用者<strong>被动地截获</strong>，用于非法的信息收集，破坏<strong>保密性</strong>。</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>由于这种攻击被动的性质，其更容易长时间进行而不被发现。</p>
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>恶意媒介：</strong></p>
-<p>是指消息被恶意服务作用者截获并篡改，因此可能会破坏消息的<strong>保密性</strong>和<strong>完整性</strong>。</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>它还有可能在把消息转发到目的地之前插入有害数据。</p>
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>拒绝服务(DoS)：</strong></p>
-<p>攻击的目标是使IT资源过载至无法正确运行，发起形式包括：</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>云服务上的负载由于<strong>伪造的信息</strong>或<strong>重复的通信请求</strong>不正常的增加。</p>
-</li>
-<li class="lvl-4">
-<p>网络流量过载，降低了响应性，性能下降。</p>
-</li>
-<li class="lvl-4">
-<p>发出多个云服务请求，每个请求都设计成消耗过量的内存和处理资源。</p>
-</li>
-<li class="lvl-4">
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>授权不足：</strong></p>
-<p>是指错误的授予了攻击者访问权限，或是授权太宽泛，导致攻击者能够访问本应该受到保护的IT资源；</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>这种攻击的一种变种成为<strong>弱认证(weak authentication)</strong>，如果用弱密码或共享账户来保护IT资源，就可能导致这种攻击。</p>
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><strong>虚拟化攻击(Virtualization attack)：</strong></p>
-<p>利用虚拟化平台的漏洞来危害虚拟化平台的保密性、完整性和可用性，获得了对底层物理硬件未被授权的访问；</p>
-</li>
-<li class="lvl-2">
-<p><strong>信任边界重叠：</strong></p>
-<p>如果云中的物理IT资源是由不同的云服务共享的，那么这些云服务用户的信任边界是重叠的。恶意的云服务用户可以把目标设定为共享的IT资源，意图损害其他共享同样信任边界的云服务用户或IT资源；</p>
-</li>
+<p><strong>应用</strong></p>
+<ul>
+<li>Principal Component Analysis (PCA) 主成分分析</li>
+<li>Latent Semantic Indexing (LSI) 潜在语义索引</li>
 </ul>
 
               
@@ -411,7 +422,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">#云计算</a>
+        <a href="/tags/%E4%BF%9D%E7%A0%94%E5%A4%8D%E4%B9%A0/">#保研复习</a>
       
     </div>
   
@@ -423,8 +434,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>云计算第四章作业</div>
-      <div>https://zwh-sdu.github.io/2022/03/21/云计算第四章作业/</div>
+      <div>线性代数复习</div>
+      <div>https://zwh-sdu.github.io/2022/05/25/线性代数复习/</div>
     </div>
     <div class="license-meta">
       
@@ -436,7 +447,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月21日</div>
+          <div>2022年5月25日</div>
         </div>
       
       
@@ -466,9 +477,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/27/leetcode-%E7%AC%AC286%E5%9C%BA%E5%91%A8%E8%B5%9B/" title="leetcode-第286场周赛">
+                      <a href="/2022/05/25/ML%E5%A4%8D%E4%B9%A0/" title="机器学习复习">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode-第286场周赛</span>
+                        <span class="hidden-mobile">机器学习复习</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -476,8 +487,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/20/leetcode-%E7%AC%AC74%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/" title="leetcode—第74场双周赛">
-                        <span class="hidden-mobile">leetcode—第74场双周赛</span>
+                      <a href="/2022/05/23/%E5%8D%8E%E4%B8%BA%E4%BA%91%E7%8E%AF%E5%A2%83%E4%B8%8BDocker+Tomcat+Nginx%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="华为云环境下Docker+Tomcat+Nginx实现负载均衡">
+                        <span class="hidden-mobile">华为云环境下Docker+Tomcat+Nginx实现负载均衡</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

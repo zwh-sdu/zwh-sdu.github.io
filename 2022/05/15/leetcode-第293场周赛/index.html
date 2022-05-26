@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第293场周赛第一题-easy5234. 移除字母异位词后的结果数组 题目描述给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。 在一步操作中，需要选出任一下标 i ，从 words 中 删除 words[i] 。其中下标 i 需要同时满足下述两个条件：  0 &lt; i &lt; words.length  words[i - 1]">
+    <meta name="description" content="leetcode-第293场周赛 第一题-easy 5234. 移除字母异位词后的结果数组 题目描述 给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。 在一步操作中，需要选出任一下标 i ，从 words 中 删除 words[i] 。其中下标 i 需要同时满足下述两个条件：   0 &lt; i &lt; words.length   words[i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-第293场周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC293%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第293场周赛第一题-easy5234. 移除字母异位词后的结果数组 题目描述给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。 在一步操作中，需要选出任一下标 i ，从 words 中 删除 words[i] 。其中下标 i 需要同时满足下述两个条件：  0 &lt; i &lt; words.length  words[i - 1]">
+<meta property="og:description" content="leetcode-第293场周赛 第一题-easy 5234. 移除字母异位词后的结果数组 题目描述 给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。 在一步操作中，需要选出任一下标 i ，从 words 中 删除 words[i] 。其中下标 i 需要同时满足下述两个条件：   0 &lt; i &lt; words.length   words[i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-15T07:07:00.000Z">
 <meta property="article:modified_time" content="2022-05-15T07:16:38.657Z">
@@ -281,68 +281,98 @@
             
             <div class="markdown-body">
               
-              <h1 id="leetcode-第293场周赛"><a href="#leetcode-第293场周赛" class="headerlink" title="leetcode-第293场周赛"></a>leetcode-第293场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams/">5234. 移除字母异位词后的结果数组</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。</p>
+              <h1>leetcode-第293场周赛</h1>
+<h3 id="第一题-easy-10">第一题-easy</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams/">5234. 移除字母异位词后的结果数组</a></p>
+<h4 id="题目描述-31">题目描述</h4>
+<p>给你一个下标从 0 开始的字符串 words ，其中 words[i] 由小写英文字符组成。</p>
 <p>在一步操作中，需要选出任一下标 i ，从 words 中 <strong>删除</strong> words[i] 。其中下标 i 需要同时满足下述两个条件：</p>
 <ol>
-<li><p>0 &lt; i &lt; words.length</p>
+<li class="lvl-3">
+<p>0 &lt; i &lt; words.length</p>
 </li>
-<li><p>words[i - 1] 和 words[i] 是 <strong>字母异位词</strong> 。</p>
+<li class="lvl-3">
+<p>words[i - 1] 和 words[i] 是 <strong>字母异位词</strong> 。</p>
 </li>
 </ol>
 <p>只要可以选出满足条件的下标，就一直执行这个操作。</p>
 <p>在执行所有操作后，返回 words 。可以证明，按任意顺序为每步操作选择下标都会得到相同的结果。</p>
-<p><strong>字母异位词</strong> 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。例如，”dacb” 是 “abdc” 的一个字母异位词。</p>
-<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<p><strong>字母异位词</strong> 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。例如，“dacb” 是 “abdc” 的一个字母异位词。</p>
+<h4 id="样例-30">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs prolog">输入：words = [<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;baba&quot;</span>,<span class="hljs-string">&quot;bbaa&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>]<br>输出：[<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>]<br>解释：<br>获取结果数组的方法之一是执行下述步骤：<br>- 由于 words[<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;bbaa&quot;</span> 和 words[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;baba&quot;</span> 是字母异位词，选择下标 <span class="hljs-number">2</span> 并删除 words[<span class="hljs-number">2</span>] 。<br>  现在 words = [<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;baba&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>] 。<br>- 由于 words[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;baba&quot;</span> 和 words[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;abba&quot;</span> 是字母异位词，选择下标 <span class="hljs-number">1</span> 并删除 words[<span class="hljs-number">1</span>] 。<br>  现在 words = [<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>] 。<br>- 由于 words[<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;cd&quot;</span> 和 words[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;cd&quot;</span> 是字母异位词，选择下标 <span class="hljs-number">2</span> 并删除 words[<span class="hljs-number">2</span>] 。<br>  现在 words = [<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>] 。<br>无法再执行任何操作，所以 [<span class="hljs-string">&quot;abba&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>] 是最终答案。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs applescript">输入：<span class="hljs-built_in">words</span> = [<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;d&quot;</span>,<span class="hljs-string">&quot;e&quot;</span>]<br>输出：[<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;d&quot;</span>,<span class="hljs-string">&quot;e&quot;</span>]<br>解释：<br><span class="hljs-built_in">words</span> 中不存在互为字母异位词的两个相邻字符串，所以无需执行任何操作。<br></code></pre></td></tr></table></figure>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>将字符串排序后直接比较是否相等</p>
+<h4 id="思路-31">思路</h4>
+<p>将字符串排序后直接比较是否相等</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">removeAnagrams</span><span class="hljs-params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;<br>        vector&lt;string&gt; res;<br>        string last=words[<span class="hljs-number">0</span>];<br>        res.<span class="hljs-built_in">push_back</span>(words[<span class="hljs-number">0</span>]);<br>        <span class="hljs-built_in">sort</span>(last.<span class="hljs-built_in">begin</span>(),last.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;words.<span class="hljs-built_in">size</span>();i++)&#123;<br>            string s=words[i];<br>            <span class="hljs-built_in">sort</span>(s.<span class="hljs-built_in">begin</span>(),s.<span class="hljs-built_in">end</span>());<br>            <span class="hljs-comment">// cout&lt;&lt;last&lt;&lt;&quot; &quot;&lt;&lt;s&lt;&lt;endl;</span><br>            <span class="hljs-keyword">if</span>(s!=last) res.<span class="hljs-built_in">push_back</span>(words[i]);<br>            last=s;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-consecutive-floors-without-special-floors/">6064. 不含特殊楼层的最大连续楼层数</a></p>
-<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>Alice 管理着一家公司，并租用大楼的部分楼层作为办公空间。Alice 决定将一些楼层作为 <strong>特殊楼层</strong> ，仅用于放松。</p>
+<h3 id="第二题-mid-10">第二题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-consecutive-floors-without-special-floors/">6064. 不含特殊楼层的最大连续楼层数</a></p>
+<h4 id="题目描述-32">题目描述</h4>
+<p>Alice 管理着一家公司，并租用大楼的部分楼层作为办公空间。Alice 决定将一些楼层作为 <strong>特殊楼层</strong> ，仅用于放松。</p>
 <p>给你两个整数 bottom 和 top ，表示 Alice 租用了从 bottom 到 top（含 bottom 和 top 在内）的所有楼层。另给你一个整数数组 special ，其中 special[i] 表示  Alice 指定用于放松的特殊楼层。</p>
 <p>返回不含特殊楼层的 <strong>最大</strong> 连续楼层数。</p>
-<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-31">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：bottom = 2, top = 9, special = [4,6]<br>输出：3<br>解释：下面列出的是不含特殊楼层的连续楼层范围：<br>- (2, 3) ，楼层数为<span class="hljs-number"> 2 </span>。<br>- (5, 5) ，楼层数为<span class="hljs-number"> 1 </span>。<br>- (7, 9) ，楼层数为<span class="hljs-number"> 3 </span>。<br>因此，返回最大连续楼层数<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">bottom</span> = <span class="hljs-number">6</span>, <span class="hljs-attr">top</span> = <span class="hljs-number">8</span>, <span class="hljs-attr">special</span> = [<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>]<br>输出：<span class="hljs-number">0</span><br>解释：每层楼都被规划为特殊楼层，所以返回 <span class="hljs-number">0</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>排序，然后算</p>
+<h4 id="思路-32">思路</h4>
+<p>排序，然后算</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxConsecutive</span><span class="hljs-params">(<span class="hljs-type">int</span> bottom, <span class="hljs-type">int</span> top, vector&lt;<span class="hljs-type">int</span>&gt;&amp; special)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(special.<span class="hljs-built_in">begin</span>(),special.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-type">int</span> ans=special[<span class="hljs-number">0</span>]-bottom;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;special.<span class="hljs-built_in">size</span>();i++)&#123;<br>            ans=<span class="hljs-built_in">max</span>(ans,special[i]-special[i<span class="hljs-number">-1</span>]<span class="hljs-number">-1</span>);<br>        &#125;<br>        ans=<span class="hljs-built_in">max</span>(ans,top-special[special.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>]);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero/">6065. 按位与结果大于零的最长组合</a></p>
-<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>对数组 nums 执行 <strong>按位与</strong> 相当于对数组 nums 中的所有整数执行 <strong>按位与</strong> 。</p>
-<ul>
-<li><p>例如，对 nums = [1, 5, 3] 来说，按位与等于 1 &amp; 5 &amp; 3 = 1 。</p>
+<h3 id="第三题-mid-10">第三题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero/">6065. 按位与结果大于零的最长组合</a></p>
+<h4 id="题目描述-33">题目描述</h4>
+<p>对数组 nums 执行 <strong>按位与</strong> 相当于对数组 nums 中的所有整数执行 <strong>按位与</strong> 。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>例如，对 nums = [1, 5, 3] 来说，按位与等于 1 &amp; 5 &amp; 3 = 1 。</p>
 </li>
-<li><p>同样，对 nums = [7] 而言，按位与等于 7 。</p>
+<li class="lvl-2">
+<p>同样，对 nums = [7] 而言，按位与等于 7 。</p>
 </li>
 </ul>
 <p>给你一个正整数数组 candidates 。计算 candidates 中的数字每种组合下 <strong>按位与</strong> 的结果。 candidates 中的每个数字在每种组合中只能使用 <strong>一次</strong> 。</p>
 <p>返回按位与结果大于 0 的 <strong>最长</strong> 组合的长度。</p>
-<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-32">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：candidates = [16,17,71,62,12,24,14]<br>输出：4<br>解释：组合 [16,17,62,24] 的按位与结果是<span class="hljs-number"> 16 </span>&amp;<span class="hljs-number"> 17 </span>&amp;<span class="hljs-number"> 62 </span>&amp;<span class="hljs-number"> 24 </span>=<span class="hljs-number"> 16 </span>&gt;<span class="hljs-number"> 0 </span>。<br>组合长度是<span class="hljs-number"> 4 </span>。<br>可以证明不存在按位与结果大于<span class="hljs-number"> 0 </span>且长度大于<span class="hljs-number"> 4 </span>的组合。<br>注意，符合长度最大的组合可能不止一种。<br>例如，组合 [62,12,24,14] 的按位与结果是<span class="hljs-number"> 62 </span>&amp;<span class="hljs-number"> 12 </span>&amp;<span class="hljs-number"> 24 </span>&amp;<span class="hljs-number"> 14 </span>=<span class="hljs-number"> 8 </span>&gt;<span class="hljs-number"> 0 </span>。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：candidates = [8,8]<br>输出：2<br>解释：最长组合是 [8,8] ，按位与结果<span class="hljs-number"> 8 </span>&amp;<span class="hljs-number"> 8 </span>=<span class="hljs-number"> 8 </span>&gt;<span class="hljs-number"> 0 </span>。<br>组合长度是<span class="hljs-number"> 2 </span>，所以返回<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>我用dfs做，超时了</p>
+<h4 id="思路-33">思路</h4>
+<p>我用dfs做，超时了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> t,<span class="hljs-type">int</span> depth,<span class="hljs-type">int</span> num,<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> &amp;ans,vector&lt;<span class="hljs-type">int</span>&gt;&amp; candidates)</span></span>&#123;<br>        <span class="hljs-comment">// cout&lt;&lt;t&lt;&lt;&quot; &quot;&lt;&lt;depth&lt;&lt;&quot; &quot;&lt;&lt;num&lt;&lt;endl;</span><br>        <span class="hljs-keyword">if</span>(t==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-keyword">if</span>(t&gt;<span class="hljs-number">0</span>) ans=<span class="hljs-built_in">max</span>(ans,num);<br>        <span class="hljs-keyword">if</span>(depth==n) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">dfs</span>(t&amp;candidates[depth],depth+<span class="hljs-number">1</span>,num+<span class="hljs-number">1</span>,n,ans,candidates);<br>        <span class="hljs-built_in">dfs</span>(t,depth+<span class="hljs-number">1</span>,num,n,ans,candidates);<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">largestCombination</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; candidates)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1023</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,candidates.<span class="hljs-built_in">size</span>(),ans,candidates);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>一看题解，原来这么简单。。。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">largestCombination</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; candidates)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ve</span><span class="hljs-params">(<span class="hljs-number">32</span>,<span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> x:candidates)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">32</span>;i++)&#123;<br>                <span class="hljs-keyword">if</span>(((<span class="hljs-number">1</span>&lt;&lt;i)&amp;x) &gt; <span class="hljs-number">0</span>) ve[i]++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">32</span>;i++) ans=<span class="hljs-built_in">max</span>(ans,ve[i]);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-integers-in-intervals/">6066. 统计区间中的整数数目</a></p>
+<h3 id="第四题-hard-10">第四题-hard</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-integers-in-intervals/">6066. 统计区间中的整数数目</a></p>
 
               
             </div>

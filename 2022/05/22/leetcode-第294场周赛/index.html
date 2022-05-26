@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第294场周赛第一题-easy6074. 字母在字符串中的百分比 题目描述给你一个字符串 s 和一个字符 letter ，返回在 s 中等于 letter 字符所占的 百分比 ，向下取整到最接近的百分比。 样例 示例1  12345678输入：s &#x3D; &quot;foobar&quot;, letter &#x3D; &quot;o&quot;输出：33解释：等于字母 &amp;#x27;o&amp;#x">
+    <meta name="description" content="leetcode-第294场周赛 第一题-easy 6074. 字母在字符串中的百分比 题目描述 给你一个字符串 s 和一个字符 letter ，返回在 s 中等于 letter 字符所占的 百分比 ，向下取整到最接近的百分比。 样例   示例1   12345678输入：s &#x3D; &quot;foobar&quot;, letter &#x3D; &quot;o&quot;输出：33解释：等于字母 &amp;#x2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-第294场周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/05/22/leetcode-%E7%AC%AC294%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第294场周赛第一题-easy6074. 字母在字符串中的百分比 题目描述给你一个字符串 s 和一个字符 letter ，返回在 s 中等于 letter 字符所占的 百分比 ，向下取整到最接近的百分比。 样例 示例1  12345678输入：s &#x3D; &quot;foobar&quot;, letter &#x3D; &quot;o&quot;输出：33解释：等于字母 &amp;#x27;o&amp;#x">
+<meta property="og:description" content="leetcode-第294场周赛 第一题-easy 6074. 字母在字符串中的百分比 题目描述 给你一个字符串 s 和一个字符 letter ，返回在 s 中等于 letter 字符所占的 百分比 ，向下取整到最接近的百分比。 样例   示例1   12345678输入：s &#x3D; &quot;foobar&quot;, letter &#x3D; &quot;o&quot;输出：33解释：等于字母 &amp;#x2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/30/1920px-pushkin_population_historysvg.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/30/ex0.png">
@@ -285,51 +285,77 @@
             
             <div class="markdown-body">
               
-              <h1 id="leetcode-第294场周赛"><a href="#leetcode-第294场周赛" class="headerlink" title="leetcode-第294场周赛"></a>leetcode-第294场周赛</h1><h3 id="第一题-easy"><a href="#第一题-easy" class="headerlink" title="第一题-easy"></a>第一题-easy</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/percentage-of-letter-in-string/">6074. 字母在字符串中的百分比</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个字符串 <code>s</code> 和一个字符 <code>letter</code> ，返回在 <code>s</code> 中等于 <code>letter</code> 字符所占的 <strong>百分比</strong> ，向下取整到最接近的百分比。</p>
-<h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+              <h1>leetcode-第294场周赛</h1>
+<h3 id="第一题-easy-13">第一题-easy</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/percentage-of-letter-in-string/">6074. 字母在字符串中的百分比</a></p>
+<h4 id="题目描述-40">题目描述</h4>
+<p>给你一个字符串 <code>s</code> 和一个字符 <code>letter</code> ，返回在 <code>s</code> 中等于 <code>letter</code> 字符所占的 <strong>百分比</strong> ，向下取整到最接近的百分比。</p>
+<h4 id="样例-39">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">输入：s = <span class="hljs-string">&quot;foobar&quot;</span>, letter = <span class="hljs-string">&quot;o&quot;</span><br>输出：<span class="hljs-number">33</span><br>解释：<br>等于字母 <span class="hljs-string">&#x27;o&#x27;</span> 的字符在 s 中占到的百分比是 <span class="hljs-number">2</span> / <span class="hljs-number">6</span> * <span class="hljs-number">100</span>% = <span class="hljs-number">33</span>% ，向下取整，所以返回 <span class="hljs-number">33</span> 。<br><br>来源：力扣（LeetCode）<br>链接：https:<span class="hljs-regexp">//</span>leetcode.cn<span class="hljs-regexp">/problems/</span>percentage-of-letter-<span class="hljs-keyword">in</span>-string<br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">输入：s = <span class="hljs-string">&quot;jjjj&quot;</span>, letter = <span class="hljs-string">&quot;k&quot;</span><br>输出：<span class="hljs-number">0</span><br>解释：<br>等于字母 <span class="hljs-string">&#x27;k&#x27;</span> 的字符在 s 中占到的百分比是 <span class="hljs-number">0</span><span class="hljs-comment">% ，所以返回 0 。</span><br></code></pre></td></tr></table></figure>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>。</p>
+<h4 id="思路-40">思路</h4>
+<p>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">percentageLetter</span><span class="hljs-params">(string s, <span class="hljs-type">char</span> letter)</span> </span>&#123;<br>        <span class="hljs-type">int</span> sum=<span class="hljs-number">0</span>,l=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">size</span>();i++)&#123;<br>            sum++;<br>            <span class="hljs-keyword">if</span>(s[i]==letter) l++;<br>        &#125;<br>        <span class="hljs-type">int</span> ans=l*<span class="hljs-number">100</span>/sum;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid"><a href="#第二题-mid" class="headerlink" title="第二题-mid"></a>第二题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks/">6075. 装满石头的背包的最大数量</a></p>
-<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>现有编号从 0 到 n - 1 的 n 个背包。给你两个下标从 <strong>0</strong> 开始的整数数组 capacity 和 rocks 。第 i 个背包最大可以装 $capacity[i]$ 块石头，当前已经装了 $rocks[i]$ 块石头。另给你一个整数 additionalRocks ，表示你可以放置的额外石头数量，石头可以往 <strong>任意</strong> 背包中放置。</p>
+<h3 id="第二题-mid-13">第二题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks/">6075. 装满石头的背包的最大数量</a></p>
+<h4 id="题目描述-41">题目描述</h4>
+<p>现有编号从 0 到 n - 1 的 n 个背包。给你两个下标从 <strong>0</strong> 开始的整数数组 capacity 和 rocks 。第 i 个背包最大可以装 $capacity[i]$ 块石头，当前已经装了 $rocks[i]$ 块石头。另给你一个整数 additionalRocks ，表示你可以放置的额外石头数量，石头可以往 <strong>任意</strong> 背包中放置。</p>
 <p>请你将额外的石头放入一些背包中，并返回放置后装满石头的背包的 <strong>最大</strong> 数量。</p>
-<h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-40">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：capacity = [2,3,4,5], rocks = [1,2,4,4], additionalRocks = 2<br>输出：3<br>解释：<br>1 块石头放入背包<span class="hljs-number"> 0 </span>，1 块石头放入背包<span class="hljs-number"> 1 </span>。<br>每个背包中的石头总数是 [2,3,4,4] 。<br>背包<span class="hljs-number"> 0 </span>、背包<span class="hljs-number"> 1 </span>和 背包<span class="hljs-number"> 2 </span>都装满石头。<br>总计<span class="hljs-number"> 3 </span>个背包装满石头，所以返回<span class="hljs-number"> 3 </span>。<br>可以证明不存在超过<span class="hljs-number"> 3 </span>个背包装满石头的情况。<br>注意，可能存在其他放置石头的方案同样能够得到<span class="hljs-number"> 3 </span>这个结果。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：capacity = [10,2,2], rocks = [2,2,0], additionalRocks = 100<br>输出：3<br>解释：<br>8 块石头放入背包<span class="hljs-number"> 0 </span>，2 块石头放入背包<span class="hljs-number"> 2 </span>。<br>每个背包中的石头总数是 [10,2,2] 。<br>背包<span class="hljs-number"> 0 </span>、背包<span class="hljs-number"> 1 </span>和背包<span class="hljs-number"> 2 </span>都装满石头。<br>总计<span class="hljs-number"> 3 </span>个背包装满石头，所以返回<span class="hljs-number"> 3 </span>。<br>可以证明不存在超过<span class="hljs-number"> 3 </span>个背包装满石头的情况。<br>注意，不必用完所有的额外石头。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>算出每个背包缺少多少个石头，用数组存起来，然后排序。</p>
+<h4 id="思路-41">思路</h4>
+<p>算出每个背包缺少多少个石头，用数组存起来，然后排序。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maximumBags</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; capacity, vector&lt;<span class="hljs-type">int</span>&gt;&amp; rocks, <span class="hljs-type">int</span> additionalRocks)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ve;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;capacity.<span class="hljs-built_in">size</span>();i++)&#123;<br>            ve.<span class="hljs-built_in">push_back</span>(capacity[i]-rocks[i]);<br>        &#125;<br>        <span class="hljs-built_in">sort</span>(ve.<span class="hljs-built_in">begin</span>(),ve.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;ve.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">if</span>(additionalRocks&gt;=ve[i])&#123;<br>                additionalRocks-=ve[i];<br>                ans++;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid"><a href="#第三题-mid" class="headerlink" title="第三题-mid"></a>第三题-mid</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-lines-to-represent-a-line-chart/">6076. 表示一个折线图的最少线段数</a></p>
-<h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二维整数数组 stockPrices ，其中 stockPrices[i] = [dayi, pricei] 表示股票在 dayi 的价格为 pricei 。<strong>折线图</strong> 是一个二维平面上的若干个点组成的图，横坐标表示日期，纵坐标表示价格，折线图由相邻的点连接而成。比方说下图是一个例子：</p>
-<p><img src="https://assets.leetcode.com/uploads/2022/03/30/1920px-pushkin_population_historysvg.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:25%;"></p>
+<h3 id="第三题-mid-13">第三题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-lines-to-represent-a-line-chart/">6076. 表示一个折线图的最少线段数</a></p>
+<h4 id="题目描述-42">题目描述</h4>
+<p>给你一个二维整数数组 stockPrices ，其中 stockPrices[i] = [dayi, pricei] 表示股票在 dayi 的价格为 pricei 。<strong>折线图</strong> 是一个二维平面上的若干个点组成的图，横坐标表示日期，纵坐标表示价格，折线图由相邻的点连接而成。比方说下图是一个例子：</p>
+<img src="https://assets.leetcode.com/uploads/2022/03/30/1920px-pushkin_population_historysvg.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:25%;">
 <p>请你返回要表示一个折线图所需要的 <strong>最少线段数</strong> 。</p>
-<h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><ul>
-<li>示例1</li>
+<h4 id="样例-41">样例</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例1</p>
+</li>
 </ul>
-<p><img src="https://assets.leetcode.com/uploads/2022/03/30/ex0.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 25%;"></p>
+<img src="https://assets.leetcode.com/uploads/2022/03/30/ex0.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 25%;">
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs erlang">输入：stockPrices = [[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">6</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">1</span>]]<br>输出：<span class="hljs-number">3</span><br>解释：<br>上图为输入对应的图，横坐标表示日期，纵坐标表示价格。<br>以下 <span class="hljs-number">3</span> 个线段可以表示折线图：<br>- 线段 1 （红色）从 <span class="hljs-params">(<span class="hljs-number">1</span>,<span class="hljs-number">7</span>)</span> 到 <span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">4</span>)</span> ，经过 <span class="hljs-params">(<span class="hljs-number">1</span>,<span class="hljs-number">7</span>)</span> ，<span class="hljs-params">(<span class="hljs-number">2</span>,<span class="hljs-number">6</span>)</span> ，<span class="hljs-params">(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>)</span> 和 <span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">4</span>)</span> 。<br>- 线段 2 （蓝色）从 <span class="hljs-params">(<span class="hljs-number">4</span>,<span class="hljs-number">4</span>)</span> 到 <span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">4</span>)</span> 。<br>- 线段 3 （绿色）从 <span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">4</span>)</span> 到 <span class="hljs-params">(<span class="hljs-number">8</span>,<span class="hljs-number">1</span>)</span> ，经过 <span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">4</span>)</span> ，<span class="hljs-params">(<span class="hljs-number">6</span>,<span class="hljs-number">3</span>)</span> ，<span class="hljs-params">(<span class="hljs-number">7</span>,<span class="hljs-number">2</span>)</span> 和 <span class="hljs-params">(<span class="hljs-number">8</span>,<span class="hljs-number">1</span>)</span> 。<br>可以证明，无法用少于 3 条线段表示这个折线图。<br></code></pre></td></tr></table></figure>
-<ul>
-<li>示例2</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>示例2</p>
+</li>
 </ul>
-<p><img src="https://assets.leetcode.com/uploads/2022/03/30/ex1.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:25%;"></p>
+<img src="https://assets.leetcode.com/uploads/2022/03/30/ex1.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:25%;">
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：stockPrices = <span class="hljs-comment">[<span class="hljs-comment">[3,4]</span>,<span class="hljs-comment">[1,2]</span>,<span class="hljs-comment">[7,8]</span>,<span class="hljs-comment">[2,3]</span>]</span><br>输出：1<br>解释：<br>如上图所示，折线图可以用一条线段表示。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>除法转乘法判断</p>
+<h4 id="思路-42">思路</h4>
+<p>除法转乘法判断</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minimumLines</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; stockPrices)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(stockPrices.<span class="hljs-built_in">begin</span>(),stockPrices.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(stockPrices.<span class="hljs-built_in">size</span>()==<span class="hljs-number">1</span>) ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;stockPrices.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-type">long</span> <span class="hljs-type">long</span> x1 = stockPrices[i][<span class="hljs-number">0</span>] - stockPrices[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], y1 = stockPrices[i][<span class="hljs-number">1</span>] - stockPrices[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>];<br>            <span class="hljs-type">long</span> <span class="hljs-type">long</span> x2 = stockPrices[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] - stockPrices[i - <span class="hljs-number">2</span>][<span class="hljs-number">0</span>], y2 = stockPrices[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] - stockPrices[i - <span class="hljs-number">2</span>][<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">if</span>(x1*y2!=x2*y1) ans++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard"><a href="#第四题-hard" class="headerlink" title="第四题-hard"></a>第四题-hard</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sum-of-total-strength-of-wizards/">6077. 巫师的总力量和</a></p>
+<h3 id="第四题-hard-13">第四题-hard</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sum-of-total-strength-of-wizards/">6077. 巫师的总力量和</a></p>
 
               
             </div>

@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第287场周赛 第一题-easy 6055. 转化时间需要的最少操作数 题目描述 给你两个字符串 current 和 correct ，表示两个 24 小时制时间 。 24 小时制时间 按 “HH:MM” 进行格式化，其中 HH 在 00 和 23 之间，而 MM 在 00 和 59 之间。最早的 24 小时制时间为 00:00 ，最晚的是 23:59 。 在一步操作中，你可以将">
+    <meta name="description" content="leetcode-第287场周赛  第一题-easy 6055. 转化时间需要的最少操作数  题目描述 给你两个字符串 current 和 correct ，表示两个 24 小时制时间 。 24 小时制时间 按 “HH:MM” 进行格式化，其中 HH 在 00 和 23 之间，而 MM 在 00 和 59 之间。最早的 24 小时制时间为 00:00 ，最晚的是 23:59 。 在一步操作中，你">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-第287场周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/04/03/leetcode-%E7%AC%AC287%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第287场周赛 第一题-easy 6055. 转化时间需要的最少操作数 题目描述 给你两个字符串 current 和 correct ，表示两个 24 小时制时间 。 24 小时制时间 按 “HH:MM” 进行格式化，其中 HH 在 00 和 23 之间，而 MM 在 00 和 59 之间。最早的 24 小时制时间为 00:00 ，最晚的是 23:59 。 在一步操作中，你可以将">
+<meta property="og:description" content="leetcode-第287场周赛  第一题-easy 6055. 转化时间需要的最少操作数  题目描述 给你两个字符串 current 和 correct ，表示两个 24 小时制时间 。 24 小时制时间 按 “HH:MM” 进行格式化，其中 HH 在 00 和 23 之间，而 MM 在 00 和 59 之间。最早的 24 小时制时间为 00:00 ，最晚的是 23:59 。 在一步操作中，你">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-03T12:00:00.000Z">
 <meta property="article:modified_time" content="2022-04-03T12:41:07.660Z">
@@ -281,95 +281,79 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第287场周赛</h1>
-<h3 id="第一题-easy-5">第一题-easy</h3>
+              <h1 id="leetcode-第287场周赛"><a class="markdownIt-Anchor" href="#leetcode-第287场周赛"></a> leetcode-第287场周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time/">6055. 转化时间需要的最少操作数</a></p>
-<h4 id="题目描述-16">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>给你两个字符串 current 和 correct ，表示两个 <strong>24 小时制时间</strong> 。</p>
 <p><strong>24 小时制时间</strong> 按 “HH:MM” 进行格式化，其中 HH 在 00 和 23 之间，而 MM 在 00 和 59 之间。最早的 24 小时制时间为 00:00 ，最晚的是 23:59 。</p>
 <p>在一步操作中，你可以将 current 这个时间增加 1、5、15 或 60 分钟。你可以执行这一操作 <strong>任意</strong> 次数。</p>
 <p>返回将 current 转化为 correct 需要的 <strong>最少操作数</strong> 。</p>
-<h4 id="样例-15">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nsis">输入：<span class="hljs-literal">current</span> = <span class="hljs-string">&quot;02:30&quot;</span>, correct = <span class="hljs-string">&quot;04:35&quot;</span><br>输出：<span class="hljs-number">3</span><br>解释：<br>可以按下述 <span class="hljs-number">3</span> 步操作将 <span class="hljs-literal">current</span> 转换为 correct ：<br>- 为 <span class="hljs-literal">current</span> 加 <span class="hljs-number">60</span> 分钟，<span class="hljs-literal">current</span> 变为 <span class="hljs-string">&quot;03:30&quot;</span> 。<br>- 为 <span class="hljs-literal">current</span> 加 <span class="hljs-number">60</span> 分钟，<span class="hljs-literal">current</span> 变为 <span class="hljs-string">&quot;04:30&quot;</span> 。 <br>- 为 <span class="hljs-literal">current</span> 加 <span class="hljs-number">5</span> 分钟，<span class="hljs-literal">current</span> 变为 <span class="hljs-string">&quot;04:35&quot;</span> 。<br>可以证明，无法用少于 <span class="hljs-number">3</span> 步操作将 <span class="hljs-literal">current</span> 转化为 correct 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">current</span> = <span class="hljs-string">&quot;11:00&quot;</span>, <span class="hljs-attr">correct</span> = <span class="hljs-string">&quot;11:01&quot;</span><br>输出：<span class="hljs-number">1</span><br>解释：只需要为 current 加一分钟，所以最小操作数是 <span class="hljs-number">1</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-16">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>转化为分钟数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">convertTime</span><span class="hljs-params">(string current, string correct)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> cur = ((current[<span class="hljs-number">0</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">10</span>+current[<span class="hljs-number">1</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">60</span>+(current[<span class="hljs-number">3</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">10</span>+current[<span class="hljs-number">4</span>]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-type">int</span> corr = ((correct[<span class="hljs-number">0</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">10</span>+correct[<span class="hljs-number">1</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">60</span>+(correct[<span class="hljs-number">3</span>]-<span class="hljs-string">&#x27;0&#x27;</span>)*<span class="hljs-number">10</span>+correct[<span class="hljs-number">4</span>]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-type">int</span> temp=(corr-cur+<span class="hljs-number">24</span>*<span class="hljs-number">60</span>)%(<span class="hljs-number">24</span>*<span class="hljs-number">60</span>);<br>        <span class="hljs-keyword">if</span>(temp&gt;=<span class="hljs-number">60</span>)&#123;<br>            ans+=temp/<span class="hljs-number">60</span>;<br>            temp=temp%<span class="hljs-number">60</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(temp&gt;=<span class="hljs-number">15</span>)&#123;<br>            ans+=temp/<span class="hljs-number">15</span>;<br>            temp=temp%<span class="hljs-number">15</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(temp&gt;=<span class="hljs-number">5</span>)&#123;<br>            ans+=temp/<span class="hljs-number">5</span>;<br>            temp=temp%<span class="hljs-number">5</span>;<br>        &#125;<br>        ans+=temp;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-5">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-players-with-zero-or-one-losses/">5235. 找出输掉零场或一场比赛的玩家</a></p>
-<h4 id="题目描述-17">题目描述</h4>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
 <p>给你一个整数数组 matches 其中 matches[i] = [winneri, loseri] 表示在一场比赛中 winneri 击败了 loseri 。</p>
 <p>返回一个长度为 2 的列表 answer ：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>answer[0] 是所有 <strong>没有</strong> 输掉任何比赛的玩家列表。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>answer[1] 是所有恰好输掉 <strong>一场</strong> 比赛的玩家列表。</p>
 </li>
 </ul>
 <p>两个列表中的值都应该按 <strong>递增</strong> 顺序返回。</p>
 <p><strong>注意</strong>：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>只考虑那些参与 <strong>至少一场</strong> 比赛的玩家。</p>
-</li>
-<li class="lvl-2">
-<p>生成的测试用例保证 <strong>不存在</strong> 两场比赛结果 <strong>相同</strong> 。</p>
-</li>
+<ul>
+<li>只考虑那些参与 <strong>至少一场</strong> 比赛的玩家。</li>
+<li>生成的测试用例保证 <strong>不存在</strong> 两场比赛结果 <strong>相同</strong> 。</li>
 </ul>
-<h4 id="样例-16">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：matches = <span class="hljs-comment">[<span class="hljs-comment">[1,3]</span>,<span class="hljs-comment">[2,3]</span>,<span class="hljs-comment">[3,6]</span>,<span class="hljs-comment">[5,6]</span>,<span class="hljs-comment">[5,7]</span>,<span class="hljs-comment">[4,5]</span>,<span class="hljs-comment">[4,8]</span>,<span class="hljs-comment">[4,9]</span>,<span class="hljs-comment">[10,4]</span>,<span class="hljs-comment">[10,9]</span>]</span><br>输出：<span class="hljs-comment">[<span class="hljs-comment">[1,2,10]</span>,<span class="hljs-comment">[4,5,7,8]</span>]</span><br>解释：<br>玩家 1、2 和 10 都没有输掉任何比赛。<br>玩家 4、5、7 和 8 每个都输掉一场比赛。<br>玩家 3、6 和 9 每个都输掉两场比赛。<br>因此，answer<span class="hljs-comment">[0]</span> = <span class="hljs-comment">[1,2,10]</span> 和 answer<span class="hljs-comment">[1]</span> = <span class="hljs-comment">[4,5,7,8]</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：matches = <span class="hljs-comment">[<span class="hljs-comment">[2,3]</span>,<span class="hljs-comment">[1,3]</span>,<span class="hljs-comment">[5,4]</span>,<span class="hljs-comment">[6,4]</span>]</span><br>输出：<span class="hljs-comment">[<span class="hljs-comment">[1,2,5,6]</span>,<span class="hljs-comment">[]</span>]</span><br>解释：<br>玩家 1、2、5 和 6 都没有输掉任何比赛。<br>玩家 3 和 4 每个都输掉两场比赛。<br>因此，answer<span class="hljs-comment">[0]</span> = <span class="hljs-comment">[1,2,5,6]</span> 和 answer<span class="hljs-comment">[1]</span> = <span class="hljs-comment">[]</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-17">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>水题，用一个map存每个人输的多少场，一个set存所有赢过的人，set-map就是没有输的人，map的value==1的就是恰好输一场的。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">findWinners</span>(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matches) &#123;<br>        map&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; lose;<br>        set&lt;<span class="hljs-type">int</span>&gt; s;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">ve</span>(<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;matches.<span class="hljs-built_in">size</span>();i++)&#123;<br>            s.<span class="hljs-built_in">insert</span>(matches[i][<span class="hljs-number">0</span>]);<br>            lose[matches[i][<span class="hljs-number">1</span>]]++;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i:s)&#123;<br>            <span class="hljs-keyword">if</span>(lose[i]==<span class="hljs-number">0</span>)&#123;<br>                ve[<span class="hljs-number">0</span>].<span class="hljs-built_in">push_back</span>(i);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i=lose.<span class="hljs-built_in">begin</span>();i!=lose.<span class="hljs-built_in">end</span>();i++)&#123;<br>            <span class="hljs-keyword">if</span>(i-&gt;second==<span class="hljs-number">1</span>)&#123;<br>                ve[<span class="hljs-number">1</span>].<span class="hljs-built_in">push_back</span>(i-&gt;first);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ve;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-5">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-candies-allocated-to-k-children/">5219. 每个小孩最多能分到多少糖果</a></p>
-<h4 id="题目描述-18">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>给你一个 <strong>下标从 0 开始</strong> 的整数数组 candies 。数组中的每个元素表示大小为 candies[i] 的一堆糖果。你可以将每堆糖果分成任意数量的 <strong>子堆</strong> ，但 <strong>无法</strong> 再将两堆合并到一起。</p>
 <p>另给你一个整数 k 。你需要将这些糖果分配给 k 个小孩，使每个小孩分到 **	** 数量的糖果。每个小孩可以拿走 <strong>至多一堆</strong> 糖果，有些糖果可能会不被分配。</p>
 <p>返回每个小孩可以拿走的 <strong>最大糖果数目</strong> 。</p>
-<h4 id="样例-17">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：candies = [5,8,6], k = 3<br>输出：5<br>解释：可以将 candies[1] 分成大小分别为<span class="hljs-number"> 5 </span>和<span class="hljs-number"> 3 </span>的两堆，然后把 candies[2] 分成大小分别为<span class="hljs-number"> 5 </span>和<span class="hljs-number"> 1 </span>的两堆。现在就有五堆大小分别为 5、5、3、5 和<span class="hljs-number"> 1 </span>的糖果。可以把<span class="hljs-number"> 3 </span>堆大小为<span class="hljs-number"> 5 </span>的糖果分给<span class="hljs-number"> 3 </span>个小孩。可以证明无法让每个小孩得到超过<span class="hljs-number"> 5 </span>颗糖果。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：candies = [2,5], k = 11<br>输出：0<br>解释：总共有<span class="hljs-number"> 11 </span>个小孩，但只有<span class="hljs-number"> 7 </span>颗糖果，但如果要分配糖果的话，必须保证每个小孩至少能得到<span class="hljs-number"> 1 </span>颗糖果。因此，最后每个小孩都没有得到糖果，答案是<span class="hljs-number"> 0 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-18">思路</h4>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
 <p>二分答案</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> x,vector&lt;<span class="hljs-type">int</span>&gt;&amp; candies,<span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span></span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;candies.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">if</span>(candies[i]&lt;x)&#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                k-=candies[i]/x;<br>                <span class="hljs-keyword">if</span>(k&lt;=<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maximumCandies</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; candies, <span class="hljs-type">long</span> <span class="hljs-type">long</span> k)</span> </span>&#123;<br>        <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>,r=<span class="hljs-number">10000005</span>,mid;<br>        <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>            mid=l+(r-l+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid,candies,k))&#123;<br>                l=mid;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                r=mid<span class="hljs-number">-1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> l;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-5">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/encrypt-and-decrypt-strings/">5302. 加密解密字符串</a></p>
 
               

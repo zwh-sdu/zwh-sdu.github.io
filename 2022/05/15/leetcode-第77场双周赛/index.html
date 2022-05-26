@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第77场双周赛 第一题-easy 2255. 统计是给定字符串前缀的字符串数目 题目描述 给你一个字符串数组 words 和一个字符串 s ，其中 words[i] 和 s 只包含 小写英文字母 。 请你返回 words 中是字符串 s 前缀 的 字符串数目 。 一个字符串的 前缀 是出现在字符串开头的子字符串。子字符串 是一个字符串中的连续一段字符序列。 样例   示例1">
+    <meta name="description" content="leetcode-第77场双周赛  第一题-easy 2255. 统计是给定字符串前缀的字符串数目  题目描述 给你一个字符串数组 words 和一个字符串 s ，其中 words[i] 和 s 只包含 小写英文字母 。 请你返回 words 中是字符串 s 前缀 的 字符串数目 。 一个字符串的 前缀 是出现在字符串开头的子字符串。子字符串 是一个字符串中的连续一段字符序列。  样例  示例1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第77场双周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC77%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第77场双周赛 第一题-easy 2255. 统计是给定字符串前缀的字符串数目 题目描述 给你一个字符串数组 words 和一个字符串 s ，其中 words[i] 和 s 只包含 小写英文字母 。 请你返回 words 中是字符串 s 前缀 的 字符串数目 。 一个字符串的 前缀 是出现在字符串开头的子字符串。子字符串 是一个字符串中的连续一段字符序列。 样例   示例1">
+<meta property="og:description" content="leetcode-第77场双周赛  第一题-easy 2255. 统计是给定字符串前缀的字符串数目  题目描述 给你一个字符串数组 words 和一个字符串 s ，其中 words[i] 和 s 只包含 小写英文字母 。 请你返回 words 中是字符串 s 前缀 的 字符串数目 。 一个字符串的 前缀 是出现在字符串开头的子字符串。子字符串 是一个字符串中的连续一段字符序列。  样例  示例1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-15T00:39:00.000Z">
 <meta property="article:modified_time" content="2022-05-15T01:38:13.446Z">
@@ -281,33 +281,29 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第77场双周赛</h1>
-<h3 id="第一题-easy-16">第一题-easy</h3>
+              <h1 id="leetcode-第77场双周赛"><a class="markdownIt-Anchor" href="#leetcode-第77场双周赛"></a> leetcode-第77场双周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-prefixes-of-a-given-string/">2255. 统计是给定字符串前缀的字符串数目</a></p>
-<h4 id="题目描述-50">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>给你一个字符串数组 words 和一个字符串 s ，其中 words[i] 和 s 只包含 小写英文字母 。</p>
 <p>请你返回 words 中是字符串 s 前缀 的 字符串数目 。</p>
 <p>一个字符串的 前缀 是出现在字符串开头的子字符串。子字符串 是一个字符串中的连续一段字符序列。</p>
-<h4 id="样例-49">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs applescript">输入：<span class="hljs-built_in">words</span> = [<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;ab&quot;</span>,<span class="hljs-string">&quot;bc&quot;</span>,<span class="hljs-string">&quot;abc&quot;</span>], s = <span class="hljs-string">&quot;abc&quot;</span><br>输出：<span class="hljs-number">3</span><br>解释：<br><span class="hljs-built_in">words</span> 中是 s = <span class="hljs-string">&quot;abc&quot;</span> 前缀的字符串为：<br><span class="hljs-string">&quot;a&quot;</span> ，<span class="hljs-string">&quot;ab&quot;</span> 和 <span class="hljs-string">&quot;abc&quot;</span> 。<br>所以 <span class="hljs-built_in">words</span> 中是字符串 s 前缀的字符串数目为 <span class="hljs-number">3</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">输入：<span class="hljs-built_in">words</span> = [<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>], s = <span class="hljs-string">&quot;aa&quot;</span><br>输出：<span class="hljs-number">2</span><br>解释：<br>两个字符串都是 s 的前缀。<br>注意，相同的字符串可能在 <span class="hljs-built_in">words</span> 中出现多次，它们应该被计数多次。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-50">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countPrefixes</span><span class="hljs-params">(vector&lt;string&gt;&amp; words, string s)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;words.<span class="hljs-built_in">size</span>();i++)&#123;<br>            string word=words[i];<br>            <span class="hljs-keyword">if</span>(word.<span class="hljs-built_in">size</span>()&gt;s.<span class="hljs-built_in">size</span>()) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-type">int</span> f=<span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;word.<span class="hljs-built_in">size</span>();j++)&#123;<br>                <span class="hljs-keyword">if</span>(word[j]!=s[j])&#123;<br>                    f=<span class="hljs-number">1</span>;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(!f) ans++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-16">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-average-difference/">2256. 最小平均差</a></p>
-<h4 id="题目描述-51">题目描述</h4>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
 <p>给你一个下标从 0 开始长度为 n 的整数数组 nums 。</p>
 <p>下标 i 处的 平均差 指的是 nums 中 前 i + 1 个元素平均值和 后 n - i - 1 个元素平均值的 绝对差 。两个平均值都需要 向下取整 到最近的整数。</p>
 <p>请你返回产生 最小平均差 的下标。如果有多个下标最小平均差相等，请你返回 最小 的一个下标。</p>
@@ -315,47 +311,39 @@
 <p>两个数的 绝对差 是两者差的绝对值。<br>
 n 个元素的平均值是 n 个元素之 和 除以（整数除法） n 。<br>
 0 个元素的平均值视为 0 。</p>
-<h4 id="样例-50">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [2,5,3,9,5,3]<br>输出：3<br>解释：<br>- 下标<span class="hljs-number"> 0 </span>处的平均差为：|2 /<span class="hljs-number"> 1 </span>- (5 +<span class="hljs-number"> 3 </span>+<span class="hljs-number"> 9 </span>+<span class="hljs-number"> 5 </span>+ 3) / 5| = |2 /<span class="hljs-number"> 1 </span>-<span class="hljs-number"> 25 </span>/ 5| = |2 - 5| =<span class="hljs-number"> 3 </span>。<br>- 下标<span class="hljs-number"> 1 </span>处的平均差为：|(2 + 5) /<span class="hljs-number"> 2 </span>- (3 +<span class="hljs-number"> 9 </span>+<span class="hljs-number"> 5 </span>+ 3) / 4| = |7 /<span class="hljs-number"> 2 </span>-<span class="hljs-number"> 20 </span>/ 4| = |3 - 5| =<span class="hljs-number"> 2 </span>。<br>- 下标<span class="hljs-number"> 2 </span>处的平均差为：|(2 +<span class="hljs-number"> 5 </span>+ 3) /<span class="hljs-number"> 3 </span>- (9 +<span class="hljs-number"> 5 </span>+ 3) / 3| = |10 /<span class="hljs-number"> 3 </span>-<span class="hljs-number"> 17 </span>/ 3| = |3 - 5| =<span class="hljs-number"> 2 </span>。<br>- 下标<span class="hljs-number"> 3 </span>处的平均差为：|(2 +<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 3 </span>+ 9) /<span class="hljs-number"> 4 </span>- (5 + 3) / 2| = |19 /<span class="hljs-number"> 4 </span>-<span class="hljs-number"> 8 </span>/ 2| = |4 - 4| =<span class="hljs-number"> 0 </span>。 <br>- 下标<span class="hljs-number"> 4 </span>处的平均差为：|(2 +<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 3 </span>+<span class="hljs-number"> 9 </span>+ 5) /<span class="hljs-number"> 5 </span>-<span class="hljs-number"> 3 </span>/ 1| = |24 /<span class="hljs-number"> 5 </span>-<span class="hljs-number"> 3 </span>/ 1| = |4 - 3| =<span class="hljs-number"> 1 </span>。<br>- 下标<span class="hljs-number"> 5 </span>处的平均差为：|(2 +<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 3 </span>+<span class="hljs-number"> 9 </span>+<span class="hljs-number"> 5 </span>+ 3) /<span class="hljs-number"> 6 </span>- 0| = |27 /<span class="hljs-number"> 6 </span>- 0| = |4 - 0| =<span class="hljs-number"> 4 </span>。<br>下标<span class="hljs-number"> 3 </span>处的平均差为最小平均差，所以返回<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [0]<br>输出：0<br>解释：<br>唯一的下标是<span class="hljs-number"> 0 </span>，所以我们返回<span class="hljs-number"> 0 </span>。<br>下标<span class="hljs-number"> 0 </span>处的平均差为：|0 /<span class="hljs-number"> 1 </span>- 0| = |0 - 0| =<span class="hljs-number"> 0 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-51">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>前缀和，注意存前缀和的数组要用long long</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minimumAverageDifference</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>,minx=<span class="hljs-number">0x3f3f3f3f</span>,n=nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; <span class="hljs-title">ve</span><span class="hljs-params">(n,<span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            <span class="hljs-keyword">if</span>(i==<span class="hljs-number">0</span>) ve[i]=nums[i];<br>            <span class="hljs-keyword">else</span> ve[i]=ve[i<span class="hljs-number">-1</span>]+nums[i];<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            <span class="hljs-type">int</span> p1=ve[i]/(i+<span class="hljs-number">1</span>);<br>            <span class="hljs-type">int</span> p2=<span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span>(i!=n<span class="hljs-number">-1</span>) p2=(ve[n<span class="hljs-number">-1</span>]-ve[i])/(n-i<span class="hljs-number">-1</span>);<br>            <span class="hljs-type">int</span> temp=<span class="hljs-built_in">abs</span>(p1-p2);<br>            <span class="hljs-comment">// cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;temp&lt;&lt;endl;</span><br>            <span class="hljs-keyword">if</span>(minx&gt;temp)&#123;<br>                minx=temp;<br>                ans=i;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-16">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-unguarded-cells-in-the-grid/">2257. 统计网格图中没有被保卫的格子数</a></p>
-<h4 id="题目描述-52">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>给你两个整数 m 和 n 表示一个下标从 0 开始的 m x n 网格图。同时给你两个二维整数数组 guards 和 walls ，其中 guards[i] = [rowi, coli] 且 walls[j] = [rowj, colj] ，分别表示第 i 个警卫和第 j 座墙所在的位置。</p>
 <p>一个警卫能看到 4 个坐标轴方向（即东、南、西、北）的 <strong>所有</strong> 格子，除非他们被一座墙或者另外一个警卫 <strong>挡住</strong> 了视线。如果一个格子能被 <strong>至少</strong> 一个警卫看到，那么我们说这个格子被 <strong>保卫</strong> 了。</p>
 <p>请你返回空格子中，有多少个格子是 <strong>没被保卫</strong> 的。</p>
-<h4 id="样例-51">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：m = <span class="hljs-number">4</span>, n = <span class="hljs-number">6</span>, guards = <span class="hljs-string">[[0,0],[1,1],[2,3]]</span>, walls = <span class="hljs-string">[[0,1],[2,2],[1,4]]</span><br>输出：<span class="hljs-number">7</span><br>解释：上图中，被保卫和没有被保卫的格子分别用红色和绿色表示。<br>总共有 <span class="hljs-number">7</span> 个没有被保卫的格子，所以我们返回 <span class="hljs-number">7</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：m = <span class="hljs-number">3</span>, n = <span class="hljs-number">3</span>, guards = <span class="hljs-string">[[1,1]]</span>, walls = <span class="hljs-string">[[0,1],[1,0],[2,1],[1,2]]</span><br>输出：<span class="hljs-number">4</span><br>解释：上图中，没有被保卫的格子用绿色表示。<br>总共有 <span class="hljs-number">4</span> 个没有被保卫的格子，所以我们返回 <span class="hljs-number">4</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-52">思路</h4>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
 <p>暴力即可，对每个守卫向四个方向扫描，修改二维数组状态。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countUnguarded</span><span class="hljs-params">(<span class="hljs-type">int</span> m, <span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; guards, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; walls)</span> </span>&#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">a</span>(m,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(n,<span class="hljs-number">0</span>));<br>        <span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;,dy[<span class="hljs-number">4</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;walls.<span class="hljs-built_in">size</span>();i++) a[walls[i][<span class="hljs-number">0</span>]][walls[i][<span class="hljs-number">1</span>]]=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;guards.<span class="hljs-built_in">size</span>();i++) a[guards[i][<span class="hljs-number">0</span>]][guards[i][<span class="hljs-number">1</span>]]=<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;guards.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">4</span>;k++)&#123;<br>                <span class="hljs-type">int</span> x=guards[i][<span class="hljs-number">0</span>],y=guards[i][<span class="hljs-number">1</span>];<br>                <span class="hljs-keyword">do</span>&#123;<br>                    <span class="hljs-keyword">if</span>(a[x][y]!=<span class="hljs-number">2</span>) a[x][y]=<span class="hljs-number">3</span>;<br>                    <span class="hljs-comment">// cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;</span><br>                    x+=dx[k];<br>                    y+=dy[k];<br>                &#125;<span class="hljs-keyword">while</span>(x&gt;=<span class="hljs-number">0</span>&amp;&amp;x&lt;m&amp;&amp;y&gt;=<span class="hljs-number">0</span>&amp;&amp;y&lt;n&amp;&amp;a[x][y]!=<span class="hljs-number">1</span>&amp;&amp;a[x][y]!=<span class="hljs-number">2</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;n;j++)&#123;<br>                <span class="hljs-keyword">if</span>(a[i][j]==<span class="hljs-number">0</span>) ans++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-16">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/escape-the-spreading-fire/">2258. 逃离火灾</a></p>
 
               

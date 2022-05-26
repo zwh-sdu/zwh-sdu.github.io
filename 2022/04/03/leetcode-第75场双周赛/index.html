@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第75场双周赛 晚上出去玩了，没来得及做，第二天做的模拟赛 第一题-easy 6033. 转换数字的最少位翻转次数 题目描述 一次 位翻转 定义为将数字 x 二进制中的一个位进行 翻转 操作，即将 0 变成 1 ，或者将 1 变成 0 。   比方说，x &#x3D; 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一位得">
+    <meta name="description" content="leetcode-第75场双周赛 晚上出去玩了，没来得及做，第二天做的模拟赛  第一题-easy 6033. 转换数字的最少位翻转次数  题目描述 一次 位翻转 定义为将数字 x 二进制中的一个位进行 翻转 操作，即将 0 变成 1 ，或者将 1 变成 0 。  比方说，x &#x3D; 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第75场双周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/04/03/leetcode-%E7%AC%AC75%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第75场双周赛 晚上出去玩了，没来得及做，第二天做的模拟赛 第一题-easy 6033. 转换数字的最少位翻转次数 题目描述 一次 位翻转 定义为将数字 x 二进制中的一个位进行 翻转 操作，即将 0 变成 1 ，或者将 1 变成 0 。   比方说，x &#x3D; 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一位得">
+<meta property="og:description" content="leetcode-第75场双周赛 晚上出去玩了，没来得及做，第二天做的模拟赛  第一题-easy 6033. 转换数字的最少位翻转次数  题目描述 一次 位翻转 定义为将数字 x 二进制中的一个位进行 翻转 操作，即将 0 变成 1 ，或者将 1 变成 0 。  比方说，x &#x3D; 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-03T06:41:00.000Z">
 <meta property="article:modified_time" content="2022-04-03T11:54:41.467Z">
@@ -281,129 +281,103 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第75场双周赛</h1>
+              <h1 id="leetcode-第75场双周赛"><a class="markdownIt-Anchor" href="#leetcode-第75场双周赛"></a> leetcode-第75场双周赛</h1>
 <p>晚上出去玩了，没来得及做，第二天做的模拟赛</p>
-<h3 id="第一题-easy-15">第一题-easy</h3>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-bit-flips-to-convert-number/">6033. 转换数字的最少位翻转次数</a></p>
-<h4 id="题目描述-47">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>一次 <strong>位翻转</strong> 定义为将数字 x 二进制中的一个位进行 <strong>翻转</strong> 操作，即将 0 变成 1 ，或者将 1 变成 0 。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>比方说，x = 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一位得到 110 ，或者翻转右边起第二位得到 101 ，或者翻转右边起第五位（这一位是前导 0 ）得到 10111 等等。</p>
-</li>
+<ul>
+<li>比方说，x = 7 ，二进制表示为 111 ，我们可以选择任意一个位（包含没有显示的前导 0 ）并进行翻转。比方说我们可以翻转最右边一位得到 110 ，或者翻转右边起第二位得到 101 ，或者翻转右边起第五位（这一位是前导 0 ）得到 10111 等等。</li>
 </ul>
 <p>给你两个整数 start 和 goal ，请你返回将 start 转变成 goal 的 <strong>最少位翻转</strong> 次数。</p>
-<h4 id="样例-46">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：start = 10, goal = 7<br>输出：3<br>解释：10 和<span class="hljs-number"> 7 </span>的二进制表示分别为<span class="hljs-number"> 1010 </span>和<span class="hljs-number"> 0111 </span>。我们可以通过<span class="hljs-number"> 3 </span>步将<span class="hljs-number"> 10 </span>转变成<span class="hljs-number"> 7 </span>：<br>- 翻转右边起第一位得到：1010 -&gt;<span class="hljs-number"> 1011 </span>。<br>- 翻转右边起第三位：1011 -&gt;<span class="hljs-number"> 1111 </span>。<br>- 翻转右边起第四位：1111 -&gt;<span class="hljs-number"> 0111 </span>。<br>我们无法在<span class="hljs-number"> 3 </span>步内将<span class="hljs-number"> 10 </span>转变成<span class="hljs-number"> 7 </span>。所以我们返回<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：start = 3, goal = 4<br>输出：3<br>解释：3 和<span class="hljs-number"> 4 </span>的二进制表示分别为<span class="hljs-number"> 011 </span>和<span class="hljs-number"> 100 </span>。我们可以通过<span class="hljs-number"> 3 </span>步将<span class="hljs-number"> 3 </span>转变成<span class="hljs-number"> 4 </span>：<br>- 翻转右边起第一位：011 -&gt;<span class="hljs-number"> 010 </span>。<br>- 翻转右边起第二位：010 -&gt;<span class="hljs-number"> 000 </span>。<br>- 翻转右边起第三位：000 -&gt;<span class="hljs-number"> 100 </span>。<br>我们无法在<span class="hljs-number"> 3 </span>步内将<span class="hljs-number"> 3 </span>变成<span class="hljs-number"> 4 </span>。所以我们返回<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-47">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>说实话，我几乎不会做位运算的题。。。我用愚蠢的字符串方法做了一遍，看题解发现都是用位运算做的。。。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">re</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>        string res=<span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-keyword">while</span>(x)&#123;<br>            res=<span class="hljs-built_in">to_string</span>(x%<span class="hljs-number">2</span>)+res;<br>            x/=<span class="hljs-number">2</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minBitFlips</span><span class="hljs-params">(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> goal)</span> </span>&#123;<br>        string s=<span class="hljs-built_in">re</span>(start);<br>        string g=<span class="hljs-built_in">re</span>(goal);<br>        <span class="hljs-type">int</span> temp=s.<span class="hljs-built_in">size</span>()-g.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">if</span>(temp&lt;<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;-temp;i++)&#123;<br>                s = <span class="hljs-string">&quot;0&quot;</span>+s;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;temp;i++)&#123;<br>                g = <span class="hljs-string">&quot;0&quot;</span>+g;<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// cout&lt;&lt;s&lt;&lt;&quot; &quot;&lt;&lt;g&lt;&lt;endl;</span><br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">if</span>(s[i]!=g[i]) ans++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>位运算的方法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minBitFlips</span><span class="hljs-params">(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> goal)</span> </span>&#123;<br>        <span class="hljs-type">int</span> num = start ^ goal;<br>        <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 取num中有几个1，就是要变换的次数</span><br>        <span class="hljs-keyword">while</span>(num&gt;<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-comment">// 和1做与运算，得到最后一位</span><br>            count += num &amp; <span class="hljs-number">1</span>;<br>            num &gt;&gt;= <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-15">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-triangular-sum-of-an-array/">6034. 数组的三角和</a></p>
-<h4 id="题目描述-48">题目描述</h4>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 nums ，其中 nums[i] 是 0 到 9 之间（两者都包含）的一个数字。</p>
 <p>nums 的 <strong>三角和</strong> 是执行以下操作以后最后剩下元素的值：</p>
 <ol>
-<li class="lvl-3">
-<p>nums 初始包含 n 个元素。如果 n == 1 ，<strong>终止</strong> 操作。否则，<strong>创建</strong> 一个新的下标从 <strong>0</strong> 开始的长度为 n - 1 的整数数组 newNums 。</p>
-</li>
-<li class="lvl-3">
-<p>对于满足 0 &lt;= i &lt; n - 1 的下标 i ，newNums[i] <strong>赋值</strong> 为 (nums[i] + nums[i+1]) % 10 ，% 表示取余运算。</p>
-</li>
-<li class="lvl-3">
-<p>将 newNums <strong>替换</strong> 数组 nums 。</p>
-</li>
-<li class="lvl-3">
-<p>从步骤 1 开始 <strong>重复</strong> 整个过程。</p>
-</li>
+<li>nums 初始包含 n 个元素。如果 n == 1 ，<strong>终止</strong> 操作。否则，<strong>创建</strong> 一个新的下标从 <strong>0</strong> 开始的长度为 n - 1 的整数数组 newNums 。</li>
+<li>对于满足 0 &lt;= i &lt; n - 1 的下标 i ，newNums[i] <strong>赋值</strong> 为 (nums[i] + nums[i+1]) % 10 ，% 表示取余运算。</li>
+<li>将 newNums <strong>替换</strong> 数组 nums 。</li>
+<li>从步骤 1 开始 <strong>重复</strong> 整个过程。</li>
 </ol>
 <p>请你返回 nums 的三角和。</p>
-<h4 id="样例-47">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：nums = <span class="hljs-string">[1,2,3,4,5]</span><br>输出：<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：nums <span class="hljs-operator">=</span> [<span class="hljs-number">5</span>]<br>输出：<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
-<h4 id="思路-48">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>水题，直接模拟即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">triangularSum</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; a,b;<br>        a.<span class="hljs-built_in">assign</span>(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-type">int</span> n=nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">while</span>(n--)&#123;<br>            b.<span class="hljs-built_in">clear</span>();<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;a.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i++)&#123;<br>                b.<span class="hljs-built_in">push_back</span>((a[i]+a[i+<span class="hljs-number">1</span>])%<span class="hljs-number">10</span>);<br>            &#125;<br>            a.<span class="hljs-built_in">assign</span>(b.<span class="hljs-built_in">begin</span>(),b.<span class="hljs-built_in">end</span>());<br>        &#125;<br>        <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-15">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-select-buildings/">6035. 选择建筑的方案数</a></p>
-<h4 id="题目描述-49">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>给你一个下标从 0 开始的二进制字符串 s ，它表示一条街沿途的建筑类型，其中：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>s[i] = ‘0’ 表示第 i 栋建筑是一栋办公楼，</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>s[i] = ‘1’ 表示第 i 栋建筑是一间餐厅。</p>
 </li>
 </ul>
 <p>作为市政厅的官员，你需要随机 <strong>选择</strong> 3 栋建筑。然而，为了确保多样性，选出来的 3 栋建筑 <strong>相邻</strong> 的两栋不能是同一类型。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>比方说，给你 s = “001101” ，我们不能选择第 1 ，3 和 5 栋建筑，因为得到的子序列是 “011” ，有相邻两栋建筑是同一类型，所以 <strong>不合</strong> 题意。</p>
-</li>
-<li class="lvl-2">
-<p>请你返回可以选择 3 栋建筑的 <strong>有效方案数</strong> 。</p>
-</li>
+<ul>
+<li>比方说，给你 s = “001101” ，我们不能选择第 1 ，3 和 5 栋建筑，因为得到的子序列是 “011” ，有相邻两栋建筑是同一类型，所以 <strong>不合</strong> 题意。</li>
+<li>请你返回可以选择 3 栋建筑的 <strong>有效方案数</strong> 。</li>
 </ul>
-<h4 id="样例-48">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs prolog">输入：s = <span class="hljs-string">&quot;001101&quot;</span><br>输出：<span class="hljs-number">6</span><br>解释：<br>以下下标集合是合法的：<br>- [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;010&quot;</span><br>- [<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;010&quot;</span><br>- [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;010&quot;</span><br>- [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;010&quot;</span><br>- [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;101&quot;</span><br>- [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] ，从 <span class="hljs-string">&quot;001101&quot;</span> 得到 <span class="hljs-string">&quot;101&quot;</span><br>没有别的合法选择，所以总共有 <span class="hljs-number">6</span> 种方法。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：s <span class="hljs-operator">=</span> <span class="hljs-string">&quot;11100&quot;</span><br>输出：<span class="hljs-number">0</span><br>解释：没有任何符合题意的选择。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-49">思路</h4>
-<p>​	最暴力的方法就是三个for循环，但一想肯定超时，我只想到一种优化到$O(N^2)$的方法，就是先遍历一遍，用两个数组分别记录下每个位置后面的’0’和’1’的个数，就能把第三个for循环消掉，但最后还是超时了。</p>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
+<p>​	最暴力的方法就是三个for循环，但一想肯定超时，我只想到一种优化到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>的方法，就是先遍历一遍，用两个数组分别记录下每个位置后面的’0’和’1’的个数，就能把第三个for循环消掉，但最后还是超时了。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">numberOfWays</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n=s.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">100005</span>];<br>        a[<span class="hljs-number">0</span>][s.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>]=<span class="hljs-number">0</span>;<br>        a[<span class="hljs-number">1</span>][s.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>]=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=s.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i&gt;<span class="hljs-number">0</span>;i--)&#123;<br>            <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;0&#x27;</span>)&#123;<br>                a[<span class="hljs-number">0</span>][i<span class="hljs-number">-1</span>]=a[<span class="hljs-number">0</span>][i]+<span class="hljs-number">1</span>;<br>                a[<span class="hljs-number">1</span>][i<span class="hljs-number">-1</span>]=a[<span class="hljs-number">1</span>][i];<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                a[<span class="hljs-number">1</span>][i<span class="hljs-number">-1</span>]=a[<span class="hljs-number">1</span>][i]+<span class="hljs-number">1</span>;<br>                a[<span class="hljs-number">0</span>][i<span class="hljs-number">-1</span>]=a[<span class="hljs-number">0</span>][i];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=n<span class="hljs-number">-3</span>;i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=i+<span class="hljs-number">1</span>;j&lt;=n<span class="hljs-number">-2</span>;j++)&#123;<br>                <span class="hljs-keyword">if</span>(s[i]==s[j]) <span class="hljs-keyword">continue</span>;<br>                ans+=a[s[i]-<span class="hljs-string">&#x27;0&#x27;</span>][j];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>​	看了题解，非常巧妙非常神奇也非常好理解的dp，能够优化到$O(N)$复杂度，学习到了。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<p>​	看了题解，非常巧妙非常神奇也非常好理解的dp，能够优化到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>复杂度，学习到了。</p>
+<ul>
+<li>
 <p>n0表示当前位置前面’0’的数量</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>n1表示当前位置前面’1’的数量</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>n01表示当前位置前面’01’子序列的数量</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>n10表示当前位置前面’10’子序列的数量</p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">numberOfWays</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> ans=<span class="hljs-number">0</span>, n0=<span class="hljs-number">0</span>, n1=<span class="hljs-number">0</span>, n10=<span class="hljs-number">0</span>, n01=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> c: s)&#123;<br>            <span class="hljs-keyword">if</span>(c==<span class="hljs-string">&#x27;1&#x27;</span>)&#123;<br>                n01 += n0;<br>                n1 ++;<br>                ans += n10;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                n10 += n1;<br>                n0 ++; <br>                ans += n01;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-15">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-scores-of-built-strings/">6036. 构造字符串的总得分和</a></p>
 
               

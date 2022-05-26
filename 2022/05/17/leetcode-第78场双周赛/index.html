@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第78场双周赛 第一题-easy 2269. 找到一个数字的 K 美丽值 题目描述 一个整数 num 的 k 美丽值定义为 num 中符合以下条件的 子字符串 数目：   子字符串长度为 k 。   子字符串能整除 num 。   给你整数 num 和 k ，请你返回 num 的 k 美丽值。 注意：   允许有 前缀 0 。   0 不能整除任何值。   一个 子字符串 是一个">
+    <meta name="description" content="leetcode-第78场双周赛  第一题-easy 2269. 找到一个数字的 K 美丽值  题目描述 一个整数 num 的 k 美丽值定义为 num 中符合以下条件的 子字符串 数目：   子字符串长度为 k 。   子字符串能整除 num 。   给你整数 num 和 k ，请你返回 num 的 k 美丽值。 注意：   允许有 前缀 0 。   0 不能整除任何值。   一个 子字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第78场双周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/05/17/leetcode-%E7%AC%AC78%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第78场双周赛 第一题-easy 2269. 找到一个数字的 K 美丽值 题目描述 一个整数 num 的 k 美丽值定义为 num 中符合以下条件的 子字符串 数目：   子字符串长度为 k 。   子字符串能整除 num 。   给你整数 num 和 k ，请你返回 num 的 k 美丽值。 注意：   允许有 前缀 0 。   0 不能整除任何值。   一个 子字符串 是一个">
+<meta property="og:description" content="leetcode-第78场双周赛  第一题-easy 2269. 找到一个数字的 K 美丽值  题目描述 一个整数 num 的 k 美丽值定义为 num 中符合以下条件的 子字符串 数目：   子字符串长度为 k 。   子字符串能整除 num 。   给你整数 num 和 k ，请你返回 num 的 k 美丽值。 注意：   允许有 前缀 0 。   0 不能整除任何值。   一个 子字符串">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/25/example1drawio3.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/24/example2drawio.png">
@@ -284,103 +284,88 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第78场双周赛</h1>
-<h3 id="第一题-easy-18">第一题-easy</h3>
+              <h1 id="leetcode-第78场双周赛"><a class="markdownIt-Anchor" href="#leetcode-第78场双周赛"></a> leetcode-第78场双周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-k-beauty-of-a-number/">2269. 找到一个数字的 K 美丽值</a></p>
-<h4 id="题目描述-56">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>一个整数 num 的 <strong>k</strong> 美丽值定义为 num 中符合以下条件的 <strong>子字符串</strong> 数目：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>子字符串长度为 k 。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>子字符串能整除 num 。</p>
 </li>
 </ul>
 <p>给你整数 num 和 k ，请你返回 num 的 k 美丽值。</p>
 <p>注意：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>允许有 <strong>前缀 0</strong> 。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>0 不能整除任何值。</p>
 </li>
 </ul>
 <p>一个 <strong>子字符串</strong> 是一个字符串里的连续一段字符序列。</p>
-<h4 id="样例-55">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dart">输入：<span class="hljs-built_in">num</span> = <span class="hljs-number">240</span>, k = <span class="hljs-number">2</span><br>输出：<span class="hljs-number">2</span><br>解释：以下是 <span class="hljs-built_in">num</span> 里长度为 k 的子字符串：<br>- <span class="hljs-string">&quot;240&quot;</span> 中的 <span class="hljs-string">&quot;24&quot;</span> ：<span class="hljs-number">24</span> 能整除 <span class="hljs-number">240</span> 。<br>- <span class="hljs-string">&quot;240&quot;</span> 中的 <span class="hljs-string">&quot;40&quot;</span> ：<span class="hljs-number">40</span> 能整除 <span class="hljs-number">240</span> 。<br>所以，k 美丽值为 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dart">输入：<span class="hljs-built_in">num</span> = <span class="hljs-number">430043</span>, k = <span class="hljs-number">2</span><br>输出：<span class="hljs-number">2</span><br>解释：以下是 <span class="hljs-built_in">num</span> 里长度为 k 的子字符串：<br>- <span class="hljs-string">&quot;430043&quot;</span> 中的 <span class="hljs-string">&quot;43&quot;</span> ：<span class="hljs-number">43</span> 能整除 <span class="hljs-number">430043</span> 。<br>- <span class="hljs-string">&quot;430043&quot;</span> 中的 <span class="hljs-string">&quot;30&quot;</span> ：<span class="hljs-number">30</span> 不能整除 <span class="hljs-number">430043</span> 。<br>- <span class="hljs-string">&quot;430043&quot;</span> 中的 <span class="hljs-string">&quot;00&quot;</span> ：<span class="hljs-number">0</span> 不能整除 <span class="hljs-number">430043</span> 。<br>- <span class="hljs-string">&quot;430043&quot;</span> 中的 <span class="hljs-string">&quot;04&quot;</span> ：<span class="hljs-number">4</span> 不能整除 <span class="hljs-number">430043</span> 。<br>- <span class="hljs-string">&quot;430043&quot;</span> 中的 <span class="hljs-string">&quot;43&quot;</span> ：<span class="hljs-number">43</span> 能整除 <span class="hljs-number">430043</span> 。<br>所以，k 美丽值为 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-56">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">divisorSubstrings</span><span class="hljs-params">(<span class="hljs-type">int</span> num, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>        string s=<span class="hljs-built_in">to_string</span>(num);<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">size</span>()-k+<span class="hljs-number">1</span>;i++)&#123;<br>            <span class="hljs-type">int</span> temp=<span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=i;j&lt;i+k;j++)&#123;<br>                temp=<span class="hljs-number">10</span>*temp+s[j]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(temp!=<span class="hljs-number">0</span>&amp;&amp;num%temp==<span class="hljs-number">0</span>) ans++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-18">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-ways-to-split-array/">2270. 分割数组的方案数</a></p>
-<h4 id="题目描述-57">题目描述</h4>
-<p>给你一个下标从 0 开始长度为 n 的整数数组 nums 。如果以下描述为真，那么 nums 在下标 i 处有一个 <strong>合法的分割</strong> ：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>前 i + 1 个元素的和 <strong>大于等于</strong> 剩下的 n - i - 1 个元素的和。</p>
-</li>
-<li class="lvl-2">
-<p>下标 i 的右边 <strong>至少有一个</strong> 元素，也就是说下标 i 满足 0 &lt;= i &lt; n - 1 。</p>
-</li>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
+<p>给你一个下标从 0 开始长度为 n 的整数数组 nums 。<br>
+如果以下描述为真，那么 nums 在下标 i 处有一个 <strong>合法的分割</strong> ：</p>
+<ul>
+<li>前 i + 1 个元素的和 <strong>大于等于</strong> 剩下的 n - i - 1 个元素的和。</li>
+<li>下标 i 的右边 <strong>至少有一个</strong> 元素，也就是说下标 i 满足 0 &lt;= i &lt; n - 1 。</li>
 </ul>
 <p>请你返回 nums 中的 <strong>合法分割</strong> 方案数。</p>
-<h4 id="样例-56">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [10,4,-8,7]<br>输出：2<br>解释：<br>总共有<span class="hljs-number"> 3 </span>种不同的方案可以将 nums 分割成两个非空的部分：<br>- 在下标<span class="hljs-number"> 0 </span>处分割 nums 。那么第一部分为 [10] ，和为<span class="hljs-number"> 10 </span>。第二部分为 [4,-8,7] ，和为<span class="hljs-number"> 3 </span>。因为<span class="hljs-number"> 10 </span>&gt;=<span class="hljs-number"> 3 </span>，所以 i =<span class="hljs-number"> 0 </span>是一个合法的分割。<br>- 在下标<span class="hljs-number"> 1 </span>处分割 nums 。那么第一部分为 [10,4] ，和为<span class="hljs-number"> 14 </span>。第二部分为 [-8,7] ，和为 -1 。因为<span class="hljs-number"> 14 </span>&gt;= -1 ，所以 i =<span class="hljs-number"> 1 </span>是一个合法的分割。<br>- 在下标<span class="hljs-number"> 2 </span>处分割 nums 。那么第一部分为 [10,4,-8] ，和为<span class="hljs-number"> 6 </span>。第二部分为 [7] ，和为<span class="hljs-number"> 7 </span>。因为<span class="hljs-number"> 6 </span>&lt;<span class="hljs-number"> 7 </span>，所以 i =<span class="hljs-number"> 2 </span>不是一个合法的分割。<br>所以 nums 中总共合法分割方案受为<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [2,3,1,0]<br>输出：2<br>解释：<br>总共有<span class="hljs-number"> 2 </span>种 nums 的合法分割：<br>- 在下标<span class="hljs-number"> 1 </span>处分割 nums 。那么第一部分为 [2,3] ，和为<span class="hljs-number"> 5 </span>。第二部分为 [1,0] ，和为<span class="hljs-number"> 1 </span>。因为<span class="hljs-number"> 5 </span>&gt;=<span class="hljs-number"> 1 </span>，所以 i =<span class="hljs-number"> 1 </span>是一个合法的分割。<br>- 在下标<span class="hljs-number"> 2 </span>处分割 nums 。那么第一部分为 [2,3,1] ，和为<span class="hljs-number"> 6 </span>。第二部分为 [0] ，和为<span class="hljs-number"> 0 </span>。因为<span class="hljs-number"> 6 </span>&gt;=<span class="hljs-number"> 0 </span>，所以 i =<span class="hljs-number"> 2 </span>是一个合法的分割。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-57">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>前缀和，注意存前缀和的数组要用long long</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">waysToSplitArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; <span class="hljs-title">s</span><span class="hljs-params">(nums.size())</span></span>;<br>        s[<span class="hljs-number">0</span>]=nums[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;<br>            s[i]=s[i<span class="hljs-number">-1</span>]+nums[i];<br>        &#125;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i++)&#123;<br>            <span class="hljs-keyword">if</span>(s[i]&gt;=s[nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>]-s[i]) ans++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-18">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-white-tiles-covered-by-a-carpet/">2271. 毯子覆盖的最多白色砖块数</a></p>
-<h4 id="题目描述-58">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>给你一个二维整数数组 tiles ，其中 tiles[i] = [li, ri] ，表示所有在 li &lt;= j &lt;= ri 之间的每个瓷砖位置 j 都被涂成了白色。</p>
 <p>同时给你一个整数 carpetLen ，表示可以放在 <strong>任何位置</strong> 的一块毯子。</p>
 <p>请你返回使用这块毯子，<strong>最多</strong> 可以盖住多少块瓷砖。</p>
-<h4 id="样例-57">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <p><img src="https://assets.leetcode.com/uploads/2022/03/25/example1drawio3.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：tiles = <span class="hljs-comment">[<span class="hljs-comment">[1,5]</span>,<span class="hljs-comment">[10,11]</span>,<span class="hljs-comment">[12,18]</span>,<span class="hljs-comment">[20,25]</span>,<span class="hljs-comment">[30,32]</span>]</span>, carpetLen = 10<br>输出：9<br>解释：将毯子从瓷砖 10 开始放置。<br>总共覆盖 9 块瓷砖，所以返回 9 。<br>注意可能有其他方案也可以覆盖 9 块瓷砖。<br>可以看出，瓷砖无法覆盖超过 9 块瓷砖。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <p><img src="https://assets.leetcode.com/uploads/2022/03/24/example2drawio.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：tiles = <span class="hljs-string">[[10,11],[1,1]]</span>, carpetLen = <span class="hljs-number">2</span><br>输出：<span class="hljs-number">2</span><br>解释：将毯子从瓷砖 <span class="hljs-number">10</span> 开始放置。<br>总共覆盖 <span class="hljs-number">2</span> 块瓷砖，所以我们返回 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-58">思路</h4>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
 <p>排序+双指针</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maximumWhiteTiles</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; tiles, <span class="hljs-type">int</span> carpetLen)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(tiles.<span class="hljs-built_in">begin</span>(),tiles.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-type">int</span> n=tiles.<span class="hljs-built_in">size</span>(),ans=<span class="hljs-number">0</span>,cur=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            <span class="hljs-keyword">while</span>(j&lt;n&amp;&amp;tiles[j][<span class="hljs-number">1</span>]-tiles[i][<span class="hljs-number">0</span>]+<span class="hljs-number">1</span>&lt;=carpetLen)&#123;<br>                cur+=tiles[j][<span class="hljs-number">1</span>]-tiles[j][<span class="hljs-number">0</span>]+<span class="hljs-number">1</span>;<br>                j++;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(j&lt;n)&#123;<br>                ans=<span class="hljs-built_in">max</span>(ans,cur+<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>,tiles[i][<span class="hljs-number">0</span>]+carpetLen-tiles[j][<span class="hljs-number">0</span>]));<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                ans=<span class="hljs-built_in">max</span>(ans,cur);<br>            &#125;<br>            cur-=tiles[i][<span class="hljs-number">1</span>]-tiles[i][<span class="hljs-number">0</span>]+<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-18">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/substring-with-largest-variance/">2272. 最大波动的子字符串</a></p>
 
               

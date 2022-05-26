@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第292场周赛 第一题-easy 2264. 字符串中最大的 3 位相同数字 题目描述 给你一个字符串 num ，表示一个大整数。如果一个整数满足下述所有条件，则认为该整数是一个 优质整数 ：   该整数是 num 的一个长度为 3 的 子字符串 。   该整数由唯一一个数字重复 3 次组成。   以字符串形式返回 最大的优质整数 。如果不存在满足要求的整数，则返回一个空字符串">
+    <meta name="description" content="leetcode-第292场周赛  第一题-easy 2264. 字符串中最大的 3 位相同数字  题目描述 给你一个字符串 num ，表示一个大整数。如果一个整数满足下述所有条件，则认为该整数是一个 优质整数 ：   该整数是 num 的一个长度为 3 的 子字符串 。   该整数由唯一一个数字重复 3 次组成。   以字符串形式返回 最大的优质整数 。如果不存在满足要求的整数，则返回一个空字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-第292场周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/05/15/leetcode-%E7%AC%AC292%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第292场周赛 第一题-easy 2264. 字符串中最大的 3 位相同数字 题目描述 给你一个字符串 num ，表示一个大整数。如果一个整数满足下述所有条件，则认为该整数是一个 优质整数 ：   该整数是 num 的一个长度为 3 的 子字符串 。   该整数由唯一一个数字重复 3 次组成。   以字符串形式返回 最大的优质整数 。如果不存在满足要求的整数，则返回一个空字符串">
+<meta property="og:description" content="leetcode-第292场周赛  第一题-easy 2264. 字符串中最大的 3 位相同数字  题目描述 给你一个字符串 num ，表示一个大整数。如果一个整数满足下述所有条件，则认为该整数是一个 优质整数 ：   该整数是 num 的一个长度为 3 的 子字符串 。   该整数由唯一一个数字重复 3 次组成。   以字符串形式返回 最大的优质整数 。如果不存在满足要求的整数，则返回一个空字">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png">
 <meta property="article:published_time" content="2022-05-15T08:19:00.000Z">
@@ -283,122 +283,98 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第292场周赛</h1>
-<h3 id="第一题-easy-11">第一题-easy</h3>
+              <h1 id="leetcode-第292场周赛"><a class="markdownIt-Anchor" href="#leetcode-第292场周赛"></a> leetcode-第292场周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-3-same-digit-number-in-string/">2264. 字符串中最大的 3 位相同数字</a></p>
-<h4 id="题目描述-34">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>给你一个字符串 num ，表示一个大整数。如果一个整数满足下述所有条件，则认为该整数是一个 <strong>优质整数</strong> ：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>该整数是 num 的一个长度为 3 的 <strong>子字符串</strong> 。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>该整数由唯一一个数字重复 3 次组成。</p>
 </li>
 </ul>
 <p>以字符串形式返回 <strong>最大的优质整数</strong> 。如果不存在满足要求的整数，则返回一个空字符串 “” 。</p>
 <p>注意：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>子字符串</strong> 是字符串中的一个连续字符序列。</p>
-</li>
-<li class="lvl-2">
-<p>num 或优质整数中可能存在 <strong>前导零</strong> 。</p>
-</li>
+<ul>
+<li><strong>子字符串</strong> 是字符串中的一个连续字符序列。</li>
+<li>num 或优质整数中可能存在 <strong>前导零</strong> 。</li>
 </ul>
-<h4 id="样例-33">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart">输入：<span class="hljs-built_in">num</span> = <span class="hljs-string">&quot;6777133339&quot;</span><br>输出：<span class="hljs-string">&quot;777&quot;</span><br>解释：<span class="hljs-built_in">num</span> 中存在两个优质整数：<span class="hljs-string">&quot;777&quot;</span> 和 <span class="hljs-string">&quot;333&quot;</span> 。<br><span class="hljs-string">&quot;777&quot;</span> 是最大的那个，所以返回 <span class="hljs-string">&quot;777&quot;</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：num <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2300019&quot;</span><br>输出：<span class="hljs-string">&quot;000&quot;</span><br>解释：<span class="hljs-string">&quot;000&quot;</span> 是唯一一个优质整数。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例3</p>
-</li>
+<ul>
+<li>示例3</li>
 </ul>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：num <span class="hljs-operator">=</span> <span class="hljs-string">&quot;42352338&quot;</span><br>输出：<span class="hljs-string">&quot;&quot;</span><br>解释：不存在长度为 <span class="hljs-number">3</span> 且仅由一个唯一数字组成的整数。因此，不存在优质整数。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-34">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>遍历即可。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">largestGoodInteger</span><span class="hljs-params">(string num)</span> </span>&#123;<br>        string ans=<span class="hljs-string">&quot;000&quot;</span>;<br>        <span class="hljs-type">bool</span> f=<span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;num.<span class="hljs-built_in">size</span>()<span class="hljs-number">-2</span>;i++)&#123;<br>            <span class="hljs-keyword">if</span>(num[i]==num[i+<span class="hljs-number">1</span>]&amp;&amp;num[i]==num[i+<span class="hljs-number">2</span>])&#123;<br>                f=<span class="hljs-literal">true</span>;<br>                string temp=<span class="hljs-string">&quot;&quot;</span>;<br>                <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">3</span>;k++) temp.<span class="hljs-built_in">push_back</span>(num[i]);<br>                <span class="hljs-keyword">if</span>(ans&lt;temp)&#123;<br>                    ans=temp;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(f) <span class="hljs-keyword">return</span> ans;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-11">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-nodes-equal-to-average-of-subtree/">2265. 统计值等于子树平均值的节点数</a></p>
-<h4 id="题目描述-35">题目描述</h4>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
 <p>给你一棵二叉树的根节点 root ，找出并返回满足要求的节点数，要求节点的值等于其 <strong>子树</strong> 中值的 <strong>平均值</strong> 。</p>
 <p>注意：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>n 个元素的平均值可以由 n 个元素 <strong>求和</strong> 然后再除以 n ，并 <strong>向下舍入</strong> 到最近的整数。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>root 的 <strong>子树</strong> 由 root 和它的所有后代组成。</p>
 </li>
 </ul>
-<h4 id="样例-34">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：root = [4,8,5,0,1,null,6]<br>输出：5<br>解释：<br>对值为<span class="hljs-number"> 4 </span>的节点：子树的平均值 (4 +<span class="hljs-number"> 8 </span>+<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 0 </span>+<span class="hljs-number"> 1 </span>+ 6) /<span class="hljs-number"> 6 </span>=<span class="hljs-number"> 24 </span>/<span class="hljs-number"> 6 </span>=<span class="hljs-number"> 4 </span>。<br>对值为<span class="hljs-number"> 5 </span>的节点：子树的平均值 (5 + 6) /<span class="hljs-number"> 2 </span>=<span class="hljs-number"> 11 </span>/<span class="hljs-number"> 2 </span>=<span class="hljs-number"> 5 </span>。<br>对值为<span class="hljs-number"> 0 </span>的节点：子树的平均值<span class="hljs-number"> 0 </span>/<span class="hljs-number"> 1 </span>=<span class="hljs-number"> 0 </span>。<br>对值为<span class="hljs-number"> 1 </span>的节点：子树的平均值<span class="hljs-number"> 1 </span>/<span class="hljs-number"> 1 </span>=<span class="hljs-number"> 1 </span>。<br>对值为<span class="hljs-number"> 6 </span>的节点：子树的平均值<span class="hljs-number"> 6 </span>/<span class="hljs-number"> 1 </span>=<span class="hljs-number"> 6 </span>。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：root = [1]<br>输出：1<br>解释：对值为<span class="hljs-number"> 1 </span>的节点：子树的平均值<span class="hljs-number"> 1 </span>/<span class="hljs-number"> 1 </span>= 1。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-35">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>dfs，每次返回当前子树值的总和及子树节点数量。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * struct TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode *left;</span><br><span class="hljs-comment"> *     TreeNode *right;</span><br><span class="hljs-comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br><br>    <span class="hljs-function">pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode* node,<span class="hljs-type">int</span> &amp;ans)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node-&gt;left==<span class="hljs-literal">nullptr</span>&amp;&amp;node-&gt;right==<span class="hljs-literal">nullptr</span>)&#123;<br>            ans++;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(node-&gt;val,<span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-type">int</span> sum=node-&gt;val,num=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(node-&gt;left!=<span class="hljs-literal">nullptr</span>)&#123;<br>            pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; l=<span class="hljs-built_in">dfs</span>(node-&gt;left,ans);<br>            sum+=l.first;<br>            num+=l.second;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(node-&gt;right!=<span class="hljs-literal">nullptr</span>)&#123;<br>            pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; r=<span class="hljs-built_in">dfs</span>(node-&gt;right,ans);<br>            sum+=r.first;<br>            num+=r.second;<br>        &#125;<br>        <span class="hljs-type">int</span> avg=sum/num;<br>        <span class="hljs-keyword">if</span>(avg==node-&gt;val) ans++;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(sum,num);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">averageOfSubtree</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">dfs</span>(root,ans);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-11">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-number-of-texts/">2266. 统计打字方案数</a></p>
-<h4 id="题目描述-36">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>Alice 在给 Bob 用手机打字。数字到字母的 <strong>对应</strong> 如下图所示。</p>
 <img src="https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 25%;">
 <p>为了 <strong>打出</strong> 一个字母，Alice 需要 <strong>按</strong> 对应字母 i 次，i 是该字母在这个按键上所处的位置。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>比方说，为了按出字母 ‘s’ ，Alice 需要按 ‘7’ 四次。类似的， Alice 需要按 ‘5’ 两次得到字母  ‘k’ 。</p>
-</li>
-<li class="lvl-2">
-<p>注意，数字 ‘0’ 和 ‘1’ 不映射到任何字母，所以 Alice 不 使用它们。</p>
-</li>
+<ul>
+<li>比方说，为了按出字母 ‘s’ ，Alice 需要按 ‘7’ 四次。类似的， Alice 需要按 ‘5’ 两次得到字母  ‘k’ 。</li>
+<li>注意，数字 ‘0’ 和 ‘1’ 不映射到任何字母，所以 Alice 不 使用它们。</li>
 </ul>
 <p>但是，由于传输的错误，Bob 没有收到 Alice 打字的字母信息，反而收到了 <strong>按键的字符串信息</strong> 。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>比方说，Alice 发出的信息为 “bob” ，Bob 将收到字符串 “2266622” 。</p>
-</li>
+<ul>
+<li>比方说，Alice 发出的信息为 “bob” ，Bob 将收到字符串 “2266622” 。</li>
 </ul>
 <p>给你一个字符串 pressedKeys ，表示 Bob 收到的字符串，请你返回 Alice <strong>总共可能发出多少种文字信息</strong> 。</p>
 <p>由于答案可能很大，将它对 109 + 7 <strong>取余</strong> 后返回。</p>
-<h4 id="样例-35">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">pressedKeys</span> = <span class="hljs-string">&quot;22233&quot;</span><br>输出：<span class="hljs-number">8</span><br>解释：<br>Alice 可能发出的文字信息包括：<br><span class="hljs-string">&quot;aaadd&quot;</span>, <span class="hljs-string">&quot;abdd&quot;</span>, <span class="hljs-string">&quot;badd&quot;</span>, <span class="hljs-string">&quot;cdd&quot;</span>, <span class="hljs-string">&quot;aaae&quot;</span>, <span class="hljs-string">&quot;abe&quot;</span>, <span class="hljs-string">&quot;bae&quot;</span> 和 <span class="hljs-string">&quot;ce&quot;</span> 。<br>由于总共有 <span class="hljs-number">8</span> 种可能的信息，所以我们返回 <span class="hljs-number">8</span> 。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：pressedKeys = &quot;222222222222222222222222222222222222&quot;<br>输出：82876089<br>解释：<br>总共有<span class="hljs-number"> 2082876103 </span>种 Alice 可能发出的文字信息。<br>由于我们需要将答案对<span class="hljs-number"> 109 </span>+<span class="hljs-number"> 7 </span>取余，所以我们返回<span class="hljs-number"> 2082876103 </span>% (109 + 7) =<span class="hljs-number"> 82876089 </span>。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-36">思路</h4>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
 <p>线性dp，再利用乘法法则得到结果。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countTexts</span><span class="hljs-params">(string pressedKeys)</span> </span>&#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> ans=<span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> n=pressedKeys.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> mod=<span class="hljs-number">1e9</span>+<span class="hljs-number">7</span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; <span class="hljs-title">f1</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span>, <span class="hljs-title">f2</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        f1[<span class="hljs-number">0</span>] = f2[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">3</span> &amp;&amp; j &lt;= i; j++) f1[i] = (f1[i] + f1[i - j]) % mod;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">4</span> &amp;&amp; j &lt;= i; j++) f2[i] = (f2[i] + f2[i - j]) % mod;<br>        &#125;<br>        <span class="hljs-type">int</span> i=<span class="hljs-number">0</span>,j;<br>        <span class="hljs-keyword">while</span>(i&lt;n)&#123;<br>            <span class="hljs-type">int</span> count=<span class="hljs-number">0</span>,j=i;<br>            <span class="hljs-keyword">while</span>(j&lt;n&amp;&amp;pressedKeys[j]==pressedKeys[i])&#123;<br>                count++;<br>                j++;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(pressedKeys[i]==<span class="hljs-string">&#x27;7&#x27;</span>||pressedKeys[i]==<span class="hljs-string">&#x27;9&#x27;</span>)&#123;<br>                ans=(ans*f2[count])%mod;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-comment">// cout&lt;&lt;count&lt;&lt;endl;</span><br>                ans=(ans*f1[count])%mod;<br>                <span class="hljs-comment">// cout&lt;&lt;ans&lt;&lt;endl;</span><br>            &#125;<br>            i=j;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-11">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/check-if-there-is-a-valid-parentheses-string-path/">2267. 检查是否有合法括号字符串路径</a></p>
 
               

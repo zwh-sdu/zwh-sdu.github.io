@@ -16,12 +16,12 @@
   <meta name="author" content="张文浩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="leetcode-第76场双周赛 第一题-easy 6060. 找到最接近 0 的数字 题目描述 给你一个长度为 n 的整数数组 nums ，请你返回 nums 中最 接近 0 的数字。如果有多个答案，请你返回它们中的 最大值 。 样例   示例1   123456789输入：nums &#x3D; [-4,-2,1,4,8]输出：1解释：-4 到 0 的距离为 |-4| &#x3D; 4 。-2 到 0 的距离为">
+    <meta name="description" content="leetcode-第76场双周赛  第一题-easy 6060. 找到最接近 0 的数字  题目描述 给你一个长度为 n 的整数数组 nums ，请你返回 nums 中最 接近 0 的数字。如果有多个答案，请你返回它们中的 最大值 。  样例  示例1  123456789输入：nums &#x3D; [-4,-2,1,4,8]输出：1解释：-4 到 0 的距离为 |-4| &#x3D; 4 。-2 到 0 的距离">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode—第76场双周赛">
 <meta property="og:url" content="https://zwh-sdu.github.io/2022/04/16/leetcode-%E7%AC%AC76%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="张文浩の博客">
-<meta property="og:description" content="leetcode-第76场双周赛 第一题-easy 6060. 找到最接近 0 的数字 题目描述 给你一个长度为 n 的整数数组 nums ，请你返回 nums 中最 接近 0 的数字。如果有多个答案，请你返回它们中的 最大值 。 样例   示例1   123456789输入：nums &#x3D; [-4,-2,1,4,8]输出：1解释：-4 到 0 的距离为 |-4| &#x3D; 4 。-2 到 0 的距离为">
+<meta property="og:description" content="leetcode-第76场双周赛  第一题-easy 6060. 找到最接近 0 的数字  题目描述 给你一个长度为 n 的整数数组 nums ，请你返回 nums 中最 接近 0 的数字。如果有多个答案，请你返回它们中的 最大值 。  样例  示例1  123456789输入：nums &#x3D; [-4,-2,1,4,8]输出：1解释：-4 到 0 的距离为 |-4| &#x3D; 4 。-2 到 0 的距离">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-16T15:53:00.000Z">
 <meta property="article:modified_time" content="2022-04-17T04:30:38.133Z">
@@ -281,87 +281,73 @@
             
             <div class="markdown-body">
               
-              <h1>leetcode-第76场双周赛</h1>
-<h3 id="第一题-easy-17">第一题-easy</h3>
+              <h1 id="leetcode-第76场双周赛"><a class="markdownIt-Anchor" href="#leetcode-第76场双周赛"></a> leetcode-第76场双周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-closest-number-to-zero/">6060. 找到最接近 0 的数字</a></p>
-<h4 id="题目描述-53">题目描述</h4>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，请你返回 <code>nums</code> 中最 <strong>接近</strong> <code>0</code> 的数字。如果有多个答案，请你返回它们中的 <strong>最大值</strong> 。</p>
-<h4 id="样例-52">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [-4,-2,1,4,8]<br>输出：1<br>解释：<br>-4 到<span class="hljs-number"> 0 </span>的距离为 |-4| =<span class="hljs-number"> 4 </span>。<br>-2 到<span class="hljs-number"> 0 </span>的距离为 |-2| =<span class="hljs-number"> 2 </span>。<br>1 到<span class="hljs-number"> 0 </span>的距离为 |1| =<span class="hljs-number"> 1 </span>。<br>4 到<span class="hljs-number"> 0 </span>的距离为 |4| =<span class="hljs-number"> 4 </span>。<br>8 到<span class="hljs-number"> 0 </span>的距离为 |8| =<span class="hljs-number"> 8 </span>。<br>所以，数组中距离<span class="hljs-number"> 0 </span>最近的数字为<span class="hljs-number"> 1 </span>。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs subunit">输入：nums = [2,<span class="hljs-string">-1</span>,1]<br>输出：1<br>解释：1 和 <span class="hljs-string">-1</span> 都是距离 0 最近的数字，所以返回较大值 1 。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-53">思路</h4>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
 <p>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findClosestNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans,zui=<span class="hljs-number">0x3f3f3f3f</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(nums[i])&lt;zui)&#123;<br>                ans=nums[i];<br>                zui=<span class="hljs-built_in">abs</span>(nums[i]);<br>            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(nums[i]==zui))&#123;<br>                ans=<span class="hljs-built_in">max</span>(ans,nums[i]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第二题-mid-17">第二题-mid</h3>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-buy-pens-and-pencils/">6061. 买钢笔和铅笔的方案数</a></p>
-<h4 id="题目描述-54">题目描述</h4>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
 <p>给你一个整数 total ，表示你拥有的总钱数。同时给你两个整数 cost1 和 cost2 ，分别表示一支钢笔和一支铅笔的价格。你可以花费你部分或者全部的钱，去买任意数目的两种笔。</p>
 <p>请你返回购买钢笔和铅笔的 <strong>不同方案数目</strong> 。</p>
-<h4 id="样例-53">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：total = 20, cost1 = 10, cost2 = 5<br>输出：9<br>解释：一支钢笔的价格为<span class="hljs-number"> 10 </span>，一支铅笔的价格为<span class="hljs-number"> 5 </span>。<br>- 如果你买<span class="hljs-number"> 0 </span>支钢笔，那么你可以买<span class="hljs-number"> 0 </span>，1 ，2 ，3 或者<span class="hljs-number"> 4 </span>支铅笔。<br>- 如果你买<span class="hljs-number"> 1 </span>支钢笔，那么你可以买<span class="hljs-number"> 0 </span>，1 或者<span class="hljs-number"> 2 </span>支铅笔。<br>- 如果你买<span class="hljs-number"> 2 </span>支钢笔，那么你没法买任何铅笔。<br>所以买钢笔和铅笔的总方案数为<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 3 </span>+<span class="hljs-number"> 1 </span>=<span class="hljs-number"> 9 </span>种。<br></code></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例2</p>
-</li>
+<ul>
+<li>示例2</li>
 </ul>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：total = 5, cost1 = 10, cost2 = 10<br>输出：1<br>解释：钢笔和铅笔的价格都为<span class="hljs-number"> 10 </span>，都比拥有的钱数多，所以你没法购买任何文具。所以只有<span class="hljs-number"> 1 </span>种方案：买<span class="hljs-number"> 0 </span>支钢笔和<span class="hljs-number"> 0 </span>支铅笔。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-54">思路</h4>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
 <p>水题，直接模拟即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">waysToBuyPensPencils</span><span class="hljs-params">(<span class="hljs-type">int</span> total, <span class="hljs-type">int</span> cost1, <span class="hljs-type">int</span> cost2)</span> </span>&#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(i*cost1&lt;=total)&#123;<br>            ans+=(total-i*cost1)/cost2+<span class="hljs-number">1</span>;<br>            i++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第三题-mid-17">第三题-mid</h3>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-an-atm-machine/">6062. 设计一个 ATM 机器</a></p>
-<h4 id="题目描述-55">题目描述</h4>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
 <p>一个 ATM 机器，存有 5 种面值的钞票：20 ，50 ，100 ，200 和 500 美元。初始时，ATM 机是空的。用户可以用它存或者取任意数目的钱。</p>
 <p>取款时，机器会优先取 较大 数额的钱。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>比方说，你想取 $300 ，并且机器里有 2 张 $50 的钞票，1 张 $100 的钞票和1 张 $200 的钞票，那么机器会取出 $100 和 $200 的钞票。</p>
-</li>
-<li class="lvl-2">
-<p>但是，如果你想取 $600 ，机器里有 3 张 $200 的钞票和1 张 $500 的钞票，那么取款请求会被拒绝，因为机器会先取出 $500 的钞票，然后无法取出剩余的 $100 。注意，因为有 $500 钞票的存在，机器 不能 取 $200 的钞票。</p>
-</li>
+<ul>
+<li>比方说，你想取 $300 ，并且机器里有 2 张 $50 的钞票，1 张 $100 的钞票和1 张 $200 的钞票，那么机器会取出 $100 和 $200 的钞票。</li>
+<li>但是，如果你想取 $600 ，机器里有 3 张 $200 的钞票和1 张 $500 的钞票，那么取款请求会被拒绝，因为机器会先取出 $500 的钞票，然后无法取出剩余的 $100 。注意，因为有 $500 钞票的存在，机器 不能 取 $200 的钞票。</li>
 </ul>
 <p>请你实现 ATM 类：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p>ATM() 初始化 ATM 对象。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>void deposit(int[] banknotesCount) 分别存入 $20 ，$50，$100，$200 和 $500 钞票的数目。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>int[] withdraw(int amount) 返回一个长度为 5 的数组，分别表示 $20 ，$50，$100 ，$200 和 $500 钞票的数目，并且更新 ATM 机里取款后钞票的剩余数量。如果无法取出指定数额的钱，请返回 [-1] （这种情况下 不 取出任何钞票）。</p>
 </li>
 </ul>
-<h4 id="样例-54">样例</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>示例1</p>
-</li>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
 </ul>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk">输入：<br>[<span class="hljs-string">&quot;ATM&quot;</span>, <span class="hljs-string">&quot;deposit&quot;</span>, <span class="hljs-string">&quot;withdraw&quot;</span>, <span class="hljs-string">&quot;deposit&quot;</span>, <span class="hljs-string">&quot;withdraw&quot;</span>, <span class="hljs-string">&quot;withdraw&quot;</span>]<br>[[], [[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]], [<span class="hljs-number">600</span>], [[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]], [<span class="hljs-number">600</span>], [<span class="hljs-number">550</span>]]<br>输出：<br>[null, null, [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>], null, [-<span class="hljs-number">1</span>], [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>]]<br><br>解释：<br>ATM atm = new ATM();<br>atm.deposit([<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]); <span class="hljs-regexp">//</span> 存入 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$100</span> ，<span class="hljs-number">2</span> 张 <span class="hljs-variable">$200</span> 和 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$500</span> 的钞票。<br>atm.withdraw(<span class="hljs-number">600</span>);        <span class="hljs-regexp">//</span> 返回 [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>] 。机器返回 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$100</span> 和 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$500</span> 的钞票。机器里剩余钞票的数量为 [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">0</span>] 。<br>atm.deposit([<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]); <span class="hljs-regexp">//</span> 存入 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$50</span> ，<span class="hljs-number">1</span> 张 <span class="hljs-variable">$200</span> 和 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$500</span> 的钞票。<br>                          <span class="hljs-regexp">//</span> 机器中剩余钞票数量为 [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>] 。<br>atm.withdraw(<span class="hljs-number">600</span>);        <span class="hljs-regexp">//</span> 返回 [-<span class="hljs-number">1</span>] 。机器会尝试取出 <span class="hljs-variable">$500</span> 的钞票，然后无法得到剩余的 <span class="hljs-variable">$100</span> ，所以取款请求会被拒绝。<br>                          <span class="hljs-regexp">//</span> 由于请求被拒绝，机器中钞票的数量不会发生改变。<br>atm.withdraw(<span class="hljs-number">550</span>);        <span class="hljs-regexp">//</span> 返回 [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>] ，机器会返回 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$50</span> 的钞票和 <span class="hljs-number">1</span> 张 <span class="hljs-variable">$500</span> 的钞票。<br></code></pre></td></tr></table></figure>
-<h4 id="思路-55">思路</h4>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
 <p>直接模拟即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ATM</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">ATM</span>() &#123;<br>        num[<span class="hljs-number">0</span>]=<span class="hljs-number">20</span>;<br>        num[<span class="hljs-number">1</span>]=<span class="hljs-number">50</span>;<br>        num[<span class="hljs-number">2</span>]=<span class="hljs-number">100</span>;<br>        num[<span class="hljs-number">3</span>]=<span class="hljs-number">200</span>;<br>        num[<span class="hljs-number">4</span>]=<span class="hljs-number">500</span>;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt; banknotesCount)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)&#123;<br>            a[i]+=banknotesCount[i];<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">withdraw</span><span class="hljs-params">(<span class="hljs-type">int</span> amount)</span> </span>&#123;<br>        <span class="hljs-type">int</span> sum=<span class="hljs-number">0</span>,i=<span class="hljs-number">4</span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">minus</span><span class="hljs-params">(<span class="hljs-number">5</span>,<span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">while</span>(sum&lt;amount&amp;&amp;i&gt;=<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-comment">// long long l=a[i]*num[i];</span><br>            <span class="hljs-keyword">if</span>((amount-sum)/num[i]&gt;a[i])&#123;<br>                sum+=a[i]*num[i];<br>                minus[i]=a[i];<br>                i--;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-type">int</span> temp=(amount-sum)/num[i];<br>                sum+=temp*num[i];<br>                minus[i]=temp;<br>                i--;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(sum==amount)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)&#123;<br>                a[i]-=minus[i]; <br>            &#125;<br>            <span class="hljs-keyword">return</span> minus;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-built_in">res</span>(<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>);<br>            <span class="hljs-keyword">return</span> res;<br>        &#125;<br>    &#125;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> a[<span class="hljs-number">5</span>]=&#123;<span class="hljs-number">0</span>&#125;,num[<span class="hljs-number">5</span>];<br>&#125;;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your ATM object will be instantiated and called as such:</span><br><span class="hljs-comment"> * ATM* obj = new ATM();</span><br><span class="hljs-comment"> * obj-&gt;deposit(banknotesCount);</span><br><span class="hljs-comment"> * vector&lt;int&gt; param_2 = obj-&gt;withdraw(amount);</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="第四题-hard-17">第四题-hard</h3>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-score-of-a-node-sequence/">6063. 节点序列的最大得分</a></p>
 
               

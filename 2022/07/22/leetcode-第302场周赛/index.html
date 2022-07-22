@@ -1,0 +1,740 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张文浩">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="leetcode-第302场周赛  第一题-easy 2341. 数组能形成多少数对  题目描述 给你一个下标从 0 开始的整数数组 nums 。在一步操作中，你可以执行以下步骤：  从 nums 选出 两个 相等的 整数 从 nums 中移除这两个整数，形成一个 数对  请你在 nums 上多次执行此操作直到无法继续执行。 返回一个下标从 0 开始、长度为 2 的整数数组 answer 作为答">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-第302场周赛">
+<meta property="og:url" content="https://zwh-sdu.github.io/2022/07/22/leetcode-%E7%AC%AC302%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
+<meta property="og:site_name" content="张文浩の博客">
+<meta property="og:description" content="leetcode-第302场周赛  第一题-easy 2341. 数组能形成多少数对  题目描述 给你一个下标从 0 开始的整数数组 nums 。在一步操作中，你可以执行以下步骤：  从 nums 选出 两个 相等的 整数 从 nums 中移除这两个整数，形成一个 数对  请你在 nums 上多次执行此操作直到无法继续执行。 返回一个下标从 0 开始、长度为 2 的整数数组 answer 作为答">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-22T03:17:00.000Z">
+<meta property="article:modified_time" content="2022-07-22T04:52:22.538Z">
+<meta property="article:author" content="张文浩">
+<meta property="article:tag" content="leetcode刷题">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>leetcode-第302场周赛 - 张文浩の博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css# 滚动条颜色.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/shubiao.css# 鼠标指针.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zwh-sdu.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>zwh-blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-k7v9yq_3840x2160.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="leetcode-第302场周赛"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-22 11:17" pubdate>
+          2022年7月22日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">leetcode-第302场周赛</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="leetcode-第302场周赛"><a class="markdownIt-Anchor" href="#leetcode-第302场周赛"></a> leetcode-第302场周赛</h1>
+<h3 id="第一题-easy"><a class="markdownIt-Anchor" href="#第一题-easy"></a> 第一题-easy</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-number-of-pairs-in-array/">2341. 数组能形成多少数对</a></p>
+<h4 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h4>
+<p>给你一个下标从 0 开始的整数数组 nums 。在一步操作中，你可以执行以下步骤：</p>
+<ul>
+<li>从 nums 选出 <strong>两个 相等的</strong> 整数</li>
+<li>从 nums 中移除这两个整数，形成一个 <strong>数对</strong></li>
+</ul>
+<p>请你在 nums 上多次执行此操作直到无法继续执行。</p>
+<p>返回一个下标从 0 开始、长度为 2 的整数数组 answer 作为答案，其中 answer[0] 是形成的数对数目，answer[1] 是对 nums 尽可能执行上述操作后剩下的整数数目。</p>
+<h4 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h4>
+<ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[1,3,2,1,3,2,2]</span><br>输出：<span class="hljs-comment">[3,1]</span><br>解释：<br>nums<span class="hljs-comment">[0]</span> 和 nums<span class="hljs-comment">[3]</span> 形成一个数对，并从 nums 中移除，nums = <span class="hljs-comment">[3,2,3,2,2]</span> 。<br>nums<span class="hljs-comment">[0]</span> 和 nums<span class="hljs-comment">[2]</span> 形成一个数对，并从 nums 中移除，nums = <span class="hljs-comment">[2,2,2]</span> 。<br>nums<span class="hljs-comment">[0]</span> 和 nums<span class="hljs-comment">[1]</span> 形成一个数对，并从 nums 中移除，nums = <span class="hljs-comment">[2]</span> 。<br>无法形成更多数对。总共形成 3 个数对，nums 中剩下 1 个数字。<br></code></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[1,1]</span><br>输出：<span class="hljs-comment">[1,0]</span><br>解释：nums<span class="hljs-comment">[0]</span> 和 nums<span class="hljs-comment">[1]</span> 形成一个数对，并从 nums 中移除，nums = <span class="hljs-comment">[]</span> 。<br>无法形成更多数对。总共形成 1 个数对，nums 中剩下 0 个数字。<br></code></pre></td></tr></table></figure>
+<h4 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">numberOfPairs</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> count=<span class="hljs-number">0</span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">res</span><span class="hljs-params">(<span class="hljs-number">2</span>,<span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-built_in">sort</span>(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i++)&#123;<br>            <span class="hljs-keyword">if</span>(nums[i]==nums[i+<span class="hljs-number">1</span>])&#123;<br>                count++;<br>                i++;<br>            &#125;<br>        &#125;<br>        res[<span class="hljs-number">0</span>]=count;<br>        res[<span class="hljs-number">1</span>]=nums.<span class="hljs-built_in">size</span>()-count*<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二题-mid"><a class="markdownIt-Anchor" href="#第二题-mid"></a> 第二题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/max-sum-of-a-pair-with-equal-sum-of-digits/">2342. 数位和相等数对的最大和</a></p>
+<h4 id="题目描述-2"><a class="markdownIt-Anchor" href="#题目描述-2"></a> 题目描述</h4>
+<p>给你一个下标从 0 开始的数组 nums ，数组中的元素都是 <strong>正</strong> 整数。请你选出两个下标 i 和 j（i != j），且 nums[i] 的数位和 与  nums[j] 的数位和相等。</p>
+<p>请你找出所有满足条件的下标 i 和 j ，找出并返回 nums[i] + nums[j] 可以得到的 <strong>最大值</strong> 。</p>
+<h4 id="样例-2"><a class="markdownIt-Anchor" href="#样例-2"></a> 样例</h4>
+<ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [18,43,36,13,7]<br>输出：54<br>解释：满足条件的数对 (i, j) 为：<br>- (0, 2) ，两个数字的数位和都是<span class="hljs-number"> 9 </span>，相加得到<span class="hljs-number"> 18 </span>+<span class="hljs-number"> 36 </span>=<span class="hljs-number"> 54 </span>。<br>- (1, 4) ，两个数字的数位和都是<span class="hljs-number"> 7 </span>，相加得到<span class="hljs-number"> 43 </span>+<span class="hljs-number"> 7 </span>=<span class="hljs-number"> 50 </span>。<br>所以可以获得的最大和是<span class="hljs-number"> 54 </span>。<br></code></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs subunit">输入：nums = [10,12,19,14]<br>输出：<span class="hljs-string">-1</span><br>解释：不存在满足条件的数对，返回 <span class="hljs-string">-1</span> <br></code></pre></td></tr></table></figure>
+<h4 id="思路-2"><a class="markdownIt-Anchor" href="#思路-2"></a> 思路</h4>
+<p>用map存每个数位和有哪些数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ssum</span><span class="hljs-params">(<span class="hljs-type">int</span> num)</span></span>&#123;<br>        <span class="hljs-type">int</span> res=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(num)&#123;<br>            res+=num%<span class="hljs-number">10</span>;<br>            num/=<span class="hljs-number">10</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maximumSum</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> res=<span class="hljs-number">-1</span>;<br>        unordered_map&lt;<span class="hljs-type">int</span>,vector&lt;<span class="hljs-type">int</span>&gt;&gt; mp;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;<br>            mp[<span class="hljs-built_in">ssum</span>(nums[i])].<span class="hljs-built_in">push_back</span>(nums[i]);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> iter=mp.<span class="hljs-built_in">begin</span>();iter!=mp.<span class="hljs-built_in">end</span>();iter++)&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; ve=iter-&gt;second;<br>            <span class="hljs-keyword">if</span>(ve.<span class="hljs-built_in">size</span>()&lt;<span class="hljs-number">2</span>) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-built_in">sort</span>(ve.<span class="hljs-built_in">begin</span>(),ve.<span class="hljs-built_in">end</span>(),<span class="hljs-built_in">greater</span>&lt;<span class="hljs-type">int</span>&gt;());<br>            res=<span class="hljs-built_in">max</span>(res,ve[<span class="hljs-number">0</span>]+ve[<span class="hljs-number">1</span>]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="第三题-mid"><a class="markdownIt-Anchor" href="#第三题-mid"></a> 第三题-mid</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/query-kth-smallest-trimmed-number/">343. 裁剪数字后查询第 K 小的数字</a></p>
+<h4 id="题目描述-3"><a class="markdownIt-Anchor" href="#题目描述-3"></a> 题目描述</h4>
+<p>给你一个下标从 0 开始的字符串数组 nums ，其中每个字符串 长度相等 且只包含数字。</p>
+<p>再给你一个下标从 0 开始的二维整数数组 queries ，其中 queries[i] = [ki, trimi] 。对于每个 queries[i] ，你需要：</p>
+<p>将 nums 中每个数字 裁剪 到剩下 最右边 trimi 个数位。<br>
+在裁剪过后的数字中，找到 nums 中第 ki 小数字对应的 下标 。如果两个裁剪后数字一样大，那么下标 更小 的数字视为更小的数字。<br>
+将 nums 中每个数字恢复到原本字符串。<br>
+请你返回一个长度与 queries 相等的数组 answer，其中 answer[i]是第 i 次查询的结果。</p>
+<h4 id="样例-3"><a class="markdownIt-Anchor" href="#样例-3"></a> 样例</h4>
+<ul>
+<li>示例1</li>
+</ul>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs prolog">输入：nums = [<span class="hljs-string">&quot;102&quot;</span>,<span class="hljs-string">&quot;473&quot;</span>,<span class="hljs-string">&quot;251&quot;</span>,<span class="hljs-string">&quot;814&quot;</span>], queries = [[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]]<br>输出：[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]<br>解释：<br><span class="hljs-number">1.</span> 裁剪到只剩 <span class="hljs-number">1</span> 个数位后，nums = [<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>,<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;4&quot;</span>] 。最小的数字是 <span class="hljs-number">1</span> ，下标为 <span class="hljs-number">2</span> 。<br><span class="hljs-number">2.</span> 裁剪到剩 <span class="hljs-number">3</span> 个数位后，nums 没有变化。第 <span class="hljs-number">2</span> 小的数字是 <span class="hljs-number">251</span> ，下标为 <span class="hljs-number">2</span> 。<br><span class="hljs-number">3.</span> 裁剪到剩 <span class="hljs-number">2</span> 个数位后，nums = [<span class="hljs-string">&quot;02&quot;</span>,<span class="hljs-string">&quot;73&quot;</span>,<span class="hljs-string">&quot;51&quot;</span>,<span class="hljs-string">&quot;14&quot;</span>] 。第 <span class="hljs-number">4</span> 小的数字是 <span class="hljs-number">73</span> ，下标为 <span class="hljs-number">1</span> 。<br><span class="hljs-number">4.</span> 裁剪到剩 <span class="hljs-number">2</span> 个数位后，最小数字是 <span class="hljs-number">2</span> ，下标为 <span class="hljs-number">0</span> 。<br>   注意，裁剪后数字 <span class="hljs-string">&quot;02&quot;</span> 值为 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
+<ul>
+<li>示例2</li>
+</ul>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs prolog">输入：nums = [<span class="hljs-string">&quot;24&quot;</span>,<span class="hljs-string">&quot;37&quot;</span>,<span class="hljs-string">&quot;96&quot;</span>,<span class="hljs-string">&quot;04&quot;</span>], queries = [[<span class="hljs-number">2</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]]<br>输出：[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>]<br>解释：<br><span class="hljs-number">1.</span> 裁剪到剩 <span class="hljs-number">1</span> 个数位，nums = [<span class="hljs-string">&quot;4&quot;</span>,<span class="hljs-string">&quot;7&quot;</span>,<span class="hljs-string">&quot;6&quot;</span>,<span class="hljs-string">&quot;4&quot;</span>] 。第 <span class="hljs-number">2</span> 小的数字是 <span class="hljs-number">4</span> ，下标为 <span class="hljs-number">3</span> 。<br>   有两个 <span class="hljs-number">4</span> ，下标为 <span class="hljs-number">0</span> 的 <span class="hljs-number">4</span> 视为小于下标为 <span class="hljs-number">3</span> 的 <span class="hljs-number">4</span> 。<br><span class="hljs-number">2.</span> 裁剪到剩 <span class="hljs-number">2</span> 个数位，nums 不变。第二小的数字是 <span class="hljs-number">24</span> ，下标为 <span class="hljs-number">0</span> 。<br></code></pre></td></tr></table></figure>
+<h4 id="思路-3"><a class="markdownIt-Anchor" href="#思路-3"></a> 思路</h4>
+<p>题解基数排序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">smallestTrimmedNumbers</span><span class="hljs-params">(vector&lt;string&gt;&amp; nums, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; queries)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>(), m = nums[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<br>        <span class="hljs-comment">// vecs[i][j] 表示基数排序第 i 轮中第 j 小的数对应的下标</span><br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">vecs</span>(m + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) vecs[<span class="hljs-number">0</span>].<span class="hljs-built_in">push_back</span>(i);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>            vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">B</span>(<span class="hljs-number">10</span>);<br>            <span class="hljs-comment">// 把第 i - 1 轮的结果，根据 nums 中右数第 i 位数，依次放入桶中</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : vecs[i - <span class="hljs-number">1</span>]) B[nums[x][m - i] - <span class="hljs-string">&#x27;0&#x27;</span>].<span class="hljs-built_in">push_back</span>(x);<br>            <span class="hljs-comment">// 把每个桶的结果连接起来，成为第 i 轮的结果</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; j++) <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : B[j]) vecs[i].<span class="hljs-built_in">push_back</span>(x);<br>        &#125;<br><br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;q : queries) ans.<span class="hljs-built_in">push_back</span>(vecs[q[<span class="hljs-number">1</span>]][q[<span class="hljs-number">0</span>] - <span class="hljs-number">1</span>]);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br><br>作者：tsreaper<br>链接：https:<span class="hljs-comment">//leetcode.cn/problems/query-kth-smallest-trimmed-number/solution/by-tsreaper-hlt7/</span><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+<hr>
+<h3 id="第四题-hard"><a class="markdownIt-Anchor" href="#第四题-hard"></a> 第四题-hard</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-deletions-to-make-array-divisible/">2344. 使数组可以被整除的最少删除次数</a></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/leetcode%E5%88%B7%E9%A2%98/">#leetcode刷题</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>leetcode-第302场周赛</div>
+      <div>https://zwh-sdu.github.io/2022/07/22/leetcode-第302场周赛/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张文浩</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/22/leetcode-%E7%AC%AC301%E5%9C%BA%E5%91%A8%E8%B5%9B/" title="leetcode-第301场周赛">
+                        <span class="hidden-mobile">leetcode-第301场周赛</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/qipao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxingxing.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/boom.js"></script>
+<script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
